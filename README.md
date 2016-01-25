@@ -42,30 +42,32 @@ along with the basic actions and utilities to CRUD them. I will build React comp
 Content Window, Conversation List, Conversation List Item, and the creation of new messages.
 
 
-### Phase 3: Conversation Detail (2 days)
+### Phase 3: Folders, and Sidebar (1 day)
 
+This phase is devoted to the left hand sidebar.  It will contain a listing of folders that
+will allow users to organize their conversations.  
 
+### Phase 4: Conversation Detail and email functionality (2 days)
 
-
-### Phase 4: Folders, and Sidebar (1 day)
-
-
+I will build a react component to show the messages in a conversation and allow users to make
+replies.  This is also when I will implement the ability to send and recieve emails. (Until
+this point, messages will only be created and saved as drafts.)
 
 
 ### Phase 5: Contacts (1 day)
 
-
-
+Also in the sidebar will be a react component to show the user's contacts. I will implement
+CRUD functionality for them.
 
 ### Phase 6: Search Bar (1 day)
 
 I will create a react component for the search bar at the top of the page, along with basic
 functionality to search for messages by title.
 
-
 ### Phase 7: Styling and Seeding. (2 days)
 
-
+At this point I will overhaul the styling of the app to match the actual Gmail, and fill the
+database with demonstration seed data.
 
 
 ### Bonus Features (TBD)
