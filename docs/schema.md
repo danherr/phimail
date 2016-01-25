@@ -32,6 +32,21 @@ column name  | data type | details
 id           | integer   | not null, primary key
 user_id      | integer   | not null, foreign key (references users), indexed
 
+## folders
+column name  | data type | details
+-------------|-----------|-----------------------
+id           | integer   | not null, primary key
+name         | string    |
+user_id      | integer   | not null, foreign key (references users), indexed
+
+## folder_message_join
+column name  | data type | details
+-------------|-----------|-----------------------
+id           | integer   | not null, primary key
+folder_id    | integer   | not null, foreign key (references folders), indexed
+message_id   | integer   | not null, foreign key (references messages), indexed
+
+
 ## contacts
 column name      | data type   | details
 -----------------|-------------|---------------------
