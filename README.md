@@ -13,12 +13,12 @@ and React.js. Dmail allows users to:
 
 - [ ] Create an account
 - [ ] Log in / Log out
-- [ ] Create, read, edit, and delete notes
-- [ ] Organize notes within Notebooks
-- [ ] Tag notes with multiple tags and search notes by tag
-- [ ] Search through notes for blocks of text
-- [ ] Apply complex styling to notes while editing
-- [ ] Set reminders on notes
+- [ ] Create, read, edit, delete, send and recieve messages
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
 
 ## Design Docs
 * [View Wireframes][view]
@@ -31,10 +31,6 @@ and React.js. Dmail allows users to:
 
 ### Phase 1: User Authentication, Note Model and JSON API (1.5 days)
 
-In Phase 1, I will begin by implementing user signup and authentication (using
-BCrypt). There will be a basic landing page after signup that will contain the
-container for the application's root React component. Before building out the
-front end, I will begin by setting up a full JSON API for Notes.
 
 [Details][phase-one]
 
