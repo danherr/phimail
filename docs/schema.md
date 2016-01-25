@@ -21,7 +21,7 @@ id              | integer   | not null, primary key
 user_id         | integer   | not null, foreign key (references users), indexed
 source_addr     | string    | not null
 target_addr     | string    | not null
-title           | string    |
+title           | string    | indexed
 body            | text      |
 created         | timestamp | not null, indexed
 conversation_id | integer   | not null, foreign key (references conversations), indexed
