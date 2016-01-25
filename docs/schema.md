@@ -15,29 +15,22 @@ outside_email | string    |
 avatar        | string    |
 
 ## messages
-column name       | data type | details
-------------------|-----------|-----------------------
-id                | integer   | not null, primary key
-user_id           | integer   | not null, foreign key (references users), indexed
-source_addr       | string    | not null
-target_addr       | string    | not null
-title             | string    |
-body              | text      |
-in_reply_to_id    | integer   | foreign key (references messages), indexed
-mess_conv_join_id | integer   | not null, foreign key (references conversations), indexed
-created           | timestamp | not null, indexed
-
-## conversations
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
 user_id         | integer   | not null, foreign key (references users), indexed
-
-## conversations_join
-column name     | data type | details
-----------------|-----------|-----------------------
+source_addr     | string    | not null
+target_addr     | string    | not null
+title           | string    |
+body            | text      |
+created         | timestamp | not null, indexed
 conversation_id | integer   | not null, foreign key (references conversations), indexed
-message_id      | integer   | not null, foreign key (references messages), indexed
+
+## conversations
+column name  | data type | details
+-------------|-----------|-----------------------
+id           | integer   | not null, primary key
+user_id      | integer   | not null, foreign key (references users), indexed
 
 ## contacts
 column name      | data type   | details
