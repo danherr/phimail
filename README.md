@@ -35,23 +35,23 @@ and React.js. Dmail allows users to:
 
 
 
-### Phase 2: Flux Architecture and Note CRUD (2.5 days)
+### Phase 2: 
 
-### Phase 3: Notebooks and Tags (2 days)
-
-
-
-### Phase 4: Allow Complex Styling in Notes (1 day)
+### Phase 3: 
 
 
 
-
-### Phase 5: Reminders and Garbage Collection (1 day)
+### Phase 4: 
 
 
 
 
-### Phase 6: Styling Cleanup and Seeding (1 day)
+### Phase 5: 
+
+
+
+
+### Phase 6: 
 
 
 
