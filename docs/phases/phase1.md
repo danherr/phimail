@@ -3,18 +3,21 @@
 ## Rails
 ### Models
 * User
-* Note
+* Message
+* Conversation
 
 ### Controllers
 * UsersController (create, new)
 * SessionsController (create, new, destroy)
-* Api::NotesController (create, destroy, index, show, update)
+* Api::MessagesController (create, destroy, show, update)
+* Api::ConversationsController (index, show, destroy)
 
 ### Views
 * users/new.html.erb
 * session/new.html.erb
-* notes/index.json.jbuilder
-* notes/show.json.jbuilder
+* conversations/index.json.jbuilder
+* conversations/show.json.jbuilder
+* messages/show.json.jbuilder
 
 ## Flux
 ### Views (React Components)
