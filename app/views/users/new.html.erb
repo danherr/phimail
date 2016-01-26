@@ -1,0 +1,48 @@
+<main class="auth-page new-user clearfix">
+
+  <h1> Create your Pmail Account </h1>
+
+  <form class="new-user-form auth-page-form" action="<%= users_url %>" method="post">
+
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label class="new-user-name clearfix">Name
+    <div class="clearfix">
+      <input class="new-user-fname" type="text" name="user[fname]" value="fname">
+      <input class="new-user-lname" type="text" name="user[lname]" value="lname">
+    </div>
+  </label>
+
+    <label class= "new-user-username">Choose your username
+      <input type="text" name="user[username]" value="">
+    </label>
+
+    <label>And Your Password
+      <input type="password" name="user[pass]" value="">
+    </label>
+
+    <label>Repeat Your Password
+      <input type="password" name="other_pass" value="">
+    </label>
+
+
+    <label class="new-birthday">Birthday
+      <input type="date" name="user[birthday]" value="">
+    </label>
+
+    <label>Mobile Phone
+      <input type="text" name="user[phone_number]" value="">
+    </label>
+
+    <label>Email
+      <input type="text" name="user[outside_email]" value="">
+    </label>
+
+
+  <button>Next step</button>
+  </form>
+
+  <section class="advertising-copy">
+  </section>
+
+</main>

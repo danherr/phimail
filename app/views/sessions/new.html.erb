@@ -1,0 +1,29 @@
+<main class="auth-page log-in">
+
+  <h1>One account. All of this App.</h1>
+
+  <h3> Sign in to continue to Pmail </h3>
+
+
+  <form class="log-in-form auth-page-form" action="<%= session_url %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+    <input type="text" name="username" value="">
+    <input type="password" name="pass" value="">
+
+    <button>Sign In</button>
+
+    <button form="demo-button">Demo Account</button>
+
+  </form>
+
+  <form id="demo-button" class="demo-account-button auth-page-form" action="<%= session_url %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+    <input type="hidden" name="username" value="Plato69">
+    <input type="hidden" name="pass" value="Socrates1">
+  </form>
+
+
+  <a class="new-user-link" href="<%= new_user_url %>" >Create account</a>
+</main>
