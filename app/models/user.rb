@@ -13,6 +13,10 @@ class User < ActiveRecord::Base
   validates :fname, :lname, :username, :session_token, :pass_digest, presence: true
   validate :strong_pass
 
+  has_many :conversations
+  has_many :message_conversation_links, through: :conversations
+  has_many :messages, through: :conversations
+
   after_initialize :ensure_session_token
 
   attr_reader :pass

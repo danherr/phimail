@@ -26,4 +26,8 @@ class ApplicationController < ActionController::Base
     redirect_to new_session_url unless logged_in?
   end
 
+  def require_logged_in_api
+    render status: 401 unless logged_in?
+  end
+
 end

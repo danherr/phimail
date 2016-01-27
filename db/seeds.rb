@@ -9,5 +9,5 @@
 
 User.destroy_all
 
-User.create({fname: "Plato", lname:"of Athens", username: "Plato69", pass: "Socrates1"})
-User.create({fname: "Friedrich", lname:"Nietzsche", username: "ubermensch", pass: "Will2Power"})
+soc = User.create({fname: "Socrates", lname:"of Athens", username: "daimonic", pass: "Iamplato1"})
+fred = User.create({fname: "Friedrich", lname:"Nietzsche", username: "ubermensch", pass: "Will2Power"})

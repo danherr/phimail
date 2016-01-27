@@ -11,10 +11,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160126160156) do
+ActiveRecord::Schema.define(version: 20160127140949) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "conversations", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "conversations", ["user_id"], name: "index_conversations_on_user_id", using: :btree
+
+  create_table "message_conversation_links", force: :cascade do |t|
+    t.integer  "conversation_id", null: false
+    t.integer  "message_id",      null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "message_conversation_links", ["conversation_id"], name: "index_message_conversation_links_on_conversation_id", using: :btree
+  add_index "message_conversation_links", ["message_id"], name: "index_message_conversation_links_on_message_id", using: :btree
+
+  create_table "messages", force: :cascade do |t|
+    t.string   "source_address", null: false
+    t.string   "target_address", null: false
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "messages", ["title"], name: "index_messages_on_title", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "fname",         null: false

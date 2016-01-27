@@ -57,5 +57,15 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   resource :session, only: [:new, :create, :destroy]
 
+  namespace :api, defaults: {format: :json} do
+    resources :messages, only: [:destroy] do
+      member do
+        post 'reply'
+      end
+    end
+    resources :conversations, only: [:index, :show, :create]
+    resources :users, only: [:show, :update, :destroy]
+  end
+
   root to: 'static_pages#root'
 end
