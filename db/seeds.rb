@@ -18,8 +18,6 @@ Message.destroy_all
 
 con = fred.conversations.create()
 
-byebug
-
 con.messages.create({
   source_address: "bill.jones@hotmail.com",
   target_address: "ubermensch#{EMAIL_SIGNATURE}, fred.jones@hotmail.com",
