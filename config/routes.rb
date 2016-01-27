@@ -61,6 +61,7 @@ Rails.application.routes.draw do
     resources :messages, only: [:destroy] do
       member do
         post 'reply'
+        post 'recieve'
       end
     end
     resources :conversations, only: [:index, :show, :create]

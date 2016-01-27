@@ -1,0 +1,6 @@
+#!/bin/bash
+
+git config --local user.name "Daniel Herr"
+git config --local user.email "dzherr@gmail.com"
+
+bundle install

@@ -4,9 +4,8 @@ class Api::ConversationsController < ApplicationController
 
   def index
     num = 30
-    offset = -1
 
-    @conversations = current_user.conversations.all.includes(:messages).limit(num).offset(offset)
+    @conversations = current_user.conversations.all.includes(:messages).limit(num)
   end
 
   def create
@@ -14,7 +13,8 @@ class Api::ConversationsController < ApplicationController
   end
 
   def show
-    @conversation = current_user.conversations.find(params[:id]).includes(:messages)
+
+    @conversation = current_user.conversations.find(params[:id])
   end
 
 end

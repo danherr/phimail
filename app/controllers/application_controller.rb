@@ -30,4 +30,10 @@ class ApplicationController < ActionController::Base
     render status: 401 unless logged_in?
   end
 
+  private
+
+  def message_params
+    params.require(message).permit(:source_address, :target_address, :title, :body)
+  end
+
 end

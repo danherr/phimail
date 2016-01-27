@@ -6,6 +6,10 @@ class Api::MessagesController < ApplicationController
 
   end
 
+  def recieve
+
+  end
+
   def destroy
 
   end

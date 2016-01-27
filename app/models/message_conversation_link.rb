@@ -4,6 +4,6 @@ class MessageConversationLink < ActiveRecord::Base
 
   belongs_to :message
   belongs_to :conversation
-  has_one :user through: :conversation
+  has_one :user, through: :conversation
 
 end

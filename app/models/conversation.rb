@@ -5,6 +5,6 @@ class Conversation < ActiveRecord::Base
   belongs_to :users
 
   has_many :message_conversation_links
-  has_many :messages through: :message_conversation_links
+  has_many :messages, through: :message_conversation_links
 
 end
