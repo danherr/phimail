@@ -59,7 +59,7 @@ h3 {
 }
 
 .auth-page-form {
-  background: #eee;
+  background: #f7f7f7;
   display: block;
   width: 274px;
   margin: auto;
@@ -118,6 +118,8 @@ h3 {
   text-align: left;
   width: 362px;
   padding: 20px;
+  box-shadow: 0 0 0;
+  background: #f2f2f2
 }
 
 .new-user-form input {

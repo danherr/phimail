@@ -8,8 +8,8 @@
   <form class="log-in-form auth-page-form" action="<%= session_url %>" method="post">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
-    <input type="text" name="username" value="">
-    <input type="password" name="pass" value="">
+    <input type="text" name="username" value="" placeholder="Enter Your Email">
+    <input type="password" name="pass" value="" placeholder="Password">
 
     <button>Sign In</button>
 
