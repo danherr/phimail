@@ -2,12 +2,21 @@ class Api::MessagesController < ApplicationController
 
   before_action :require_logged_in_api
 
-  def reply
+  def create
+    @conversation = Conversation.find(params[:conversation_id])
 
-  end
+    if @conversation
+      @message = @conversation.messages.new(message_params)
 
-  def recieve
+      if @message.save
+        render :show
+      else
+        render json: @message.errors.full_messages
+      end
 
+    else
+
+    end
   end
 
   def destroy

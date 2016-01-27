@@ -1,0 +1,24 @@
+{
+  "name": "cap",
+  "version": "1.0.0",
+  "description": "[Heroku link][heroku]",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danherr/cap.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danherr/cap/issues"
+  },
+  "homepage": "https://github.com/danherr/cap#readme"
+}

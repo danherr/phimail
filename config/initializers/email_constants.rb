@@ -1,2 +1,2 @@
 
-EMAIL_SIGNATURE = "@pmail.ninja"
+EMAIL_SIGNATURE = "@pmail.herokuapp.com"

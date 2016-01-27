@@ -7,11 +7,19 @@ class Api::UsersController < ApplicationController
   end
 
   def update
+    @user = currend_user
 
+    if @user.update(user_params)
+      render :show
+    else
+      render json: @message.errors.full_messages, status: 400;    
+    end
   end
 
-  def destroy
+  private
 
+  def user_params
+    params.require(:user).permit(:fname, :lname, :username, :birthday, :phone_number, :outside_email, :avater_url, :pass)
   end
 
 end
