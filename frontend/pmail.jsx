@@ -9,7 +9,7 @@ var App = React.createClass({
   render: function () {
     return (
       <div>
-        Javascript is Now Working.
+        Javascript is Now Changed, and the change also works.
       </div>
     );
   }

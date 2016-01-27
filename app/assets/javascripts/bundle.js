@@ -58,7 +58,7 @@
 	    return React.createElement(
 	      'div',
 	      null,
-	      'Javascript is Now Working.'
+	      'Javascript is Now Changed, and the change also works.'
 	    );
 	  }
 	});
