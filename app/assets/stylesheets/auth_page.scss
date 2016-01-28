@@ -1,0 +1,105 @@
+.auth-page {
+  margin: auto;
+  display: block;
+  margin-top: 82px;
+  width: 540px;
+  text-align: center;
+}
+
+.auth-page-form {
+  background: #f7f7f7;
+  display: block;
+  width: 274px;
+  margin: auto;
+  padding: 40px;
+  box-shadow: 0 2px 2px rgba(0,0,0,0.3);
+}
+
+.log-in-form:before {
+  content: "";
+  display: block;
+  height: 50px
+}
+
+.demo-account-button {
+  display: none;
+}
+
+.auth-page > form button {
+  font-size: 13px;
+  background: #3c85f3;
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  padding: 9px 8px;
+}
+.log-in > form > * {
+  display: block;
+  margin: auto;
+  width: 100%;
+  margin: 10px 0;
+  box-sizing: border-box;
+}
+
+.log-in > form input {
+  font-size: 16px;
+  padding: 14px 8px;
+}
+
+.log-in > .new-user-link {
+  margin: 27px 0;
+  display: block;
+  color: #3c85f3;
+  font-size: 14px;
+}
+
+.new-user {
+  margin: auto;
+  display: block;
+  margin-top: 82px;
+  width: 1000px;
+  text-align: center;
+}
+
+.new-user > form {
+  float: right;
+  text-align: left;
+  width: 362px;
+  padding: 20px;
+  box-shadow: 0 0 0;
+  background: #f2f2f2
+}
+
+.new-user-form input {
+  padding: 4px 8px;
+  width: 340px;
+  font-size: 16px
+}
+
+.new-user-form > * > input {
+  margin: 8px 0;
+}
+
+.new-user > form > label {
+  display: block;
+  margin: 20px 0 0 0;
+  font-size: 14px;
+}
+
+.new-user-name {
+  position: relative;
+}
+
+.new-user-name input {
+  display: block;
+  float: left;
+  width: 156px;
+  margin-top: 8px;
+}
+ .new-user-fname {
+   margin: 0 8px 0 0;
+ }
+
+.new-user-form button {
+  float: right;
+}
