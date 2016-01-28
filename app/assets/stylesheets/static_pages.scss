@@ -5,6 +5,7 @@
 .searchbar {
   display: block;
   height: 60px;
+  background: #f1f1f1;
 }
 
 .sidebar {
@@ -18,14 +19,21 @@
   display: block;
   width: calc(100% - 216px);
   padding: 0 14px 0 0;
+  overflow: scroll;
+  height: 100%;
+  min-height: 640px;
+
 }
 
 .conversation-list-item {
   font-size: 12.8px;
   font-family: arial, sans-serif;
   border-bottom: 1px solid #e5e5e5;
-  padding: 7px 0;
   background: #f4f4f4;
+  position: relative;
+  white-space: nowrap;
+  padding: 7px 0;
+  overflow-x: hidden;  
 }
 
 .conversation-list-item.selected {
@@ -37,15 +45,25 @@
 }
 
 .conversation-list-item .addresses {
-  display: block;
   padding: 0 6px 0 10px;
   width: 184px;
+  overflow-x: hidden;
 }
 
 .conversation-list-item > *{
-  float: left
+  display: inline;
+}
+
+.conversation-list-item  .body-preview {
+  color: #777777;
 }
 
 .conversation-list-item .timestamp{
-  float: right
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 7px 20px;
+  background:inherit;
+  width: 80px;
+  text-align: right;
 }

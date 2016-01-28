@@ -1,17 +1,11 @@
 var React = require('react'),
-    ConversationStore = require('../../stores/conversation_store'),
+    ConversationStore = require('../../stores/conversations_list_store'),
+    ConversationActions = require('../../actions/conversation_actions');
     apiUtil = require('../../util/api_util');
 
 var ConversationListItem = React.createClass({
   getInitialState: function () {
-    return {
-      isSelected: false
-    };
-  },
-
-  toggleSelected: function (e) {
-    newSelected = !this.state.isSelected;
-    this.setState({isSelected: newSelected});
+    return {};
   },
 
   shortenTime: function () {
@@ -34,6 +28,10 @@ var ConversationListItem = React.createClass({
     return([fullTime, thing]);
   },
 
+  toggleSelected: function (e) {
+
+  },
+
   render: function () {
     var theClass = "conversation-list-item clearfix";
 
@@ -49,7 +47,7 @@ var ConversationListItem = React.createClass({
 
     return (
       <div className={theClass} key={this.props.conversation.id}>
-        <input onChange={this.toggleSelected} type="checkbox" className="selector" checked={this.state.isSelected}/>
+        <input onChange={this.toggleSelected} type="checkbox" className="selector" checked={this.props.conversation.isSelected}/>
         <input type="checkbox" className="starred" checked={this.props.conversation.last_message.starred}/>
         <input type="checkbox" className="important" checked={this.props.conversation.last_message.important}/>
         <span className="addresses">

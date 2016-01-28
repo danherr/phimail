@@ -1,5 +1,5 @@
 var React = require('react'),
-    ConversationStore = require('../../stores/conversation_store'),
+    ConversationStore = require('../../stores/conversations_list_store'),
     apiUtil = require('../../util/api_util');
 
 
