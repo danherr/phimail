@@ -9,6 +9,7 @@ class Api::ConversationsController < ApplicationController
     @conversations = current_user.conversations.all
       .limit(number)
       .offset(offset)
+      .includes(:messages)
 
     render :index;
   end

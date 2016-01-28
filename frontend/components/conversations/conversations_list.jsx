@@ -25,7 +25,7 @@ var ConversationsList = React.createClass({
   render: function () {
     theList = this.state.conversations.map(function (conversation) {
       return (
-        <ConversationListItem conversation={conversation} />
+        <ConversationListItem key={conversation.id} conversation={conversation} />
       );
     });
 

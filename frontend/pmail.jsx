@@ -3,6 +3,7 @@ var React = require('react'),
     Router = require('react-router').Router,
     Route = require('react-router').Route,
     IndexRoute = require('react-router').IndexRoute,
+    Redirect = require('react-router').Redirect,
     hashHistory = require('history').createHashHistory(),
     SideBar = require('./components/sidebar.jsx'),
     SearchBar = require('./components/searchbar.jsx'),
@@ -27,8 +28,16 @@ var App = React.createClass({
 var router = (
   <Router history={hashHistory}>
     <Route path="/" component={App}>
-      <IndexRoute component={ConversationsList}/>
-      // <Route path="/:foldername" component={ConversationsList}/>
+      <Redirect from="" to="inbox" />
+      // <IndexRoute component={ConversationsList}/>
+      <Route path="inbox" folder="inbox" component={ConversationsList}/>
+      <Route path="starred" folder="starred" component={ConversationsList}/>
+      <Route path="imp" folder="imp" component={ConversationsList}/>
+      <Route path="sent" folder="sent" component={ConversationsList}/>
+      <Route path="drafts" folder="drafts" component={ConversationsList}/>
+      <Route path="all" folder="all" component={ConversationsList}/>
+      <Route path="label/:label" folder="label/:label" component={ConversationsList}/>
+
       // <Route path=":foldername/:conversation_id" component={ConversationDetail} />
     </Route>
   </Router>

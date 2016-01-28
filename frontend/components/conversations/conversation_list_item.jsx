@@ -3,15 +3,67 @@ var React = require('react'),
     apiUtil = require('../../util/api_util');
 
 var ConversationListItem = React.createClass({
+  getInitialState: function () {
+    return {
+      isSelected: false
+    };
+  },
+
+  toggleSelected: function (e) {
+    newSelected = !this.state.isSelected;
+    this.setState({isSelected: newSelected});
+  },
+
+  shortenTime: function () {
+    var timestamp = new Date(this.props.conversation.last_message.time_sent),
+        time =  timestamp.toLocaleTimeString(),
+        oldDate = timestamp.toLocaleDateString(),
+        newDate = timestamp.toDateString().split(" ").splice(1,2).join(" "),
+        fullTime = timestamp.toDateString() + " at " + time,
+        now = new Date(),
+        thing;
+
+    if (now.getYear() !== timestamp.getYear()) {
+      thing = oldDate;
+    } else if (now.getMonth() !== timestamp.getMonth() && now.getDate() !== timestamp.getDate()) {
+      thing = newDate;
+    } else {
+      thing = time;
+    }
+
+    return([fullTime, thing]);
+  },
+
   render: function () {
+    var theClass = "conversation-list-item clearfix";
+
+    if (this.state.isSelected) {
+      theClass = theClass + " selected";
+    }
+
+    if (this.state.unread) {
+      theClass = theClass + " unread";
+    }
+
+    timePair = this.shortenTime();
+
     return (
-      <div class="conversation-list-item">
-          <h3>
-            {this.props.conversation.last_message.title}
-          </h3>
-          <p>
-            {this.props.conversation.last_message.body}
-          </p>
+      <div className={theClass} key={this.props.conversation.id}>
+        <input onChange={this.toggleSelected} type="checkbox" className="selector" checked={this.state.isSelected}/>
+        <input type="checkbox" className="starred" checked={this.props.conversation.last_message.starred}/>
+        <input type="checkbox" className="important" checked={this.props.conversation.last_message.important}/>
+        <span className="addresses">
+          {this.props.conversation.last_message.source_address.substring(0,20)}
+        </span>
+        <span className="title">
+          {this.props.conversation.title}
+        </span>
+        <span className="body-preview">
+          {this.props.conversation.last_message.body_preview}
+        </span>
+        <span className="timestamp" title={timePair[0]}>
+          {timePair[1]}
+        </span>
       </div>
     );
   }

@@ -23,7 +23,7 @@ con.messages.create({
   target_address: "ubermensch#{EMAIL_SIGNATURE}, fred.jones@hotmail.com",
   title: "Would you like to build a snowman?",
   body: "It'll be pretty and have a hat and a nose and I love it so much!!!",
-  time_created: 3.hours.ago
+  time_created: 8.years.ago
   })
 
 con.messages.create({
@@ -31,7 +31,7 @@ con.messages.create({
   target_address: "bill.jones@hotmail.com, fred.jones@hotmail.com",
   title: "Re: Would you like to build a snowman?",
   body: "The Will to Truth, which is to tempt us to many a hazardous enterprise, the famous Truthfulness of which all philosophers have hitherto spoken with respect, what questions has this Will to Truth not laid before us! What strange, perplexing, questionable questions! It is already a long story; yet it seems as if it were hardly commenced. Is it any wonder if we at last grow distrustful, lose patience, and turn impatiently away? That this Sphinx teaches us at last to ask questions ourselves? WHO is it really that puts questions to us here? WHAT really is this \"Will to Truth\" in us? In fact we made a long halt at the question as to the origin of this Will—until at last we came to an absolute standstill before a yet more fundamental question. We inquired about the VALUE of this Will. Granted that we want the truth: WHY NOT RATHER untruth? And uncertainty? Even ignorance? The problem of the value of truth presented itself before us—or was it we who presented ourselves before the problem? Which of us is the Oedipus here? Which the Sphinx? It would seem to be a rendezvous of questions and notes of interrogation. And could it be believed that it at last seems to us as if the problem had never been propounded before, as if we were the first to discern it, get a sight of it, and RISK RAISING it? For there is risk in raising it, perhaps there is no greater risk.",
-  time_created: 2.hours.ago
+  time_created: 7.years.ago
   })
 
 
@@ -40,7 +40,7 @@ con.messages.create({
   target_address: "bill.jones@hotmail.com, fred.jones@hotmail.com",
   title: "Re: Would you like to build a snowman?",
   body: " Every select man strives instinctively for a citadel and a privacy, where he is FREE from the crowd, the many, the majority—where he may forget \"men who are the rule,\" as their exception;—exclusive only of the case in which he is pushed straight to such men by a still stronger instinct, as a discerner in the great and exceptional sense. Whoever, in intercourse with men, does not occasionally glisten in all the green and grey colours of distress, owing to disgust, satiety, sympathy, gloominess, and solitariness, is assuredly not a man of elevated tastes; supposing, however, that he does not voluntarily take all this burden and disgust upon himself, that he persistently avoids it, and remains, as I said, quietly and proudly hidden in his citadel, one thing is then certain: he was not made, he was not predestined for knowledge. For as such, he would one day have to say to himself: \"The devil take my good taste! but 'the rule' is more interesting than the exception—than myself, the exception!\" And he would go DOWN, and above all, he would go \"inside.\" The long and serious study of the AVERAGE man—and consequently much disguise, self-overcoming, familiarity, and bad intercourse (all intercourse is bad intercourse except with one's equals):—that constitutes a necessary part of the life-history of every philosopher; perhaps the most disagreeable, odious, and disappointing part. If he is fortunate, however, as a favourite child of knowledge should be, he will meet with suitable auxiliaries who will shorten and lighten his task; I mean so-called cynics, those who simply recognize the animal, the commonplace and \"the rule\" in themselves, and at the same time have so much spirituality and ticklishness as to make them talk of themselves and their like BEFORE WITNESSES—sometimes they wallow, even in books, as on their own dung-hill. Cynicism is the only form in which base souls approach what is called honesty; and the higher man must open his ears to all the coarser or finer cynicism, and congratulate himself when the clown becomes shameless right before him, or the scientific satyr speaks out. There are even cases where enchantment mixes with the disgust—namely, where by a freak of nature, genius is bound to some such indiscreet billy-goat and ape, as in the case of the Abbe Galiani, the profoundest, acutest, and perhaps also filthiest man of his century—he was far profounder than Voltaire, and consequently also, a good deal more silent. It happens more frequently, as has been hinted, that a scientific head is placed on an ape's body, a fine exceptional understanding in a base soul, an occurrence by no means rare, especially among doctors and moral physiologists. And whenever anyone speaks without bitterness, or rather quite innocently, of man as a belly with two requirements, and a head with one; whenever any one sees, seeks, and WANTS to see only hunger, sexual instinct, and vanity as the real and only motives of human actions; in short, when any one speaks \"badly\"—and not even \"ill\"—of man, then ought the lover of knowledge to hearken attentively and diligently; he ought, in general, to have an open ear wherever there is talk without indignation. For the indignant man, and he who perpetually tears and lacerates himself with his own teeth (or, in place of himself, the world, God, or society), may indeed, morally speaking, stand higher than the laughing and self-satisfied satyr, but in every other sense he is the more ordinary, more indifferent, and less instructive case. And no one is such a LIAR as the indignant man.",
-  time_created: 1.hours.ago
+  time_created: 6.years.ago
   })
 
 
@@ -49,7 +49,7 @@ con.messages.create({
   target_address: "bill.jones@hotmail.com, fred.jones@hotmail.com",
   title: "Re: Would you like to build a snowman?",
   body: "It is difficult to be understood, especially when one thinks and lives gangasrotogati [Footnote: Like the river Ganges: presto.] among those only who think and live otherwise—namely, kurmagati [Footnote: Like the tortoise: lento.], or at best \"froglike,\" mandeikagati [Footnote: Like the frog: staccato.] (I do everything to be \"difficultly understood\" myself!)—and one should be heartily grateful for the good will to some refinement of interpretation. As regards \"the good friends,\" however, who are always too easy-going, and think that as friends they have a right to ease, one does well at the very first to grant them a play-ground and romping-place for misunderstanding—one can thus laugh still; or get rid of them altogether, these good friends—and laugh then also!",
-  time_created: 2.hours.ago
+  time_created: 6.years.ago
   })
 
 con.messages.create({
@@ -57,7 +57,7 @@ con.messages.create({
   target_address: "bill.jones@hotmail.com, fred.jones@hotmail.com",
   title: "Re: Would you like to build a snowman?",
   body: "What is most difficult to render from one language into another is the TEMPO of its style, which has its basis in the character of the race, or to speak more physiologically, in the average TEMPO of the assimilation of its nutriment. There are honestly meant translations, which, as involuntary vulgarizations, are almost falsifications of the original, merely because its lively and merry TEMPO (which overleaps and obviates all dangers in word and expression) could not also be rendered. A German is almost incapacitated for PRESTO in his language; consequently also, as may be reasonably inferred, for many of the most delightful and daring NUANCES of free, free-spirited thought. And just as the buffoon and satyr are foreign to him in body and conscience, so Aristophanes and Petronius are untranslatable for him. Everything ponderous, viscous, and pompously clumsy, all long-winded and wearying species of style, are developed in profuse variety among Germans—pardon me for stating the fact that even Goethe's prose, in its mixture of stiffness and elegance, is no exception, as a reflection of the \"good old time\" to which it belongs, and as an expression of German taste at a time when there was still a \"German taste,\" which was a rococo-taste in moribus et artibus. Lessing is an exception, owing to his histrionic nature, which understood much, and was versed in many things; he who was not the translator of Bayle to no purpose, who took refuge willingly in the shadow of Diderot and Voltaire, and still more willingly among the Roman comedy-writers—Lessing loved also free-spiritism in the TEMPO, and flight out of Germany. But how could the German language, even in the prose of Lessing, imitate the TEMPO of Machiavelli, who in his \"Principe\" makes us breathe the dry, fine air of Florence, and cannot help presenting the most serious events in a boisterous allegrissimo, perhaps not without a malicious artistic sense of the contrast he ventures to present—long, heavy, difficult, dangerous thoughts, and a TEMPO of the gallop, and of the best, wantonest humour? Finally, who would venture on a German translation of Petronius, who, more than any great musician hitherto, was a master of PRESTO in invention, ideas, and words? What matter in the end about the swamps of the sick, evil world, or of the \"ancient world,\" when like him, one has the feet of a wind, the rush, the breath, the emancipating scorn of a wind, which makes everything healthy, by making everything RUN! And with regard to Aristophanes—that transfiguring, complementary genius, for whose sake one PARDONS all Hellenism for having existed, provided one has understood in its full profundity ALL that there requires pardon and transfiguration; there is nothing that has caused me to meditate more on PLATO'S secrecy and sphinx-like nature, than the happily preserved petit fait that under the pillow of his death-bed there was found no \"Bible,\" nor anything Egyptian, Pythagorean, or Platonic—but a book of Aristophanes. How could even Plato have endured life—a Greek life which he repudiated—without an Aristophanes!",
-  time_created: 39.minutes.ago
+  time_created: 6.years.ago
   })
 
 con.messages.create({
@@ -65,7 +65,7 @@ con.messages.create({
   target_address: "bill.jones@hotmail.com, fred.jones@hotmail.com",
   title: "Re: Would you like to build a snowman?",
   body: "It is the business of the very few to be independent; it is a privilege of the strong. And whoever attempts it, even with the best right, but without being OBLIGED to do so, proves that he is probably not only strong, but also daring beyond measure. He enters into a labyrinth, he multiplies a thousandfold the dangers which life in itself already brings with it; not the least of which is that no one can see how and where he loses his way, becomes isolated, and is torn piecemeal by some minotaur of conscience. Supposing such a one comes to grief, it is so far from the comprehension of men that they neither feel it, nor sympathize with it. And he cannot any longer go back! He cannot even go back again to the sympathy of men!",
-  time_created: 35.minutes.ago
+  time_created: 5.years.ago
   })
 
 con.messages.create({
@@ -73,7 +73,7 @@ con.messages.create({
   target_address: "bill.jones@hotmail.com, fred.jones@hotmail.com",
   title: "Re: Would you like to build a snowman?",
   body: "Our deepest insights must—and should—appear as follies, and under certain circumstances as crimes, when they come unauthorizedly to the ears of those who are not disposed and predestined for them. The exoteric and the esoteric, as they were formerly distinguished by philosophers—among the Indians, as among the Greeks, Persians, and Mussulmans, in short, wherever people believed in gradations of rank and NOT in equality and equal rights—are not so much in contradistinction to one another in respect to the exoteric class, standing without, and viewing, estimating, measuring, and judging from the outside, and not from the inside; the more essential distinction is that the class in question views things from below upwards—while the esoteric class views things FROM ABOVE DOWNWARDS. There are heights of the soul from which tragedy itself no longer appears to operate tragically; and if all the woe in the world were taken together, who would dare to decide whether the sight of it would NECESSARILY seduce and constrain to sympathy, and thus to a doubling of the woe?... That which serves the higher class of men for nourishment or refreshment, must be almost poison to an entirely different and lower order of human beings. The virtues of the common man would perhaps mean vice and weakness in a philosopher; it might be possible for a highly developed man, supposing him to degenerate and go to ruin, to acquire qualities thereby alone, for the sake of which he would have to be honoured as a saint in the lower world into which he had sunk. There are books which have an inverse value for the soul and the health according as the inferior soul and the lower vitality, or the higher and more powerful, make use of them. In the former case they are dangerous, disturbing, unsettling books, in the latter case they are herald-calls which summon the bravest to THEIR bravery. Books for the general reader are always ill-smelling books, the odour of paltry people clings to them. Where the populace eat and drink, and even where they reverence, it is accustomed to stink. One should not go into churches if one wishes to breathe PURE air.",
-  time_created: 10.minutes.ago
+  time_created: 5.years.ago
   })
 
 con2 = fred.conversations.create()
@@ -83,7 +83,7 @@ con2.messages.create({
   target_address: "ubermensch#{EMAIL_SIGNATURE}",
   title: "Yo Freddy, what is Justice?",
   body: "A couple of us were talking about this and I figured you might have some ideas.",
-  time_created: 10.hours.ago
+  time_created: 3.years.ago
   })
 
 con2.messages.create({

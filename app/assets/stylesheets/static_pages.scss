@@ -7,13 +7,45 @@
   height: 60px;
 }
 
-.side-bar {
+.sidebar {
   float: left;
   display: block;
+  width: 202px;
 }
 
 .content {
-  float: right;
+  float: left;
   display: block;
-  
+  width: calc(100% - 216px);
+  padding: 0 14px 0 0;
+}
+
+.conversation-list-item {
+  font-size: 12.8px;
+  font-family: arial, sans-serif;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 7px 0;
+  background: #f4f4f4;
+}
+
+.conversation-list-item.selected {
+  background: #fffec9
+}
+
+.conversation-list-item.unread {
+  background: #ffffff;
+}
+
+.conversation-list-item .addresses {
+  display: block;
+  padding: 0 6px 0 10px;
+  width: 184px;
+}
+
+.conversation-list-item > *{
+  float: left
+}
+
+.conversation-list-item .timestamp{
+  float: right
 }
