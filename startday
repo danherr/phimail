@@ -3,4 +3,8 @@
 git config --local user.name "Daniel Herr"
 git config --local user.email "dzherr@gmail.com"
 
+npm install
+
 bundle install
+
+heroku logout
