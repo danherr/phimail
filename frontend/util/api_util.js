@@ -8,11 +8,23 @@ var apiUtil = {
       url: '/api/conversations',
       dataType: 'json',
       success: function (data) {
-        ConversationActions.recieveConversations(data);
+        ConversationActions.receiveConversations(data);
       },
       error: function () {
 
       }
+    });
+  },
+
+  updateConversation: function (conversation) {
+    $.ajax({
+      type: 'PATCH',
+      url: '/api/conversations/' + conversation.id,
+      dataType: 'json',
+      data: {conversation: conversation},
+      success: function (data) {
+        ConversationActions.updateConversation(data);
+      },
     });
   }
 };

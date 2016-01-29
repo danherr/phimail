@@ -32,4 +32,20 @@ class Api::ConversationsController < ApplicationController
     render :show
   end
 
+  def update
+    @conversation = current_user.conversations.find(params[:id])
+    if @conversation && @conversation.update(conversation_params)
+      @messages = @conversation.messages
+      render :show
+    else
+      render nothing: true, status: 400
+    end
+  end
+
+  private
+
+  def conversation_params
+    params.require(:conversation).permit(:important, :starred);
+  end
+
 end

@@ -12,8 +12,4 @@ class Conversation < ActiveRecord::Base
     "- " + last_message.body.chars.take(50).join
   end
 
-  def people_involved
-    
-  end
-
 end

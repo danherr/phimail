@@ -29,17 +29,28 @@ var ConversationListItem = React.createClass({
   },
 
   toggleSelected: function (e) {
+    conversation = this.props.conversation;
+    conversation.isSelected = !conversation.isSelected;
+    ConversationActions.updateConversation(conversation);
+  },
 
+  toggleProp: function (e) {
+    conversation = this.props.conversation;
+    key = e.currentTarget.name;
+    conversation[key] = !conversation[key];
+    apiUtil.updateConversation(conversation);
   },
 
   render: function () {
+    var foo = ConversationStore.selected();
+
     var theClass = "conversation-list-item clearfix";
 
-    if (this.state.isSelected) {
+    if (this.props.conversation.isSelected) {
       theClass = theClass + " selected";
     }
 
-    if (this.state.unread) {
+    if (this.props.conversation.unread) {
       theClass = theClass + " unread";
     }
 
@@ -47,9 +58,23 @@ var ConversationListItem = React.createClass({
 
     return (
       <div className={theClass} key={this.props.conversation.id}>
-        <input onChange={this.toggleSelected} type="checkbox" className="selector" checked={this.props.conversation.isSelected}/>
-        <input type="checkbox" className="starred" checked={this.props.conversation.last_message.starred}/>
-        <input type="checkbox" className="important" checked={this.props.conversation.last_message.important}/>
+        <input
+          onChange={this.toggleSelected}
+          type="checkbox"
+          className="selector"
+          checked={this.props.conversation.isSelected}/>
+        <input
+          onChange={this.toggleProp}
+          type="checkbox"
+          className="starrer"
+          name="starred"
+          checked={this.props.conversation.starred}/>
+        <input
+          onChange={this.toggleProp}
+          type="checkbox"
+          className="important"
+          name="important"
+          checked={this.props.conversation.important}/>
         <span className="addresses">
           {this.props.conversation.last_message.source_address.substring(0,20)}
         </span>

@@ -2,12 +2,18 @@ var Dispatcher = require('../dispatcher/dispatcher'),
     ConversationConstants = require('../constants/conversation_constants');
 
 var ConversationActions = {
-  recieveConversations: function (conversations) {
+  receiveConversations: function (conversations) {
     Dispatcher.dispatch({
       actionType: ConversationConstants.getAll,
       conversations: conversations
     });
+  },
 
+  updateConversation: function (data) {
+    Dispatcher.dispatch({
+      actionType: ConversationConstants.updateOne,
+      conversation: conversation
+    });
   }
 
 };
