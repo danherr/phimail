@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.app {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
 .searchbar {
   display: block;
   height: 60px;
@@ -14,6 +21,10 @@
   width: 202px;
 }
 
+.below-search-bar {
+  height: calc(100% - 60px);
+}
+
 .content {
   float: left;
   display: block;
@@ -21,8 +32,6 @@
   padding: 0 14px 0 0;
   overflow: scroll;
   height: 100%;
-  min-height: 640px;
-
 }
 
 .conversation-list-item {
@@ -33,7 +42,7 @@
   position: relative;
   white-space: nowrap;
   padding: 7px 0;
-  overflow-x: hidden;  
+  overflow-x: hidden;
 }
 
 .conversation-list-item.selected {

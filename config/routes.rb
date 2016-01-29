@@ -54,11 +54,13 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  resources :users, only: [:new, :create]
-
-  resource :session, only: [:new, :create, :destroy]
 
   namespace :api, defaults: {format: :json} do
+
+    resource :session, only: [:create, :destroy] do
+      post 'find_user'
+    end
+    resource :user, only: [:show, :update, :create, :destroy]
 
     resources :messages, only: [:destroy]
 
@@ -66,7 +68,6 @@ Rails.application.routes.draw do
       resources :messages, only: [:create]
     end
 
-    resources :users, only: [:show, :update, :destroy]
 
   end
 

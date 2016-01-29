@@ -1,7 +1,7 @@
 var React = require('react'),
     ConversationStore = require('../../stores/conversations_list_store'),
     ConversationActions = require('../../actions/conversation_actions');
-    apiUtil = require('../../util/api_util');
+    conversationApiUtil = require('../../util/conversation_api_util');
 
 var ConversationListItem = React.createClass({
   getInitialState: function () {
@@ -38,7 +38,7 @@ var ConversationListItem = React.createClass({
     conversation = this.props.conversation;
     key = e.currentTarget.name;
     conversation[key] = !conversation[key];
-    apiUtil.updateConversation(conversation);
+    conversationApiUtil.updateConversation(conversation);
   },
 
   render: function () {

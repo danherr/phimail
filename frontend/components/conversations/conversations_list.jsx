@@ -1,6 +1,6 @@
 var React = require('react'),
     ConversationStore = require('../../stores/conversations_list_store'),
-    apiUtil = require('../../util/api_util'),
+    conversationApiUtil = require('../../util/conversation_api_util'),
     ConversationActions = require('../../actions/conversation_actions'),
     ConversationListItem = require('./conversation_list_item');
 
@@ -16,7 +16,7 @@ var ConversationsList = React.createClass({
       this.setState({conversations: ConversationStore.all()});
     }.bind(this));
 
-    apiUtil.fetchConversations();
+    conversationApiUtil.fetchConversations();
   },
 
   componentWillUnmount: function () {

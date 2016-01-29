@@ -10,6 +10,12 @@ class User < ActiveRecord::Base
     token
   end
 
+  def self.find_by_credentials(username, pass)
+    user = User.find_by_username(username)
+
+    user if user.try(:is_pass?, pass)
+  end
+
   validates :fname, :lname, :username, :session_token, :pass_digest, presence: true
   validate :strong_pass
 

@@ -5,40 +5,48 @@ var React = require('react'),
     IndexRoute = require('react-router').IndexRoute,
     Redirect = require('react-router').Redirect,
     hashHistory = require('history').createHashHistory(),
-    SideBar = require('./components/sidebar.jsx'),
-    SearchBar = require('./components/searchbar.jsx'),
+    Login = require('./components/login'),
+    Signup = require('./components/signup'),
+    App = require('./components/app'),
     ConversationsList = require('./components/conversations/conversations_list.jsx'),
-    ConversationDetail = require('./components/conversations/conversation_detail.jsx');
+    ConversationDetail = require('./components/conversations/conversation_detail.jsx'),
+    UserStore = require('./stores/user_store'),
+    userApiUtil = require('./util/user_api_util');
 
 
-var App = React.createClass({
-  render: function () {
-    return (
-      <div>
-        <SearchBar history={hashHistory} />
-        <main className="clearfix below-search-bar">
-          <SideBar history={hashHistory} />
-          {this.props.children}
-        </main>
-      </div>
-    );
+
+
+var _noIndex = function (nextState, replace, callback) {
+  replace({}, "/inbox");
+  callback();
+};
+
+var _ensureLoggedIn = function (nextState, replace, callback) {
+  if (UserStore.beenFetched()) {
+    _loginRedirect(replace, callback);
+  } else {
+    userApiUtil.fetchUser(_loginRedirect.bind(this, replace, callback));
   }
-});
+};
+
+var _loginRedirect = function (replace, callback) {
+  if (!UserStore.loggedIn()) {
+    replace({}, "/login");
+  }
+  callback();
+};
 
 var router = (
   <Router history={hashHistory}>
-    <Route path="/" component={App}>
-      <Redirect from="" to="inbox" />
-      // <IndexRoute component={ConversationsList}/>
-      <Route path="inbox" folder="inbox" component={ConversationsList}/>
-      <Route path="starred" folder="starred" component={ConversationsList}/>
-      <Route path="imp" folder="imp" component={ConversationsList}/>
-      <Route path="sent" folder="sent" component={ConversationsList}/>
-      <Route path="drafts" folder="drafts" component={ConversationsList}/>
-      <Route path="all" folder="all" component={ConversationsList}/>
-      <Route path="label/:label" folder="label/:label" component={ConversationsList}/>
+    <Route path="/login" component={ Login } />
+    <Route path="/signup" component={ Signup } />
 
-      // <Route path=":foldername/:conversation_id" component={ConversationDetail} />
+    <Route path="/" component={ App } onEnter={ _ensureLoggedIn }>
+      <IndexRoute component={ ConversationDetail } onEnter={ _noIndex }/>
+
+      <Route path="inbox" folder="inbox" component={ConversationsList}/>
+
+      <Route path="conversation/:conversation_id" component={ConversationDetail} />
     </Route>
   </Router>
 );
