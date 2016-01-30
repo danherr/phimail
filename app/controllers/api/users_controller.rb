@@ -1,6 +1,6 @@
 class Api::UsersController < ApplicationController
 
-  before_action :require_logged_in_api, except: [:create]
+  before_action :require_logged_in, except: [:create]
 
   def show
     @user = current_user

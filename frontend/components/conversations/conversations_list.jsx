@@ -7,8 +7,7 @@ var React = require('react'),
 
 var ConversationsList = React.createClass({
   getInitialState: function () {
-    folder = this.props.params.foldername || "inbox";
-    return {folder: folder, conversations: ConversationStore.all()};
+    return {conversations: ConversationStore.all()};
   },
 
   componentDidMount: function () {
@@ -16,7 +15,9 @@ var ConversationsList = React.createClass({
       this.setState({conversations: ConversationStore.all()});
     }.bind(this));
 
+    // if (!ConversationStore.beenFetched()) conversationApiUtil.fetchConversations();
     conversationApiUtil.fetchConversations();
+
   },
 
   componentWillUnmount: function () {
@@ -26,9 +27,9 @@ var ConversationsList = React.createClass({
   render: function () {
     theList = this.state.conversations.map(function (conversation) {
       return (
-        <ConversationListItem key={conversation.id} conversation={conversation} />
+        <ConversationListItem key={conversation.id} conversation={conversation} history={this.props.history} />
       );
-    });
+    }.bind(this));
 
     return (
       <section className="content conversations-list">

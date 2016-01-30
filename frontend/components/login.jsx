@@ -4,51 +4,58 @@ var React = require('react'),
 
 var Login = React.createClass({
   getInitialState: function () {
-    return {login: "", pass: ""};
+    return {username: "", pass: ""};
   },
 
   inputChange: function (e) {
     name = e.currentTarget.name;
     val = e.currentTarget.value;
-
-    this.setState({name: val});
+    ob = {};
+    ob[name] = val;
+    this.setState(ob);
   },
 
   login: function (e) {
-    userApiUtil.logIn(this.state.username, this.state.pass);
+    e.preventDefault();
+    userApiUtil.logIn(this.state.username, this.state.pass, this._toInbox);
   },
 
   demoLogin: function (e) {
-    userApiUtil.logIn('daimonic', 'Iamplato1');
+    e.preventDefault();
+    userApiUtil.logIn('daimonic', 'Iamplato1', this._toInbox);
+  },
+
+  _toInbox: function () {
+    this.props.history.pushState({}, "/inbox");
   },
 
   render: function () {
     return (
-      <main class="auth-page log-in">
+      <main className="auth-page log-in">
 
         <h1>One account. All of this App.</h1>
 
         <h3> Sign in to continue to Pmail </h3>
 
-        <form class="log-in-form auth-page-form" action="<%= session_url %>" method="post">
+        <form className="log-in-form auth-page-form" action="<%= session_url %>" method="post">
 
-          <input type="text" name="username" value="" placeholder="Enter Your Email" onChange={inputChange}/>
-          <input type="password" name="pass" value="" placeholder="Password" onChange={inputChange}/>
+          <input type="text" name="username" value={this.state.username} placeholder="Enter Your Email" onChange={this.inputChange}/>
+          <input type="password" name="pass" value={this.state.pass} placeholder="Password" onChange={this.inputChange}/>
 
-          <button onClick={login}>Sign In</button>
+          <button onClick={this.login}>Sign In</button>
 
-          <button class="demo-button" onClick={demoLogin}>Demo Account</button>
+          <button className="demo-button" onClick={this.demoLogin}>Demo Account</button>
 
         </form>
 
-        <form id="demo-button" class="demo-account-button auth-page-form" action="<%= session_url %>" method="post">
+        <form id="demo-button" className="demo-account-button auth-page-form" action="<%= session_url %>" method="post">
 
           <input type="hidden" name="username" value="daimonic"/>
           <input type="hidden" name="pass" value="Iamplato1"/>
         </form>
 
 
-        <a class="new-user-link" href="<%= new_user_url %>" >Create account</a>
+        <a className="new-user-link" href="<%= new_user_url %>" >Create account</a>
       </main>
     );
   }

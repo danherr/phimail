@@ -1,6 +1,6 @@
 class Api::MessagesController < ApplicationController
 
-  before_action :require_logged_in_api
+  before_action :require_logged_in
 
   def create
     @conversation = Conversation.find(params[:conversation_id])

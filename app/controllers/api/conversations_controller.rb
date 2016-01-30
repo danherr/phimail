@@ -1,21 +1,19 @@
 class Api::ConversationsController < ApplicationController
 
-  before_action :require_logged_in_api
+  before_action :require_logged_in
 
   def index
-    number = params[:number].try(:to_i) || 30
+    # number = params[:number].try(:to_i) || 30
     offset = params[:offset].try(:to_i) || 0
 
-    @conversations = current_user.conversations.all
-      .limit(number)
-      .offset(offset)
-      .includes(:messages)
+    @conversations = current_user.conversations.all.order(message_timestamp: :asc).includes(:messages)
+    # .limit(number).offset(offset)
 
     render :index;
   end
 
   def create
-    @conversation = current_user.conversation.create()
+    @conversation = current_user.conversation.create(conversation_params)
     @messages = [@conversation.messages.new(message_params)]
 
     if @message.save
@@ -45,7 +43,7 @@ class Api::ConversationsController < ApplicationController
   private
 
   def conversation_params
-    params.require(:conversation).permit(:important, :starred);
+    params.require(:conversation).permit(:title, :important, :starred);
   end
 
 end

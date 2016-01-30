@@ -9,7 +9,7 @@ var ConversationListItem = React.createClass({
   },
 
   shortenTime: function () {
-    var timestamp = new Date(this.props.conversation.last_message.time_sent),
+    var timestamp = new Date(this.props.conversation.timestamp),
         time =  timestamp.toLocaleTimeString(),
         oldDate = timestamp.toLocaleDateString(),
         newDate = timestamp.toDateString().split(" ").splice(1,2).join(" "),
@@ -30,15 +30,19 @@ var ConversationListItem = React.createClass({
 
   toggleSelected: function (e) {
     conversation = this.props.conversation;
-    conversation.isSelected = !conversation.isSelected;
+    conversation.isSelected = e.currentTarget.checked;
     ConversationActions.updateConversation(conversation);
   },
 
   toggleProp: function (e) {
     conversation = this.props.conversation;
     key = e.currentTarget.name;
-    conversation[key] = !conversation[key];
+    conversation[key] = e.currentTarget.checked;
     conversationApiUtil.updateConversation(conversation);
+  },
+
+  linkToDetail: function (e) {
+    if (e.target.type !== "checkbox") this.props.history.pushState({}, "conversation/" + this.props.conversation.id);
   },
 
   render: function () {
@@ -57,7 +61,7 @@ var ConversationListItem = React.createClass({
     timePair = this.shortenTime();
 
     return (
-      <div className={theClass} key={this.props.conversation.id}>
+      <div className={theClass} key={this.props.conversation.id} onClick={this.linkToDetail}>
         <input
           onChange={this.toggleSelected}
           type="checkbox"
@@ -76,13 +80,13 @@ var ConversationListItem = React.createClass({
           name="important"
           checked={this.props.conversation.important}/>
         <span className="addresses">
-          {this.props.conversation.last_message.source_address.substring(0,20)}
+          {this.props.conversation.address}
         </span>
         <span className="title">
           {this.props.conversation.title}
         </span>
         <span className="body-preview">
-          {this.props.conversation.last_message.body_preview}
+          {this.props.conversation.body_preview}
         </span>
         <span className="timestamp" title={timePair[0]}>
           {timePair[1]}

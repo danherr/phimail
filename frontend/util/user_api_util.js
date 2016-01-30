@@ -10,25 +10,40 @@ var userApiUtil = {
         UserActions.receiveUser(data);
         if (callback) callback();
       },
-      error: function (data) {
+      error: function (object, error, messages) {
         UserActions.receiveUser({});
-        debugger;
         if (callback) callback();
+        alert(messages);
       }
     });
   },
 
-  logIn: function (username, password) {
+  logIn: function (username, password, callback) {
     $.ajax({
       type: 'POST',
       url: '/api/session',
       dataType: 'json',
-      data: credentials,
+      data: {username: username, pass: password},
       success: function (data) {
         UserActions.receiveUser(data);
+        if(callback) callback();
       },
-      error: function (data) {
-        debugger;
+      error: function (object, error, messages) {
+        alert(messages);
+      }
+    });
+  },
+
+  logOut: function (callback) {
+    $.ajax({
+      type: 'DELETE',
+      url: '/api/session',
+      dataType: 'json',
+      success: function (data) {
+        callback();
+      },
+      error: function (object, error, messages) {
+        alert(messages);
       }
     });
   },
@@ -42,8 +57,8 @@ var userApiUtil = {
       success: function (data) {
         UserActions.receiveUser(data);
       },
-      error: function (data) {
-        debugger;
+      error: function (object, error, messages) {
+        alert(messages);
       }
     });
   },
@@ -57,8 +72,8 @@ var userApiUtil = {
       success: function (data) {
         UserActions.receiveUser(data);
       },
-      error: function (data) {
-        debugger;
+      error: function (object, error, messages) {
+        alert(messages);
       }
     });
   }

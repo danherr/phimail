@@ -23,17 +23,13 @@ class ApplicationController < ActionController::Base
   end
 
   def require_logged_in
-    redirect_to new_session_url unless logged_in?
-  end
-
-  def require_logged_in_api
-    render status: 401 unless logged_in?
+    render nothing: true, status: 401 unless logged_in?
   end
 
   private
 
   def message_params
-    params.require(message).permit(:source_address, :target_address, :title, :body)
+    params.require(message).permit(:source_address, :target_address, :body)
   end
 
 end

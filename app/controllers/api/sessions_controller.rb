@@ -4,7 +4,7 @@ class Api::SessionsController < ApplicationController
     @user = User.find_by_username(params[:username])
 
     if @user
-      render '/api/users/show_part'
+      render 'api/users/show_part'
     else
       render json: ["No Such User"], status: 400
     end
@@ -18,7 +18,7 @@ class Api::SessionsController < ApplicationController
 
     if @user
       log_in(@user)
-      render '/api/users/show'
+      render "api/users/show"
     else
       render json: ["Incorrect Password."], status: 400
     end

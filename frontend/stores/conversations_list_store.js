@@ -5,6 +5,7 @@ var Dispatcher = require('../dispatcher/dispatcher'),
 var ConversationStore = new Store(Dispatcher);
 
 var _conversations = {};
+var _beenFetched = false;
 
 ConversationStore.all = function () {
   var out = [];
@@ -14,23 +15,29 @@ ConversationStore.all = function () {
   return out;
 };
 
+ConversationStore.beenFetched = function () {
+  return _beenFetched;
+};
+
 ConversationStore.selected = function () {
   return ConversationStore.all().filter( function (conversation) {
     return conversation.isSelected;
   });
 };
 
-ConversationStore.rewriteStore = function (conversationArray) {
-  _conversations = {};
+ConversationStore.addToStore = function (conversationArray) {
+  newConversations = {};
   conversationArray.forEach( function (conversation) {
-    conversation.isSelected = false;
-    _conversations[conversation.id] = conversation;
+    newConversations[conversation.id] = $.extend(_conversations[conversation.id], conversation);
   });
+
+  _conversations = newConversations;
 };
 
 ConversationStore.__onDispatch = function (payload) {
   if (payload.actionType === ConversationConstants.getAll) {
-    this.rewriteStore(payload.conversations);
+    this.addToStore(payload.conversations);
+    _beenFetched = true;
     this.__emitChange();
   } else if (payload.actionType === ConversationConstants.updateOne) {
     _conversations[payload.conversation.id] = payload.conversation;
