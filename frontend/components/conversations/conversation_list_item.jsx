@@ -9,7 +9,7 @@ var ConversationListItem = React.createClass({
   },
 
   shortenTime: function () {
-    var timestamp = new Date(this.props.conversation.timestamp),
+    var timestamp = new Date(this.props.conversation.message_timestamp),
         time =  timestamp.toLocaleTimeString(),
         oldDate = timestamp.toLocaleDateString(),
         newDate = timestamp.toDateString().split(" ").splice(1,2).join(" "),

@@ -7,7 +7,7 @@ class Conversation < ActiveRecord::Base
   has_many :message_conversation_links
   has_many :messages, through: :message_conversation_links
 
-  default_scope { order('message_timestamp') }  
+  default_scope { order('message_timestamp DESC') }  
 
   def body_preview
     last_message = conversation.messages.order(:time_created).last

@@ -25,13 +25,26 @@ array = array.map! do |message|
   if message
 
     if Random.rand > 0.9
+      min_message = "\n con#{$num}.update(message_timestamp: #{$time_num.floor}.#{$increments[$time_idx]}.ago) \n"
       title = message.chars.take(30).join
       $num = $num + 1
-      min_message = "\n\n con#{$num} = soc.conversations.create(title: \"#{title}\") \n\n"
+      min_message = "#{min_message}\n con#{$num} = soc.conversations.create(title: \"#{title}\" ) \n\n"
       message =  min_message + "body_str = <<-BODY \n" + message
     else
       message = "body_str = <<-BODY \n" + message
     end
+
+
+    if $time_idx == 6
+      $time_num -= (Random.rand)/10 if $time_num > 10
+    else
+      $time_num -= (Random.rand)/10
+      if $time_num <= 1
+        $time_num = 12
+        $time_idx += 1
+      end
+    end
+
 
     if name == "SOCRATES"
       seed = "con#{$num}.messages.create({\n"
@@ -58,15 +71,6 @@ array = array.map! do |message|
       message.sub!('MENO:', "body_str = <<-BODY \n")
     end
 
-    if $time_idx == 6
-      $time_num -= (Random.rand)/10 if $time_num > 10
-    else
-      $time_num -= (Random.rand)/10
-      if $time_num <= 1
-        $time_num = 12
-        $time_idx += 1
-      end
-    end
 
 
     message = message.concat("\nBODY\n\n")

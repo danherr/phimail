@@ -12,6 +12,16 @@ ConversationStore.all = function () {
   for (var id in _conversations) {
     out.push(_conversations[id]);
   }
+  out = out.sort(function (con1, con2) {
+    num1 = con1.message_timestamp.valueOf();
+    num2 = con2.message_timestamp.valueOf();
+    if (num1 < num2) {
+      return 1;
+    } else if (num1 > num2) {
+      return -1;
+    } else return 0;
+  });
+
   return out;
 };
 
@@ -29,6 +39,7 @@ ConversationStore.addToStore = function (conversationArray) {
   newConversations = {};
   conversationArray.forEach( function (conversation) {
     newConversations[conversation.id] = $.extend(_conversations[conversation.id], conversation);
+    newConversations[conversation.id].message_timestamp = new Date(conversation.message_timestamp);
   });
 
   _conversations = newConversations;

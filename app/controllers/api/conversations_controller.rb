@@ -6,7 +6,7 @@ class Api::ConversationsController < ApplicationController
     # number = params[:number].try(:to_i) || 30
     offset = params[:offset].try(:to_i) || 0
 
-    @conversations = current_user.conversations.all.order(message_timestamp: :asc).includes(:messages)
+    @conversations = current_user.conversations.all.includes(:messages)
     # .limit(number).offset(offset)
 
     render :index;

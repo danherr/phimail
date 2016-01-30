@@ -35,7 +35,7 @@ var Login = React.createClass({
 
         <h1>One account. All of this App.</h1>
 
-        <h3> Sign in to continue to Pmail </h3>
+        <h3> Sign in to continue to Phimail </h3>
 
         <form className="log-in-form auth-page-form" action="<%= session_url %>" method="post">
 
