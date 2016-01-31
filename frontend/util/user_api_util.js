@@ -13,8 +13,7 @@ var userApiUtil = {
       error: function (object, error, messages) {
         UserActions.receiveUser({});
         if (callback) callback();
-        alert(messages);
-      }
+        }
     });
   },
 
@@ -29,7 +28,6 @@ var userApiUtil = {
         if(callback) callback();
       },
       error: function (object, error, messages) {
-        alert(messages);
       }
     });
   },
@@ -43,7 +41,6 @@ var userApiUtil = {
         callback();
       },
       error: function (object, error, messages) {
-        alert(messages);
       }
     });
   },
@@ -58,22 +55,20 @@ var userApiUtil = {
         UserActions.receiveUser(data);
       },
       error: function (object, error, messages) {
-        alert(messages);
       }
     });
   },
 
-  createUser: function (new_user) {
+  createUser: function (newUser, otherPass) {
     $.ajax({
       type: 'POST',
       url: '/api/user',
       dataType: 'json',
-      data: {user: new_user},
+      data: {user: newUser, other_pass: otherPass},
       success: function (data) {
         UserActions.receiveUser(data);
       },
       error: function (object, error, messages) {
-        alert(messages);
       }
     });
   }

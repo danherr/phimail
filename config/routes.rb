@@ -62,7 +62,7 @@ Rails.application.routes.draw do
     end
     resource :user, only: [:show, :update, :create, :destroy]
 
-    resources :messages, only: [:destroy]
+    resources :messages, only: [:destroy, :show]
 
     resources :conversations, only: [:index, :show, :create, :update] do
       resources :messages, only: [:create]

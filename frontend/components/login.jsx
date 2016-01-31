@@ -29,15 +29,19 @@ var Login = React.createClass({
     this.props.history.pushState({}, "/inbox");
   },
 
+  _toSignup: function () {
+    this.props.history.pushState({}, "/signup");
+  },
+
   render: function () {
     return (
       <main className="auth-page log-in">
 
         <h1>One account. All of this App.</h1>
 
-        <h3> Sign in to continue to Phimail </h3>
+        <h3> Sign in to continue to φmail </h3>
 
-        <form className="log-in-form auth-page-form" action="<%= session_url %>" method="post">
+        <form className="log-in-form auth-page-form" method="post">
 
           <input type="text" name="username" value={this.state.username} placeholder="Enter Your Email" onChange={this.inputChange}/>
           <input type="password" name="pass" value={this.state.pass} placeholder="Password" onChange={this.inputChange}/>
@@ -48,14 +52,7 @@ var Login = React.createClass({
 
         </form>
 
-        <form id="demo-button" className="demo-account-button auth-page-form" action="<%= session_url %>" method="post">
-
-          <input type="hidden" name="username" value="daimonic"/>
-          <input type="hidden" name="pass" value="Iamplato1"/>
-        </form>
-
-
-        <a className="new-user-link" href="<%= new_user_url %>" >Create account</a>
+        <a className="new-user-link" onClick={this._toSignup} >Create account</a>
       </main>
     );
   }

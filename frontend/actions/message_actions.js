@@ -9,6 +9,13 @@ var MessageActions = {
     });
   },
 
+  receiveMessage: function (message) {
+    Dispatcher.dispatch({
+      actionType: MessageConstants.receiveOne,
+      message: message
+    });
+  }
+
 };
 
 module.exports = MessageActions;

@@ -38,7 +38,6 @@ var ConversationDetail = React.createClass({
       this.setState(nuState);
     }.bind(this));
 
-    // if (!ConversationStore.beenFetched()) conversationApiUtil.fetchConversations();
     messageApiUtil.fetchConversation(this.props.params.conversation_id);
   },
 
@@ -46,10 +45,24 @@ var ConversationDetail = React.createClass({
     this.messageStoreListener.remove();
   },
 
+  toggleExpanded: function (id, e) {
+    var nuExpanded = this.state.expanded;
+
+    nuExpanded[id] = !nuExpanded[id];
+
+    this.setState({expanded: nuExpanded});
+
+  },
+
   render: function () {
     messageList = this.state.conversation.messages.map(function (message) {
       return (
-        <Message key={message.id} expanded={this.state.expanded[message.id]} message={message} history={this.props.history} />
+        <Message
+          key={message.id}
+          expanded={this.state.expanded[message.id]}
+          message={message}
+          history={this.props.history}
+          toggleExpanded={this.toggleExpanded.bind(this, message.id)} />
       );
     }.bind(this));
 

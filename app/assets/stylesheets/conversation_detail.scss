@@ -1,0 +1,27 @@
+.message-detail {
+  font-size: 12.8px;
+  font-family: arial, sans-serif;
+  border-bottom: 1px solid #e5e5e5;
+  background: #f4f4f4;
+  position: relative;
+  padding: 0 0 0 8px;
+  margin: 0;
+}
+
+.message-detail.collapsed {
+  cursor: pointer;
+}
+
+.message-detail.expanding {
+  background: #ffffff;
+}
+
+.message-detail.expanded {
+  background: #ffffff;
+  padding: 0 0 20px 8px;
+
+}
+
+.message-body {
+
+}

@@ -2,6 +2,10 @@ class Api::MessagesController < ApplicationController
 
   before_action :require_logged_in
 
+  def show
+    @message = current_user.messages.find(params[:id])
+  end
+
   def create
     @conversation = Conversation.find(params[:conversation_id])
 

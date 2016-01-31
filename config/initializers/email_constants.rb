@@ -1,2 +1,2 @@
 
-EMAIL_SIGNATURE = "@pmail.herokuapp.com"
+EMAIL_SIGNATURE = "@phimail.pw"

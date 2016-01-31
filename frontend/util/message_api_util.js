@@ -2,7 +2,7 @@ var MessageActions = require('../actions/message_actions');
 
 var messageApiUtil = {
 
-  fetchConversation: function (id, callback) {
+  fetchConversation: function (id) {
     $.ajax({
       type: 'GET',
       url: '/api/conversations/' + id,
@@ -11,7 +11,19 @@ var messageApiUtil = {
         MessageActions.receiveConversation(data);
       },
       error: function () {
-        alert("BAD THING");
+      }
+    });
+  },
+
+  fetchMessage: function (id) {
+    $.ajax({
+      type: 'GET',
+      url: '/api/messages/' + id,
+      dataType: 'json',
+      success: function (data) {
+        MessageActions.receiveMessage(data);
+      },
+      error: function () {
       }
     });
   }
