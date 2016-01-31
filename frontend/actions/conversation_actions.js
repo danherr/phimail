@@ -4,7 +4,7 @@ var Dispatcher = require('../dispatcher/dispatcher'),
 var ConversationActions = {
   receiveConversations: function (conversations) {
     Dispatcher.dispatch({
-      actionType: ConversationConstants.getAll,
+      actionType: ConversationConstants.receiveAll,
       conversations: conversations
     });
   },
@@ -14,7 +14,22 @@ var ConversationActions = {
       actionType: ConversationConstants.updateOne,
       conversation: conversation
     });
+  },
+
+  toggleSelected: function (id) {
+    Dispatcher.dispatch({
+      actionType: ConversationConstants.toggleSelected,
+      ids: id
+    });
+  },
+
+  selectAll: function (criterionCB) {
+    Dispatcher.dispatch({
+      actionType: ConversationConstants.selectAll,
+      ids: criterionCB
+    });
   }
+
 
 };
 

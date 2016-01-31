@@ -6,4 +6,6 @@ class Message < ActiveRecord::Base
   has_many :conversations, through: :message_conversation_links
   has_many :users, through: :conversations
 
+  default_scope { order('updated_at') }
+
 end

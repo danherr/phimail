@@ -14,11 +14,12 @@ class Api::ConversationsController < ApplicationController
 
   def create
     @conversation = current_user.conversation.create(conversation_params)
-    @messages = [@conversation.messages.new(message_params)]
+    @message = [@conversation.messages.new(message_params)]
 
     if @message.save
       render :show
     else
+      @conversation.destroy
       render json: @message.errors.full_messages, status: 400;
     end
   end

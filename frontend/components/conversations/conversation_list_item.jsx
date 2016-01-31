@@ -46,8 +46,6 @@ var ConversationListItem = React.createClass({
   },
 
   render: function () {
-    var foo = ConversationStore.selected();
-
     var theClass = "conversation-list-item clearfix";
 
     if (this.props.conversation.isSelected) {

@@ -1,1 +1,1 @@
-json.partial! 'api/shared/message', message: @message
+json.partial! 'api/shared/message', message: @message, full_message: true
