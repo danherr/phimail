@@ -30,6 +30,17 @@ ConversationStore.find = function (id) {
   });
 };
 
+ConversationStore.findRelative = function (id, offset) {
+  idx = _conversations.findIndex(function (conversation) {
+    return conversation.id == id;
+  });
+  if (idx === -1) {
+    return undefined;
+  } else {
+    return _conversations[idx + offset];
+  }
+};
+
 ConversationStore.beenFetched = function () {
   return _beenFetched;
 };

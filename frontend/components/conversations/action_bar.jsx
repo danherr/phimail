@@ -122,8 +122,8 @@ var ActionBar = React.createClass({
       <div className="action-bar clearfix">
         {leftButtons}
         {midButtons}
-        {pageMessage}
         {rightButtons}
+        {pageMessage}
       </div>
     );
   }

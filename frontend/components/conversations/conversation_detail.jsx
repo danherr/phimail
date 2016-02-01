@@ -84,9 +84,9 @@ var ConversationDetail = React.createClass({
 
   turnPage: function(num) {
     var pathArr = this.props.location.pathname.split('/');
-    var pageNum = parseInt(pathArr.pop());
-    pageNum += num;
-    pathArr.push(pageNum);
+    var conversation_id = parseInt(pathArr.pop());
+    var newConversation = ConversationStore.findRelative(conversation_id, num);
+    pathArr.push(newConversation.id);
     var path = pathArr.join('/');
     this.props.history.pushState({}, path);
   },
