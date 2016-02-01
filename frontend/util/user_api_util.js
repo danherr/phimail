@@ -59,7 +59,7 @@ var userApiUtil = {
     });
   },
 
-  createUser: function (newUser, otherPass) {
+  createUser: function (newUser, otherPass, callback) {
     $.ajax({
       type: 'POST',
       url: '/api/user',
@@ -67,8 +67,10 @@ var userApiUtil = {
       data: {user: newUser, other_pass: otherPass},
       success: function (data) {
         UserActions.receiveUser(data);
+        if(callback) callback();
       },
       error: function (object, error, messages) {
+        alert(messages);
       }
     });
   }

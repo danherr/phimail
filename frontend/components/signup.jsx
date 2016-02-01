@@ -1,4 +1,5 @@
-var React = require('react');
+var React = require('react'),
+    userApiUtil = require('../util/user_api_util');
 
 
 var Signup = React.createClass({
@@ -24,7 +25,7 @@ var Signup = React.createClass({
   signup: function (e) {
     e.preventDefault();
     if (this.state.user.pass === this.state.otherPass) {
-      userApiUtil.createUser(this.state);
+      userApiUtil.createUser(this.state.user, this.state.otherPass, this._toInbox);
     } else {
       alert("You Entered Two Different Passwords.");
       var nuState = this.state;
@@ -32,6 +33,10 @@ var Signup = React.createClass({
       nuState.user.pass = "";
       this.setState(nuState);
     }
+  },
+
+  _toInbox: function () {
+    this.props.history.pushState({}, "/inbox");
   },
 
   render: function () {
