@@ -1,11 +1,52 @@
+.contacts-pane {
+  width: 220px;
+  height: 100%;
+  float: right;
+}
+
+.conversation-pane {
+  float: right;
+  width: calc(100% - 220px);
+}
+
+
+.conversation-detail-header {
+  padding: 12px 1px 9px 8px;
+}
+
+.conversation-title {
+  margin: 0;
+  font-size: 17px;
+  font-weight: normal;
+  padding: 0 10px 0 0;
+  display: inline;
+}
+
+.conversation-detail-buttons {
+  display: inline;
+  float: right;
+}
+
+.conversation-detail-buttons > i {
+  color: #777;
+}
+
+.conversation-detail-buttons:hover > i {
+  color: #000;
+}
+
+.messages-list {
+  border-top: 1px solid #e5e5e5;
+}
+
 .message-detail {
   font-size: 12.8px;
   font-family: arial, sans-serif;
   border-bottom: 1px solid #e5e5e5;
   background: #f4f4f4;
   position: relative;
-  padding: 0 0 0 8px;
   margin: 0;
+  padding: 12px 0 12px 8px;
 }
 
 .message-detail.collapsed {
@@ -13,7 +54,8 @@
 }
 
 .message-body {
-
+  padding: 0;
+  margin: 0;
 }
 
 .message-source {

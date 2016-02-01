@@ -1,54 +1,50 @@
 var React = require('react'),
-    ConversationStore = require('../../stores/conversations_list_store'),
-    ConversationActions = require('../../actions/conversation_actions');
+    ConversationStore = require('../../stores/conversation_store'),
+    SelectionStore = require('../../stores/selection_store'),
+    ConversationActions = require('../../actions/conversation_actions'),
     conversationApiUtil = require('../../util/conversation_api_util');
 
 var ConversationListItem = React.createClass({
   getInitialState: function () {
-    return {};
+    return {isSelected: SelectionStore.isSelected(this.props.conversation.id)};
   },
 
-  shortenTime: function () {
-    var timestamp = new Date(this.props.conversation.message_timestamp),
-        time =  timestamp.toLocaleTimeString(),
-        oldDate = timestamp.toLocaleDateString(),
-        newDate = timestamp.toDateString().split(" ").splice(1,2).join(" "),
-        fullTime = timestamp.toDateString() + " at " + time,
-        now = new Date(),
-        thing;
+  componentDidMount: function () {
+    this.selectionStoreListener = SelectionStore.addListener( function () {
+      this.setState({isSelected: SelectionStore.isSelected(this.props.conversation.id)});
+    }.bind(this));
+  },
 
-    if (now.getYear() !== timestamp.getYear()) {
-      thing = oldDate;
-    } else if (now.getMonth() !== timestamp.getMonth() && now.getDate() !== timestamp.getDate()) {
-      thing = newDate;
-    } else {
-      thing = time;
-    }
-
-    return([fullTime, thing]);
+  componentWillUnmount: function () {
+    this.selectionStoreListener.remove();
   },
 
   toggleSelected: function (e) {
-    conversation = this.props.conversation;
-    conversation.isSelected = e.currentTarget.checked;
-    ConversationActions.updateConversation(conversation);
+    ConversationActions.toggleSelected(this.props.conversation.id);
   },
 
-  toggleProp: function (e) {
+  toggleStar: function (e) {
     conversation = this.props.conversation;
-    key = e.currentTarget.name;
-    conversation[key] = e.currentTarget.checked;
+    conversation.starred = !conversation.starred;
     conversationApiUtil.updateConversation(conversation);
   },
 
+  toggleImp: function (e) {
+    conversation = this.props.conversation;
+    conversation.important = !conversation.important;
+    conversationApiUtil.updateConversation(conversation);
+  },
+
+
   linkToDetail: function (e) {
-    if (e.target.type !== "checkbox") this.props.history.pushState({}, "conversation/" + this.props.conversation.id);
+    if (e.target.type !== "checkbox" && e.target.tagName !== "I") this.props.history.pushState({}, "conversation/" + this.props.conversation.id);
   },
 
   render: function () {
+
     var theClass = "conversation-list-item clearfix";
 
-    if (this.props.conversation.isSelected) {
+    if (this.state.isSelected) {
       theClass = theClass + " selected";
     }
 
@@ -56,27 +52,25 @@ var ConversationListItem = React.createClass({
       theClass = theClass + " unread";
     }
 
-    timePair = this.shortenTime();
+    timePair = this.props.shortenTime(this.props.conversation.message_timestamp);
 
     return (
       <div className={theClass} key={this.props.conversation.id} onClick={this.linkToDetail}>
-        <input
-          onChange={this.toggleSelected}
-          type="checkbox"
-          className="selector"
-          checked={this.props.conversation.isSelected}/>
-        <input
-          onChange={this.toggleProp}
-          type="checkbox"
-          className="starrer"
+          <i
+            onClick={this.toggleSelected}
+            className={"starrer fa fa-" + (this.state.isSelected ? "check-square-o checked" : "square-o empty") }
+            name="starred"
+            />
+        <i
+          onClick={this.toggleStar}
+          className={"starrer fa fa-" + (this.props.conversation.starred ? "star full" : "star-o empty") }
           name="starred"
-          checked={this.props.conversation.starred}/>
-        <input
-          onChange={this.toggleProp}
-          type="checkbox"
-          className="important"
+          />
+        <i
+          onClick={this.toggleImp}
+          className={"starrer fa fa-" + (this.props.conversation.important ? "square full" : "square-o empty") }
           name="important"
-          checked={this.props.conversation.important}/>
+          />
         <span className="addresses">
           {this.props.conversation.address}
         </span>

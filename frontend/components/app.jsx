@@ -5,6 +5,7 @@ var React = require('react'),
 
 var App = React.createClass({
   render: function () {
+    
     return (
       <main className="app">
         <SearchBar history={this.props.history} />

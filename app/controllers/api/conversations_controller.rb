@@ -3,11 +3,13 @@ class Api::ConversationsController < ApplicationController
   before_action :require_logged_in
 
   def index
-    # number = params[:number].try(:to_i) || 30
-    offset = params[:offset].try(:to_i) || 0
+    page_number = params[:page].try(:to_i) || 0
+    @offset = page_number * 50;
 
-    @conversations = current_user.conversations.all.includes(:messages)
-    # .limit(number).offset(offset)
+    @conversations = current_user.conversations.all
+      .limit(50).offset(@offset).includes(:messages)
+
+    @num_con = current_user.conversations.all.count
 
     render :index;
   end

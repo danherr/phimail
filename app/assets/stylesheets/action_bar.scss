@@ -1,0 +1,56 @@
+.action-bar {
+  border-bottom: 1px solid #e5e5e5;
+  padding: 9px 0;
+}
+
+.action-bar .button-group {
+  margin: 0 10px 0 0;
+  border-radius: 2px;
+  border: 1px solid #e5e5e5;
+  background: #f4f4f4;
+}
+
+.action-bar .left-buttons {
+  float: left;
+}
+
+.action-bar .mid-buttons {
+  float: left;
+}
+
+.action-bar .right-buttons {
+  float: right;
+  margin-right: 60px;
+}
+
+.action-bar .button {
+  font-size: 14px;
+  width: 100px;
+  font-size: 12px;
+  text-align: center;
+  padding: 5px 0;
+  float: left;
+  border-left: 1px solid #e5e5e5;
+  cursor: default;
+}
+
+.action-bar .button:first-child {
+  border-left: 0;
+}
+
+.action-bar .button:hover {
+  background: #f6f6f6;
+}
+
+.action-bar .button:active {
+  background: #f2f2f2;
+}
+
+.action-bar .right-buttons .button {
+  width: 36px;
+  margin: 4px, 0;
+  font-size: 21px;
+  margin:0;
+  padding: 4px 0;
+  display: block;
+}

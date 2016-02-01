@@ -1,6 +1,6 @@
 var Dispatcher = require('../dispatcher/dispatcher'),
     Store = require('flux/utils').Store,
-    ConversationStore = require('./conversations_list_store'),
+    ConversationStore = require('./conversation_store'),
     ConversationConstants = require('../constants/conversation_constants');
 
 var SelectionStore = new Store(Dispatcher);
@@ -15,6 +15,12 @@ SelectionStore.select = function (criterionCB) {
   ConversationStore.all(criterionCB).forEach(function (conversation) {
     _selections[conversation.id] = true;
   });
+  if (criterionCB) {
+    var antiCriterionCB = function (thing) {return !criterionCB(thing);};
+    ConversationStore.all(antiCriterionCB).forEach(function (conversation) {
+      _selections[conversation.id] = false;
+    });
+  }
 };
 
 SelectionStore.__onDispatch = function (payload) {
@@ -23,7 +29,7 @@ SelectionStore.__onDispatch = function (payload) {
     this.__emitChange();
   } else if (payload.actionType === ConversationConstants.selectThese) {
     this.select(payload.criterionCB);
-    this.__emitChenge();
+    this.__emitChange();
   }
 };
 

@@ -2,10 +2,10 @@ var Dispatcher = require('../dispatcher/dispatcher'),
     ConversationConstants = require('../constants/conversation_constants');
 
 var ConversationActions = {
-  receiveConversations: function (conversations) {
+  receiveConversations: function (conversationPacket) {
     Dispatcher.dispatch({
       actionType: ConversationConstants.receiveAll,
-      conversations: conversations
+      conversationPacket: conversationPacket
     });
   },
 
@@ -19,14 +19,14 @@ var ConversationActions = {
   toggleSelected: function (id) {
     Dispatcher.dispatch({
       actionType: ConversationConstants.toggleSelected,
-      ids: id
+      id: id
     });
   },
 
   selectAll: function (criterionCB) {
     Dispatcher.dispatch({
-      actionType: ConversationConstants.selectAll,
-      ids: criterionCB
+      actionType: ConversationConstants.selectThese,
+      criterionCB: criterionCB
     });
   }
 

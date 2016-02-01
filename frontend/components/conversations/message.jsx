@@ -21,6 +21,8 @@ var Message = React.createClass({
       theBody = theBody.substring(0,77);
     }
 
+    var timePair = this.props.shortenTime(this.props.message.updated_at);
+
     return (
       <div
         className={"message-detail " + expandedClass}
@@ -32,6 +34,10 @@ var Message = React.createClass({
         <h10 className="message-target">
           {this.props.message.target_address}
         </h10>
+        <span className="timestamp" title={timePair[0]}>
+          {timePair[1]}
+        </span>
+
         <p className={"message-body"}>
           {theBody}
         </p>

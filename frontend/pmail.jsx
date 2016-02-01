@@ -36,17 +36,37 @@ var _loginRedirect = function (replace, callback) {
   callback();
 };
 
+var shortenTime = function (timeString) {
+    var timestamp = new Date(timeString),
+        time =  timestamp.toLocaleTimeString(),
+        oldDate = timestamp.toLocaleDateString(),
+        newDate = timestamp.toDateString().split(" ").splice(1,2).join(" "),
+        fullTime = timestamp.toDateString() + " at " + time,
+        now = new Date(),
+        thing;
+
+    if (now.getYear() !== timestamp.getYear()) {
+      thing = oldDate;
+    } else if (now.getMonth() !== timestamp.getMonth() || now.getDate() !== timestamp.getDate()) {
+      thing = newDate;
+    } else {
+      thing = time;
+    }
+
+    return([fullTime, thing]);
+  };
+
 var router = (
   <Router history={hashHistory}>
     <Route path="/login" component={ Login } />
     <Route path="/signup" component={ Signup } />
 
     <Route path="/" component={ App } onEnter={ _ensureLoggedIn }>
-      <IndexRoute component={ ConversationDetail } onEnter={ _noIndex }/>
+      <IndexRoute component={ ConversationsList } onEnter={ _noIndex }/>
 
-      <Route path="inbox" folder="inbox" component={ConversationsList}/>
+      <Route path="inbox" folder="inbox" shortenTime={shortenTime} component={ConversationsList}/>
 
-      <Route path="conversation/:conversation_id" component={ConversationDetail} />
+      <Route path="conversation/:conversation_id" shortenTime={shortenTime} component={ConversationDetail} />
     </Route>
   </Router>
 );

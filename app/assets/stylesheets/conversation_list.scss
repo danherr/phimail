@@ -41,3 +41,58 @@
   width: 80px;
   text-align: right;
 }
+
+i.fa {
+  margin: 0 5px;
+  font-size: 17px;
+}
+
+i.fa-star {
+  font-size: 17px;
+}
+
+i.fa-star-o {
+  font-size: 17px;
+}
+
+i.checked {
+  color: #919191;
+  margin: 0 2.5px 0 5px;
+}
+
+i.checked:hover {
+  color: #777777;
+}
+
+i.checked:active {
+  color: #626262;
+}
+
+
+i.full {
+  color: #fbd861;
+}
+
+i.fa-square {
+  font-size: 15.5px;
+}
+
+i.full:hover {
+  color: #fcdc6d;
+}
+
+i.full:active {
+  color: #ffdf72;
+}
+
+i.empty {
+  color: #cccccc;
+}
+
+i.empty:hover {
+  color: #b7b7b7;
+}
+
+i.empty:active {
+  color: #929292;
+}
