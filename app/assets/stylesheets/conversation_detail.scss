@@ -12,6 +12,18 @@
   cursor: pointer;
 }
 
+.message-body {
+
+}
+
+.message-source {
+  padding: 0 8px 0 0;
+}
+
+.message-target {
+  display: none;
+}
+
 .message-detail.expanding {
   background: #ffffff;
 }
@@ -19,9 +31,8 @@
 .message-detail.expanded {
   background: #ffffff;
   padding: 0 0 20px 8px;
-
 }
 
-.message-body {
-
+.message-detail.expanded .message-target {
+  display: block;
 }
