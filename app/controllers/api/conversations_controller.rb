@@ -30,6 +30,8 @@ class Api::ConversationsController < ApplicationController
     @conversation = current_user.conversations.find(params[:id])
     @messages = @conversation.messages
 
+    @conversation.update({read: true});
+
     render :show
   end
 

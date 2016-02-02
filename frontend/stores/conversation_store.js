@@ -74,6 +74,10 @@ ConversationStore.updateCoversation = function (conversation) {
   }
 };
 
+ConversationStore.updateConversationArray = function (conversations) {
+  conversations.forEach(this.updateConversation);
+};
+
 ConversationStore.__onDispatch = function (payload) {
   if (payload.actionType === ConversationConstants.receiveAll) {
     this.resetStore(payload.conversationPacket);
@@ -81,6 +85,9 @@ ConversationStore.__onDispatch = function (payload) {
     this.__emitChange();
   } else if (payload.actionType === ConversationConstants.updateOne) {
     this.updateCoversation(payload.conversation);
+    this.__emitChange();
+  } else if (payload.actionType === ConversationConstants.updateMany) {
+    this.updateCoversationArray(payload.conversations);
     this.__emitChange();
   }
 };

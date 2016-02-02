@@ -4,7 +4,7 @@ json.total @num_con
 
 json.conversations do
   json.array!(@conversations) do |conversation|
-    json.extract! conversation, :id, :starred, :important, :title, :message_timestamp
+    json.extract! conversation, :id, :starred, :important, :title, :message_timestamp, :read
 
     last_message = conversation.messages.order(:updated_at).last
 

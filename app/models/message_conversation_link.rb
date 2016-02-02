@@ -6,4 +6,12 @@ class MessageConversationLink < ActiveRecord::Base
   belongs_to :conversation, touch: :message_timestamp
   has_one :user, through: :conversation
 
+  after_create :mark_conversation_unread;
+
+  private
+
+  def mark_conversation_unread
+    self.conversation.update({read: false})
+  end
+
 end

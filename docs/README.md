@@ -9,12 +9,14 @@
 φmail is an email application inspired by Gmail built using Ruby on Rails
 and React.js. φmail allows users to:
 
+<!-- This is a Markdown checklist. Use it to keep track of your progress! -->
+
 - [ ] Create an account
 - [ ] Log in / Log out
 - [ ] Create, read edit and delete contacts
 - [ ] Create, read, edit, and delete messages
-- [ ] Messages are grouped in Conversations
 - [ ] Send, recieve and reply to messages
+- [ ] Messages are grouped in Conversations
 - [ ] Search for messages based upon title.
 
 ## Design Docs

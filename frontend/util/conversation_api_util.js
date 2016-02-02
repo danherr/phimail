@@ -28,7 +28,20 @@ var apiUtil = {
         ConversationActions.updateConversation(data);
       },
     });
+  },
+
+  updateConversations: function (parameters, ids) {
+    $.ajax({
+      type: 'PATCH',
+      url: '/api/conversations/' + conversation.id,
+      dataType: 'json',
+      data: {conversation: parameters, ids: ids},
+      success: function (data) {
+        ConversationActions.updateConversations(data);
+      },
+    });
   }
+
 };
 
 module.exports = apiUtil;

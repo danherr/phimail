@@ -48,7 +48,7 @@ var ConversationListItem = React.createClass({
       theClass = theClass + " selected";
     }
 
-    if (this.props.conversation.unread) {
+    if (!this.props.conversation.read) {
       theClass = theClass + " unread";
     }
 

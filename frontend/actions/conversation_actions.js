@@ -16,6 +16,14 @@ var ConversationActions = {
     });
   },
 
+  updateConversations: function (data) {
+    Dispatcher.dispatch({
+      actionType: ConversationConstants.updateMany,
+      conversations: conversations
+    });
+  },
+
+
   toggleSelected: function (id) {
     Dispatcher.dispatch({
       actionType: ConversationConstants.toggleSelected,

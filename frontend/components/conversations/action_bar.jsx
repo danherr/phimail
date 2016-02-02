@@ -5,6 +5,17 @@ var React = require('react'),
     ConversationListItem = require('./conversation_list_item');
 
 var ActionBar = React.createClass({
+  markAllRead: function (e) {
+    var conversations = ConversationStore.all();
+    var conversationIds = conversations.map(function (conversation) {
+      return conversation.id;
+    });
+    
+  },
+
+  markSomeRead: function (e) {
+
+  },
 
   render: function () {
     var leftButtons, midButtons, pageMessage, rightButtons;
@@ -85,7 +96,10 @@ var ActionBar = React.createClass({
     if (this.props.referents.length === 0) {
       midButtons = (
         <div className="mid-buttons button-group" >
-          <div className="button">
+          <div
+            className="button"
+            onClick={this.markAllRead}
+            >
             Mark all as read
           </div>
         </div>
@@ -96,7 +110,8 @@ var ActionBar = React.createClass({
           <div className="button">
             Delete
           </div>
-          <div className="button">
+          <div className="button"
+            onClick={this.markSomeRead}>
             Mark as Read
           </div>
         </div>
