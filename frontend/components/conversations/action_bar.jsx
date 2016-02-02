@@ -15,13 +15,15 @@ var ActionBar = React.createClass({
   },
 
   markSelectedRead: function (markRead, e) {
-    var conversationIds = ConversationStore.allIds().filter(function (id) {
-      return SelectionStore.isSelected(id);
-    });
-
     page = ConversationStore.pageData().pageNumber;
 
-    conversationApiUtil.updateConversations({read: markRead}, conversationIds, page);
+    conversationApiUtil.updateConversations({read: markRead}, this.props.referents, page);
+  },
+
+  Delete: function (e) {
+    page = ConversationStore.pageData().pageNumber;
+
+    conversationApiUtil.deleteConversations(this.props.referents, page);
   },
 
   render: function () {
@@ -117,7 +119,9 @@ var ActionBar = React.createClass({
     } else {
       midButtons = (
         <div className="mid-buttons button-group" >
-          <div className="button">
+          <div className="button"
+            onClick={this.Delete}
+            >
             Delete
           </div>
           <div className="button"

@@ -62,6 +62,18 @@ class Api::ConversationsController < ApplicationController
     index
   end
 
+  def batch_delete
+    conversations = current_user.conversations.find(params[:ids])
+    conversations.each do |conversation|
+      messages = conversation.messages.all
+      messages.length
+      conversation.destroy
+      messages.each {|message| message.garbage_collect}
+    end
+
+    index
+  end
+
   private
 
   def conversation_params

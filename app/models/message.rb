@@ -8,4 +8,10 @@ class Message < ActiveRecord::Base
 
   default_scope { order('updated_at') }
 
+  def garbage_collect
+    if self.message_conversation_links.all.length == 0
+      self.destroy
+    end
+  end
+
 end
