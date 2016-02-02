@@ -59,9 +59,15 @@
   float: right;
   padding: 4px 0;
   margin-right: 20px;
+  font-size: 12.8px;
 }
 
 .action-bar em {
   padding: 5px;
   font-weight: bold;
+  font-style: normal;
+}
+
+.action-bar .disabled {
+  color: #a5a5a5;
 }

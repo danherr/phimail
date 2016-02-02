@@ -9,7 +9,8 @@ var _conversations = [],
     _beenFetched = false,
     _min = 0,
     _max = 0,
-    _total = 0;
+    _total = 0,
+    _pageNumber = 1;
 
 var ordering = function (con1, con2) {
   var time1 = new Date(con1.message_timestamp);
@@ -22,6 +23,12 @@ ConversationStore.all = function (filter) {
   filter = filter || function () {return true;};
 
   return _conversations.slice(0).filter(filter);
+};
+
+ConversationStore.allIds = function (filter) {
+  filter = filter || function () {return true;};
+
+  return _conversations.filter(filter).map(function (conversation) {return conversation.id;});
 };
 
 ConversationStore.find = function (id) {
@@ -46,7 +53,7 @@ ConversationStore.beenFetched = function () {
 };
 
 ConversationStore.pageData = function () {
-  return {min: _min, max: _max, total: _total};
+  return {min: _min, max: _max, total: _total, pageNumber: _pageNumber};
 };
 
 ConversationStore.resetStore = function (conversationPacket) {
@@ -56,6 +63,7 @@ ConversationStore.resetStore = function (conversationPacket) {
     _max = conversationPacket.max;
     _min = conversationPacket.min;
     _total = conversationPacket.total;
+    _pageNumber = conversationPacket.page_number;
   } else {
     _conversations = [];
   }
@@ -82,6 +90,7 @@ ConversationStore.__onDispatch = function (payload) {
   if (payload.actionType === ConversationConstants.receiveAll) {
     this.resetStore(payload.conversationPacket);
     _beenFetched = true;
+    if (payload.callback) payload.callback();
     this.__emitChange();
   } else if (payload.actionType === ConversationConstants.updateOne) {
     this.updateCoversation(payload.conversation);

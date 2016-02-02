@@ -3,13 +3,23 @@ class Api::ConversationsController < ApplicationController
   before_action :require_logged_in
 
   def index
-    page_number = params[:page].try(:to_i) || 0
-    @offset = page_number * 50;
+    @page_number = params[:page].try(:to_i) || 1
+    @offset = (@page_number - 1) * 50
+
+    @num_con = current_user.conversations.all.count
+
+    until @num_con > @offset do
+      @offset -= 50
+      @page_number -= 1
+    end
+
+    until @offset >= 0 do
+      @offset += 50
+      @page_number += 1
+    end
 
     @conversations = current_user.conversations.all
       .limit(50).offset(@offset).includes(:messages)
-
-    @num_con = current_user.conversations.all.count
 
     render :index;
   end
@@ -45,10 +55,17 @@ class Api::ConversationsController < ApplicationController
     end
   end
 
+  def batch_update
+    conversations = current_user.conversations.find(params[:ids])
+    conversations.each {|conversation| conversation.update(conversation_params)}
+
+    index
+  end
+
   private
 
   def conversation_params
-    params.require(:conversation).permit(:title, :important, :starred);
+    params.require(:conversation).permit(:title, :important, :starred, :read);
   end
 
 end

@@ -17,7 +17,7 @@ var React = require('react'),
 
 
 var _noIndex = function (nextState, replace, callback) {
-  replace({}, "/inbox");
+  replace({}, "/inbox/1");
   callback();
 };
 
@@ -64,8 +64,7 @@ var router = (
     <Route path="/" component={ App } onEnter={ _ensureLoggedIn }>
       <IndexRoute component={ ConversationsList } onEnter={ _noIndex }/>
 
-      <Route path="inbox" folder="inbox" shortenTime={shortenTime} component={ConversationsList}/>
-
+      <Route path="inbox/:page_num" folder="inbox" shortenTime={shortenTime} component={ConversationsList}/>
       <Route path="conversation/:conversation_id" shortenTime={shortenTime} component={ConversationDetail} />
     </Route>
   </Router>

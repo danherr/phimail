@@ -2,15 +2,15 @@ var ConversationActions = require('../actions/conversation_actions');
 
 var apiUtil = {
 
-  fetchConversations: function (page) {
-    if (!page) page = 0;
+  fetchConversations: function (page, callback) {
+    if (!page) page = 1;
     $.ajax({
       type: 'GET',
       url: '/api/conversations',
       dataType: 'json',
       data: {page: page},
       success: function (data) {
-        ConversationActions.receiveConversations(data);
+        ConversationActions.receiveConversations(data, callback);
       },
       error: function () {
 
@@ -30,14 +30,15 @@ var apiUtil = {
     });
   },
 
-  updateConversations: function (parameters, ids) {
+  updateConversations: function (parameters, ids, page) {
+    if (!page) page = 1;
     $.ajax({
       type: 'PATCH',
-      url: '/api/conversations/' + conversation.id,
+      url: '/api/conversations/batch_update',
       dataType: 'json',
       data: {conversation: parameters, ids: ids},
       success: function (data) {
-        ConversationActions.updateConversations(data);
+        ConversationActions.receiveConversations(data);
       },
     });
   }

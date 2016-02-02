@@ -34,7 +34,13 @@ var ConversationsList = React.createClass({
       this.setState({selectedIds: this.getSelectedIds(this.state.conversations)});
     }.bind(this));
 
-    conversationApiUtil.fetchConversations();
+    conversationApiUtil.fetchConversations(this.props.params.page_num);
+  },
+
+  componentWillReceiveProps: function (newProps) {
+    if (newProps.location.pathname !== this.props.location.pathname) {
+      conversationApiUtil.fetchConversations(newProps.params.page_num);
+    }
   },
 
   componentWillUnmount: function () {
@@ -43,8 +49,11 @@ var ConversationsList = React.createClass({
   },
 
   turnPage: function (num) {
-    var page = parseInt(ConversationStore.pageData().min / 50);
-    conversationApiUtil.fetchConversations(page + num);
+    var pathArr = this.props.location.pathname.split('/');
+    var page_num = parseInt(pathArr.pop());
+    pathArr.push(page_num + num);
+    var path = pathArr.join('/');
+    this.props.history.pushState({}, path);
   },
 
   render: function () {
@@ -55,6 +64,7 @@ var ConversationsList = React.createClass({
           key={conversation.id}
           conversation={conversation}
           history={this.props.history}
+          pathname={this.props.location.pathname}
           shortenTime={this.props.route.shortenTime}
         />
       );

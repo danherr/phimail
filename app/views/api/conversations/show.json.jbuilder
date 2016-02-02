@@ -1,9 +1,6 @@
 last_id = @messages.last.id
-
-json.title @conversation.title
-json.important @conversation.important
+json.extract! @conversation, :title, :important, :starred, :read, :id
 json.expanded true
-json.read @conversation.read
 json.messages do
   json.array! @messages do |message|
 

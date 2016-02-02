@@ -10,13 +10,13 @@
   cursor: pointer;
 }
 
-.conversation-list-item.selected {
-  background: #fffec9
-}
-
 .conversation-list-item.unread {
   background: #ffffff;
   font-weight: bold;
+}
+
+.conversation-list-item.selected {
+  background: #fffec9
 }
 
 .conversation-list-item .addresses {

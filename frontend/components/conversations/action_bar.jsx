@@ -1,30 +1,37 @@
 var React = require('react'),
     ConversationStore = require('../../stores/conversation_store'),
+    SelectionStore = require('../../stores/selection_store'),
     conversationApiUtil = require('../../util/conversation_api_util'),
     ConversationActions = require('../../actions/conversation_actions'),
     ConversationListItem = require('./conversation_list_item');
 
 var ActionBar = React.createClass({
   markAllRead: function (e) {
-    var conversations = ConversationStore.all();
-    var conversationIds = conversations.map(function (conversation) {
-      return conversation.id;
-    });
-    
+    var conversationIds = ConversationStore.allIds();
+
+    page = ConversationStore.pageData().pageNumber;
+
+    conversationApiUtil.updateConversations({read: true}, conversationIds, page);
   },
 
-  markSomeRead: function (e) {
+  markSelectedRead: function (markRead, e) {
+    var conversationIds = ConversationStore.allIds().filter(function (id) {
+      return SelectionStore.isSelected(id);
+    });
 
+    page = ConversationStore.pageData().pageNumber;
+
+    conversationApiUtil.updateConversations({read: markRead}, conversationIds, page);
   },
 
   render: function () {
-    var leftButtons, midButtons, pageMessage, rightButtons;
+    var leftButtons, midButtons, pageMessage, rightButtons, conv_num, total, disableLeft, disableRight;
     if (this.props.context === 'detail') {
       leftButtons = (
         <div className="left-buttons button-group">
           <div
             className="button"
-            onClick={this.props.history.goBack}
+            onClick={this.props.goBack}
             >
             Back
           </div>
@@ -32,17 +39,22 @@ var ActionBar = React.createClass({
       );
       var conversation = ConversationStore.find(this.props.referents[0]);
       if (conversation) {
+        conv_num = ConversationStore.pageData().min + 1 + conversation.index;
+        total = ConversationStore.pageData().total;
+        disableLeft = conv_num <= 1;
+        disableRight = conv_num >= total;
         pageMessage = (
           <div className="page-message">
             <em>
-              {ConversationStore.pageData().min + conversation.index}
+              {conv_num}
             </em>
             of
             <em>
-              {ConversationStore.pageData().total}
+              {total}
             </em>
           </div>
         );
+
       }
     } else if (this.props.context === 'list') {
       leftButtons = (
@@ -74,14 +86,12 @@ var ActionBar = React.createClass({
         </div>
       );
 
+      disableLeft = (ConversationStore.pageData().min <= 0);
+      disableRight = (ConversationStore.pageData().max >= ConversationStore.pageData().total);
       pageMessage = (
         <div className="page-message">
           <em>
-            {ConversationStore.pageData().min}
-          </em>
-          -
-          <em>
-            {ConversationStore.pageData().max}
+            {ConversationStore.pageData().min + 1}-{ConversationStore.pageData().max}
           </em>
           of
           <em>
@@ -111,8 +121,12 @@ var ActionBar = React.createClass({
             Delete
           </div>
           <div className="button"
-            onClick={this.markSomeRead}>
+            onClick={this.markSelectedRead.bind(null, true)}>
             Mark as Read
+          </div>
+          <div className="button"
+            onClick={this.markSelectedRead.bind(null, false)}>
+            Mark as Unread
           </div>
         </div>
       );
@@ -121,13 +135,13 @@ var ActionBar = React.createClass({
     rightButtons = (
       <div className="right-buttons button-group">
         <i
-          className="button fa fa-angle-left"
-          onClick={this.props.turnPage.bind(null, -1)}
+          className={"button fa fa-angle-left" + (disableLeft ? " disabled" : "")}
+          onClick={disableLeft ? (function () {}) : this.props.turnPage.bind(null, -1)}
           >
         </i>
         <i
-          className="button fa fa-angle-right"
-          onClick={this.props.turnPage.bind(null, 1)}
+          className={"button fa fa-angle-right" + (disableRight ? " disabled" : "")}
+          onClick={disableRight ? (function () {}) : this.props.turnPage.bind(null, 1)}
           >
         </i>
       </div>

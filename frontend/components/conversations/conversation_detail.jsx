@@ -12,11 +12,12 @@ var ConversationDetail = React.createClass({
 
   getInitialState: function () {
     var conversation = MessageStore.all();
+    var source = this.props.location.state.source || "/";
 
     if (conversation.id === this.props.params.conversation_id) {
-      return {conversation: conversation, expanded: this.generateInitialExpanded(conversation.messages), fetched: true};
+      return {conversation: conversation, expanded: this.generateInitialExpanded(conversation.messages), fetched: true, source: source};
     } else {
-      return {conversation: {messages: []}, expanded: {},  fetched: false, allExpanded: false};
+      return {conversation: {messages: []}, expanded: {},  fetched: false, allExpanded: false, source: source};
     }
   },
 
@@ -44,7 +45,11 @@ var ConversationDetail = React.createClass({
 
       this.setState(nuState);
     }.bind(this));
-    if (!ConversationStore.fetched) conversationApiUtil.fetchConversations();
+    if (!ConversationStore.beenFetched()) {
+      // Item for later: figure out how to make pagination deal with linking directly to a conversation
+      // without going through the history.
+      this.goBack();
+    }
     messageApiUtil.fetchConversation(this.props.params.conversation_id);
   },
 
@@ -56,6 +61,7 @@ var ConversationDetail = React.createClass({
     if (newProps.location.pathname !== this.props.location.pathname) {
       this.setState({conversation: {messages: []}, expanded: {},  fetched: false, allExpanded: false});
     }
+    if (newProps.location.state.source) this.setState({source: newProps.location.state.source});
     messageApiUtil.fetchConversation(newProps.params.conversation_id);
   },
 
@@ -82,13 +88,49 @@ var ConversationDetail = React.createClass({
     this.setState({expanded: newExpanded});
   },
 
+
   turnPage: function(num) {
     var pathArr = this.props.location.pathname.split('/');
-    var conversation_id = parseInt(pathArr.pop());
-    var newConversation = ConversationStore.findRelative(conversation_id, num);
-    pathArr.push(newConversation.id);
-    var path = pathArr.join('/');
-    this.props.history.pushState({}, path);
+    var conversationId = parseInt(pathArr.pop());
+    var newConversation = ConversationStore.findRelative(conversationId, num);
+
+    if (!newConversation) {
+      this.bigPageTurn(pathArr, num);
+    } else {
+      this.finishPageTurn(pathArr, newConversation.id, this.state.source);
+    }
+  },
+
+  bigPageTurn: function (pathArr, num) {
+    var pageData = ConversationStore.pageData();
+    var newPage = pageData.pageNumber;
+
+    if (num > 0) { newPage += 1; } else {newPage -= 1;}
+
+    var newSource = this.state.source;
+    newSource = newSource.split('/');
+    newSource.pop();
+    newSource = newSource.join('/');
+    newSource = newSource + '/' + newPage;
+
+    conversationApiUtil.fetchConversations(newPage, function(newPage, pathArr, num, newSource) {
+      if (num < 0) {num += ConversationStore.all().length;} else {num -= 1;}
+      var newId = ConversationStore.all()[num].id;
+
+      this.finishPageTurn(pathArr, newId, newSource);
+    }.bind(this, newPage, pathArr, num, newSource));
+  },
+
+  finishPageTurn: function (partialPathArr, newConversationId, source) {
+    partialPathArr.push(newConversationId);
+    var path = partialPathArr.join('/');
+
+    this.props.history.pushState({source: source}, path);
+  },
+
+  goBack: function () {
+
+    this.props.history.pushState({}, this.state.source);
   },
 
   render: function () {
@@ -123,6 +165,7 @@ var ConversationDetail = React.createClass({
           referents={[this.props.params.conversation_id]}
           context="detail"
           history={this.props.history}
+          goBack={this.goBack}
            />
 
         <section className="contacts-pane">

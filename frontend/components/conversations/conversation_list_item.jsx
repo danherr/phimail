@@ -37,7 +37,7 @@ var ConversationListItem = React.createClass({
 
 
   linkToDetail: function (e) {
-    if (e.target.type !== "checkbox" && e.target.tagName !== "I") this.props.history.pushState({}, "conversation/" + this.props.conversation.id);
+    if (e.target.tagName !== "I") this.props.history.pushState({source: this.props.pathname}, "conversation/" + this.props.conversation.id);
   },
 
   render: function () {

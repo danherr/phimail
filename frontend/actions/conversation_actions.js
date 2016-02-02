@@ -2,10 +2,11 @@ var Dispatcher = require('../dispatcher/dispatcher'),
     ConversationConstants = require('../constants/conversation_constants');
 
 var ConversationActions = {
-  receiveConversations: function (conversationPacket) {
+  receiveConversations: function (conversationPacket, callback) {
     Dispatcher.dispatch({
       actionType: ConversationConstants.receiveAll,
-      conversationPacket: conversationPacket
+      conversationPacket: conversationPacket,
+      callback: callback
     });
   },
 

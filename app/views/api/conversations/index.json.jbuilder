@@ -1,6 +1,7 @@
 json.min @offset
 json.max @offset + @conversations.length
 json.total @num_con
+json.page_number @page_number
 
 json.conversations do
   json.array!(@conversations) do |conversation|
