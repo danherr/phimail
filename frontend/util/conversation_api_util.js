@@ -36,12 +36,26 @@ var apiUtil = {
       type: 'PATCH',
       url: '/api/conversations/batch_update',
       dataType: 'json',
-      data: {conversation: parameters, ids: ids},
+      data: {conversation: parameters, ids: ids, page: page},
+      success: function (data) {
+        ConversationActions.receiveConversations(data);
+      },
+    });
+  },
+
+  deleteConversations: function (ids, page) {
+    if (!page) page = 1;
+    $.ajax({
+      type: 'DELETE',
+      url: '/api/conversations/batch_delete',
+      dataType: 'json',
+      data: {ids: ids, page: page},
       success: function (data) {
         ConversationActions.receiveConversations(data);
       },
     });
   }
+
 
 };
 

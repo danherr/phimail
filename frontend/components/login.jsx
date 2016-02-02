@@ -26,7 +26,7 @@ var Login = React.createClass({
   },
 
   _toInbox: function () {
-    this.props.history.pushState({}, "/inbox");
+    this.props.history.pushState({}, "/inbox/1");
   },
 
   _toSignup: function () {
