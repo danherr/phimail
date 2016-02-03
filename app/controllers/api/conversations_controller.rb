@@ -65,15 +65,6 @@ class Api::ConversationsController < ApplicationController
     index
   end
 
-  def update_draft
-    @conversation = current_user.conversations.find(params[:conversation_id])
-    @message = @conversation.messages.fund(params[:id])
-    if @conversation && @conversation.update(conversation_params) && @message && @message.update(message_params)
-      render :show
-    else
-      render nothing: true, status: 400
-    end
-  end
 
   def batch_delete
     conversations = current_user.conversations.find(params[:ids])
