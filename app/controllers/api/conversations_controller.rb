@@ -26,6 +26,7 @@ class Api::ConversationsController < ApplicationController
 
   def create
     @conversation = current_user.conversation.create(conversation_params)
+    @conversation.meta_conversation.create();
     @message = [@conversation.messages.new(message_params)]
 
     if @message.save
@@ -45,6 +46,7 @@ class Api::ConversationsController < ApplicationController
     render :show
   end
 
+
   def update
     @conversation = current_user.conversations.find(params[:id])
     if @conversation && @conversation.update(conversation_params)
@@ -55,11 +57,22 @@ class Api::ConversationsController < ApplicationController
     end
   end
 
+
   def batch_update
     conversations = current_user.conversations.find(params[:ids])
     conversations.each {|conversation| conversation.update(conversation_params)}
 
     index
+  end
+
+  def update_draft
+    @conversation = current_user.conversations.find(params[:conversation_id])
+    @message = @conversation.messages.fund(params[:id])
+    if @conversation && @conversation.update(conversation_params) && @message && @message.update(message_params)
+      render :show
+    else
+      render nothing: true, status: 400
+    end
   end
 
   def batch_delete
