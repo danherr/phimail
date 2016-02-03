@@ -17,5 +17,6 @@ fred = User.create({fname: "Friedrich", lname:"Nietzsche", username: "ubermensch
 Conversation.destroy_all
 MessageConversationLink.destroy_all
 Message.destroy_all
+MetaConversation.destroy_all
 
 load './db/meno.rb'

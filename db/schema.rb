@@ -11,20 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160203004734) do
+ActiveRecord::Schema.define(version: 20160203144217) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "conversations", force: :cascade do |t|
-    t.integer  "user_id",                           null: false
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
-    t.boolean  "starred",           default: false
-    t.boolean  "important",         default: false
+    t.integer  "user_id",                              null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.boolean  "starred",              default: false
+    t.boolean  "important",            default: false
     t.string   "title"
     t.datetime "message_timestamp"
     t.boolean  "read"
+    t.integer  "meta_conversation_id"
   end
 
   add_index "conversations", ["message_timestamp"], name: "index_conversations_on_message_timestamp", using: :btree
@@ -41,14 +42,20 @@ ActiveRecord::Schema.define(version: 20160203004734) do
   add_index "message_conversation_links", ["message_id"], name: "index_message_conversation_links_on_message_id", using: :btree
 
   create_table "messages", force: :cascade do |t|
-    t.string   "source_address", null: false
-    t.string   "target_address", null: false
+    t.string   "source_address",                 null: false
+    t.string   "target_address",                 null: false
     t.text     "body"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.boolean  "sent",           default: false
   end
 
   add_index "messages", ["updated_at"], name: "index_messages_on_updated_at", using: :btree
+
+  create_table "meta_conversations", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "fname",         null: false

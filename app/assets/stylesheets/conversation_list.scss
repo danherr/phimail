@@ -19,15 +19,16 @@
   background: #fffec9
 }
 
-.conversation-list-item .addresses {
+.conversation-list-item span.addresses {
   padding: 0 6px 0 10px;
-  width: 184px;
+  margin-right: 20px;
+  width: 180px;
   overflow-x: hidden;
-  height: 34px;
 }
 
 .conversation-list-item > *{
-  display: inline;
+  display: block;
+  float: left
 }
 
 .conversation-list-item  .body-preview {
@@ -45,7 +46,7 @@
 }
 
 i.fa {
-  margin: 0 0 0 10px;
+  margin: 0 2.5px 0 7.5px;
   font-size: 17px;
 }
 
@@ -59,7 +60,7 @@ i.fa-star-o {
 
 i.checked {
   color: #919191;
-  margin: 0 2.5px 0 5px;
+  margin: 0 0px 0 7.5px;
 }
 
 i.checked:hover {

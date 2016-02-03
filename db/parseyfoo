@@ -8,17 +8,33 @@ $increments = ['years', 'months', 'weeks','days', 'hours', 'minutes', 'seconds']
 $time_idx = 0
 $time_num = 10.0
 $num = 3
+$soc = "daimonic#{'#{EMAIL_SIGNATURE}'}"
+$meno = "meno#{'#{EMAIL_SIGNATURE}'}"
+$boy = "boy#{'#{EMAIL_SIGNATURE}'}"
+$anytus = "anytus#{'#{EMAIL_SIGNATURE}'}"
+$meno_target = $soc
+$soc_target = $meno
+$boy_target = [$soc, $meno].join(", ")
+$anytus_target = [$soc, $meno].join(", ")
+$mnum = 1;
 header = <<-HEADER
 
 meno = User.create({fname: "Meno", lname:"of Thessalonia", username: "meno", pass: "aB345678"})
+boy = User.create({fname:"Slave Boy", lname:"of Meno", username:"boy", pass:"aB345678"})
+anytus = User.create({fname: "Anytus", lname:"of Athens", username:"anytus", pass:"123456gH"})
 soc = User.find_by_username('daimonic')
 
-con#{$num} = soc.conversations.create(title: 'A Question, Socrates')
+MetCon#{$num} = MetaConversation.create();
+
+Scon#{$num} = soc.conversations.create(title: 'A Question, Socrates', meta_conversation: MetCon#{$num})
+Mcon#{$num} = meno.conversations.create(title: 'A Question, Socrates', meta_conversation: MetCon#{$num})
+Bcon#{$num} = boy.conversations.create(title: 'A Question, Socrates', meta_conversation: MetCon#{$num})
+Acon#{$num} = anytus.conversations.create(title: 'A Question, Socrates', meta_conversation: MetCon#{$num} )
+
 
 HEADER
 
 array = array.map! do |message|
-
 
   temp = message.split(':', 2)
   name = temp[0]
@@ -27,10 +43,21 @@ array = array.map! do |message|
   if message
 
     if Random.rand > 0.9
-      min_message = "\n con#{$num}.update(message_timestamp: #{$time_num.floor}.#{$increments[$time_idx]}.ago) \n"
-      title = message.chars.take(30).join
+      min_message = "\n Scon#{$num}.update(message_timestamp: #{$time_num.floor}.#{$increments[$time_idx]}.ago) \n Mcon#{$num}.update(message_timestamp: #{$time_num.floor}.#{$increments[$time_idx]}.ago) \n\n Bcon#{$num}.update(message_timestamp: #{$time_num.floor}.#{$increments[$time_idx]}.ago) \n Acon#{$num}.update(message_timestamp: #{$time_num.floor}.#{$increments[$time_idx]}.ago) \n"
+      title = message.split(' ').take(6).join(' ')
       $num = $num + 1
-      min_message = "#{min_message}\n con#{$num} = soc.conversations.create(title: \"#{title}\" ) \n\n"
+      min_message = <<-cons
+      #{min_message}
+
+      MetCon#{$num} = MetaConversation.create();
+
+      Scon#{$num} = soc.conversations.create(title: \"#{title}\", meta_conversation: MetCon#{$num})
+      Mcon#{$num} = meno.conversations.create(title: \"#{title}\", meta_conversation: MetCon#{$num})
+      Bcon#{$num} = boy.conversations.create(title: \"#{title}\", meta_conversation: MetCon#{$num})
+      Acon#{$num} = anytus.conversations.create(title: \"#{title}\", meta_conversation: MetCon#{$num} )
+
+      cons
+
       message =  min_message + "body_str = <<-BODY \n" + message
     else
       message = "body_str = <<-BODY \n" + message
@@ -49,31 +76,49 @@ array = array.map! do |message|
 
 
     if name == "SOCRATES"
-      seed = "con#{$num}.messages.create({\n"
-      seed += <<-soc
-    source_address: "daimonic#{'#{EMAIL_SIGNATURE}'}",
-    target_address: "meno#{'#{EMAIL_SIGNATURE}'}",
-    body: body_str,
-    updated_at: #{$time_num.floor}.#{$increments[$time_idx]}.ago,
-    created_at: #{$time_num.floor}.#{$increments[$time_idx]}.ago
-    })
-  soc
-
+      seed = "msg#{$mnum} = Scon#{$num}.messages.create({\n"
+      message.sub!('SOCRATES:', "body_str = <<-BODY \n")
+      $source = $soc
+      $target = $soc_target
     elsif name == "MENO"
-      seed = "con#{$num}.messages.create({\n"
-      seed += <<-meno
-    source_address: "meno#{'#{EMAIL_SIGNATURE}'}",
-    target_address: "daimonic#{'#{EMAIL_SIGNATURE}'}",
-    body: body_str,
-    updated_at: #{$time_num.floor}.#{$increments[$time_idx]}.ago,
-    created_at: #{$time_num.floor}.#{$increments[$time_idx]}.ago
-    })
-  meno
-
+      seed = "msg#{$mnum} = Mcon#{$num}.messages.create({\n"
       message.sub!('MENO:', "body_str = <<-BODY \n")
+      $source = $meno
+      $target = $meno_target
+    elsif name == "ANYTUS"
+      seed = "msg#{$mnum} = Acon#{$num}.messages.create({\n"
+      message.sub!('ANYTUS:', "body_str = <<-BODY \n")
+      $source = $anytus
+      $target = $anytus_target
+      $soc_target = [$anytus, $meno].join(", ")
+      $meno_target = [$soc, $anytus].join(", ")
+    elsif name == "BOY"
+      seed = "msg#{$mnum} = Bcon#{$num}.messages.create({\n"
+      message.sub!('BOY:', "body_str = <<-BODY \n")
+      $source = $boy
+      $target = $boy_target
+      $soc_target = [$boy, $meno].join(", ")
+      $meno_target = [$soc, $boy].join(", ")
+    else
+      seed = ""
+      clearseed = true
     end
 
+    seed += <<-seed
+    source_address: \"#{$source}\",
+    target_address: \"#{$target}\",
+    body: body_str,
+    updated_at: #{$time_num.floor}.#{$increments[$time_idx]}.ago,
+    created_at: #{$time_num.floor}.#{$increments[$time_idx]}.ago
+    })
 
+    msg#{$mnum}.send_msg
+
+    seed
+
+
+    $mnum += 1
+    seed = "" if clearseed
 
     message = message.concat("\nBODY\n\n")
     if seed

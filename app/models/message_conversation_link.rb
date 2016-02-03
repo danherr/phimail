@@ -5,6 +5,7 @@ class MessageConversationLink < ActiveRecord::Base
   belongs_to :message
   belongs_to :conversation, touch: :message_timestamp
   has_one :user, through: :conversation
+  has_one :meta_conversation, through: :conversation
 
   after_create :mark_conversation_unread;
 

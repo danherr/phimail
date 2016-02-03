@@ -2,7 +2,8 @@ var React = require('react'),
     ConversationStore = require('../../stores/conversation_store'),
     SelectionStore = require('../../stores/selection_store'),
     ConversationActions = require('../../actions/conversation_actions'),
-    conversationApiUtil = require('../../util/conversation_api_util');
+    conversationApiUtil = require('../../util/conversation_api_util'),
+    UserStore = require('../../stores/user_store');
 
 var ConversationListItem = React.createClass({
   getInitialState: function () {
@@ -40,7 +41,31 @@ var ConversationListItem = React.createClass({
     if (e.target.tagName !== "I") this.props.history.pushState({source: this.props.pathname}, "conversation/" + this.props.conversation.id);
   },
 
+  makeAddressList: function (addresses, num_messages) {
+    addresses = addresses.map(function(address) {
+      var arr = address.split('@');
+      var name = arr[0];
+      if (name == UserStore.currentUser().username) name = 'Me';
+      return name;
+    });
+
+    if (addresses.join(", ").length > 25) {
+      first = addresses[0];
+      last = addresses.pop();
+      addresses = [first, "...", last];
+    }
+
+    addresses = addresses.join(", ");
+
+    if (num_messages > 1) {
+      addresses = addresses + " (" + num_messages + ")";
+    }
+
+    return addresses;
+  },
+
   render: function () {
+    var addresses = this.makeAddressList(this.props.conversation.addresses, this.props.conversation.num_messages);
 
     var theClass = "conversation-list-item clearfix";
 
@@ -58,7 +83,7 @@ var ConversationListItem = React.createClass({
       <div className={theClass} key={this.props.conversation.id} onClick={this.linkToDetail}>
           <i
             onClick={this.toggleSelected}
-            className={"starrer fa fa-" + (this.state.isSelected ? "check-square-o checked" : "square-o empty") }
+            className={"checker fa fa-" + (this.state.isSelected ? "check-square-o checked" : "square-o empty") }
             name="starred"
             />
         <i
@@ -68,11 +93,11 @@ var ConversationListItem = React.createClass({
           />
         <i
           onClick={this.toggleImp}
-          className={"starrer fa fa-" + (this.props.conversation.important ? "square full" : "square-o empty") }
+          className={"importer fa fa-" + (this.props.conversation.important ? "square full" : "square-o empty") }
           name="important"
           />
         <span className="addresses">
-          {this.props.conversation.address}
+          {addresses}
         </span>
         <span className="title">
           {this.props.conversation.title}

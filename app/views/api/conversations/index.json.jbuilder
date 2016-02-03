@@ -5,12 +5,17 @@ json.page_number @page_number
 
 json.conversations do
   json.array!(@conversations) do |conversation|
-    json.extract! conversation, :id, :starred, :important, :title, :message_timestamp, :read
-
     last_message = conversation.messages.order(:updated_at).last
+    if last_message
+      json.extract! conversation, :id, :starred, :important, :title, :message_timestamp, :read
 
-    json.address last_message.source_address
-    json.timestamp last_message.updated_at
-    json.body_preview "- " + last_message.body[0..77]
+      addresses = last_message.target_address.split(', ')
+      addresses.push(last_message.source_address)
+
+      json.num_messages conversation.messages.count
+      json.addresses addresses
+      json.timestamp last_message.updated_at
+      json.body_preview "- " + last_message.body[0..77]
+    end
   end
 end
