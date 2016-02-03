@@ -5,7 +5,7 @@
   background: #f4f4f4;
   position: relative;
   white-space: nowrap;
-  padding: 7px 0;
+  padding: 8px 0;
   overflow-x: hidden;
   cursor: pointer;
 }
@@ -23,6 +23,7 @@
   padding: 0 6px 0 10px;
   width: 184px;
   overflow-x: hidden;
+  height: 34px;
 }
 
 .conversation-list-item > *{
@@ -44,7 +45,7 @@
 }
 
 i.fa {
-  margin: 0 5px;
+  margin: 0 0 0 10px;
   font-size: 17px;
 }
 

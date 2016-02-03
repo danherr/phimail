@@ -9,21 +9,29 @@ var ActionBar = React.createClass({
   markAllRead: function (e) {
     var conversationIds = ConversationStore.allIds();
 
-    page = ConversationStore.pageData().pageNumber;
+    var page = ConversationStore.pageData().pageNumber;
 
     conversationApiUtil.updateConversations({read: true}, conversationIds, page);
   },
 
   markSelectedRead: function (markRead, e) {
-    page = ConversationStore.pageData().pageNumber;
+    var page = ConversationStore.pageData().pageNumber;
 
     conversationApiUtil.updateConversations({read: markRead}, this.props.referents, page);
   },
 
-  Delete: function (e) {
-    page = ConversationStore.pageData().pageNumber;
+  delete: function (e) {
+    var page = ConversationStore.pageData().pageNumber;
 
     conversationApiUtil.deleteConversations(this.props.referents, page);
+  },
+
+  changeMark: function (markType, markVal, e) {
+    var page = ConversationStore.pageData().pageNumber;
+    var ob = {};
+    ob[markType] = markVal;
+
+    conversationApiUtil.updateConversations(ob, this.props.referents, page);
   },
 
   render: function () {
@@ -125,12 +133,28 @@ var ActionBar = React.createClass({
             Delete
           </div>
           <div className="button"
-            onClick={this.markSelectedRead.bind(null, true)}>
+            onClick={this.changeMark.bind(null, 'read', true)}>
             Mark as Read
           </div>
           <div className="button"
-            onClick={this.markSelectedRead.bind(null, false)}>
+            onClick={this.changeMark.bind(null, 'read', false)}>
             Mark as Unread
+          </div>
+          <div className="button"
+            onClick={this.changeMark.bind(null, 'important', true)}>
+            Important
+          </div>
+          <div className="button"
+            onClick={this.changeMark.bind(null, 'important', false)}>
+            Unimportant
+          </div>
+          <div className="button"
+            onClick={this.changeMark.bind(null, 'starred', true)}>
+            Star
+          </div>
+          <div className="button"
+            onClick={this.changeMark.bind(null, 'starred', false)}>
+            Unstar
           </div>
         </div>
       );
