@@ -1,5 +1,5 @@
 .logo {
-  padding: 12px 60px 15px 20px ;
+  padding: 12px 55px 15px 25px ;
   float: left;
   font-size: 24px;
   font-weight: normal;
@@ -22,4 +22,51 @@
 
 .logo > div{
   color: rgb(251, 187, 0);
+}
+
+.search-bar {
+    padding: 15px 55px 15px 0 ;
+    float: left;
+    font-size: 16px;
+}
+
+.search-input {
+  font-size: 16px;
+  font-family: arial, sans-serif;
+  padding: 4px 8px;
+  width: 580px;
+  float: left;
+  display: block;
+}
+
+i.search-button {
+  color: #fff;
+  background: rgb(68, 136, 245);
+  padding: 6.5px 22.1px;
+  float: left;
+  display: block;
+  margin: 0;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+i.search-button:hover {
+  background: rgb(70, 138, 248);
+}
+
+i.search-button:active {
+  background: rgb(62, 123, 224);
+}
+
+.profile-container {
+  display: block;
+  width: 25px;
+  position: relative;
+  float: right;
+  margin: 15px 20px;
+  padding: 0 3px;
+}
+
+.profile-pic {
+  border-radius: 50%;
 }

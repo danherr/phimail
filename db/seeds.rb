@@ -11,7 +11,7 @@
 
 User.destroy_all
 
-soc = User.create({fname: "Socrates", lname:"of Athens", username: "daimonic", pass: "Iamplato1"})
+soc = User.create({fname: "Socrates", lname:"of Athens", username: "daimonic", pass: "Iamplato1", avatar_url: ActionController::Base.helpers.asset_path("socrates.png")})
 fred = User.create({fname: "Friedrich", lname:"Nietzsche", username: "ubermensch", pass: "Will2Power"})
 
 Conversation.destroy_all

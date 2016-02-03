@@ -1,0 +1,50 @@
+
+.sidebar {
+  position: relative;
+
+}
+
+.app-name {
+  color: rgb(215, 76, 52);
+  font-decoration: none;
+  display: inline;
+  padding: 14px 124px 16px 25px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.app-name > h4 {
+  font-size: 26px;
+  display: inline;
+  font-weight: lighter;
+}
+
+.app-name > h5 {
+  font-size: 18px;
+  display: inline;
+  font-weight: normal;
+}
+
+.compose-button-area {
+  display: block;
+  padding: 24px 30px;
+}
+
+.compose-button {
+  background: rgb(214, 76, 52);
+  color: #fff;
+  font-size: 11.5px;
+  padding: 6px 29px;
+  border-radius: 2px;
+  font-weight: bold;
+  border: 1px solid rgb(214, 76, 52);
+}
+
+.compose-button:hover {
+  background: rgb(205, 66, 42);
+  border: 1px solid rgb(205, 66, 42);
+}
+
+.compose-button:active{
+  border: rgb(175, 43, 21) solid 1px;
+  background: rgb(200, 64, 40);
+}
