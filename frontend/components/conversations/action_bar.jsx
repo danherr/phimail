@@ -128,7 +128,7 @@ var ActionBar = React.createClass({
       midButtons = (
         <div className="mid-buttons button-group" >
           <div className="button"
-            onClick={this.Delete}
+            onClick={this.delete}
             >
             Delete
           </div>

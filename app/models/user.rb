@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
   has_many :message_conversation_links, through: :conversations
   has_many :messages, through: :conversations
 
-  after_initialize :ensure_session_token
+  after_initialize :ensure_session_token, :ensure_profile_pic
 
   attr_reader :pass
 
@@ -54,6 +54,10 @@ class User < ActiveRecord::Base
     if self.pass
       errors.add(:Password, "must be at least 8 characters.") unless pass.length >= 8
     end
+  end
+
+  def ensure_profile_pic
+    self.avatar_url = ActionController::Base.helpers.asset_path("default_user.png") unless self.avatar_url
   end
 
 end

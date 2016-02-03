@@ -11,8 +11,13 @@ var SearchBar = React.createClass({
 
   render: function () {
     return (
-      <section className="searchbar">
-        SearchBar
+      <section className="searchbar clearfix">
+        <div className="logo">
+          φ<p>ι</p><div>λ</div>ο<em>σ</em>ο<p>φ</p><div>ί</div>α
+        </div>
+
+
+
         <button onClick={this.logOut} >Log Out</button>
       </section>
     );

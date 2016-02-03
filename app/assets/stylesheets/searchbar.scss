@@ -1,0 +1,25 @@
+.logo {
+  padding: 12px 60px 15px 20px ;
+  float: left;
+  font-size: 24px;
+  font-weight: normal;
+  color: rgb(65, 137, 248);
+}
+
+.logo > *{
+  display: inline;
+}
+
+.logo > p{
+  color: rgb(65, 137, 248);
+  color: rgb(232, 70, 48);
+}
+
+.logo > em{
+  font-style: normal;
+  color: rgb(58, 166, 76);
+}
+
+.logo > div{
+  color: rgb(251, 187, 0);
+}
