@@ -35,8 +35,9 @@ class Conversation < ActiveRecord::Base
     message = self.messages.find(message.id)
 
     if message
-      target = message.source_address
-      target = "#{target}, #{message.target_address}"
+      target = message.target_address.split(', ')
+      target.push(message.source_address)
+      target = target.uniq.join(', ')
       self.make_draft(target, body)
     end
   end

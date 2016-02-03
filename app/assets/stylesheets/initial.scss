@@ -39,3 +39,13 @@ img {
   width: auto;
   height: 100%;
 }
+
+.button {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.hideme {
+  display: none !important;
+}

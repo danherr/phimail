@@ -1,4 +1,5 @@
-var React = require('react');
+var React = require('react'),
+    ComposeButton = require('./conversations/compose_button');
 
 
 var SideBar = React.createClass({
@@ -12,11 +13,8 @@ var SideBar = React.createClass({
           </h5>
         </div>
 
-        <div className="compose-button-area">
-          <span className="compose-button">
-            COMPOSE
-          </span>
-        </div>
+        <ComposeButton/>
+
       </section>
     );
   }
