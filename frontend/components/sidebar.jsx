@@ -3,6 +3,7 @@ var React = require('react'),
 
 
 var SideBar = React.createClass({
+  
   render: function () {
     return (
       <section className="sidebar clearfix">
@@ -14,6 +15,12 @@ var SideBar = React.createClass({
         </div>
 
         <ComposeButton/>
+
+        <section className="sidebar-folder-list">
+          <a href= "#/inbox/1">Inbox</a>
+          <a href= "#/drafts/1">Drafts</a>
+          <a href= "#/sent/1">Sent Mail</a>
+        </section>
 
       </section>
     );

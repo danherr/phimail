@@ -25,7 +25,7 @@
 
 .compose-button-area {
   display: block;
-  padding: 24px 30px;
+  padding: 24px 30px 11px 30px;
 }
 
 .compose-button {
@@ -137,4 +137,20 @@ div.new-message-bottombar div.send-button {
 
 .new-message-window .send-button:active {
   background: rgb(62, 123, 224);
+}
+
+.sidebar-folder-list {
+
+}
+
+.sidebar-folder-list a {
+  display: block;
+  margin: 0 15px;
+  font-size: 12.8px;
+  padding: 3px 15px 3px 15px;
+  font-family: arial, sans-serif;
+}
+
+.sidebar-folder-list a:hover {
+  background: #eeeeee;
 }

@@ -113,7 +113,7 @@ var ConversationDetail = React.createClass({
     newSource = newSource.join('/');
     newSource = newSource + '/' + newPage;
 
-    conversationApiUtil.fetchConversations(newPage, function(newPage, pathArr, num, newSource) {
+    conversationApiUtil.fetchConversations({page: newPage}, function(newPage, pathArr, num, newSource) {
       if (num < 0) {num += ConversationStore.all().length;} else {num -= 1;}
       var newId = ConversationStore.all()[num].id;
 

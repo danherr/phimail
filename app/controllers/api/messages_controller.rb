@@ -32,7 +32,7 @@ class Api::MessagesController < ApplicationController
     @conversation = current_user.conversations.find(params[:conversation_id])
     @message = @conversation.messages.find(params[:id])
     if @conversation && @conversation.update(conversation_params) && @message && @message.update(message_params)
-      @message.send_msg if params[:send]
+      @message.send_msg if (params[:send] == "true")
 
       render '/api/shared/draft'
     else

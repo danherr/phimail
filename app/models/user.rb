@@ -42,12 +42,16 @@ class User < ActiveRecord::Base
     self.session_token
   end
 
-  def sent_conversations
-    self.conversations.where(' "conversations"."sent" ')
+  def drafts
+    self.conversations.joins(:messages).where('NOT messages.sent').group('conversations.id')
   end
 
-  def drafts
-    
+  def sent_conversations
+    self.conversations.joins(:messages).where('messages.sent').group('conversations.id')
+  end
+
+  def received_conversations
+    self.conversations.where('received')
   end
 
   private

@@ -36,7 +36,7 @@ var ConversationsList = React.createClass({
 
     this.reload(this.props);
 
-    this.reloadInterval = window.setInterval(this.reload.bind(this, this.props), 5000);
+    this.reloadInterval = window.setInterval(this.reload, 5000);
 
   },
 
@@ -53,10 +53,15 @@ var ConversationsList = React.createClass({
   },
 
   reload: function (theProps) {
-    conversationApiUtil.fetchConversations(theProps.params.page_num);
+    var options = {};
+    theProps = theProps || this.props;
+    options.url = theProps.route.ajaxUrl;
+    options.page = theProps.params.page_num;
+    conversationApiUtil.fetchConversations(options);
   },
 
   turnPage: function (num) {
+    debugger
     var pathArr = this.props.location.pathname.split('/');
     var page_num = parseInt(pathArr.pop());
     pathArr.push(page_num + num);

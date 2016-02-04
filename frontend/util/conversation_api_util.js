@@ -2,11 +2,13 @@ var ConversationActions = require('../actions/conversation_actions');
 
 var apiUtil = {
 
-  fetchConversations: function (page, callback) {
-    if (!page) page = 1;
+  fetchConversations: function (options, callback) {
+    var url = options.url || '/api/conversations';
+    var page = options.page || 1;
+
     $.ajax({
       type: 'GET',
-      url: '/api/conversations',
+      url: url,
       dataType: 'json',
       data: {page: page},
       success: function (data) {

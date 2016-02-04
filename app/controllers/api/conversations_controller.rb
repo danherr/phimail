@@ -3,32 +3,22 @@ class Api::ConversationsController < ApplicationController
   before_action :require_logged_in
 
   def index
-    @page_number = params[:page].try(:to_i) || 1
-    @offset = (@page_number - 1) * 50
-
-    @num_con = current_user.sent_conversations.count
-
-    until @num_con > @offset do
-      @offset -= 50
-      @page_number -= 1
-    end
-
-    until @offset >= 0 do
-      @offset += 50
-      @page_number += 1
-    end
-
-    @conversations = current_user.sent_conversations
-      .limit(50).offset(@offset).includes(:messages)
-
-    render :index;
+    conversation_list(:received_conversations)
   end
 
   def drafts
+    conversation_list(:drafts)
+  end
+
+  def sent
+    conversation_list(:sent_conversations)
+  end
+
+  def conversation_list listing_method
     @page_number = params[:page].try(:to_i) || 1
     @offset = (@page_number - 1) * 50
 
-    @num_con = current_user.drafts.count
+    @num_con = current_user.send(listing_method).length
 
     until @num_con > @offset do
       @offset -= 50
@@ -40,11 +30,12 @@ class Api::ConversationsController < ApplicationController
       @page_number += 1
     end
 
-    @conversations = current_user.drafts
-      .limit(50).offset(@offset).includes(:messages)
+    @conversations = current_user.send(listing_method)
+      .limit(50).offset(@offset)
 
     render :index;
   end
+
 
   def create
     @conversation = current_user.conversations.create(conversation_params)

@@ -34,7 +34,7 @@ class Message < ActiveRecord::Base
                 })
             end
 
-            new_conversation.update({recieved: true});
+            new_conversation.update({received: true});
 
             unless new_conversation.message_conversation_links.find_by_message_id(self.id)
               new_conversation.message_conversation_links.create({ message_id: self.id })
