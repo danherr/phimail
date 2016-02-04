@@ -16,6 +16,13 @@ json.conversations do
       json.addresses addresses
       json.timestamp last_message.updated_at
       json.body_preview "- " + last_message.body[0..77]
+
+      if @draft
+        json.last_message do
+          json.partial! 'api/shared/message', message: last_message, full_message: true
+        end
+      end
+
     end
   end
 end

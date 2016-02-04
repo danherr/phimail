@@ -3,14 +3,17 @@ class Api::ConversationsController < ApplicationController
   before_action :require_logged_in
 
   def index
+    @draft = false
     conversation_list(:received_conversations)
   end
 
   def drafts
+    @draft = true
     conversation_list(:drafts)
   end
 
   def sent
+    @draft = false
     conversation_list(:sent_conversations)
   end
 

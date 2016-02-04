@@ -2,6 +2,7 @@ var React = require('react'),
     MessageStore = require('../../stores/message_store'),
     NewMessageWindow = require('./new_message_window'),
     messageApiUtil = require('../../util/message_api_util'),
+    popupActions = require('../../actions/popup_actions'),
     _und = require('underscore'),
     classNames = require('classnames');
 
@@ -10,21 +11,29 @@ var ComposeButton = React.createClass({
     return {newMessageList: []};
   },
 
+  componentDidMount: function () {
+    popupActions.addCallback("popUpDraftWindow", this.popUpDraftWindow.bind(this));
+  },
+
+  componentWillUnmount: function () {
+    popupActions.removeCallback("popUpDraftWindow");
+  },
+
   createMessage: function () {
+    messageApiUtil.createDraft(this.popUpDraftWindow.bind(this));
+  },
 
-    messageApiUtil.createDraft(function (draft) {
+  popUpDraftWindow: function (draft) {
 
-      var messages = this.state.newMessageList;
-      messages.push(<NewMessageWindow
-        close={this.closeMessageWindow.bind(this, messages.length)}
-        draft={draft}
-        key={messages.length}
-        />
-      );
+    var messages = this.state.newMessageList;
+    messages.push(<NewMessageWindow
+      close={this.closeMessageWindow.bind(this, messages.length)}
+      draft={draft}
+      key={messages.length}
+      />
+    );
 
-      this.setState( { newMessageList: messages } );
-    }.bind(this));
-
+    this.setState( { newMessageList: messages } );
   },
 
   closeMessageWindow: function (ind) {

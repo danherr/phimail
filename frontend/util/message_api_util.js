@@ -50,7 +50,7 @@ var messageApiUtil = {
       url: '/api/conversations/' + draft.conversation_id + '/messages/' + draft.id + '/update_draft',
       dataType: 'json',
       data: {
-        conversation: {title: draft.title},
+        conversation: {title: draft.title, read: true},
         message: {
           target_address: draft.target_address,
           body: draft.body

@@ -1,9 +1,10 @@
 var React = require('react'),
     ConversationStore = require('../../stores/conversation_store'),
     SelectionStore = require('../../stores/selection_store'),
+    UserStore = require('../../stores/user_store'),
+    PopupStore = require('../../stores/popup_store'),
     ConversationActions = require('../../actions/conversation_actions'),
-    conversationApiUtil = require('../../util/conversation_api_util'),
-    UserStore = require('../../stores/user_store');
+    conversationApiUtil = require('../../util/conversation_api_util');
 
 var ConversationListItem = React.createClass({
   getInitialState: function () {
@@ -38,7 +39,19 @@ var ConversationListItem = React.createClass({
 
 
   linkToDetail: function (e) {
-    if (e.target.tagName !== "I") this.props.history.pushState({source: this.props.pathname}, "conversation/" + this.props.conversation.id);
+    if (e.target.tagName !== "I") {
+      if (this.props.conversation.received) {
+        this.props.history.pushState({source: this.props.pathname}, "conversation/" + this.props.conversation.id);
+      } else {
+        var draft = {};
+        draft.conversation_id = this.props.conversation.id;
+        draft.id = this.props.conversation.last_message.id;
+        draft.body = this.props.conversation.last_message.body;
+        draft.title = this.props.conversation.title;
+        draft.target_address = this.props.conversation.last_message.target_address;
+        PopupStore.popupCB("popUpDraftWindow")(draft);
+      }
+    }
   },
 
   makeAddressList: function (addresses, num_messages) {
