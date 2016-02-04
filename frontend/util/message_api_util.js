@@ -26,7 +26,42 @@ var messageApiUtil = {
       error: function () {
       }
     });
-  }
+  },
+
+  createDraft: function (callback) {
+    $.ajax ({
+      type: 'POST',
+      url: '/api/conversations',
+      dataType: 'json',
+      data: {
+        conversation: {title: ""},
+        message: {body: "",
+                  target_address: ""},
+      },
+      success: function (data) {
+        MessageActions.receiveDraft(data, callback);
+      }
+    });
+  },
+
+  updateDraft: function (draft, send, callback) {
+    $.ajax ({
+      type: 'PATCH',
+      url: '/api/conversations/' + draft.conversation_id + '/messages/' + draft.id + '/update_draft',
+      dataType: 'json',
+      data: {
+        conversation: {title: draft.title},
+        message: {
+          target_address: draft.target_address,
+          body: draft.body
+        },
+        send: send
+      },
+      success: function (data) {
+        MessageActions.receiveDraft(data, callback);
+      }
+    });
+  },
 
 };
 

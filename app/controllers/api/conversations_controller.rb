@@ -25,12 +25,15 @@ class Api::ConversationsController < ApplicationController
   end
 
   def create
-    @conversation = current_user.conversation.create(conversation_params)
-    @conversation.meta_conversation.create();
-    @message = [@conversation.messages.new(message_params)]
+    @conversation = current_user.conversations.create(conversation_params)
 
-    if @message.save
-      render :show
+    m_params = message_params.to_hash
+    m_params["source_address"] = "#{current_user.username}#{EMAIL_SIGNATURE}"
+
+    @message = @conversation.messages.create(m_params)
+
+    if @message
+      render '/api/shared/draft'
     else
       @conversation.destroy
       render json: @message.errors.full_messages, status: 400;
@@ -76,12 +79,6 @@ class Api::ConversationsController < ApplicationController
     end
 
     index
-  end
-
-  private
-
-  def conversation_params
-    params.require(:conversation).permit(:title, :important, :starred, :read);
   end
 
 end

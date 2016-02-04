@@ -14,6 +14,14 @@ var MessageActions = {
       actionType: MessageConstants.receiveOne,
       message: message
     });
+  },
+
+  receiveDraft: function (draft, callback) {
+    Dispatcher.dispatch({
+      actionType: MessageConstants.oneDraft,
+      draft: draft,
+      callback: callback,
+    });
   }
 
 };

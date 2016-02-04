@@ -11,13 +11,20 @@ var ComposeButton = React.createClass({
   },
 
   createMessage: function () {
-    var messages = this.state.newMessageList;
-    messages.push(<NewMessageWindow
-      close={this.closeMessageWindow.bind(this, messages.length)}
-      key={messages.length}
-      />);
 
-    this.setState( { newMessageList: messages } );
+    messageApiUtil.createDraft(function (draft) {
+
+      var messages = this.state.newMessageList;
+      messages.push(<NewMessageWindow
+        close={this.closeMessageWindow.bind(this, messages.length)}
+        draft={draft}
+        key={messages.length}
+        />
+      );
+
+      this.setState( { newMessageList: messages } );
+    }.bind(this));
+
   },
 
   closeMessageWindow: function (ind) {

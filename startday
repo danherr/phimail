@@ -11,4 +11,10 @@ bundle exec rake db:create db:migrate db:seed
 
 heroku logout
 
+rm ~/.ssh/id_*
+heroku login
+heroku keys:add
+
+heroku git:remote phimail
+
 webpack --watch

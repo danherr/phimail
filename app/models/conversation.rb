@@ -8,6 +8,8 @@ class Conversation < ActiveRecord::Base
   has_many :message_conversation_links, dependent: :destroy
   has_many :messages, through: :message_conversation_links
 
+  before_save :ensure_meta
+
   default_scope { order('message_timestamp DESC') }
 
   def body_preview
@@ -40,6 +42,12 @@ class Conversation < ActiveRecord::Base
       target = target.uniq.join(', ')
       self.make_draft(target, body)
     end
+  end
+
+  private
+
+  def ensure_meta
+    self.meta_conversation = MetaConversation.create unless self.meta_conversation_id
   end
 
 end

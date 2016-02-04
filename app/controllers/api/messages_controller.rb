@@ -12,6 +12,7 @@ class Api::MessagesController < ApplicationController
 
     if @conversation
       @message = @conversation.messages.new(message_params)
+      @message.source_address = "#{current_user.username}#{EMAIL_SIGNATURE}"
 
       if @message.save
         render :show
@@ -29,11 +30,11 @@ class Api::MessagesController < ApplicationController
 
   def update_draft
     @conversation = current_user.conversations.find(params[:conversation_id])
-    @message = @conversation.messages.fund(params[:id])
+    @message = @conversation.messages.find(params[:id])
     if @conversation && @conversation.update(conversation_params) && @message && @message.update(message_params)
-      @message.send if params[:send]
+      @message.send_msg if params[:send]
 
-      render :show
+      render '/api/shared/draft'
     else
       render nothing: true, status: 400
     end

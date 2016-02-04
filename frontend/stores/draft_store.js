@@ -15,11 +15,11 @@ DraftStore.one = function (id) {
   return _drafts[id];
 };
 
-DraftStore.addManyToStore = function (drafts) {
-  drafts.forEach(this.addOneToStore);
+DraftStore.receiveMany = function (drafts) {
+  drafts.forEach(this.addOneToOrRemoveOneFromStore);
 };
 
-DraftStore.addOneToStore = function (draft) {
+DraftStore.addOneToOrRemoveOneFromStore = function (draft) {
   if (draft.sent) {
     _drafts[draft.id] = undefined;
   } else {
@@ -30,11 +30,11 @@ DraftStore.addOneToStore = function (draft) {
 DraftStore.__onDispatch = function (payload) {
 
   if (payload.actionType === MessageConstants.receiveDrafts) {
-    this.addManyToStore(payload.drafts);
+    this.receiveMany(payload.drafts);
     this.__emitChange();
   } else if (payload.actionType === MessageConstants.oneDraft) {
-    this.addOneToStore(payload.draft);
-    if (payload.callback) payload.callback();
+    this.addOneToOrRemoveOneFromStore(payload.draft);
+    if (payload.callback) payload.callback(payload.draft);
     this.__emitChange();
   }
 };

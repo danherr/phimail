@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160203213545) do
+ActiveRecord::Schema.define(version: 20160204162631) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20160203213545) do
     t.boolean  "read"
     t.integer  "meta_conversation_id"
     t.boolean  "recieved",             default: false
+    t.boolean  "sent",                 default: false
   end
 
   add_index "conversations", ["message_timestamp"], name: "index_conversations_on_message_timestamp", using: :btree

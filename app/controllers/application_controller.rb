@@ -29,7 +29,11 @@ class ApplicationController < ActionController::Base
   private
 
   def message_params
-    params.require(message).permit(:source_address, :target_address, :body)
+    params.require(:message).permit(:target_address, :body)
+  end
+
+  def conversation_params
+    params.require(:conversation).permit(:title, :important, :starred, :read);
   end
 
 end
