@@ -34,18 +34,26 @@ var ConversationsList = React.createClass({
       this.setState({selectedIds: this.getSelectedIds(this.state.conversations)});
     }.bind(this));
 
-    conversationApiUtil.fetchConversations(this.props.params.page_num);
+    this.reload(this.props);
+
+    this.reloadInterval = window.setInterval(this.reload.bind(this, this.props), 5000);
+
   },
 
   componentWillReceiveProps: function (newProps) {
     if (newProps.location.pathname !== this.props.location.pathname) {
-      conversationApiUtil.fetchConversations(newProps.params.page_num);
+      this.reload(newProps);
     }
   },
 
   componentWillUnmount: function () {
     this.conversationStoreListener.remove();
     this.selectionStoreListener.remove();
+    window.clearInterval(this.reloadInterval);
+  },
+
+  reload: function (theProps) {
+    conversationApiUtil.fetchConversations(theProps.params.page_num);
   },
 
   turnPage: function (num) {

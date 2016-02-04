@@ -6,7 +6,7 @@ class Api::ConversationsController < ApplicationController
     @page_number = params[:page].try(:to_i) || 1
     @offset = (@page_number - 1) * 50
 
-    @num_con = current_user.conversations.all.count
+    @num_con = current_user.sent_conversations.count
 
     until @num_con > @offset do
       @offset -= 50
@@ -18,7 +18,29 @@ class Api::ConversationsController < ApplicationController
       @page_number += 1
     end
 
-    @conversations = current_user.conversations.all
+    @conversations = current_user.sent_conversations
+      .limit(50).offset(@offset).includes(:messages)
+
+    render :index;
+  end
+
+  def drafts
+    @page_number = params[:page].try(:to_i) || 1
+    @offset = (@page_number - 1) * 50
+
+    @num_con = current_user.drafts.count
+
+    until @num_con > @offset do
+      @offset -= 50
+      @page_number -= 1
+    end
+
+    until @offset >= 0 do
+      @offset += 50
+      @page_number += 1
+    end
+
+    @conversations = current_user.drafts
       .limit(50).offset(@offset).includes(:messages)
 
     render :index;

@@ -7,7 +7,7 @@ json.conversations do
   json.array!(@conversations) do |conversation|
     last_message = conversation.messages.order(:updated_at).last
     if last_message
-      json.extract! conversation, :id, :starred, :important, :title, :message_timestamp, :read
+      json.extract! conversation, :id, :starred, :important, :title, :message_timestamp, :read, :sent
 
       addresses = last_message.target_address.split(', ')
       addresses.push(last_message.source_address)

@@ -42,6 +42,14 @@ class User < ActiveRecord::Base
     self.session_token
   end
 
+  def sent_conversations
+    self.conversations.where(' "conversations"."sent" ')
+  end
+
+  def drafts
+    
+  end
+
   private
 
   def ensure_session_token

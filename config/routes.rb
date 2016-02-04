@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       collection do
         patch 'batch_update'
         delete 'batch_delete'
+        get 'drafts'
       end
 
       resources :messages, only: [:create] do
@@ -21,7 +22,7 @@ Rails.application.routes.draw do
           patch 'update_draft'
         end
       end
-        
+
     end
 
 

@@ -64,7 +64,7 @@ var NewMessageWindow = React.createClass({
         onChange={this.changeSubject}
         type="text"
         className="new-message-target input"
-        value={this.state.subject}
+        value={this.state.title}
         placeholder="Subject"
         />
         <textarea

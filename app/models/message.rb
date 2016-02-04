@@ -49,7 +49,8 @@ class Message < ActiveRecord::Base
 
       end
 
-      self.sent = true;
+      current_conversation.update({sent: true});
+      self.update({sent: true});
     end
   end
 
