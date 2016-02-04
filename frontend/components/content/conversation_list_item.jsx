@@ -40,9 +40,7 @@ var ConversationListItem = React.createClass({
 
   linkToDetail: function (e) {
     if (e.target.tagName !== "I") {
-      if (this.props.conversation.received) {
-        this.props.history.pushState({source: this.props.pathname}, "conversation/" + this.props.conversation.id);
-      } else {
+      if (this.props.conversation.draft) {
         var draft = {};
         draft.conversation_id = this.props.conversation.id;
         draft.id = this.props.conversation.last_message.id;
@@ -50,6 +48,8 @@ var ConversationListItem = React.createClass({
         draft.title = this.props.conversation.title;
         draft.target_address = this.props.conversation.last_message.target_address;
         PopupStore.popupCB("popUpDraftWindow")(draft);
+      } else {
+        this.props.history.pushState({source: this.props.pathname}, "conversation/" + this.props.conversation.id);
       }
     }
   },

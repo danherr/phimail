@@ -8,8 +8,8 @@ var React = require('react'),
     Login = require('./components/login'),
     Signup = require('./components/signup'),
     App = require('./components/app'),
-    ConversationsList = require('./components/conversations/conversations_list.jsx'),
-    ConversationDetail = require('./components/conversations/conversation_detail.jsx'),
+    ConversationsList = require('./components/content/conversations_list.jsx'),
+    ConversationDetail = require('./components/content/conversation_detail.jsx'),
     UserStore = require('./stores/user_store'),
     userApiUtil = require('./util/user_api_util');
 

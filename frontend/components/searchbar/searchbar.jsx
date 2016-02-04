@@ -1,6 +1,6 @@
 var React = require('react'),
-    userApiUtil = require('../util/user_api_util'),
-    UserStore = require('../stores/user_store');
+    userApiUtil = require('../../util/user_api_util'),
+    UserStore = require('../../stores/user_store');
 
 
 var SearchBar = React.createClass({

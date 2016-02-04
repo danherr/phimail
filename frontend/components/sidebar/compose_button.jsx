@@ -3,8 +3,7 @@ var React = require('react'),
     NewMessageWindow = require('./new_message_window'),
     messageApiUtil = require('../../util/message_api_util'),
     popupActions = require('../../actions/popup_actions'),
-    _und = require('underscore'),
-    classNames = require('classnames');
+    _und = require('underscore');
 
 var ComposeButton = React.createClass({
   getInitialState: function () {

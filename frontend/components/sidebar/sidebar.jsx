@@ -1,9 +1,9 @@
 var React = require('react'),
-    ComposeButton = require('./conversations/compose_button');
+    ComposeButton = require('./compose_button');
 
 
 var SideBar = React.createClass({
-  
+
   render: function () {
     return (
       <section className="sidebar clearfix">

@@ -1,6 +1,6 @@
 var React = require('react'),
-    SideBar = require('./sidebar.jsx'),
-    SearchBar = require('./searchbar.jsx');
+    SideBar = require('./sidebar/sidebar.jsx'),
+    SearchBar = require('./searchbar/searchbar.jsx');
 
 
 var App = React.createClass({
