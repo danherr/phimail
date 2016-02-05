@@ -104,8 +104,6 @@ div.message-detail-header {
   color: #000;
 }
 
-
-
 .reply-editor {
   border: 1px solid #cfcfcf;
   margin: 10px 0 5px 20px;
@@ -120,6 +118,27 @@ div.message-detail-header {
   outline: 0;
   border: 1px solid #cecece;
   border-top: 0;
+}
+
+.reply-target * {
+  float: left;
+}
+
+.reply-target .reply-address-array-item{
+  padding: 2px 5px;
+  margin-left: 5px;
+  border: 1px solid #d0d0d0;
+  border-radius: 2px;
+  background: #f2f2f2;
+}
+
+.reply-target-inner-input {
+  padding: 3px 6px;
+  margin-left: 2px;
+  border: 0;
+  outline: 0;
+  display: block;
+  font-size: 13px;
 }
 
 .reply-body {

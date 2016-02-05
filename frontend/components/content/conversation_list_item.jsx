@@ -40,7 +40,7 @@ var ConversationListItem = React.createClass({
 
   linkToDetail: function (e) {
     if (e.target.tagName !== "I") {
-      if (this.props.conversation.draft) {
+      if (!this.props.conversation.sent) {
         var draft = {};
         draft.conversation_id = this.props.conversation.id;
         draft.id = this.props.conversation.last_message.id;

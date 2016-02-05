@@ -6,12 +6,16 @@ var React = require('react'),
 
 var NewMessageWindow = React.createClass({
   getInitialState: function () {
+    var target_address = this.props.draft.target_address.trim();
+    var address_array = (target_address.length > 0) ? target_address.split(', ') : [];
     return {
-      target_address: this.props.draft.target_address,
+      target_address: target_address,
       title: this.props.draft.title,
       body: this.props.draft.body,
       conversation_id: this.props.draft.conversation_id,
-      id: this.props.draft.id
+      id: this.props.draft.id,
+      address_input: "",
+      address_array: address_array,
     };
   },
 
@@ -25,9 +29,37 @@ var NewMessageWindow = React.createClass({
   },
 
   changeTarget: function (e) {
-    this.setState({target_address: e.target.value});
+    var value = e.target.value;
+    var address_array = this.state.address_array;
+    if (value.endsWith(' ') || value.endsWith(',')) {
+      address_array.push(value.trim().replace(',',''));
+      this.setState({
+        address_input: '',
+        address_array: address_array,
+        target_address: address_array.join(', ')
+      });
+    } else {
+      this.setState({address_input: value});
+    }
     this.setUpdateClock();
   },
+
+  removeAddress: function (e) {
+    var value = this.state.address_input;
+
+    if (value === "" && e.key == "Backspace") {
+      address_array = this.state.address_array;
+      address_array.pop();
+
+      this.setState({
+        address_input: '',
+        address_array: address_array,
+        target_address: address_array.join(', ')
+      });
+      this.setUpdateClock();
+    }
+  },
+
 
   changeSubject: function (e) {
     this.setState({title: e.target.value});
@@ -62,6 +94,18 @@ var NewMessageWindow = React.createClass({
     this.props.close();
   },
   render: function () {
+
+    var address_array = this.state.address_array.map(function (address, index) {
+      return (
+        <span
+        key={index}
+        className="new-message-address-array-item"
+        >
+        {address}
+        </span>
+      );
+    });
+
     return (
       <div className={"new-message-window " + this.props.className}>
 
@@ -70,16 +114,23 @@ var NewMessageWindow = React.createClass({
 
           <i className="fa fa-times" onClick={this.close}></i>
         </div>
-        <input onChange={this.changeTarget}
-        type="text"
-        className="new-message-source input"
-        value={this.state.target_address}
-        placeholder="Recipients"
-        />
+
+        <div className="new-message-target input clearfix">
+          {address_array}
+          <input
+            onChange={this.changeTarget}
+            onKeyDown={this.removeAddress}
+            type="text"
+            className="new-message-target-inner-input"
+            value={this.state.address_input}
+            placeholder={this.state.address_array.length === 0 ? "Recipients" : ""}
+          />
+        </div>
+
         <input
         onChange={this.changeSubject}
         type="text"
-        className="new-message-target input"
+        className="new-message-subject input"
         value={this.state.title}
         placeholder="Subject"
         />

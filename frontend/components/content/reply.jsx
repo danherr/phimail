@@ -10,7 +10,9 @@ var ReplyEditor = React.createClass({
       target_address: this.props.draft.target_address,
       body: this.props.draft.body,
       conversation_id: this.props.draft.conversation_id,
-      id: this.props.draft.id
+      id: this.props.draft.id,
+      address_input: "",
+      address_array: this.props.draft.target_address.split(", "),
     };
   },
 
@@ -24,8 +26,35 @@ var ReplyEditor = React.createClass({
   },
 
   changeTarget: function (e) {
-    this.setState({target_address: e.target.value});
+    var value = e.target.value;
+    var address_array = this.state.address_array;
+    if (value.endsWith(' ') || value.endsWith(',')) {
+      address_array.push(value.trim().replace(',',''));
+      this.setState({
+        address_input: '',
+        address_array: address_array,
+        target_address: address_array.join(', ')
+      });
+    } else {
+      this.setState({address_input: value});
+    }
     this.setUpdateClock();
+  },
+
+  removeAddress: function (e) {
+    var value = this.state.address_input;
+
+    if (value === "" && e.key == "Backspace") {
+      address_array = this.state.address_array;
+      address_array.pop();
+
+      this.setState({
+        address_input: '',
+        address_array: address_array,
+        target_address: address_array.join(', ')
+      });
+      this.setUpdateClock();
+    }
   },
 
   changeBody: function (e) {
@@ -44,15 +73,30 @@ var ReplyEditor = React.createClass({
   },
 
   render: function () {
+    var address_array = this.state.address_array.map(function (address, index) {
+      return (
+        <span
+        key={index}
+        className="reply-address-array-item"
+        >
+        {address}
+        </span>
+      );
+    });
+
     return (
       <div className={"reply-editor " + this.props.className}>
-
-        <input onChange={this.changeTarget}
-        type="text"
-        className="reply-source input"
-        value={this.state.target_address}
-        placeholder="Recipients"
-        />
+        <div className="reply-target input clearfix">
+          {address_array}
+          <input
+          onChange={this.changeTarget}
+          onKeyDown={this.removeAddress}
+          type="text"
+          className="reply-target-inner-input"
+          value={this.state.address_input}
+          placeholder={this.state.address_array.length === 0 ? "Recipients" : ""}
+          />
+        </div>
         <textarea
         className="reply-body input"
         onChange={this.changeBody}

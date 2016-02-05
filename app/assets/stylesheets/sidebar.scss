@@ -102,6 +102,30 @@
   border-top: 0;
 }
 
+div.new-message-target {
+  background: #fff;
+}
+
+.new-message-target * {
+  float: left;
+}
+
+.new-message-target .new-message-address-array-item{
+  padding: 2px 5px;
+  margin-right: 5px;
+  border: 1px solid #d0d0d0;
+  border-radius: 2px;
+  background: #f2f2f2;
+}
+
+.new-message-target-inner-input {
+  padding: 3px 6px 3px 0;
+  border: 0;
+  outline: 0;
+  display: block;
+  font-size: 13px;
+}
+
 .new-message-body {
   resize: none;
   height: calc(100% - 142px);
