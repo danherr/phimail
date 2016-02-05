@@ -63,10 +63,102 @@ i.search-button:active {
   height: 34px;
   position: relative;
   float: right;
-  margin: 13px 25px;
+  margin: 12px 25px;
   padding: 0 3px;
 }
 
 .profile-pic {
   border-radius: 50%;
+}
+
+div.user-detail-window {
+  position: absolute;
+  height: 190px;
+  width: 320px;
+  box-sizing: border-box;
+  background: #ffffff;
+  right: 30px;
+  top: 59px;
+  z-index: 2;
+  border: solid 1px #cccccc;
+  padding: 20px 20px 0 20px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 10px 0px;
+}
+
+div.user-detail-window:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top:-22px;
+  right: 3.5px;
+  border: 11px solid;
+  border-color: transparent transparent #cccccc transparent;
+  z-index: 2;
+}
+
+div.user-detail-window:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top:-20px;
+  right: 3.5px;
+  border: 11px solid;
+  border-color: transparent transparent #ffffff transparent;
+  z-index: 2;
+}
+
+.profile-container-detail {
+  display: block;
+  height: 96px;
+  position: relative;
+  float: left;
+  margin: 0;
+  padding: 0 3px;
+}
+
+.profile-pic-detail {
+  border-radius: 50%;
+}
+
+.user-details {
+  float: left;
+  margin: 0 0 0 15px;
+  font-size: 12.8px;
+}
+
+.user-details p {
+  margin: 0;
+}
+
+.user-details .user-name {
+  font-weight: bold;
+}
+
+.user-details .user-email {
+  color: #666666;
+}
+
+.user-detail-footer {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top: 1px solid #c4c4c4;
+  padding: 10px 0;
+  background: #f5f5f5;
+}
+
+.user-detail-footer .button {
+  color: #666666;
+  float: left;
+  margin: 0 20px;
+  padding: 5px 12px;
+  border: 1px solid #c6c6c6;
+  border-radius: 2px;
+  font-size: 13px;
+}
+
+.user-detail-footer .logout-button {
+  float: right;
 }

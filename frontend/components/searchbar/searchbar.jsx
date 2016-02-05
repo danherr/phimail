@@ -1,9 +1,19 @@
 var React = require('react'),
     userApiUtil = require('../../util/user_api_util'),
-    UserStore = require('../../stores/user_store');
+    UserStore = require('../../stores/user_store'),
+    UserDetail = require('./user_detail.jsx');
 
 
 var SearchBar = React.createClass({
+  getInitialState: function () {
+    return { hideUserDetail: true };
+  },
+
+  toggleUserDetail: function (value, e) {
+    value = value || !this.state.hideUserDetail;
+    this.setState({hideUserDetail: value});
+  },
+
   logOut: function () {
     userApiUtil.logOut( function () {
       this.props.history.pushState({}, "/login");
@@ -22,11 +32,21 @@ var SearchBar = React.createClass({
           <i className="fa fa-search search-button"></i>
         </div>
 
-        <button onClick={this.logOut} >Log Out</button>
-
         <div className="profile-container">
-            <img src={UserStore.currentUser().avatar_url} alt="" className="profile-pic"/>
+            <img
+              src={UserStore.currentUser().avatar_url}
+              alt=""
+              className="profile-pic"
+              onClick={this.toggleUserDetail.bind(this, null)}
+              />
         </div>
+
+        <UserDetail
+          hideme={this.state.hideUserDetail ? "hideme" : ""}
+          toggle={this.toggleUserDetail}
+          logOut={this.logOut}
+          user={UserStore.currentUser()}
+          />
       </section>
     );
   }

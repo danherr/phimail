@@ -13,8 +13,7 @@ var PopupActions = {
   removeCallback: function (name) {
     Dispatcher.dispatch({
       actionType: PopupConstants.remove,
-      name: name,
-      callback: callback
+      name: name
     });
   },
 
