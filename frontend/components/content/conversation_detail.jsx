@@ -146,22 +146,42 @@ var ConversationDetail = React.createClass({
     messageApiUtil.reply(conversation_id, message_id, mode);
   },
 
+  makeMessageList: function () {
+      return this.state.conversation.messages.map(function (message) {
+        if(message.sent) {
+          return (
+            <Message
+              reply={messageApiUtil.reply.bind(this, this.state.conversation.id, message.id)}
+              key={message.id}
+              conversationId={this.state.conversation.id}
+              expanded={message.last_non_draft ? true : this.state.expanded[message.id]}
+              message={message}
+              history={this.props.history}
+              toggleExpanded={message.last_non_draft ? function () {} : this.toggleExpanded.bind(this, message.id)}
+              shortenTime={this.props.route.shortenTime} />
+          );
+        } else {
+
+          var draft = {
+            target_address: message.target_address,
+            body: message.body,
+            conversation_id: this.state.conversation.id,
+            id: message.id,
+          };
+
+          return (
+            <Reply
+              draft={draft}
+              key={message.id}
+              />
+          );
+        }
+      }.bind(this));
+  },
+
 
   render: function () {
-    var messageList = this.state.conversation.messages.map(function (message) {
-      return (
-        <Message
-          reply={messageApiUtil.reply.bind(this, this.state.conversation.id, message.id)}
-          key={message.id}
-          conversationId={this.state.conversation.id}
-          expanded={this.state.expanded[message.id]}
-          message={message}
-          history={this.props.history}
-          toggleExpanded={this.toggleExpanded.bind(this, message.id)}
-          shortenTime={this.props.route.shortenTime} />
-      );
-    }.bind(this));
-
+    var messageList = this.makeMessageList();
     var expandAllButton;
 
     if (this.state.allExpanded) {

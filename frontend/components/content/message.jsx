@@ -27,56 +27,40 @@ var Message = React.createClass({
 
     var timePair = this.props.shortenTime(this.props.message.updated_at);
 
-    if (this.props.message.sent) {
-      return (
-        <div key={this.props.message.id} className={"message-detail " + expandedClass} >
-          <div className="message-detail-header"
-            onClick={this.props.toggleExpanded}
-            >
 
-            <button onClick={this.props.reply.bind(null, 'one')}>Reply</button>
-            <button onClick={this.props.reply.bind(null, 'all')}>Reply All</button>
+    return (
+      <div key={this.props.message.id} className={"message-detail " + expandedClass} >
+        <div className="message-detail-header"
+          onClick={this.props.toggleExpanded}
+          >
 
-            <span className="timestamp" title={timePair[0]}>
-              {timePair[1]}
-            </span>
+          <button onClick={this.props.reply.bind(null, 'one')}>Reply</button>
+          <button onClick={this.props.reply.bind(null, 'all')}>Reply All</button>
 
-            <h10 className="message-source">
-              {this.props.message.source_address}
-            </h10>
+          <span className="timestamp" title={timePair[0]}>
+            {timePair[1]}
+          </span>
 
-            <h10 className="message-target">
-              to {this.props.message.target_address}
-            </h10>
+          <h10 className="message-source">
+            {this.props.message.source_address}
+          </h10>
 
-            <p className={"message-detail-body header-body " + expandedClass}>
-              {theBody}
-            </p>
+          <h10 className="message-target">
+            to {this.props.message.target_address}
+          </h10>
 
-          </div>
-
-          <p className={"message-detail-body message-body " + expandedClass}>
+          <p className={"message-detail-body header-body " + expandedClass}>
             {theBody}
           </p>
 
         </div>
-      );
-    } else {
 
-      var draft = {
-        target_address: this.props.message.target_address,
-        body: this.props.message.body,
-        conversation_id: this.props.conversationId,
-        id: this.props.message.id,
-      }
+        <p className={"message-detail-body message-body " + expandedClass}>
+          {theBody}
+        </p>
 
-      return (
-        <Reply
-          draft={draft}
-          key={this.props.message.id}
-          />
-      );
-    }
+      </div>
+    );
   }
 });
 
