@@ -79,7 +79,7 @@ div.user-detail-window {
   background: #ffffff;
   right: 30px;
   top: 59px;
-  z-index: 2;
+  z-index: 7;
   border: solid 1px #cccccc;
   padding: 20px 20px 0 20px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 10px 0px;
@@ -93,7 +93,7 @@ div.user-detail-window:before {
   right: 3.5px;
   border: 11px solid;
   border-color: transparent transparent #cccccc transparent;
-  z-index: 2;
+  z-index: 7;
 }
 
 div.user-detail-window:after {
@@ -104,7 +104,7 @@ div.user-detail-window:after {
   right: 3.5px;
   border: 11px solid;
   border-color: transparent transparent #ffffff transparent;
-  z-index: 2;
+  z-index: 7;
 }
 
 .profile-container-detail {

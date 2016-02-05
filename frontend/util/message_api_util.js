@@ -87,7 +87,6 @@ var messageApiUtil = {
         send: send
       },
       success: function (data) {
-        debugger
         MessageActions.receiveConversation(data);
       }
     });

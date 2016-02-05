@@ -58,8 +58,6 @@ ConversationStore.pageData = function () {
 
 ConversationStore.resetStore = function (conversationPacket) {
 
-  debugger
-
   if (conversationPacket) {
     _conversations = conversationPacket.conversations.sort(ordering);
     _max = conversationPacket.max;

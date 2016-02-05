@@ -19,7 +19,7 @@ class Conversation < ActiveRecord::Base
 
   def make_draft(target)
     self.messages.create({
-      source_address: self.user.username + "@" + EMAIL_SIGNATURE,
+      source_address: self.user.username + EMAIL_SIGNATURE,
       target_address: target,
       body: " "
     })
