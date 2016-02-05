@@ -1,11 +1,12 @@
 var React = require('react'),
+    _und = require('underscore'),
     MessageStore = require('../../stores/message_store'),
     ConversationStore = require('../../stores/conversation_store'),
     messageApiUtil = require('../../util/message_api_util'),
     conversationApiUtil = require('../../util/conversation_api_util'),
     Message = require('./message'),
     ActionBar = require('./action_bar'),
-    _und = require('underscore');
+    Reply = require('./reply');
 
 
 var ConversationDetail = React.createClass({
@@ -166,6 +167,7 @@ var ConversationDetail = React.createClass({
           context="detail"
           history={this.props.history}
           goBack={this.goBack}
+          parentContext={this.props.route.context}          
            />
 
         <section className="contacts-pane">
@@ -185,6 +187,8 @@ var ConversationDetail = React.createClass({
           <div className="messages-list">
             {messageList}
           </div>
+
+          <Reply/>
 
         </section>
       </section>

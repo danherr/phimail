@@ -55,13 +55,12 @@ var ConversationsList = React.createClass({
   reload: function (theProps) {
     var options = {};
     theProps = theProps || this.props;
-    options.url = theProps.route.ajaxUrl;
+    options.context = theProps.route.context;
     options.page = theProps.params.page_num;
     conversationApiUtil.fetchConversations(options);
   },
 
   turnPage: function (num) {
-    debugger
     var pathArr = this.props.location.pathname.split('/');
     var page_num = parseInt(pathArr.pop());
     pathArr.push(page_num + num);
@@ -79,10 +78,10 @@ var ConversationsList = React.createClass({
           history={this.props.history}
           pathname={this.props.location.pathname}
           shortenTime={this.props.route.shortenTime}
+          context={this.props.route.context}
         />
       );
     }.bind(this));
-
 
     return (
       <section className="content conversations-list-pane">
@@ -91,6 +90,7 @@ var ConversationsList = React.createClass({
           referents={this.state.selectedIds}
           context="list"
           history={this.props.history}
+          parentContext={this.props.route.context}
           />
         <section className="conversations-list">
         {theList}

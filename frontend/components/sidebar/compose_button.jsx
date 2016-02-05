@@ -11,7 +11,7 @@ var ComposeButton = React.createClass({
   },
 
   componentDidMount: function () {
-    popupActions.addCallback("popUpDraftWindow", this.popUpDraftWindow.bind(this));
+    popupActions.addCallback("popUpDraftWindow", this.popUpDraftWindow);
   },
 
   componentWillUnmount: function () {
@@ -19,7 +19,7 @@ var ComposeButton = React.createClass({
   },
 
   createMessage: function () {
-    messageApiUtil.createDraft(this.popUpDraftWindow.bind(this));
+    messageApiUtil.createDraft(this.popUpDraftWindow);
   },
 
   popUpDraftWindow: function (draft) {

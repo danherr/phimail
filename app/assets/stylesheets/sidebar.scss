@@ -131,6 +131,24 @@ div.new-message-bottombar div.send-button {
   cursor: default;
 }
 
+.new-message-bottombar .delete-button {
+  float: right;
+  padding: 7px 8px;
+  margin: 4px 10px 5px 10px;
+  color: #6f6f6f;
+  border: 1px transparent solid;
+}
+
+.new-message-bottombar .delete-button:hover {
+  color: #000;
+  border: 1px #c4c4c4 solid;
+}
+.new-message-bottombar .delete-button:active {
+  color: #000;
+  border: 1px #c0c0c0 solid;
+  background: #eeeeee;  
+}
+
 .new-message-bottombar .send-button:hover {
   background: rgb(70, 138, 248);
 }

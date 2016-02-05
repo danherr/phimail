@@ -1,7 +1,7 @@
 #! /usr/bin/env ruby
 
 require('byebug')
-string = IO.read("./pg1643.txt")
+string = IO.read("./meno.txt")
 
 array = string.split("\r\n\r\n")
 $increments = ['years', 'months', 'weeks','days', 'hours', 'minutes', 'seconds']
@@ -67,7 +67,7 @@ array = array.map! do |message|
     if $time_idx == 6
       $time_num -= (Random.rand)/10 if $time_num > 10
     else
-      $time_num -= (Random.rand)/10
+      $time_num -= (Random.rand)/6
       if $time_num <= 1
         $time_num = 12
         $time_idx += 1
@@ -108,11 +108,12 @@ array = array.map! do |message|
     source_address: \"#{$source}\",
     target_address: \"#{$target}\",
     body: body_str,
-    updated_at: #{$time_num.floor}.#{$increments[$time_idx]}.ago,
     created_at: #{$time_num.floor}.#{$increments[$time_idx]}.ago
     })
 
     msg#{$mnum}.send_msg
+    msg#{$mnum}.update({updated_at: #{$time_num.floor}.#{$increments[$time_idx]}.ago})
+
 
     seed
 

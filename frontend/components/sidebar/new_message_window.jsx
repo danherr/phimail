@@ -1,7 +1,8 @@
 var React = require('react'),
     MessageStore = require('../../stores/message_store'),
     DraftStpre = require('../../stores/draft_store'),
-    messageApiUtil = require('../../util/message_api_util');
+    messageApiUtil = require('../../util/message_api_util'),
+    conversationApiUtil = require('../../util/conversation_api_util');
 
 var NewMessageWindow = React.createClass({
   getInitialState: function () {
@@ -46,6 +47,21 @@ var NewMessageWindow = React.createClass({
     messageApiUtil.updateDraft(this.state, true, this.props.close);
   },
 
+  delete: function (e) {
+    var path = window.location.hash.split('/');
+
+    if (path[1] === "drafts") {
+      var page = path[2].split("?")[0];
+      var options = {context: "drafts", page: page};
+
+      conversationApiUtil.deleteConversations([this.state.conversation_id], options);
+    } else {
+      conversationApiUtil.deleteDraft(this.state.conversation_id);
+    }
+
+    this.props.close();
+  },
+
   render: function () {
     return (
       <div className={"new-message-window " + this.props.className}>
@@ -72,11 +88,17 @@ var NewMessageWindow = React.createClass({
         onChange={this.changeBody}
         value={this.state.body}
         ></textarea>
+
         <div className="new-message-bottombar clearfix">
           <div
             className="send-button button"
             onClick={this.send}
             >Send</div>
+
+          <i
+            className="delete-button button fa fa-trash"
+            onClick={this.delete}
+            ></i>
         </div>
       </div>
     );

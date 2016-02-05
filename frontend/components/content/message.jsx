@@ -24,23 +24,33 @@ var Message = React.createClass({
     var timePair = this.props.shortenTime(this.props.message.updated_at);
 
     return (
-      <div
-        className={"message-detail " + expandedClass}
-        onClick={this.props.toggleExpanded}
-        >
-        <h10 className="message-source">
-          {this.props.message.source_address}
-        </h10>
-        <h10 className="message-target">
-          {this.props.message.target_address}
-        </h10>
-        <span className="timestamp" title={timePair[0]}>
-          {timePair[1]}
-        </span>
+      <div className={"message-detail " + expandedClass} >
+        <div className="message-detail-header"
+          onClick={this.props.toggleExpanded}
+          >
 
-        <p className={"message-body"}>
+          <span className="timestamp" title={timePair[0]}>
+            {timePair[1]}
+          </span>
+
+          <h10 className="message-source">
+            {this.props.message.source_address}
+          </h10>
+
+          <h10 className="message-target">
+            to {this.props.message.target_address}
+          </h10>
+
+          <p className={"message-detail-body header-body " + expandedClass}>
+            {theBody}
+          </p>
+
+        </div>
+
+        <p className={"message-detail-body message-body " + expandedClass}>
           {theBody}
         </p>
+
       </div>
     );
   }

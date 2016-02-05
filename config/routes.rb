@@ -9,13 +9,11 @@ Rails.application.routes.draw do
 
     resources :messages, only: [:show]
 
-    resources :conversations, only: [:index, :show, :create, :update] do
+    resources :conversations, only: [:index, :show, :create, :update, :destroy] do
 
       collection do
         patch 'batch_update'
         delete 'batch_delete'
-        get 'drafts'
-        get 'sent'
       end
 
       resources :messages, only: [:create] do

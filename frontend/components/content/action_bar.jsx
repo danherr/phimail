@@ -10,28 +10,32 @@ var ActionBar = React.createClass({
     var conversationIds = ConversationStore.allIds();
 
     var page = ConversationStore.pageData().pageNumber;
+    var context = this.props.parentContext;
 
-    conversationApiUtil.updateConversations({read: true}, conversationIds, page);
+    conversationApiUtil.updateConversations({read: true}, conversationIds,  {page: page, context: context});
   },
 
   markSelectedRead: function (markRead, e) {
     var page = ConversationStore.pageData().pageNumber;
+    var context = this.props.parentContext;
 
-    conversationApiUtil.updateConversations({read: markRead}, this.props.referents, page);
+    conversationApiUtil.updateConversations({read: markRead}, this.props.referents,  {page: page, context: context});
   },
 
   delete: function (e) {
     var page = ConversationStore.pageData().pageNumber;
+    var context = this.props.parentContext;
 
-    conversationApiUtil.deleteConversations(this.props.referents, page);
+    conversationApiUtil.deleteConversations(this.props.referents, {page: page, context: context});
   },
 
   changeMark: function (markType, markVal, e) {
     var page = ConversationStore.pageData().pageNumber;
+    var context = this.props.parentContext;
     var ob = {};
     ob[markType] = markVal;
 
-    conversationApiUtil.updateConversations(ob, this.props.referents, page);
+    conversationApiUtil.updateConversations(ob, this.props.referents, {page: page, context: context});
   },
 
   render: function () {

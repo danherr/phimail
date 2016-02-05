@@ -3,18 +3,16 @@ class Api::ConversationsController < ApplicationController
   before_action :require_logged_in
 
   def index
-    @drafts = false
-    conversation_list(:received_conversations)
-  end
-
-  def drafts
-    @drafts = true
-    conversation_list(:drafts)
-  end
-
-  def sent
-    @drafts = false
-    conversation_list(:sent_conversations)
+    if params[:context] == "drafts"
+      @drafts = true
+      conversation_list(:drafts)
+    elsif params[:context] == "sent"
+      @drafts = false
+      conversation_list(:sent_conversations)
+    else
+      @drafts = false
+      conversation_list(:received_conversations)
+    end
   end
 
   def conversation_list listing_method

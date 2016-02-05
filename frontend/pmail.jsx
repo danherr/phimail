@@ -64,14 +64,9 @@ var router = (
     <Route path="/" component={ App } onEnter={ _ensureLoggedIn }>
       <IndexRoute component={ ConversationsList } onEnter={ _noIndex }/>
 
-      <Route path="inbox/:page_num" ajaxUrl="/api/conversations" shortenTime={shortenTime} component={ConversationsList}>
-      </Route>
-
-      <Route path="drafts/:page_num" ajaxUrl="/api/conversations/drafts" shortenTime={shortenTime} component={ConversationsList}>
-      </Route>
-
-      <Route path="sent/:page_num" ajaxUrl="/api/conversations/sent" shortenTime={shortenTime} component={ConversationsList}>
-      </Route>
+      <Route path="inbox/:page_num" context="inbox" shortenTime={shortenTime} component={ConversationsList}/>
+      <Route path="drafts/:page_num" context="drafts" shortenTime={shortenTime} component={ConversationsList}/>
+      <Route path="sent/:page_num" context="sent" shortenTime={shortenTime} component={ConversationsList}/>
 
       <Route path="conversation/:conversation_id" shortenTime={shortenTime} component={ConversationDetail} />
     </Route>

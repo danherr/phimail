@@ -46,16 +46,30 @@
   background: #f4f4f4;
   position: relative;
   margin: 0;
-  padding: 12px 0 12px 8px;
+  padding: 0 0 0 8px;
 }
 
-.message-detail.collapsed {
+div.message-detail-header {
   cursor: pointer;
+  padding: 12px 8px 12px 8px;
 }
 
-.message-body {
+.message-detail p.message-detail-body {
   padding: 0;
   margin: 0;
+}
+
+.message-detail p.header-body.expanded {
+  display: none;
+}
+
+.message-detail p.message-body {
+  display: none;
+}
+
+.message-detail p.message-body.expanded {
+  display: block;
+  padding: 12px 8px;
 }
 
 .message-source {
@@ -72,9 +86,18 @@
 
 .message-detail.expanded {
   background: #ffffff;
-  padding: 0 0 20px 8px;
+  padding: 12px 8px 20px 8px;
 }
 
 .message-detail.expanded .message-target {
   display: block;
+}
+
+.message-detail .timestamp {
+  float: right;
+}
+
+.message-source {
+  font-weight: bold;
+  color: #000;
 }

@@ -49,7 +49,7 @@ var ConversationListItem = React.createClass({
         draft.target_address = this.props.conversation.last_message.target_address;
         PopupStore.popupCB("popUpDraftWindow")(draft);
       } else {
-        this.props.history.pushState({source: this.props.pathname}, "conversation/" + this.props.conversation.id);
+        this.props.history.pushState({source: this.props.pathname, context: this.props.context}, "conversation/" + this.props.conversation.id);
       }
     }
   },
