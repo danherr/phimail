@@ -105,7 +105,7 @@ div.message-detail-header {
 }
 
 .reply-editor {
-  border: 1px solid #cfcfcf;
+  border-top: 1px solid #cfcfcf;
   margin: 10px 0 5px 20px;
 }
 
@@ -144,6 +144,7 @@ div.message-detail-header {
 .reply-body {
   resize: none;
   height: calc(100% - 142px);
+  min-height: 120px;
 }
 
 div.reply-bottombar {
@@ -159,7 +160,7 @@ div.reply-bottombar div.send-button {
   color: #fff;
   background: rgb(68, 136, 245);
   padding: 7.5px 20px;
-  margin: 6px 2px;
+  margin: 6px 10px;
   float: left;
   display: block;
   border-radius: 2px;
@@ -193,4 +194,21 @@ div.reply-bottombar div.send-button {
 
 .reply-window .send-button:active {
   background: rgb(62, 123, 224);
+}
+
+div.reply-button {
+  padding: 8px 12px;
+  color: #878787;
+  font-size: 12.8px;
+  height: 64px;
+  border: 1px solid #d0d0d0;
+  border-top-color: #b3b3b3;
+  margin: 10px 0 5px 20px;
+}
+
+div.reply-button  mark{
+  background: inherit;
+  text-decoration: underline;
+  color: inherit;
+  cursor: pointer;
 }
