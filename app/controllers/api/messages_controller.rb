@@ -51,4 +51,18 @@ class Api::MessagesController < ApplicationController
     end
   end
 
+  def destroy
+    @conversation = current_user.conversations.find(params[:conversation_id])
+    message = @conversation.messages.find(params[:id])
+
+    if message && message.destroy
+
+      @messages = @conversation.messages
+
+      render '/api/conversations/show'
+    else
+      render json: (@conversation.errors.full_messages + message.try(:errors).try(:full_messages))
+    end
+  end
+
 end

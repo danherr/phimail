@@ -16,7 +16,7 @@ UserDetail = React.createClass({
               src={UserStore.currentUser().avatar_url}
               alt=""
               className="profile-pic-detail"
-              onClick={this.props.toggle.bind(this, null)}
+              onClick={this.props.toggle}
               />
         </div>
 

@@ -137,27 +137,27 @@ var ActionBar = React.createClass({
             Delete
           </div>
           <div className="button"
-            onClick={this.changeMark.bind(null, 'read', true)}>
+            onClick={this.changeMark.bind(this, 'read', true)}>
             Mark as Read
           </div>
           <div className="button"
-            onClick={this.changeMark.bind(null, 'read', false)}>
+            onClick={this.changeMark.bind(this, 'read', false)}>
             Mark as Unread
           </div>
           <div className="button"
-            onClick={this.changeMark.bind(null, 'important', true)}>
+            onClick={this.changeMark.bind(this, 'important', true)}>
             Important
           </div>
           <div className="button"
-            onClick={this.changeMark.bind(null, 'important', false)}>
+            onClick={this.changeMark.bind(this, 'important', false)}>
             Unimportant
           </div>
           <div className="button"
-            onClick={this.changeMark.bind(null, 'starred', true)}>
+            onClick={this.changeMark.bind(this, 'starred', true)}>
             Star
           </div>
           <div className="button"
-            onClick={this.changeMark.bind(null, 'starred', false)}>
+            onClick={this.changeMark.bind(this, 'starred', false)}>
             Unstar
           </div>
         </div>

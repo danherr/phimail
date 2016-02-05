@@ -19,7 +19,7 @@ class Message < ActiveRecord::Base
   def send_msg
     unless self.sent
       current_conversation = self.conversations.first
-      targets = self.target_address.split(",")
+      targets = self.target_address.split(", ")
       targets.each do |target|
         target = target.split("@")
         if "@#{target[1]}" == EMAIL_SIGNATURE

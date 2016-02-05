@@ -40,7 +40,7 @@ var ReplyEditor = React.createClass({
   delete: function (e) {
     var path = window.location.hash.split('/');
 
-    conversationApiUtil.deleteDraft(this.state.conversation_id);
+    messageApiUtil.deleteReply(this.state.conversation_id, this.state.id);
   },
 
   render: function () {

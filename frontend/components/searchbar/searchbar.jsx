@@ -37,13 +37,13 @@ var SearchBar = React.createClass({
               src={UserStore.currentUser().avatar_url}
               alt=""
               className="profile-pic"
-              onClick={this.toggleUserDetail.bind(this, null)}
+             onClick={this.toggleUserDetail.bind(this, null)}
               />
         </div>
 
         <UserDetail
           hideme={this.state.hideUserDetail ? "hideme" : ""}
-          toggle={this.toggleUserDetail}
+          toggle={this.toggleUserDetail.bind(this, null)}
           logOut={this.logOut}
           user={UserStore.currentUser()}
           />

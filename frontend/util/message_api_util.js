@@ -92,6 +92,18 @@ var messageApiUtil = {
     });
   },
 
+  deleteReply: function (conversation_id, message_id) {
+    $.ajax ({
+      type: 'DELETE',
+      url: '/api/conversations/' + conversation_id + '/messages/' + message_id,
+      dataType: 'json',
+      success: function (data) {
+        MessageActions.receiveConversation(data);
+      }
+    });
+  },
+
+
 
 };
 
