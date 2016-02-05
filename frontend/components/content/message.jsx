@@ -34,6 +34,9 @@ var Message = React.createClass({
             onClick={this.props.toggleExpanded}
             >
 
+            <button onClick={this.props.reply.bind(null, 'one')}>Reply</button>
+            <button onClick={this.props.reply.bind(null, 'all')}>Reply All</button>
+
             <span className="timestamp" title={timePair[0]}>
               {timePair[1]}
             </span>

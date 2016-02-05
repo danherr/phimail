@@ -151,6 +151,7 @@ var ConversationDetail = React.createClass({
     var messageList = this.state.conversation.messages.map(function (message) {
       return (
         <Message
+          reply={messageApiUtil.reply.bind(this, this.state.conversation.id, message.id)}
           key={message.id}
           conversationId={this.state.conversation.id}
           expanded={this.state.expanded[message.id]}
