@@ -54,7 +54,7 @@
   position: absolute;
   right: 10px;
   bottom: 30px;
-  // z-index: 2;
+  // z-index: -2;
   height: 50%;
   width: 100%;
 }
@@ -63,11 +63,10 @@
   z-index: 50;
   height: 100%;
   width: 30%;
-  // width: 600px;
   margin: 10px;
   float: right;
   position:relative;
-  z-index: 2;
+  z-index: 10;
 }
 
 .new-message-topbar {
@@ -146,7 +145,7 @@ div.new-message-bottombar div.send-button {
 .new-message-bottombar .delete-button:active {
   color: #000;
   border: 1px #c0c0c0 solid;
-  background: #eeeeee;  
+  background: #eeeeee;
 }
 
 .new-message-bottombar .send-button:hover {

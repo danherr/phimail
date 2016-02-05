@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
       resources :messages, only: [:create] do
         member do
+          post 'reply'
           patch 'update_draft'
         end
       end

@@ -7,25 +7,22 @@ class Api::MessagesController < ApplicationController
   end
 
   def reply
-
     @conversation = Conversation.find(params[:conversation_id])
 
     if @conversation
-      @message = @conversation.messages.new(message_params)
-      @message.source_address = "#{current_user.username}#{EMAIL_SIGNATURE}"
 
-      if @message.save
-        render :show
+      if params[:mode] == 'all'
+        @conversation.make_reply_all(params[:id])
       else
-        render json: @message.errors.full_messages
+        @conversation.make_reply(params[:id])
       end
 
+      @messages = @conversation.messages
+
+      render '/api/conversations/show'
     else
-
       render json: ["No Conversation With Id #{params[:id]}"]
-
     end
-
   end
 
   def update_draft

@@ -63,6 +63,21 @@ var messageApiUtil = {
     });
   },
 
+  reply: function (conversation_id, message_id, mode) {
+    $.ajax ({
+      type: 'POST',
+      url: '/api/conversations/' + conversation_id + '/messages/' + message_id + '/reply',
+      dataType: 'json',
+      data: {
+        mode: mode
+      },
+      success: function (data) {
+        MessageActions.receiveConversation(data);
+      }
+    });
+  },
+
+
 };
 
 module.exports = messageApiUtil;

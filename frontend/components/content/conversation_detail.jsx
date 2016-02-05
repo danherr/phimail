@@ -134,6 +134,19 @@ var ConversationDetail = React.createClass({
     this.props.history.pushState({}, this.state.source);
   },
 
+  reply: function (conversation_id, message_id, e) {
+    var mode;
+
+    if (e.target.className.split(' ').indexOf('reply-all') !== -1) {
+      mode = 'all';
+    } else {
+      mode = 'one';
+    }
+
+    messageApiUtil.reply(conversation_id, message_id, mode);
+  },
+
+
   render: function () {
     var messageList = this.state.conversation.messages.map(function (message) {
       return (
@@ -159,6 +172,20 @@ var ConversationDetail = React.createClass({
       );
     }
 
+    var replyButton = "";
+    var last_message = _und.last(this.state.conversation.messages);
+
+    if (last_message && last_message.sent) {
+      replyButton = (
+        <div
+          onClick={this.reply.bind(this, this.state.conversation.id, last_message.id)}
+          className="reply-button"
+        >
+        Click Here to <mark>Reply</mark> or <mark className="reply-all">Reply to All</mark>.
+        </div>
+      );
+    }
+
     return (
       <section className="content conversations-detail clearfix">
         <ActionBar
@@ -167,7 +194,7 @@ var ConversationDetail = React.createClass({
           context="detail"
           history={this.props.history}
           goBack={this.goBack}
-          parentContext={this.props.route.context}          
+          parentContext={this.props.route.context}
            />
 
         <section className="contacts-pane">
@@ -188,7 +215,7 @@ var ConversationDetail = React.createClass({
             {messageList}
           </div>
 
-          <Reply/>
+          {replyButton}
 
         </section>
       </section>

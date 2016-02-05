@@ -17,30 +17,30 @@ class Conversation < ActiveRecord::Base
     "- " + last_message.body.chars.take(50).join
   end
 
-  def make_draft(target, body)
+  def make_draft(target)
     self.messages.create({
-    source_address: self.user.username + "@" + EMAIL_SIGNATURE,
-    target_address: target,
-    body: body
+      source_address: self.user.username + "@" + EMAIL_SIGNATURE,
+      target_address: target,
+      body: " "
     })
   end
 
-  def make_reply(message, body)
-    message = self.messages.find(message.id)
+  def make_reply(message_id)
+    message = self.messages.find(message_id)
 
     if message
-      self.make_draft(message.source_address, body)
+      self.make_draft(message.source_address)
     end
   end
 
-  def make_reply_all(message, body)
-    message = self.messages.find(message.id)
+  def make_reply_all(message_id)
+    message = self.messages.find(message_id)
 
     if message
       target = message.target_address.split(', ')
       target.push(message.source_address)
       target = target.uniq.join(', ')
-      self.make_draft(target, body)
+      self.make_draft(target)
     end
   end
 

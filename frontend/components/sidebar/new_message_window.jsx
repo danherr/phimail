@@ -1,6 +1,6 @@
 var React = require('react'),
     MessageStore = require('../../stores/message_store'),
-    DraftStpre = require('../../stores/draft_store'),
+    DraftStore = require('../../stores/draft_store'),
     messageApiUtil = require('../../util/message_api_util'),
     conversationApiUtil = require('../../util/conversation_api_util');
 
