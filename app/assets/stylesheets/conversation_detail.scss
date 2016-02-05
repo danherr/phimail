@@ -71,7 +71,7 @@ div.message-detail-header {
 
 .message-detail p.message-body.expanded {
   display: block;
-  padding: 12px 8px;
+  padding: 12px 0 12px 8px;
 }
 
 .message-source {
@@ -88,7 +88,7 @@ div.message-detail-header {
 
 .message-detail.expanded {
   background: #ffffff;
-  padding: 12px 8px 20px 8px;
+  padding: 0 0 20px 8px;
 }
 
 .message-detail.expanded .message-target {
@@ -97,6 +97,7 @@ div.message-detail-header {
 
 .message-detail .timestamp {
   float: right;
+  padding: 5px 5px;  
 }
 
 .message-source {
@@ -211,4 +212,11 @@ div.reply-button  mark{
   text-decoration: underline;
   color: inherit;
   cursor: pointer;
+}
+
+.message-reply-button {
+  float: right;
+  padding: 5px 5px;
+  margin-left: 5px;
+  font-weight: bold;
 }
