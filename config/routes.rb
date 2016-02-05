@@ -16,7 +16,7 @@ Rails.application.routes.draw do
         delete 'batch_delete'
       end
 
-      resources :messages, only: [:create] do
+      resources :messages, only: [:create, :update] do
         member do
           post 'reply'
           patch 'update_draft'

@@ -152,6 +152,7 @@ var ConversationDetail = React.createClass({
       return (
         <Message
           key={message.id}
+          conversationId={this.state.conversation.id}
           expanded={this.state.expanded[message.id]}
           message={message}
           history={this.props.history}

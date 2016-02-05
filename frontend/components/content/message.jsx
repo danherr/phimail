@@ -5,6 +5,9 @@ var React = require('react'),
 
 
 var Message = React.createClass({
+  componentWillReceiveProps: function (newProps) {
+    if (this.props.message.sent !== newProps.message.sent) this.forceUpdate();
+  },
 
   render: function () {
     var expandedClass,
@@ -24,9 +27,9 @@ var Message = React.createClass({
 
     var timePair = this.props.shortenTime(this.props.message.updated_at);
 
-    // if (this.props.message.sent) {
+    if (this.props.message.sent) {
       return (
-        <div className={"message-detail " + expandedClass} >
+        <div key={this.props.message.id} className={"message-detail " + expandedClass} >
           <div className="message-detail-header"
             onClick={this.props.toggleExpanded}
             >
@@ -55,13 +58,22 @@ var Message = React.createClass({
 
         </div>
       );
-    // } else {
-    //   return (
-    //     <div className="reply-editor">
-    //
-    //     </div>
-    //   );
-    // }
+    } else {
+
+      var draft = {
+        target_address: this.props.message.target_address,
+        body: this.props.message.body,
+        conversation_id: this.props.conversationId,
+        id: this.props.message.id,
+      }
+
+      return (
+        <Reply
+          draft={draft}
+          key={this.props.message.id}
+          />
+      );
+    }
   }
 });
 

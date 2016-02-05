@@ -61,10 +61,10 @@ var NewMessageWindow = React.createClass({
 
     this.props.close();
   },
-
   render: function () {
     return (
       <div className={"new-message-window " + this.props.className}>
+
         <div className="new-message-topbar clearfix">
           <span>New Message</span>
 
@@ -73,7 +73,7 @@ var NewMessageWindow = React.createClass({
         <input onChange={this.changeTarget}
         type="text"
         className="new-message-source input"
-        value={this.state.target}
+        value={this.state.target_address}
         placeholder="Recipients"
         />
         <input

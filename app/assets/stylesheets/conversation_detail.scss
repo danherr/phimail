@@ -103,3 +103,75 @@ div.message-detail-header {
   font-weight: bold;
   color: #000;
 }
+
+
+
+.reply-editor {
+  border: 1px solid #cfcfcf;
+  margin: 10px 0 5px 20px;
+}
+
+.reply-editor .input {
+  display: block;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 13px;
+  outline: 0;
+  border: 1px solid #cecece;
+  border-top: 0;
+}
+
+.reply-body {
+  resize: none;
+  height: calc(100% - 142px);
+}
+
+div.reply-bottombar {
+  background: #f1f1f1;
+  display: block;
+  width: 100%;
+  border: 1px solid #cecece;
+  border-top: 0;
+  box-sizing: border-box;
+}
+
+div.reply-bottombar div.send-button {
+  color: #fff;
+  background: rgb(68, 136, 245);
+  padding: 7.5px 20px;
+  margin: 6px 2px;
+  float: left;
+  display: block;
+  border-radius: 2px;
+  font-size: 10px;
+  font-weight: bold;
+  float: left;
+  cursor: default;
+}
+
+.reply-bottombar .delete-button {
+  float: right;
+  padding: 7px 8px;
+  margin: 4px 10px 5px 10px;
+  color: #6f6f6f;
+  border: 1px transparent solid;
+}
+
+.reply-bottombar .delete-button:hover {
+  color: #000;
+  border: 1px #c4c4c4 solid;
+}
+.reply-bottombar .delete-button:active {
+  color: #000;
+  border: 1px #c0c0c0 solid;
+  background: #eeeeee;
+}
+
+.reply-bottombar .send-button:hover {
+  background: rgb(70, 138, 248);
+}
+
+.reply-window .send-button:active {
+  background: rgb(62, 123, 224);
+}

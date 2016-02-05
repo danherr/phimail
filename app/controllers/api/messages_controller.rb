@@ -37,18 +37,17 @@ class Api::MessagesController < ApplicationController
     end
   end
 
-  def update_reply
-    @message = current_user.messages.find(params[:id])
-    if @message
-      if @message.update(message_params)
-        @message.send if params[:send]
+  def update
+    @conversation = current_user.conversations.find(params[:conversation_id])
+    message = @conversation.messages.find(params[:id])
 
-        render :show
-      else
-        render json: @message.errors.full_messages
-      end
+    if message && message.update(message_params)
+      message.send_msg if params[:send]
+      @messages = @conversation.messages
+
+      render '/api/conversations/show'
     else
-      render json: ["No Message With Id #{params[:id]}"]
+      render json: (@conversation.errors.full_messages + message.try(:errors).try(:full_messages))
     end
   end
 

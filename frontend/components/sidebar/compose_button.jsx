@@ -29,6 +29,7 @@ var ComposeButton = React.createClass({
       close={this.closeMessageWindow.bind(this, messages.length)}
       draft={draft}
       key={messages.length}
+      closable={true}
       />
     );
 

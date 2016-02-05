@@ -77,6 +77,22 @@ var messageApiUtil = {
     });
   },
 
+  updateReply: function (draft, send) {
+    $.ajax ({
+      type: 'PATCH',
+      url: '/api/conversations/' + draft.conversation_id + '/messages/' + draft.id,
+      dataType: 'json',
+      data: {
+        message: draft,
+        send: send
+      },
+      success: function (data) {
+        debugger
+        MessageActions.receiveConversation(data);
+      }
+    });
+  },
+
 
 };
 
