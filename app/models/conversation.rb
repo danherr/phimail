@@ -21,7 +21,7 @@ class Conversation < ActiveRecord::Base
     self.messages.create({
       source_address: self.user.username + EMAIL_SIGNATURE,
       target_address: target,
-      body: " "
+      body: " ",
     })
   end
 

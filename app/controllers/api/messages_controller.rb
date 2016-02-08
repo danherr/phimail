@@ -12,14 +12,12 @@ class Api::MessagesController < ApplicationController
     if @conversation
 
       if params[:mode] == 'all'
-        @conversation.make_reply_all(params[:id])
+        @message = @conversation.make_reply_all(params[:id])
       else
-        @conversation.make_reply(params[:id])
+        @message = @conversation.make_reply(params[:id])
       end
 
-      @messages = @conversation.messages
-
-      render '/api/conversations/show'
+      render :show
     else
       render json: ["No Conversation With Id #{params[:id]}"]
     end

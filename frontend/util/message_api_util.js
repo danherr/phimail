@@ -72,7 +72,7 @@ var messageApiUtil = {
         mode: mode
       },
       success: function (data) {
-        MessageActions.receiveConversation(data);
+        MessageActions.receiveMessage(data);
       }
     });
   },
