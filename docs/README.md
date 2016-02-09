@@ -11,12 +11,12 @@ and React.js. φmail allows users to:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
-- [ ] Create an account
-- [ ] Log in / Log out
+- [X] Create an account
+- [X] Log in / Log out
 - [ ] Create, read edit and delete contacts
-- [ ] Create, read, edit, and delete messages
-- [ ] Send, recieve and reply to messages
-- [ ] Messages are grouped in Conversations
+- [X] Create, read, edit, and delete messages
+- [X] Send, recieve and reply to messages
+- [X] Messages are grouped in Conversations
 - [ ] Search for messages based upon title.
 
 ## Design Docs
