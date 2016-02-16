@@ -22,17 +22,16 @@ var ActionBar = React.createClass({
         conversationApiUtil.updateConversations(
             {read: true},
             conversationIds,
-            {page: page, context: context});
+            {page: page, context: context, search: this.props.query.search});
     },
 
     markSelectedRead: function (markRead, e) {
         var page = ConversationStore.pageData().pageNumber;
         var context = this.props.parentContext;
-
         conversationApiUtil.updateConversations(
             {read: markRead},
             this.props.referents,
-            {page: page, context: context});
+            {page: page, context: context, search: this.props.query.search});
     },
 
     delete: function (e) {
@@ -41,7 +40,7 @@ var ActionBar = React.createClass({
 
         conversationApiUtil.deleteConversations(
             this.props.referents,
-            {page: page, context: context});
+            {page: page, context: context, search: this.props.query.search});
     },
 
     changeMark: function (markType, markVal, dropDownContract, e) {
@@ -53,7 +52,7 @@ var ActionBar = React.createClass({
         conversationApiUtil.updateConversations(
             ob,
             this.props.referents,
-            {page: page, context: context});
+            {page: page, context: context, search: this.props.query.search});
 
         if (dropDownContract) {
             this.toggleDropDown(dropDownContract)

@@ -19,7 +19,9 @@ class Api::ConversationsController < ApplicationController
     @page_number = params[:page].try(:to_i) || 1
     @offset = (@page_number - 1) * 50
 
-    @num_con = current_user.send(listing_method).where("title ~* ?", search_string).length
+    user = current_user
+    
+    @num_con = user.send(listing_method).where("title ~* ?", search_string).length
 
     until @num_con > @offset do
       @offset -= 50
@@ -31,8 +33,8 @@ class Api::ConversationsController < ApplicationController
       @page_number += 1
     end
 
-    @conversations = current_user.send(listing_method)
-      .limit(50).offset(@offset).where("title ~* ?", search_string)
+    @conversations = user.send(listing_method)
+      .limit(50).offset(@offset).where("title ~* ?", search_string).includes(:messages)
     
     render :index;
   end

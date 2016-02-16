@@ -39,7 +39,7 @@ var ConversationsList = React.createClass({
 
         this.reload(this.props);
 
-        this.reloadInterval = window.setInterval(this.reload, 8000);
+        /*         this.reloadInterval = window.setInterval(this.reload, 8000); */
 
     },
 
@@ -100,6 +100,7 @@ var ConversationsList = React.createClass({
                     context="list"
                     history={this.props.history}
                     parentContext={this.props.route.context}
+                    query={this.props.location.query}
                 />
                 <section className="conversations-list">
                     {theList}

@@ -6,7 +6,6 @@ var apiUtil = {
         var context = options.context || 'inbox';
         var page = options.page || 1;
         var search = options.search || "";
-
         $.ajax({
             type: 'GET',
             url: 'api/conversations',
@@ -40,12 +39,19 @@ var apiUtil = {
     updateConversations: function (parameters, ids, options) {
         var context = options.context || 'inbox';
         var page = options.page || 1;
+        var search = options.search || "";
 
         $.ajax({
             type: 'PATCH',
             url: '/api/conversations/batch_update',
             dataType: 'json',
-            data: {conversation: parameters, ids: ids, page: page, context: context},
+            data: {
+                conversation: parameters,
+                ids: ids,
+                page: page,
+                context: context,
+                search: search
+            },
             success: function (data) {
                 ConversationActions.receiveConversations(data);
             },
@@ -55,12 +61,13 @@ var apiUtil = {
     deleteConversations: function (ids, options) {
         var context = options.context || 'inbox';
         var page = options.page || 1;
+        var search = options.search || "";
 
         $.ajax({
             type: 'DELETE',
             url: '/api/conversations/batch_delete',
             dataType: 'json',
-            data: {ids: ids, page: page, context: context},
+            data: {ids: ids, page: page, context: context, search: search},
             success: function (data) {
                 ConversationActions.receiveConversations(data);
             },

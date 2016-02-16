@@ -11,7 +11,8 @@ var Message = React.createClass({
 
   render: function () {
     var expandedClass,
-        theBody = this.props.message.body;
+        theBody = this.props.message.body,
+        the_full_body = this.props.message.body_is_full;
 
     if (this.props.expanded) {
       if (this.props.message.body_is_full) {
@@ -21,13 +22,17 @@ var Message = React.createClass({
         messageApiUtil.fetchMessage(this.props.message.id);
       }
     } else {
-      expandedClass = "contracted";
-      theBody = theBody.substring(0,77);
+        expandedClass = "contracted";
+
+        if (theBody.length > 77) {
+            the_full_body = false;
+        }
+        
+        theBody = theBody.substring(0,77);
     }
 
     var timePair = this.props.shortenTime(this.props.message.updated_at);
-
-
+      
     return (
       <div key={this.props.message.id} className={"message-detail " + expandedClass} >
         <div className="message-detail-header"
@@ -50,7 +55,7 @@ var Message = React.createClass({
           </h10>
 
           <p className={"message-detail-body header-body " + expandedClass}>
-            {theBody}
+            {theBody + (the_full_body ? "" : "... ")}
           </p>
 
         </div>
