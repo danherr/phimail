@@ -1,6 +1,4 @@
-# φmail
-
-[link][heroku]
+# [φmail] [heroku]
 
 [heroku]: http://phimail.pw
 

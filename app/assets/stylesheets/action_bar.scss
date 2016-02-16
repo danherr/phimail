@@ -71,3 +71,50 @@
 .action-bar .disabled {
   color: #a5a5a5;
 }
+
+.action-bar .actionbar-dropdown-button i{
+  font-size: 16px;
+  color: #9f9f9f;
+}
+
+.actionbar-dropdown-button:hover i {
+  color: #686868;
+}
+
+.actionbar-dropdown-button {
+  position: relative;
+}
+
+.actionbar-dropdown-button-expanded {
+  position: relative;                             
+  background: #dcdcdc !important;
+}
+
+.actionbar-dropdown-button-expanded i.fa{
+  font-size: 16px;
+  color: #686868;
+}
+
+.actionbar-dropdown-list {
+  position: absolute;
+  z-index: 10;
+  background: #ffffff;
+  top: 28px;
+  border: 1px solid #e5e5e5;
+  left: 0px;
+  width: 200px;
+  padding: 8px 0;
+}
+
+.action-dropdown-item {
+  cursor: pointer;
+  padding: 2px 0 2px 20px;
+  text-align: left;
+}
+
+.action-dropdown-item:hover {
+  background: #eeeeee;
+}
+
+
+
