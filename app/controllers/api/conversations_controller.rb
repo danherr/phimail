@@ -5,21 +5,21 @@ class Api::ConversationsController < ApplicationController
   def index
     if params[:context] == "drafts"
       @drafts = true
-      conversation_list(:drafts)
+      conversation_list(:drafts, params[:search])
     elsif params[:context] == "sent"
       @drafts = false
-      conversation_list(:sent_conversations)
+      conversation_list(:sent_conversations, params[:search])
     else
       @drafts = false
-      conversation_list(:received_conversations)
+      conversation_list(:received_conversations, params[:search])
     end
   end
 
-  def conversation_list listing_method
+  def conversation_list(listing_method, search_string)
     @page_number = params[:page].try(:to_i) || 1
     @offset = (@page_number - 1) * 50
 
-    @num_con = current_user.send(listing_method).length
+    @num_con = current_user.send(listing_method).where("title ~* ?", search_string).length
 
     until @num_con > @offset do
       @offset -= 50
@@ -32,8 +32,8 @@ class Api::ConversationsController < ApplicationController
     end
 
     @conversations = current_user.send(listing_method)
-      .limit(50).offset(@offset)
-
+      .limit(50).offset(@offset).where("title ~* ?", search_string)
+    
     render :index;
   end
 
