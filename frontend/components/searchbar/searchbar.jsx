@@ -31,8 +31,6 @@ var SearchBar = React.createClass({
         var path = document.location.hash.split("?")[0].split("#")[1];
         var searchString = this.state.searchString
 
-        this.setState({searchString: ""})
-        
         this.props.history.pushState(null, path, {search: searchString})
     },
 
