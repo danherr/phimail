@@ -4,7 +4,7 @@
 
 # Summary
 
-φmail is a clone of Gmail, build on Rails with a React/Flux frontend.  
+φmail is a clone of Gmail, build on Rails with a React/Flux frontend. 
 
 ## Languages
 
