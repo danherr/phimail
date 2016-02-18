@@ -21,22 +21,22 @@ class Api::ConversationsController < ApplicationController
 
     user = current_user
     
-    @num_con = user.send(listing_method).where("title ~* ?", search_string).length
+    @num_con = user.send(listing_method).where("conversations.title ~* ?", search_string).length
 
     until @num_con > @offset do
       @offset -= 50
       @page_number -= 1
     end
-
+    
     until @offset >= 0 do
       @offset += 50
       @page_number += 1
     end
 
     @conversations = user.send(listing_method)
-      .limit(50).offset(@offset).where("title ~* ?", search_string).includes(:messages)
-    
-    render :index;
+      .limit(50).offset(@offset).where("title ~* ?", search_string)
+
+    render :index
   end
 
 

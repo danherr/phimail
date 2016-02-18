@@ -5,7 +5,7 @@ json.page_number @page_number
 
 json.conversations do
   json.array!(@conversations) do |conversation|
-    last_message = conversation.messages.order(:updated_at).last
+    last_message = conversation.messages.last
     if last_message
       json.extract! conversation, :id, :starred, :important, :title, :message_timestamp, :read, :sent, :received
 

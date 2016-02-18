@@ -8,7 +8,7 @@ class Message < ActiveRecord::Base
 
   has_one :meta_conversation, through: :message_conversation_links
 
-  default_scope { order('updated_at') }
+  default_scope { order('messages.updated_at') }
 
   def garbage_collect
     if self.message_conversation_links.all.length == 0
