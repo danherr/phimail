@@ -7,7 +7,6 @@
 }
 
 .auth-page-form {
-  // background: #f7f7f7;
   background: #f7f7f7;
   display: block;
   width: 274px;
@@ -24,6 +23,7 @@
 
 .demo-account-button {
   display: none;
+  cursor: pointer;
 }
 
 .auth-page > form button {
@@ -33,6 +33,7 @@
   border: 0;
   border-radius: 4px;
   padding: 9px 8px;
+  cursor: pointer;  
 }
 
 .log-in > form > * {
@@ -53,6 +54,7 @@
   display: block;
   color: #3c85f3;
   font-size: 14px;
+  cursor: pointer;
 }
 
 .new-user {
@@ -104,6 +106,7 @@
 
 .new-user-form button {
   float: right;
+  cursor: pointer;  
 }
 
 .new-user-username input::-webkit-input-placeholder{
