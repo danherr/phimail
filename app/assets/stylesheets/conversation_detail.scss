@@ -27,6 +27,7 @@
 .conversation-detail-buttons {
   display: inline;
   float: right;
+  cursor: pointer;
 }
 
 .conversation-detail-buttons > i {
@@ -168,7 +169,7 @@ div.reply-bottombar div.send-button {
   font-size: 10px;
   font-weight: bold;
   float: left;
-  cursor: default;
+  cursor: pointer;
 }
 
 .reply-bottombar .delete-button {
@@ -215,6 +216,7 @@ div.reply-button  mark{
 }
 
 .message-reply-button {
+  cursor: pointer;  
   float: right;
   padding: 5px 5px;
   margin-left: 5px;

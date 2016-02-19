@@ -15,12 +15,14 @@
   font-size: 26px;
   display: inline;
   font-weight: lighter;
+  cursor: default;
 }
 
 .app-name > h5 {
   font-size: 18px;
   display: inline;
   font-weight: normal;
+  cursor: default;  
 }
 
 .compose-button-area {
@@ -36,7 +38,7 @@
   border-radius: 2px;
   font-weight: bold;
   border: 1px solid rgb(214, 76, 52);
-  cursor: default;
+  cursor: pointer;
   user-select: none;
 }
 
