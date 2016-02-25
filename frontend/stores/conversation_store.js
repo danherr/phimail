@@ -13,92 +13,95 @@ var _conversations = [],
     _pageNumber = 1;
 
 var ordering = function (con1, con2) {
-  var time1 = new Date(con1.message_timestamp);
-  var time2 = new Date(con2.message_timestamp);
-  var diff = time2.valueOf() - time1.valueOf();
-  return diff;
+    var time1 = new Date(con1.message_timestamp);
+    var time2 = new Date(con2.message_timestamp);
+    var diff = time2.valueOf() - time1.valueOf();
+    return diff;
 };
 
 ConversationStore.all = function (filter) {
-  filter = filter || function () {return true;};
+    filter = filter || function () {return true;};
 
-  return _conversations.slice(0).filter(filter);
+    return _conversations.slice(0).filter(filter);
 };
 
 ConversationStore.allIds = function (filter) {
-  filter = filter || function () {return true;};
+    filter = filter || function () {return true;};
 
-  return _conversations.filter(filter).map(function (conversation) {return conversation.id;});
+    return _conversations.filter(filter).map(function (conversation) {return conversation.id;});
 };
 
 ConversationStore.find = function (id) {
-  return _conversations.find(function (conversation) {
-    return conversation.id == id;
-  });
+    return _conversations.find(function (conversation) {
+        return conversation.id == id;
+    });
 };
 
 ConversationStore.findRelative = function (id, offset) {
-  idx = _conversations.findIndex(function (conversation) {
-    return conversation.id == id;
-  });
-  if (idx === -1) {
-    return undefined;
-  } else {
-    return _conversations[idx + offset];
-  }
+    idx = _conversations.findIndex(function (conversation) {
+        return conversation.id == id;
+    });
+    if (idx === -1) {
+        return undefined;
+    } else {
+        return _conversations[idx + offset];
+    }
 };
 
 ConversationStore.beenFetched = function () {
-  return _beenFetched;
+    return _beenFetched;
 };
 
 ConversationStore.pageData = function () {
-  return {min: _min, max: _max, total: _total, pageNumber: _pageNumber};
+    return {min: _min, max: _max, total: _total, pageNumber: _pageNumber};
 };
 
 ConversationStore.resetStore = function (conversationPacket) {
 
-  if (conversationPacket) {
-    _conversations = conversationPacket.conversations.sort(ordering);
-    _max = conversationPacket.max;
-    _min = conversationPacket.min;
-    _total = conversationPacket.total;
-    _pageNumber = conversationPacket.page_number;
-  } else {
-    _conversations = [];
-  }
-  _conversations.forEach(function (conv, index) {
-    conv.index = index;
-  });
+    if (conversationPacket) {
+        _conversations = conversationPacket.conversations.sort(ordering);
+        _max = conversationPacket.max;
+        _min = conversationPacket.min;
+        _total = conversationPacket.total;
+        _pageNumber = conversationPacket.page_number;
+    } else {
+        _conversations = [];
+    }
+    _conversations.forEach(function (conv, index) {
+        conv.index = index;
+    });
 
 };
 
 ConversationStore.updateCoversation = function (conversation) {
-  if (_conversations[conversation.index]) {
-    _conversations[conversation.index] = conversation;
-  } else {
-    _conversations.push(conversation);
-    _conversations = _conversations.sort(ordering);
-  }
+    if (_conversations[conversation.index]) {
+        _conversations[conversation.index] = conversation;
+    } else {
+        _conversations.push(conversation);
+        _conversations = _conversations.sort(ordering);
+    }
 };
 
 ConversationStore.updateConversationArray = function (conversations) {
-  conversations.forEach(this.updateConversation);
+    conversations.forEach(this.updateConversation);
 };
 
 ConversationStore.__onDispatch = function (payload) {
-  if (payload.actionType === ConversationConstants.receiveAll) {
-    this.resetStore(payload.conversationPacket);
-    _beenFetched = true;
-    if (payload.callback) payload.callback();
-    this.__emitChange();
-  } else if (payload.actionType === ConversationConstants.updateOne) {
-    this.updateCoversation(payload.conversation);
-    this.__emitChange();
-  } else if (payload.actionType === ConversationConstants.updateMany) {
-    this.updateCoversationArray(payload.conversations);
-    this.__emitChange();
-  }
+    if (payload.actionType === ConversationConstants.receiveAll) {
+        this.resetStore(payload.conversationPacket);
+        _beenFetched = true;
+        if (payload.callback) payload.callback();
+        this.__emitChange();
+    } else if (payload.actionType === ConversationConstants.updateOne) {
+        this.updateCoversation(payload.conversation);
+        this.__emitChange();
+    } else if (payload.actionType === ConversationConstants.updateMany) {
+        this.updateCoversationArray(payload.conversations);
+        this.__emitChange();
+    } else if (payload.actionType === ConversationConstants.clearStore) {
+        this.resetStore();
+        this.__emitChange();
+    }
 };
 
 module.exports = ConversationStore;
