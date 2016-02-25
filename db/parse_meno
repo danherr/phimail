@@ -43,9 +43,32 @@ array = array.map! do |message|
   if message
 
     if Random.rand > 0.9
-      min_message = "\n Scon#{$num}.update(message_timestamp: #{$time_num.floor}.#{$increments[$time_idx]}.ago) \n Mcon#{$num}.update(message_timestamp: #{$time_num.floor}.#{$increments[$time_idx]}.ago) \n\n Bcon#{$num}.update(message_timestamp: #{$time_num.floor}.#{$increments[$time_idx]}.ago) \n Acon#{$num}.update(message_timestamp: #{$time_num.floor}.#{$increments[$time_idx]}.ago) \n"
+
+      read = $time_idx <= 3;
+      min_message = <<-msg
+
+        Scon#{$num}.update({
+                             message_timestamp: #{$time_num.floor}.#{$increments[$time_idx]}.ago,
+                             read: #{read}
+                           }) 
+        Mcon#{$num}.update({
+                             message_timestamp: #{$time_num.floor}.#{$increments[$time_idx]}.ago,
+                             read: #{read}
+                           }) 
+        Bcon#{$num}.update({
+                             message_timestamp: #{$time_num.floor}.#{$increments[$time_idx]}.ago,
+                             read: #{read}
+                           }) 
+        Acon#{$num}.update({
+                             message_timestamp: #{$time_num.floor}.#{$increments[$time_idx]}.ago,
+                             read: #{read}
+                           }) 
+
+msg
+                              
       title = message.split(' ').take(6).join(' ')
       $num = $num + 1
+      
       min_message = <<-cons
       #{min_message}
 

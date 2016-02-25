@@ -14,30 +14,13 @@ Acon3 = anytus.conversations.create(title: 'A Question, Socrates', meta_conversa
 
 
 
-
-
-      
- Scon3.update(message_timestamp: 10.years.ago) 
- Mcon3.update(message_timestamp: 10.years.ago) 
-
- Bcon3.update(message_timestamp: 10.years.ago) 
- Acon3.update(message_timestamp: 10.years.ago) 
-
-
-      MetCon4 = MetaConversation.create();
-
-      Scon4 = soc.conversations.create(title: "Can you tell me, Socrates, whether", meta_conversation: MetCon4)
-      Mcon4 = meno.conversations.create(title: "Can you tell me, Socrates, whether", meta_conversation: MetCon4)
-      Bcon4 = boy.conversations.create(title: "Can you tell me, Socrates, whether", meta_conversation: MetCon4)
-      Acon4 = anytus.conversations.create(title: "Can you tell me, Socrates, whether", meta_conversation: MetCon4 )
-
 body_str = <<-BODY 
  Can you tell me, Socrates, whether virtue is acquired by teaching
 or by practice; or if neither by teaching nor by practice, then whether
 it comes to man by nature, or in what other way?
 BODY
 
-msg1 = Mcon4.messages.create({
+msg1 = Mcon3.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -76,7 +59,7 @@ I tell if he was fair, or the opposite of fair; rich and noble, or the
 reverse of rich and noble? Do you think that I could?
 BODY
 
-msg2 = Scon4.messages.create({
+msg2 = Scon3.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -95,7 +78,7 @@ do not know what virtue is? And am I to carry back this report of you to
 Thessaly?
 BODY
 
-msg3 = Mcon4.messages.create({
+msg3 = Mcon3.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -113,7 +96,7 @@ body_str = <<-BODY
 have never known of any one else who did, in my judgment.
 BODY
 
-msg4 = Scon4.messages.create({
+msg4 = Scon3.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -126,26 +109,11 @@ msg4 = Scon4.messages.create({
 
 
 
-      
- Scon4.update(message_timestamp: 9.years.ago) 
- Mcon4.update(message_timestamp: 9.years.ago) 
-
- Bcon4.update(message_timestamp: 9.years.ago) 
- Acon4.update(message_timestamp: 9.years.ago) 
-
-
-      MetCon5 = MetaConversation.create();
-
-      Scon5 = soc.conversations.create(title: "Then you have never met Gorgias", meta_conversation: MetCon5)
-      Mcon5 = meno.conversations.create(title: "Then you have never met Gorgias", meta_conversation: MetCon5)
-      Bcon5 = boy.conversations.create(title: "Then you have never met Gorgias", meta_conversation: MetCon5)
-      Acon5 = anytus.conversations.create(title: "Then you have never met Gorgias", meta_conversation: MetCon5 )
-
 body_str = <<-BODY 
  Then you have never met Gorgias when he was at Athens?
 BODY
 
-msg5 = Mcon5.messages.create({
+msg5 = Mcon3.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -158,11 +126,38 @@ msg5 = Mcon5.messages.create({
 
 
 
+      
+        Scon3.update({
+                             message_timestamp: 9.years.ago,
+                             read: true
+                           }) 
+        Mcon3.update({
+                             message_timestamp: 9.years.ago,
+                             read: true
+                           }) 
+        Bcon3.update({
+                             message_timestamp: 9.years.ago,
+                             read: true
+                           }) 
+        Acon3.update({
+                             message_timestamp: 9.years.ago,
+                             read: true
+                           }) 
+
+
+
+      MetCon4 = MetaConversation.create();
+
+      Scon4 = soc.conversations.create(title: "Yes, I have.", meta_conversation: MetCon4)
+      Mcon4 = meno.conversations.create(title: "Yes, I have.", meta_conversation: MetCon4)
+      Bcon4 = boy.conversations.create(title: "Yes, I have.", meta_conversation: MetCon4)
+      Acon4 = anytus.conversations.create(title: "Yes, I have.", meta_conversation: MetCon4 )
+
 body_str = <<-BODY 
  Yes, I have.
 BODY
 
-msg6 = Scon5.messages.create({
+msg6 = Scon4.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -179,7 +174,7 @@ body_str = <<-BODY
  And did you not think that he knew?
 BODY
 
-msg7 = Mcon5.messages.create({
+msg7 = Mcon4.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -200,7 +195,7 @@ he said; or, if you would rather, tell me your own view; for I suspect
 that you and he think much alike.
 BODY
 
-msg8 = Scon5.messages.create({
+msg8 = Scon4.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -217,15 +212,15 @@ body_str = <<-BODY
  Very true.
 BODY
 
-msg9 = Mcon5.messages.create({
+msg9 = Mcon4.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.years.ago
+    created_at: 8.years.ago
     })
 
     msg9.send_msg
-    msg9.update({updated_at: 9.years.ago})
+    msg9.update({updated_at: 8.years.ago})
 
 
 
@@ -238,15 +233,15 @@ that you and Gorgias do really have this knowledge; although I have been
 just saying that I have never found anybody who had.
 BODY
 
-msg10 = Scon5.messages.create({
+msg10 = Scon4.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.years.ago
+    created_at: 8.years.ago
     })
 
     msg10.send_msg
-    msg10.update({updated_at: 9.years.ago})
+    msg10.update({updated_at: 8.years.ago})
 
 
 
@@ -265,15 +260,15 @@ relative to the actions and ages of each of us in all that we do. And
 the same may be said of vice, Socrates (Compare Arist. Pol.).
 BODY
 
-msg11 = Mcon5.messages.create({
+msg11 = Mcon4.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.years.ago
+    created_at: 8.years.ago
     })
 
     msg11.send_msg
-    msg11.update({updated_at: 9.years.ago})
+    msg11.update({updated_at: 8.years.ago})
 
 
 
@@ -289,15 +284,15 @@ distinguished by some other quality, as for example beauty, size, or
 shape? How would you answer me?
 BODY
 
-msg12 = Scon5.messages.create({
+msg12 = Scon4.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.years.ago
+    created_at: 8.years.ago
     })
 
     msg12.send_msg
-    msg12.update({updated_at: 9.years.ago})
+    msg12.update({updated_at: 8.years.ago})
 
 
 
@@ -306,18 +301,45 @@ body_str = <<-BODY
  I should answer that bees do not differ from one another, as bees.
 BODY
 
-msg13 = Mcon5.messages.create({
+msg13 = Mcon4.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.years.ago
+    created_at: 8.years.ago
     })
 
     msg13.send_msg
-    msg13.update({updated_at: 9.years.ago})
+    msg13.update({updated_at: 8.years.ago})
 
 
 
+
+      
+        Scon4.update({
+                             message_timestamp: 8.years.ago,
+                             read: true
+                           }) 
+        Mcon4.update({
+                             message_timestamp: 8.years.ago,
+                             read: true
+                           }) 
+        Bcon4.update({
+                             message_timestamp: 8.years.ago,
+                             read: true
+                           }) 
+        Acon4.update({
+                             message_timestamp: 8.years.ago,
+                             read: true
+                           }) 
+
+
+
+      MetCon5 = MetaConversation.create();
+
+      Scon5 = soc.conversations.create(title: "And if I went on to", meta_conversation: MetCon5)
+      Mcon5 = meno.conversations.create(title: "And if I went on to", meta_conversation: MetCon5)
+      Bcon5 = boy.conversations.create(title: "And if I went on to", meta_conversation: MetCon5)
+      Acon5 = anytus.conversations.create(title: "And if I went on to", meta_conversation: MetCon5 )
 
 body_str = <<-BODY 
  And if I went on to say: That is what I desire to know, Meno;
@@ -329,11 +351,11 @@ msg14 = Scon5.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.years.ago
+    created_at: 8.years.ago
     })
 
     msg14.send_msg
-    msg14.update({updated_at: 9.years.ago})
+    msg14.update({updated_at: 8.years.ago})
 
 
 
@@ -346,14 +368,41 @@ msg15 = Mcon5.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.years.ago
+    created_at: 8.years.ago
     })
 
     msg15.send_msg
-    msg15.update({updated_at: 9.years.ago})
+    msg15.update({updated_at: 8.years.ago})
 
 
 
+
+      
+        Scon5.update({
+                             message_timestamp: 8.years.ago,
+                             read: true
+                           }) 
+        Mcon5.update({
+                             message_timestamp: 8.years.ago,
+                             read: true
+                           }) 
+        Bcon5.update({
+                             message_timestamp: 8.years.ago,
+                             read: true
+                           }) 
+        Acon5.update({
+                             message_timestamp: 8.years.ago,
+                             read: true
+                           }) 
+
+
+
+      MetCon6 = MetaConversation.create();
+
+      Scon6 = soc.conversations.create(title: "And so of the virtues, however", meta_conversation: MetCon6)
+      Mcon6 = meno.conversations.create(title: "And so of the virtues, however", meta_conversation: MetCon6)
+      Bcon6 = boy.conversations.create(title: "And so of the virtues, however", meta_conversation: MetCon6)
+      Acon6 = anytus.conversations.create(title: "And so of the virtues, however", meta_conversation: MetCon6 )
 
 body_str = <<-BODY 
  And so of the virtues, however many and different they may be,
@@ -362,33 +411,18 @@ who would answer the question, 'What is virtue?' would do well to have
 his eye fixed: Do you understand?
 BODY
 
-msg16 = Scon5.messages.create({
+msg16 = Scon6.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.years.ago
+    created_at: 8.years.ago
     })
 
     msg16.send_msg
-    msg16.update({updated_at: 9.years.ago})
+    msg16.update({updated_at: 8.years.ago})
 
 
 
-
-      
- Scon5.update(message_timestamp: 9.years.ago) 
- Mcon5.update(message_timestamp: 9.years.ago) 
-
- Bcon5.update(message_timestamp: 9.years.ago) 
- Acon5.update(message_timestamp: 9.years.ago) 
-
-
-      MetCon6 = MetaConversation.create();
-
-      Scon6 = soc.conversations.create(title: "I am beginning to understand; but", meta_conversation: MetCon6)
-      Mcon6 = meno.conversations.create(title: "I am beginning to understand; but", meta_conversation: MetCon6)
-      Bcon6 = boy.conversations.create(title: "I am beginning to understand; but", meta_conversation: MetCon6)
-      Acon6 = anytus.conversations.create(title: "I am beginning to understand; but", meta_conversation: MetCon6 )
 
 body_str = <<-BODY 
  I am beginning to understand; but I do not as yet take hold of the
@@ -436,11 +470,11 @@ msg19 = Mcon6.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.years.ago
+    created_at: 7.years.ago
     })
 
     msg19.send_msg
-    msg19.update({updated_at: 8.years.ago})
+    msg19.update({updated_at: 7.years.ago})
 
 
 
@@ -457,11 +491,11 @@ msg20 = Scon6.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.years.ago
+    created_at: 7.years.ago
     })
 
     msg20.send_msg
-    msg20.update({updated_at: 8.years.ago})
+    msg20.update({updated_at: 7.years.ago})
 
 
 
@@ -474,11 +508,11 @@ msg21 = Mcon6.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.years.ago
+    created_at: 7.years.ago
     })
 
     msg21.send_msg
-    msg21.update({updated_at: 8.years.ago})
+    msg21.update({updated_at: 7.years.ago})
 
 
 
@@ -492,47 +526,59 @@ msg22 = Scon6.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.years.ago
+    created_at: 7.years.ago
     })
 
     msg22.send_msg
-    msg22.update({updated_at: 8.years.ago})
+    msg22.update({updated_at: 7.years.ago})
 
 
 
-
-      
- Scon6.update(message_timestamp: 8.years.ago) 
- Mcon6.update(message_timestamp: 8.years.ago) 
-
- Bcon6.update(message_timestamp: 8.years.ago) 
- Acon6.update(message_timestamp: 8.years.ago) 
-
-
-      MetCon7 = MetaConversation.create();
-
-      Scon7 = soc.conversations.create(title: "I cannot help feeling, Socrates, that", meta_conversation: MetCon7)
-      Mcon7 = meno.conversations.create(title: "I cannot help feeling, Socrates, that", meta_conversation: MetCon7)
-      Bcon7 = boy.conversations.create(title: "I cannot help feeling, Socrates, that", meta_conversation: MetCon7)
-      Acon7 = anytus.conversations.create(title: "I cannot help feeling, Socrates, that", meta_conversation: MetCon7 )
 
 body_str = <<-BODY 
  I cannot help feeling, Socrates, that this case is different from
 the others.
 BODY
 
-msg23 = Mcon7.messages.create({
+msg23 = Mcon6.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.years.ago
+    created_at: 7.years.ago
     })
 
     msg23.send_msg
-    msg23.update({updated_at: 8.years.ago})
+    msg23.update({updated_at: 7.years.ago})
 
 
 
+
+      
+        Scon6.update({
+                             message_timestamp: 7.years.ago,
+                             read: true
+                           }) 
+        Mcon6.update({
+                             message_timestamp: 7.years.ago,
+                             read: true
+                           }) 
+        Bcon6.update({
+                             message_timestamp: 7.years.ago,
+                             read: true
+                           }) 
+        Acon6.update({
+                             message_timestamp: 7.years.ago,
+                             read: true
+                           }) 
+
+
+
+      MetCon7 = MetaConversation.create();
+
+      Scon7 = soc.conversations.create(title: "But why? Were you not saying", meta_conversation: MetCon7)
+      Mcon7 = meno.conversations.create(title: "But why? Were you not saying", meta_conversation: MetCon7)
+      Bcon7 = boy.conversations.create(title: "But why? Were you not saying", meta_conversation: MetCon7)
+      Acon7 = anytus.conversations.create(title: "But why? Were you not saying", meta_conversation: MetCon7 )
 
 body_str = <<-BODY 
  But why? Were you not saying that the virtue of a man was to
@@ -543,11 +589,11 @@ msg24 = Scon7.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.years.ago
+    created_at: 7.years.ago
     })
 
     msg24.send_msg
-    msg24.update({updated_at: 8.years.ago})
+    msg24.update({updated_at: 7.years.ago})
 
 
 
@@ -560,11 +606,11 @@ msg25 = Mcon7.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.years.ago
+    created_at: 7.years.ago
     })
 
     msg25.send_msg
-    msg25.update({updated_at: 8.years.ago})
+    msg25.update({updated_at: 7.years.ago})
 
 
 
@@ -578,11 +624,11 @@ msg26 = Scon7.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.years.ago
+    created_at: 7.years.ago
     })
 
     msg26.send_msg
-    msg26.update({updated_at: 8.years.ago})
+    msg26.update({updated_at: 7.years.ago})
 
 
 
@@ -595,11 +641,11 @@ msg27 = Mcon7.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.years.ago
+    created_at: 7.years.ago
     })
 
     msg27.send_msg
-    msg27.update({updated_at: 8.years.ago})
+    msg27.update({updated_at: 7.years.ago})
 
 
 
@@ -683,11 +729,11 @@ msg32 = Scon7.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.years.ago
+    created_at: 6.years.ago
     })
 
     msg32.send_msg
-    msg32.update({updated_at: 7.years.ago})
+    msg32.update({updated_at: 6.years.ago})
 
 
 
@@ -700,11 +746,11 @@ msg33 = Mcon7.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.years.ago
+    created_at: 6.years.ago
     })
 
     msg33.send_msg
-    msg33.update({updated_at: 7.years.ago})
+    msg33.update({updated_at: 6.years.ago})
 
 
 
@@ -717,11 +763,11 @@ msg34 = Scon7.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.years.ago
+    created_at: 6.years.ago
     })
 
     msg34.send_msg
-    msg34.update({updated_at: 7.years.ago})
+    msg34.update({updated_at: 6.years.ago})
 
 
 
@@ -734,11 +780,11 @@ msg35 = Mcon7.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.years.ago
+    created_at: 6.years.ago
     })
 
     msg35.send_msg
-    msg35.update({updated_at: 7.years.ago})
+    msg35.update({updated_at: 6.years.ago})
 
 
 
@@ -752,46 +798,58 @@ msg36 = Scon7.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.years.ago
+    created_at: 6.years.ago
     })
 
     msg36.send_msg
-    msg36.update({updated_at: 7.years.ago})
-
-
-
-
-body_str = <<-BODY 
- Such is the inference.
-BODY
-
-msg37 = Mcon7.messages.create({
-    source_address: "meno#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
-    body: body_str,
-    created_at: 7.years.ago
-    })
-
-    msg37.send_msg
-    msg37.update({updated_at: 7.years.ago})
+    msg36.update({updated_at: 6.years.ago})
 
 
 
 
       
- Scon7.update(message_timestamp: 7.years.ago) 
- Mcon7.update(message_timestamp: 7.years.ago) 
+        Scon7.update({
+                             message_timestamp: 6.years.ago,
+                             read: true
+                           }) 
+        Mcon7.update({
+                             message_timestamp: 6.years.ago,
+                             read: true
+                           }) 
+        Bcon7.update({
+                             message_timestamp: 6.years.ago,
+                             read: true
+                           }) 
+        Acon7.update({
+                             message_timestamp: 6.years.ago,
+                             read: true
+                           }) 
 
- Bcon7.update(message_timestamp: 7.years.ago) 
- Acon7.update(message_timestamp: 7.years.ago) 
 
 
       MetCon8 = MetaConversation.create();
 
-      Scon8 = soc.conversations.create(title: "And they surely would not have", meta_conversation: MetCon8)
-      Mcon8 = meno.conversations.create(title: "And they surely would not have", meta_conversation: MetCon8)
-      Bcon8 = boy.conversations.create(title: "And they surely would not have", meta_conversation: MetCon8)
-      Acon8 = anytus.conversations.create(title: "And they surely would not have", meta_conversation: MetCon8 )
+      Scon8 = soc.conversations.create(title: "Such is the inference.", meta_conversation: MetCon8)
+      Mcon8 = meno.conversations.create(title: "Such is the inference.", meta_conversation: MetCon8)
+      Bcon8 = boy.conversations.create(title: "Such is the inference.", meta_conversation: MetCon8)
+      Acon8 = anytus.conversations.create(title: "Such is the inference.", meta_conversation: MetCon8 )
+
+body_str = <<-BODY 
+ Such is the inference.
+BODY
+
+msg37 = Mcon8.messages.create({
+    source_address: "meno#{EMAIL_SIGNATURE}",
+    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    body: body_str,
+    created_at: 6.years.ago
+    })
+
+    msg37.send_msg
+    msg37.update({updated_at: 6.years.ago})
+
+
+
 
 body_str = <<-BODY 
  And they surely would not have been good in the same way,
@@ -802,11 +860,11 @@ msg38 = Scon8.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.years.ago
+    created_at: 6.years.ago
     })
 
     msg38.send_msg
-    msg38.update({updated_at: 7.years.ago})
+    msg38.update({updated_at: 6.years.ago})
 
 
 
@@ -863,34 +921,19 @@ msg41 = Mcon8.messages.create({
 
 
 
-      
- Scon8.update(message_timestamp: 6.years.ago) 
- Mcon8.update(message_timestamp: 6.years.ago) 
-
- Bcon8.update(message_timestamp: 6.years.ago) 
- Acon8.update(message_timestamp: 6.years.ago) 
-
-
-      MetCon9 = MetaConversation.create();
-
-      Scon9 = soc.conversations.create(title: "That is what I am seeking.", meta_conversation: MetCon9)
-      Mcon9 = meno.conversations.create(title: "That is what I am seeking.", meta_conversation: MetCon9)
-      Bcon9 = boy.conversations.create(title: "That is what I am seeking.", meta_conversation: MetCon9)
-      Acon9 = anytus.conversations.create(title: "That is what I am seeking.", meta_conversation: MetCon9 )
-
 body_str = <<-BODY 
  That is what I am seeking.
 BODY
 
-msg42 = Scon9.messages.create({
+msg42 = Scon8.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.years.ago
+    created_at: 5.years.ago
     })
 
     msg42.send_msg
-    msg42.update({updated_at: 6.years.ago})
+    msg42.update({updated_at: 5.years.ago})
 
 
 
@@ -900,15 +943,15 @@ body_str = <<-BODY
 say, but that virtue is the power of governing mankind.
 BODY
 
-msg43 = Mcon9.messages.create({
+msg43 = Mcon8.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.years.ago
+    created_at: 5.years.ago
     })
 
     msg43.send_msg
-    msg43.update({updated_at: 6.years.ago})
+    msg43.update({updated_at: 5.years.ago})
 
 
 
@@ -920,15 +963,15 @@ his father, or the slave his master; and would he who governed be any
 longer a slave?
 BODY
 
-msg44 = Scon9.messages.create({
+msg44 = Scon8.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.years.ago
+    created_at: 5.years.ago
     })
 
     msg44.send_msg
-    msg44.update({updated_at: 6.years.ago})
+    msg44.update({updated_at: 5.years.ago})
 
 
 
@@ -937,15 +980,15 @@ body_str = <<-BODY
  I think not, Socrates.
 BODY
 
-msg45 = Mcon9.messages.create({
+msg45 = Mcon8.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.years.ago
+    created_at: 5.years.ago
     })
 
     msg45.send_msg
-    msg45.update({updated_at: 6.years.ago})
+    msg45.update({updated_at: 5.years.ago})
 
 
 
@@ -956,18 +999,45 @@ more, fair friend; according to you, virtue is 'the power of governing;'
 but do you not add 'justly and not unjustly'?
 BODY
 
-msg46 = Scon9.messages.create({
+msg46 = Scon8.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.years.ago
+    created_at: 5.years.ago
     })
 
     msg46.send_msg
-    msg46.update({updated_at: 6.years.ago})
+    msg46.update({updated_at: 5.years.ago})
 
 
 
+
+      
+        Scon8.update({
+                             message_timestamp: 5.years.ago,
+                             read: true
+                           }) 
+        Mcon8.update({
+                             message_timestamp: 5.years.ago,
+                             read: true
+                           }) 
+        Bcon8.update({
+                             message_timestamp: 5.years.ago,
+                             read: true
+                           }) 
+        Acon8.update({
+                             message_timestamp: 5.years.ago,
+                             read: true
+                           }) 
+
+
+
+      MetCon9 = MetaConversation.create();
+
+      Scon9 = soc.conversations.create(title: "Yes, Socrates; I agree there; for", meta_conversation: MetCon9)
+      Mcon9 = meno.conversations.create(title: "Yes, Socrates; I agree there; for", meta_conversation: MetCon9)
+      Bcon9 = boy.conversations.create(title: "Yes, Socrates; I agree there; for", meta_conversation: MetCon9)
+      Acon9 = anytus.conversations.create(title: "Yes, Socrates; I agree there; for", meta_conversation: MetCon9 )
 
 body_str = <<-BODY 
  Yes, Socrates; I agree there; for justice is virtue.
@@ -977,11 +1047,11 @@ msg47 = Mcon9.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.years.ago
+    created_at: 5.years.ago
     })
 
     msg47.send_msg
-    msg47.update({updated_at: 6.years.ago})
+    msg47.update({updated_at: 5.years.ago})
 
 
 
@@ -994,28 +1064,55 @@ msg48 = Scon9.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.years.ago
+    created_at: 5.years.ago
     })
 
     msg48.send_msg
-    msg48.update({updated_at: 6.years.ago})
+    msg48.update({updated_at: 5.years.ago})
 
 
 
+
+      
+        Scon9.update({
+                             message_timestamp: 5.years.ago,
+                             read: true
+                           }) 
+        Mcon9.update({
+                             message_timestamp: 5.years.ago,
+                             read: true
+                           }) 
+        Bcon9.update({
+                             message_timestamp: 5.years.ago,
+                             read: true
+                           }) 
+        Acon9.update({
+                             message_timestamp: 5.years.ago,
+                             read: true
+                           }) 
+
+
+
+      MetCon10 = MetaConversation.create();
+
+      Scon10 = soc.conversations.create(title: "What do you mean?", meta_conversation: MetCon10)
+      Mcon10 = meno.conversations.create(title: "What do you mean?", meta_conversation: MetCon10)
+      Bcon10 = boy.conversations.create(title: "What do you mean?", meta_conversation: MetCon10)
+      Acon10 = anytus.conversations.create(title: "What do you mean?", meta_conversation: MetCon10 )
 
 body_str = <<-BODY 
  What do you mean?
 BODY
 
-msg49 = Mcon9.messages.create({
+msg49 = Mcon10.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.years.ago
+    created_at: 5.years.ago
     })
 
     msg49.send_msg
-    msg49.update({updated_at: 6.years.ago})
+    msg49.update({updated_at: 5.years.ago})
 
 
 
@@ -1026,15 +1123,15 @@ example, is 'a figure' and not simply 'figure,' and I should adopt this
 mode of speaking, because there are other figures.
 BODY
 
-msg50 = Scon9.messages.create({
+msg50 = Scon10.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.years.ago
+    created_at: 5.years.ago
     })
 
     msg50.send_msg
-    msg50.update({updated_at: 6.years.ago})
+    msg50.update({updated_at: 5.years.ago})
 
 
 
@@ -1044,7 +1141,7 @@ body_str = <<-BODY
 there are other virtues as well as justice.
 BODY
 
-msg51 = Mcon9.messages.create({
+msg51 = Mcon10.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -1062,33 +1159,60 @@ body_str = <<-BODY
 the names of the other figures if you asked me.
 BODY
 
-msg52 = Scon9.messages.create({
+msg52 = Scon10.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.years.ago
+    created_at: 4.years.ago
     })
 
     msg52.send_msg
-    msg52.update({updated_at: 5.years.ago})
+    msg52.update({updated_at: 4.years.ago})
 
 
 
+
+      
+        Scon10.update({
+                             message_timestamp: 4.years.ago,
+                             read: true
+                           }) 
+        Mcon10.update({
+                             message_timestamp: 4.years.ago,
+                             read: true
+                           }) 
+        Bcon10.update({
+                             message_timestamp: 4.years.ago,
+                             read: true
+                           }) 
+        Acon10.update({
+                             message_timestamp: 4.years.ago,
+                             read: true
+                           }) 
+
+
+
+      MetCon11 = MetaConversation.create();
+
+      Scon11 = soc.conversations.create(title: "Courage and temperance and wisdom and", meta_conversation: MetCon11)
+      Mcon11 = meno.conversations.create(title: "Courage and temperance and wisdom and", meta_conversation: MetCon11)
+      Bcon11 = boy.conversations.create(title: "Courage and temperance and wisdom and", meta_conversation: MetCon11)
+      Acon11 = anytus.conversations.create(title: "Courage and temperance and wisdom and", meta_conversation: MetCon11 )
 
 body_str = <<-BODY 
  Courage and temperance and wisdom and magnanimity are virtues; and
 there are many others.
 BODY
 
-msg53 = Mcon9.messages.create({
+msg53 = Mcon11.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.years.ago
+    created_at: 4.years.ago
     })
 
     msg53.send_msg
-    msg53.update({updated_at: 5.years.ago})
+    msg53.update({updated_at: 4.years.ago})
 
 
 
@@ -1100,48 +1224,33 @@ before; but we have been unable to find the common virtue which runs
 through them all.
 BODY
 
-msg54 = Scon9.messages.create({
+msg54 = Scon11.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.years.ago
+    created_at: 4.years.ago
     })
 
     msg54.send_msg
-    msg54.update({updated_at: 5.years.ago})
+    msg54.update({updated_at: 4.years.ago})
 
 
 
-
-      
- Scon9.update(message_timestamp: 5.years.ago) 
- Mcon9.update(message_timestamp: 5.years.ago) 
-
- Bcon9.update(message_timestamp: 5.years.ago) 
- Acon9.update(message_timestamp: 5.years.ago) 
-
-
-      MetCon10 = MetaConversation.create();
-
-      Scon10 = soc.conversations.create(title: "Why, Socrates, even now I am", meta_conversation: MetCon10)
-      Mcon10 = meno.conversations.create(title: "Why, Socrates, even now I am", meta_conversation: MetCon10)
-      Bcon10 = boy.conversations.create(title: "Why, Socrates, even now I am", meta_conversation: MetCon10)
-      Acon10 = anytus.conversations.create(title: "Why, Socrates, even now I am", meta_conversation: MetCon10 )
 
 body_str = <<-BODY 
  Why, Socrates, even now I am not able to follow you in the attempt
 to get at one common notion of virtue as of other things.
 BODY
 
-msg55 = Mcon10.messages.create({
+msg55 = Mcon11.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.years.ago
+    created_at: 4.years.ago
     })
 
     msg55.send_msg
-    msg55.update({updated_at: 5.years.ago})
+    msg55.update({updated_at: 4.years.ago})
 
 
 
@@ -1155,15 +1264,15 @@ my way of speaking, by asking whether you would say that roundness is
 'figure' or 'a figure;' and you would answer 'a figure.'
 BODY
 
-msg56 = Scon10.messages.create({
+msg56 = Scon11.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.years.ago
+    created_at: 4.years.ago
     })
 
     msg56.send_msg
-    msg56.update({updated_at: 5.years.ago})
+    msg56.update({updated_at: 4.years.ago})
 
 
 
@@ -1172,32 +1281,59 @@ body_str = <<-BODY
  Certainly.
 BODY
 
-msg57 = Mcon10.messages.create({
+msg57 = Mcon11.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.years.ago
+    created_at: 4.years.ago
     })
 
     msg57.send_msg
-    msg57.update({updated_at: 5.years.ago})
+    msg57.update({updated_at: 4.years.ago})
 
 
 
+
+      
+        Scon11.update({
+                             message_timestamp: 4.years.ago,
+                             read: true
+                           }) 
+        Mcon11.update({
+                             message_timestamp: 4.years.ago,
+                             read: true
+                           }) 
+        Bcon11.update({
+                             message_timestamp: 4.years.ago,
+                             read: true
+                           }) 
+        Acon11.update({
+                             message_timestamp: 4.years.ago,
+                             read: true
+                           }) 
+
+
+
+      MetCon12 = MetaConversation.create();
+
+      Scon12 = soc.conversations.create(title: "And for this reason--that there are", meta_conversation: MetCon12)
+      Mcon12 = meno.conversations.create(title: "And for this reason--that there are", meta_conversation: MetCon12)
+      Bcon12 = boy.conversations.create(title: "And for this reason--that there are", meta_conversation: MetCon12)
+      Acon12 = anytus.conversations.create(title: "And for this reason--that there are", meta_conversation: MetCon12 )
 
 body_str = <<-BODY 
  And for this reason--that there are other figures?
 BODY
 
-msg58 = Scon10.messages.create({
+msg58 = Scon12.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.years.ago
+    created_at: 4.years.ago
     })
 
     msg58.send_msg
-    msg58.update({updated_at: 5.years.ago})
+    msg58.update({updated_at: 4.years.ago})
 
 
 
@@ -1206,15 +1342,15 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg59 = Mcon10.messages.create({
+msg59 = Mcon12.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.years.ago
+    created_at: 4.years.ago
     })
 
     msg59.send_msg
-    msg59.update({updated_at: 5.years.ago})
+    msg59.update({updated_at: 4.years.ago})
 
 
 
@@ -1224,24 +1360,51 @@ body_str = <<-BODY
 would have told him.
 BODY
 
-msg60 = Scon10.messages.create({
+msg60 = Scon12.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.years.ago
+    created_at: 4.years.ago
     })
 
     msg60.send_msg
-    msg60.update({updated_at: 5.years.ago})
+    msg60.update({updated_at: 4.years.ago})
 
 
 
+
+      
+        Scon12.update({
+                             message_timestamp: 4.years.ago,
+                             read: true
+                           }) 
+        Mcon12.update({
+                             message_timestamp: 4.years.ago,
+                             read: true
+                           }) 
+        Bcon12.update({
+                             message_timestamp: 4.years.ago,
+                             read: true
+                           }) 
+        Acon12.update({
+                             message_timestamp: 4.years.ago,
+                             read: true
+                           }) 
+
+
+
+      MetCon13 = MetaConversation.create();
+
+      Scon13 = soc.conversations.create(title: "I should.", meta_conversation: MetCon13)
+      Mcon13 = meno.conversations.create(title: "I should.", meta_conversation: MetCon13)
+      Bcon13 = boy.conversations.create(title: "I should.", meta_conversation: MetCon13)
+      Acon13 = anytus.conversations.create(title: "I should.", meta_conversation: MetCon13 )
 
 body_str = <<-BODY 
  I should.
 BODY
 
-msg61 = Mcon10.messages.create({
+msg61 = Mcon13.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -1261,7 +1424,7 @@ colour or a colour? you would reply, A colour, because there are other
 colours as well.
 BODY
 
-msg62 = Scon10.messages.create({
+msg62 = Scon13.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -1278,7 +1441,7 @@ body_str = <<-BODY
  I should.
 BODY
 
-msg63 = Mcon10.messages.create({
+msg63 = Mcon13.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -1296,15 +1459,15 @@ body_str = <<-BODY
 told him of other colours which are colours just as much as whiteness.
 BODY
 
-msg64 = Scon10.messages.create({
+msg64 = Scon13.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.years.ago
+    created_at: 3.years.ago
     })
 
     msg64.send_msg
-    msg64.update({updated_at: 4.years.ago})
+    msg64.update({updated_at: 3.years.ago})
 
 
 
@@ -1313,15 +1476,15 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg65 = Mcon10.messages.create({
+msg65 = Mcon13.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.years.ago
+    created_at: 3.years.ago
     })
 
     msg65.send_msg
-    msg65.update({updated_at: 4.years.ago})
+    msg65.update({updated_at: 3.years.ago})
 
 
 
@@ -1336,15 +1499,15 @@ straight as well as round, and is no more one than the other--that would
 be your mode of speaking?
 BODY
 
-msg66 = Scon10.messages.create({
+msg66 = Scon13.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.years.ago
+    created_at: 3.years.ago
     })
 
     msg66.send_msg
-    msg66.update({updated_at: 4.years.ago})
+    msg66.update({updated_at: 3.years.ago})
 
 
 
@@ -1353,18 +1516,45 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg67 = Mcon10.messages.create({
+msg67 = Mcon13.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.years.ago
+    created_at: 3.years.ago
     })
 
     msg67.send_msg
-    msg67.update({updated_at: 4.years.ago})
+    msg67.update({updated_at: 3.years.ago})
 
 
 
+
+      
+        Scon13.update({
+                             message_timestamp: 3.years.ago,
+                             read: true
+                           }) 
+        Mcon13.update({
+                             message_timestamp: 3.years.ago,
+                             read: true
+                           }) 
+        Bcon13.update({
+                             message_timestamp: 3.years.ago,
+                             read: true
+                           }) 
+        Acon13.update({
+                             message_timestamp: 3.years.ago,
+                             read: true
+                           }) 
+
+
+
+      MetCon14 = MetaConversation.create();
+
+      Scon14 = soc.conversations.create(title: "And in speaking thus, you do", meta_conversation: MetCon14)
+      Mcon14 = meno.conversations.create(title: "And in speaking thus, you do", meta_conversation: MetCon14)
+      Bcon14 = boy.conversations.create(title: "And in speaking thus, you do", meta_conversation: MetCon14)
+      Acon14 = anytus.conversations.create(title: "And in speaking thus, you do", meta_conversation: MetCon14 )
 
 body_str = <<-BODY 
  And in speaking thus, you do not mean to say that the round
@@ -1372,15 +1562,15 @@ is round any more than straight, or the straight any more straight than
 round?
 BODY
 
-msg68 = Scon10.messages.create({
+msg68 = Scon14.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.years.ago
+    created_at: 3.years.ago
     })
 
     msg68.send_msg
-    msg68.update({updated_at: 4.years.ago})
+    msg68.update({updated_at: 3.years.ago})
 
 
 
@@ -1389,33 +1579,60 @@ body_str = <<-BODY
  Certainly not.
 BODY
 
-msg69 = Mcon10.messages.create({
+msg69 = Mcon14.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.years.ago
+    created_at: 3.years.ago
     })
 
     msg69.send_msg
-    msg69.update({updated_at: 4.years.ago})
+    msg69.update({updated_at: 3.years.ago})
 
 
 
+
+      
+        Scon14.update({
+                             message_timestamp: 3.years.ago,
+                             read: true
+                           }) 
+        Mcon14.update({
+                             message_timestamp: 3.years.ago,
+                             read: true
+                           }) 
+        Bcon14.update({
+                             message_timestamp: 3.years.ago,
+                             read: true
+                           }) 
+        Acon14.update({
+                             message_timestamp: 3.years.ago,
+                             read: true
+                           }) 
+
+
+
+      MetCon15 = MetaConversation.create();
+
+      Scon15 = soc.conversations.create(title: "You only assert that the round", meta_conversation: MetCon15)
+      Mcon15 = meno.conversations.create(title: "You only assert that the round", meta_conversation: MetCon15)
+      Bcon15 = boy.conversations.create(title: "You only assert that the round", meta_conversation: MetCon15)
+      Acon15 = anytus.conversations.create(title: "You only assert that the round", meta_conversation: MetCon15 )
 
 body_str = <<-BODY 
  You only assert that the round figure is not more a figure
 than the straight, or the straight than the round?
 BODY
 
-msg70 = Scon10.messages.create({
+msg70 = Scon15.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.years.ago
+    created_at: 3.years.ago
     })
 
     msg70.send_msg
-    msg70.update({updated_at: 4.years.ago})
+    msg70.update({updated_at: 3.years.ago})
 
 
 
@@ -1424,15 +1641,15 @@ body_str = <<-BODY
  Very true.
 BODY
 
-msg71 = Mcon10.messages.create({
+msg71 = Mcon15.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.years.ago
+    created_at: 3.years.ago
     })
 
     msg71.send_msg
-    msg71.update({updated_at: 4.years.ago})
+    msg71.update({updated_at: 3.years.ago})
 
 
 
@@ -1450,15 +1667,15 @@ question, Meno? I wish that you would try; the attempt will be good
 practice with a view to the answer about virtue.
 BODY
 
-msg72 = Scon10.messages.create({
+msg72 = Scon15.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.years.ago
+    created_at: 3.years.ago
     })
 
     msg72.send_msg
-    msg72.update({updated_at: 4.years.ago})
+    msg72.update({updated_at: 3.years.ago})
 
 
 
@@ -1467,15 +1684,15 @@ body_str = <<-BODY
  I would rather that you should answer, Socrates.
 BODY
 
-msg73 = Mcon10.messages.create({
+msg73 = Mcon15.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.years.ago
+    created_at: 3.years.ago
     })
 
     msg73.send_msg
-    msg73.update({updated_at: 4.years.ago})
+    msg73.update({updated_at: 3.years.ago})
 
 
 
@@ -1484,7 +1701,7 @@ body_str = <<-BODY
  Shall I indulge you?
 BODY
 
-msg74 = Scon10.messages.create({
+msg74 = Scon15.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -1501,7 +1718,7 @@ body_str = <<-BODY
  By all means.
 BODY
 
-msg75 = Mcon10.messages.create({
+msg75 = Mcon15.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -1518,7 +1735,7 @@ body_str = <<-BODY
  And then you will tell me about virtue?
 BODY
 
-msg76 = Scon10.messages.create({
+msg76 = Scon15.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -1535,32 +1752,59 @@ body_str = <<-BODY
  I will.
 BODY
 
-msg77 = Mcon10.messages.create({
+msg77 = Mcon15.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.years.ago
+    created_at: 2.years.ago
     })
 
     msg77.send_msg
-    msg77.update({updated_at: 3.years.ago})
+    msg77.update({updated_at: 2.years.ago})
 
 
 
+
+      
+        Scon15.update({
+                             message_timestamp: 2.years.ago,
+                             read: true
+                           }) 
+        Mcon15.update({
+                             message_timestamp: 2.years.ago,
+                             read: true
+                           }) 
+        Bcon15.update({
+                             message_timestamp: 2.years.ago,
+                             read: true
+                           }) 
+        Acon15.update({
+                             message_timestamp: 2.years.ago,
+                             read: true
+                           }) 
+
+
+
+      MetCon16 = MetaConversation.create();
+
+      Scon16 = soc.conversations.create(title: "Then I must do my best,", meta_conversation: MetCon16)
+      Mcon16 = meno.conversations.create(title: "Then I must do my best,", meta_conversation: MetCon16)
+      Bcon16 = boy.conversations.create(title: "Then I must do my best,", meta_conversation: MetCon16)
+      Acon16 = anytus.conversations.create(title: "Then I must do my best,", meta_conversation: MetCon16 )
 
 body_str = <<-BODY 
  Then I must do my best, for there is a prize to be won.
 BODY
 
-msg78 = Scon10.messages.create({
+msg78 = Scon16.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.years.ago
+    created_at: 2.years.ago
     })
 
     msg78.send_msg
-    msg78.update({updated_at: 3.years.ago})
+    msg78.update({updated_at: 2.years.ago})
 
 
 
@@ -1569,15 +1813,15 @@ body_str = <<-BODY
  Certainly.
 BODY
 
-msg79 = Mcon10.messages.create({
+msg79 = Mcon16.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.years.ago
+    created_at: 2.years.ago
     })
 
     msg79.send_msg
-    msg79.update({updated_at: 3.years.ago})
+    msg79.update({updated_at: 2.years.ago})
 
 
 
@@ -1589,32 +1833,59 @@ colour. Will you be satisfied with it, as I am sure that I should be, if
 you would let me have a similar definition of virtue?
 BODY
 
-msg80 = Scon10.messages.create({
+msg80 = Scon16.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.years.ago
+    created_at: 2.years.ago
     })
 
     msg80.send_msg
-    msg80.update({updated_at: 3.years.ago})
+    msg80.update({updated_at: 2.years.ago})
 
 
 
+
+      
+        Scon16.update({
+                             message_timestamp: 2.years.ago,
+                             read: true
+                           }) 
+        Mcon16.update({
+                             message_timestamp: 2.years.ago,
+                             read: true
+                           }) 
+        Bcon16.update({
+                             message_timestamp: 2.years.ago,
+                             read: true
+                           }) 
+        Acon16.update({
+                             message_timestamp: 2.years.ago,
+                             read: true
+                           }) 
+
+
+
+      MetCon17 = MetaConversation.create();
+
+      Scon17 = soc.conversations.create(title: "But, Socrates, it is such a", meta_conversation: MetCon17)
+      Mcon17 = meno.conversations.create(title: "But, Socrates, it is such a", meta_conversation: MetCon17)
+      Bcon17 = boy.conversations.create(title: "But, Socrates, it is such a", meta_conversation: MetCon17)
+      Acon17 = anytus.conversations.create(title: "But, Socrates, it is such a", meta_conversation: MetCon17 )
 
 body_str = <<-BODY 
  But, Socrates, it is such a simple answer.
 BODY
 
-msg81 = Mcon10.messages.create({
+msg81 = Mcon17.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.years.ago
+    created_at: 2.years.ago
     })
 
     msg81.send_msg
-    msg81.update({updated_at: 3.years.ago})
+    msg81.update({updated_at: 2.years.ago})
 
 
 
@@ -1623,15 +1894,15 @@ body_str = <<-BODY
  Why simple?
 BODY
 
-msg82 = Scon10.messages.create({
+msg82 = Scon17.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.years.ago
+    created_at: 2.years.ago
     })
 
     msg82.send_msg
-    msg82.update({updated_at: 3.years.ago})
+    msg82.update({updated_at: 2.years.ago})
 
 
 
@@ -1641,15 +1912,15 @@ body_str = <<-BODY
 colour.
 BODY
 
-msg83 = Mcon10.messages.create({
+msg83 = Mcon17.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.years.ago
+    created_at: 2.years.ago
     })
 
     msg83.send_msg
-    msg83.update({updated_at: 3.years.ago})
+    msg83.update({updated_at: 2.years.ago})
 
 
 
@@ -1660,28 +1931,13 @@ BODY
 
 
 
-      
- Scon10.update(message_timestamp: 3.years.ago) 
- Mcon10.update(message_timestamp: 3.years.ago) 
-
- Bcon10.update(message_timestamp: 3.years.ago) 
- Acon10.update(message_timestamp: 3.years.ago) 
-
-
-      MetCon11 = MetaConversation.create();
-
-      Scon11 = soc.conversations.create(title: "But if a person were to", meta_conversation: MetCon11)
-      Mcon11 = meno.conversations.create(title: "But if a person were to", meta_conversation: MetCon11)
-      Bcon11 = boy.conversations.create(title: "But if a person were to", meta_conversation: MetCon11)
-      Acon11 = anytus.conversations.create(title: "But if a person were to", meta_conversation: MetCon11 )
-
 body_str = <<-BODY 
  But if a person were to say that he does not know what colour is,
 any more than what figure is--what sort of answer would you have given
 him?
 BODY
 
-msg85 = Mcon11.messages.create({
+msg85 = Mcon17.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -1710,7 +1966,7 @@ them: but still you, I am sure, would speak of a thing as ended or
 terminated--that is all which I am saying--not anything very difficult.
 BODY
 
-msg86 = Scon11.messages.create({
+msg86 = Scon17.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -1727,7 +1983,7 @@ body_str = <<-BODY
  Yes, I should; and I believe that I understand your meaning.
 BODY
 
-msg87 = Mcon11.messages.create({
+msg87 = Mcon17.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -1745,7 +2001,7 @@ body_str = <<-BODY
 example in geometry.
 BODY
 
-msg88 = Scon11.messages.create({
+msg88 = Scon17.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -1762,7 +2018,7 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg89 = Mcon11.messages.create({
+msg89 = Mcon17.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -1781,7 +2037,7 @@ definition of figure. I define figure to be that in which the solid
 ends; or, more concisely, the limit of solid.
 BODY
 
-msg90 = Scon11.messages.create({
+msg90 = Scon17.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -1798,7 +2054,7 @@ body_str = <<-BODY
  And now, Socrates, what is colour?
 BODY
 
-msg91 = Mcon11.messages.create({
+msg91 = Mcon17.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -1817,7 +2073,7 @@ give you an answer, when you will not take the trouble of remembering
 what is Gorgias' definition of virtue.
 BODY
 
-msg92 = Scon11.messages.create({
+msg92 = Scon17.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -1834,7 +2090,7 @@ body_str = <<-BODY
  When you have told me what I ask, I will tell you, Socrates.
 BODY
 
-msg93 = Mcon11.messages.create({
+msg93 = Mcon17.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -1852,15 +2108,15 @@ body_str = <<-BODY
 would know that you are a fair creature and have still many lovers.
 BODY
 
-msg94 = Scon11.messages.create({
+msg94 = Scon17.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.years.ago
+    created_at: 1.years.ago
     })
 
     msg94.send_msg
-    msg94.update({updated_at: 2.years.ago})
+    msg94.update({updated_at: 1.years.ago})
 
 
 
@@ -1869,15 +2125,15 @@ body_str = <<-BODY
  Why do you think so?
 BODY
 
-msg95 = Mcon11.messages.create({
+msg95 = Mcon17.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.years.ago
+    created_at: 1.years.ago
     })
 
     msg95.send_msg
-    msg95.update({updated_at: 2.years.ago})
+    msg95.update({updated_at: 1.years.ago})
 
 
 
@@ -1889,15 +2145,15 @@ as I suspect, you have found out that I have weakness for the fair, and
 therefore to humour you I must answer.
 BODY
 
-msg96 = Scon11.messages.create({
+msg96 = Scon17.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.years.ago
+    created_at: 1.years.ago
     })
 
     msg96.send_msg
-    msg96.update({updated_at: 2.years.ago})
+    msg96.update({updated_at: 1.years.ago})
 
 
 
@@ -1906,33 +2162,60 @@ body_str = <<-BODY
  Please do.
 BODY
 
-msg97 = Mcon11.messages.create({
+msg97 = Mcon17.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.years.ago
+    created_at: 1.years.ago
     })
 
     msg97.send_msg
-    msg97.update({updated_at: 2.years.ago})
+    msg97.update({updated_at: 1.years.ago})
 
 
 
+
+      
+        Scon17.update({
+                             message_timestamp: 1.years.ago,
+                             read: true
+                           }) 
+        Mcon17.update({
+                             message_timestamp: 1.years.ago,
+                             read: true
+                           }) 
+        Bcon17.update({
+                             message_timestamp: 1.years.ago,
+                             read: true
+                           }) 
+        Acon17.update({
+                             message_timestamp: 1.years.ago,
+                             read: true
+                           }) 
+
+
+
+      MetCon18 = MetaConversation.create();
+
+      Scon18 = soc.conversations.create(title: "Would you like me to answer", meta_conversation: MetCon18)
+      Mcon18 = meno.conversations.create(title: "Would you like me to answer", meta_conversation: MetCon18)
+      Bcon18 = boy.conversations.create(title: "Would you like me to answer", meta_conversation: MetCon18)
+      Acon18 = anytus.conversations.create(title: "Would you like me to answer", meta_conversation: MetCon18 )
 
 body_str = <<-BODY 
  Would you like me to answer you after the manner of Gorgias,
 which is familiar to you?
 BODY
 
-msg98 = Scon11.messages.create({
+msg98 = Scon18.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.years.ago
+    created_at: 1.years.ago
     })
 
     msg98.send_msg
-    msg98.update({updated_at: 2.years.ago})
+    msg98.update({updated_at: 1.years.ago})
 
 
 
@@ -1941,15 +2224,15 @@ body_str = <<-BODY
  I should like nothing better.
 BODY
 
-msg99 = Mcon11.messages.create({
+msg99 = Mcon18.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.years.ago
+    created_at: 1.years.ago
     })
 
     msg99.send_msg
-    msg99.update({updated_at: 2.years.ago})
+    msg99.update({updated_at: 1.years.ago})
 
 
 
@@ -1959,7 +2242,7 @@ body_str = <<-BODY
 effluences of existence?
 BODY
 
-msg100 = Scon11.messages.create({
+msg100 = Scon18.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -1976,7 +2259,7 @@ body_str = <<-BODY
  Certainly.
 BODY
 
-msg101 = Mcon11.messages.create({
+msg101 = Mcon18.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -1989,11 +2272,38 @@ msg101 = Mcon11.messages.create({
 
 
 
+      
+        Scon18.update({
+                             message_timestamp: 1.years.ago,
+                             read: true
+                           }) 
+        Mcon18.update({
+                             message_timestamp: 1.years.ago,
+                             read: true
+                           }) 
+        Bcon18.update({
+                             message_timestamp: 1.years.ago,
+                             read: true
+                           }) 
+        Acon18.update({
+                             message_timestamp: 1.years.ago,
+                             read: true
+                           }) 
+
+
+
+      MetCon19 = MetaConversation.create();
+
+      Scon19 = soc.conversations.create(title: "And passages into which and through", meta_conversation: MetCon19)
+      Mcon19 = meno.conversations.create(title: "And passages into which and through", meta_conversation: MetCon19)
+      Bcon19 = boy.conversations.create(title: "And passages into which and through", meta_conversation: MetCon19)
+      Acon19 = anytus.conversations.create(title: "And passages into which and through", meta_conversation: MetCon19 )
+
 body_str = <<-BODY 
  And passages into which and through which the effluences pass?
 BODY
 
-msg102 = Scon11.messages.create({
+msg102 = Scon19.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -2010,7 +2320,7 @@ body_str = <<-BODY
  Exactly.
 BODY
 
-msg103 = Mcon11.messages.create({
+msg103 = Mcon19.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -2028,15 +2338,15 @@ body_str = <<-BODY
 them are too small or too large?
 BODY
 
-msg104 = Scon11.messages.create({
+msg104 = Scon19.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.years.ago
+    created_at: 12.months.ago
     })
 
     msg104.send_msg
-    msg104.update({updated_at: 1.years.ago})
+    msg104.update({updated_at: 12.months.ago})
 
 
 
@@ -2045,32 +2355,59 @@ body_str = <<-BODY
  True.
 BODY
 
-msg105 = Mcon11.messages.create({
+msg105 = Mcon19.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.years.ago
+    created_at: 11.months.ago
     })
 
     msg105.send_msg
-    msg105.update({updated_at: 1.years.ago})
+    msg105.update({updated_at: 11.months.ago})
 
 
 
+
+      
+        Scon19.update({
+                             message_timestamp: 11.months.ago,
+                             read: true
+                           }) 
+        Mcon19.update({
+                             message_timestamp: 11.months.ago,
+                             read: true
+                           }) 
+        Bcon19.update({
+                             message_timestamp: 11.months.ago,
+                             read: true
+                           }) 
+        Acon19.update({
+                             message_timestamp: 11.months.ago,
+                             read: true
+                           }) 
+
+
+
+      MetCon20 = MetaConversation.create();
+
+      Scon20 = soc.conversations.create(title: "And there is such a thing", meta_conversation: MetCon20)
+      Mcon20 = meno.conversations.create(title: "And there is such a thing", meta_conversation: MetCon20)
+      Bcon20 = boy.conversations.create(title: "And there is such a thing", meta_conversation: MetCon20)
+      Acon20 = anytus.conversations.create(title: "And there is such a thing", meta_conversation: MetCon20 )
 
 body_str = <<-BODY 
  And there is such a thing as sight?
 BODY
 
-msg106 = Scon11.messages.create({
+msg106 = Scon20.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.years.ago
+    created_at: 11.months.ago
     })
 
     msg106.send_msg
-    msg106.update({updated_at: 1.years.ago})
+    msg106.update({updated_at: 11.months.ago})
 
 
 
@@ -2079,15 +2416,15 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg107 = Mcon11.messages.create({
+msg107 = Mcon20.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.years.ago
+    created_at: 11.months.ago
     })
 
     msg107.send_msg
-    msg107.update({updated_at: 1.years.ago})
+    msg107.update({updated_at: 11.months.ago})
 
 
 
@@ -2097,15 +2434,15 @@ body_str = <<-BODY
 effluence of form, commensurate with sight, and palpable to sense.
 BODY
 
-msg108 = Scon11.messages.create({
+msg108 = Scon20.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.years.ago
+    created_at: 11.months.ago
     })
 
     msg108.send_msg
-    msg108.update({updated_at: 1.years.ago})
+    msg108.update({updated_at: 11.months.ago})
 
 
 
@@ -2114,15 +2451,15 @@ body_str = <<-BODY
  That, Socrates, appears to me to be an admirable answer.
 BODY
 
-msg109 = Mcon11.messages.create({
+msg109 = Mcon20.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.years.ago
+    created_at: 11.months.ago
     })
 
     msg109.send_msg
-    msg109.update({updated_at: 1.years.ago})
+    msg109.update({updated_at: 11.months.ago})
 
 
 
@@ -2134,15 +2471,15 @@ you may explain in the same way the nature of sound and smell, and of
 many other similar phenomena.
 BODY
 
-msg110 = Scon11.messages.create({
+msg110 = Scon20.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.years.ago
+    created_at: 11.months.ago
     })
 
     msg110.send_msg
-    msg110.update({updated_at: 1.years.ago})
+    msg110.update({updated_at: 11.months.ago})
 
 
 
@@ -2151,15 +2488,15 @@ body_str = <<-BODY
  Quite true.
 BODY
 
-msg111 = Mcon11.messages.create({
+msg111 = Mcon20.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.years.ago
+    created_at: 11.months.ago
     })
 
     msg111.send_msg
-    msg111.update({updated_at: 1.years.ago})
+    msg111.update({updated_at: 11.months.ago})
 
 
 
@@ -2169,15 +2506,15 @@ body_str = <<-BODY
 therefore was more acceptable to you than the other answer about figure.
 BODY
 
-msg112 = Scon11.messages.create({
+msg112 = Scon20.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 12.months.ago
+    created_at: 11.months.ago
     })
 
     msg112.send_msg
-    msg112.update({updated_at: 12.months.ago})
+    msg112.update({updated_at: 11.months.ago})
 
 
 
@@ -2186,7 +2523,7 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg113 = Mcon11.messages.create({
+msg113 = Mcon20.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -2199,21 +2536,6 @@ msg113 = Mcon11.messages.create({
 
 
 
-      
- Scon11.update(message_timestamp: 11.months.ago) 
- Mcon11.update(message_timestamp: 11.months.ago) 
-
- Bcon11.update(message_timestamp: 11.months.ago) 
- Acon11.update(message_timestamp: 11.months.ago) 
-
-
-      MetCon12 = MetaConversation.create();
-
-      Scon12 = soc.conversations.create(title: "And yet, O son of Alexidemus,", meta_conversation: MetCon12)
-      Mcon12 = meno.conversations.create(title: "And yet, O son of Alexidemus,", meta_conversation: MetCon12)
-      Bcon12 = boy.conversations.create(title: "And yet, O son of Alexidemus,", meta_conversation: MetCon12)
-      Acon12 = anytus.conversations.create(title: "And yet, O son of Alexidemus,", meta_conversation: MetCon12 )
-
 body_str = <<-BODY 
  And yet, O son of Alexidemus, I cannot help thinking that
 the other was the better; and I am sure that you would be of the
@@ -2221,7 +2543,7 @@ same opinion, if you would only stay and be initiated, and were not
 compelled, as you said yesterday, to go away before the mysteries.
 BODY
 
-msg114 = Scon12.messages.create({
+msg114 = Scon20.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -2238,7 +2560,7 @@ body_str = <<-BODY
  But I will stay, Socrates, if you will give me many such answers.
 BODY
 
-msg115 = Mcon12.messages.create({
+msg115 = Mcon20.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -2261,7 +2583,7 @@ virtue to me whole and sound, and not broken into a number of pieces: I
 have given you the pattern.
 BODY
 
-msg116 = Scon12.messages.create({
+msg116 = Scon20.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -2280,15 +2602,15 @@ the honourable, is able to provide it for himself; so the poet says, and
 I say too--
 BODY
 
-msg117 = Mcon12.messages.create({
+msg117 = Mcon20.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.months.ago
+    created_at: 10.months.ago
     })
 
     msg117.send_msg
-    msg117.update({updated_at: 11.months.ago})
+    msg117.update({updated_at: 10.months.ago})
 
 
 
@@ -2299,15 +2621,15 @@ body_str = <<-BODY
  And does he who desires the honourable also desire the good?
 BODY
 
-msg118 = Scon12.messages.create({
+msg118 = Scon20.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.months.ago
+    created_at: 10.months.ago
     })
 
     msg118.send_msg
-    msg118.update({updated_at: 11.months.ago})
+    msg118.update({updated_at: 10.months.ago})
 
 
 
@@ -2316,15 +2638,15 @@ body_str = <<-BODY
  Certainly.
 BODY
 
-msg119 = Mcon12.messages.create({
+msg119 = Mcon20.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.months.ago
+    created_at: 10.months.ago
     })
 
     msg119.send_msg
-    msg119.update({updated_at: 11.months.ago})
+    msg119.update({updated_at: 10.months.ago})
 
 
 
@@ -2334,32 +2656,59 @@ body_str = <<-BODY
 the good? Do not all men, my dear sir, desire good?
 BODY
 
-msg120 = Scon12.messages.create({
+msg120 = Scon20.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.months.ago
+    created_at: 10.months.ago
     })
 
     msg120.send_msg
-    msg120.update({updated_at: 11.months.ago})
+    msg120.update({updated_at: 10.months.ago})
 
 
 
+
+      
+        Scon20.update({
+                             message_timestamp: 10.months.ago,
+                             read: true
+                           }) 
+        Mcon20.update({
+                             message_timestamp: 10.months.ago,
+                             read: true
+                           }) 
+        Bcon20.update({
+                             message_timestamp: 10.months.ago,
+                             read: true
+                           }) 
+        Acon20.update({
+                             message_timestamp: 10.months.ago,
+                             read: true
+                           }) 
+
+
+
+      MetCon21 = MetaConversation.create();
+
+      Scon21 = soc.conversations.create(title: "I think not.", meta_conversation: MetCon21)
+      Mcon21 = meno.conversations.create(title: "I think not.", meta_conversation: MetCon21)
+      Bcon21 = boy.conversations.create(title: "I think not.", meta_conversation: MetCon21)
+      Acon21 = anytus.conversations.create(title: "I think not.", meta_conversation: MetCon21 )
 
 body_str = <<-BODY 
  I think not.
 BODY
 
-msg121 = Mcon12.messages.create({
+msg121 = Mcon21.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.months.ago
+    created_at: 10.months.ago
     })
 
     msg121.send_msg
-    msg121.update({updated_at: 11.months.ago})
+    msg121.update({updated_at: 10.months.ago})
 
 
 
@@ -2368,15 +2717,15 @@ body_str = <<-BODY
  There are some who desire evil?
 BODY
 
-msg122 = Scon12.messages.create({
+msg122 = Scon21.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.months.ago
+    created_at: 10.months.ago
     })
 
     msg122.send_msg
-    msg122.update({updated_at: 11.months.ago})
+    msg122.update({updated_at: 10.months.ago})
 
 
 
@@ -2385,15 +2734,15 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg123 = Mcon12.messages.create({
+msg123 = Mcon21.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.months.ago
+    created_at: 10.months.ago
     })
 
     msg123.send_msg
-    msg123.update({updated_at: 11.months.ago})
+    msg123.update({updated_at: 10.months.ago})
 
 
 
@@ -2403,15 +2752,15 @@ body_str = <<-BODY
 good; or do they know that they are evil and yet desire them?
 BODY
 
-msg124 = Scon12.messages.create({
+msg124 = Scon21.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.months.ago
+    created_at: 10.months.ago
     })
 
     msg124.send_msg
-    msg124.update({updated_at: 11.months.ago})
+    msg124.update({updated_at: 10.months.ago})
 
 
 
@@ -2420,15 +2769,15 @@ body_str = <<-BODY
  Both, I think.
 BODY
 
-msg125 = Mcon12.messages.create({
+msg125 = Mcon21.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.months.ago
+    created_at: 10.months.ago
     })
 
     msg125.send_msg
-    msg125.update({updated_at: 11.months.ago})
+    msg125.update({updated_at: 10.months.ago})
 
 
 
@@ -2438,7 +2787,7 @@ body_str = <<-BODY
 evils and desires them notwithstanding?
 BODY
 
-msg126 = Scon12.messages.create({
+msg126 = Scon21.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -2455,7 +2804,7 @@ body_str = <<-BODY
  Certainly I do.
 BODY
 
-msg127 = Mcon12.messages.create({
+msg127 = Mcon21.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -2472,7 +2821,7 @@ body_str = <<-BODY
  And desire is of possession?
 BODY
 
-msg128 = Scon12.messages.create({
+msg128 = Scon21.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -2489,7 +2838,7 @@ body_str = <<-BODY
  Yes, of possession.
 BODY
 
-msg129 = Mcon12.messages.create({
+msg129 = Mcon21.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -2507,7 +2856,7 @@ body_str = <<-BODY
 possesses them, or does he know that they will do him harm?
 BODY
 
-msg130 = Scon12.messages.create({
+msg130 = Scon21.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -2525,7 +2874,7 @@ body_str = <<-BODY
 others who know that they will do them harm.
 BODY
 
-msg131 = Mcon12.messages.create({
+msg131 = Mcon21.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -2543,7 +2892,7 @@ body_str = <<-BODY
 them good know that they are evils?
 BODY
 
-msg132 = Scon12.messages.create({
+msg132 = Scon21.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -2560,7 +2909,7 @@ body_str = <<-BODY
  Certainly not.
 BODY
 
-msg133 = Mcon12.messages.create({
+msg133 = Mcon21.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -2580,32 +2929,59 @@ although they are really evils; and if they are mistaken and suppose the
 evils to be goods they really desire goods?
 BODY
 
-msg134 = Scon12.messages.create({
+msg134 = Scon21.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.months.ago
+    created_at: 9.months.ago
     })
 
     msg134.send_msg
-    msg134.update({updated_at: 10.months.ago})
+    msg134.update({updated_at: 9.months.ago})
 
 
 
+
+      
+        Scon21.update({
+                             message_timestamp: 9.months.ago,
+                             read: true
+                           }) 
+        Mcon21.update({
+                             message_timestamp: 9.months.ago,
+                             read: true
+                           }) 
+        Bcon21.update({
+                             message_timestamp: 9.months.ago,
+                             read: true
+                           }) 
+        Acon21.update({
+                             message_timestamp: 9.months.ago,
+                             read: true
+                           }) 
+
+
+
+      MetCon22 = MetaConversation.create();
+
+      Scon22 = soc.conversations.create(title: "Yes, in that case.", meta_conversation: MetCon22)
+      Mcon22 = meno.conversations.create(title: "Yes, in that case.", meta_conversation: MetCon22)
+      Bcon22 = boy.conversations.create(title: "Yes, in that case.", meta_conversation: MetCon22)
+      Acon22 = anytus.conversations.create(title: "Yes, in that case.", meta_conversation: MetCon22 )
 
 body_str = <<-BODY 
  Yes, in that case.
 BODY
 
-msg135 = Mcon12.messages.create({
+msg135 = Mcon22.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.months.ago
+    created_at: 9.months.ago
     })
 
     msg135.send_msg
-    msg135.update({updated_at: 10.months.ago})
+    msg135.update({updated_at: 9.months.ago})
 
 
 
@@ -2616,15 +2992,15 @@ that evils are hurtful to the possessor of them, know that they will be
 hurt by them?
 BODY
 
-msg136 = Scon12.messages.create({
+msg136 = Scon22.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.months.ago
+    created_at: 9.months.ago
     })
 
     msg136.send_msg
-    msg136.update({updated_at: 10.months.ago})
+    msg136.update({updated_at: 9.months.ago})
 
 
 
@@ -2633,15 +3009,15 @@ body_str = <<-BODY
  They must know it.
 BODY
 
-msg137 = Mcon12.messages.create({
+msg137 = Mcon22.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.months.ago
+    created_at: 9.months.ago
     })
 
     msg137.send_msg
-    msg137.update({updated_at: 10.months.ago})
+    msg137.update({updated_at: 9.months.ago})
 
 
 
@@ -2651,15 +3027,15 @@ body_str = <<-BODY
 miserable in proportion to the hurt which is inflicted upon them?
 BODY
 
-msg138 = Scon12.messages.create({
+msg138 = Scon22.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.months.ago
+    created_at: 9.months.ago
     })
 
     msg138.send_msg
-    msg138.update({updated_at: 10.months.ago})
+    msg138.update({updated_at: 9.months.ago})
 
 
 
@@ -2668,7 +3044,7 @@ body_str = <<-BODY
  How can it be otherwise?
 BODY
 
-msg139 = Mcon12.messages.create({
+msg139 = Mcon22.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -2685,7 +3061,7 @@ body_str = <<-BODY
  But are not the miserable ill-fated?
 BODY
 
-msg140 = Scon12.messages.create({
+msg140 = Scon22.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -2702,7 +3078,7 @@ body_str = <<-BODY
  Yes, indeed.
 BODY
 
-msg141 = Mcon12.messages.create({
+msg141 = Mcon22.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -2716,25 +3092,37 @@ msg141 = Mcon12.messages.create({
 
 
       
- Scon12.update(message_timestamp: 9.months.ago) 
- Mcon12.update(message_timestamp: 9.months.ago) 
+        Scon22.update({
+                             message_timestamp: 9.months.ago,
+                             read: true
+                           }) 
+        Mcon22.update({
+                             message_timestamp: 9.months.ago,
+                             read: true
+                           }) 
+        Bcon22.update({
+                             message_timestamp: 9.months.ago,
+                             read: true
+                           }) 
+        Acon22.update({
+                             message_timestamp: 9.months.ago,
+                             read: true
+                           }) 
 
- Bcon12.update(message_timestamp: 9.months.ago) 
- Acon12.update(message_timestamp: 9.months.ago) 
 
 
-      MetCon13 = MetaConversation.create();
+      MetCon23 = MetaConversation.create();
 
-      Scon13 = soc.conversations.create(title: "And does any one desire to", meta_conversation: MetCon13)
-      Mcon13 = meno.conversations.create(title: "And does any one desire to", meta_conversation: MetCon13)
-      Bcon13 = boy.conversations.create(title: "And does any one desire to", meta_conversation: MetCon13)
-      Acon13 = anytus.conversations.create(title: "And does any one desire to", meta_conversation: MetCon13 )
+      Scon23 = soc.conversations.create(title: "And does any one desire to", meta_conversation: MetCon23)
+      Mcon23 = meno.conversations.create(title: "And does any one desire to", meta_conversation: MetCon23)
+      Bcon23 = boy.conversations.create(title: "And does any one desire to", meta_conversation: MetCon23)
+      Acon23 = anytus.conversations.create(title: "And does any one desire to", meta_conversation: MetCon23 )
 
 body_str = <<-BODY 
  And does any one desire to be miserable and ill-fated?
 BODY
 
-msg142 = Scon13.messages.create({
+msg142 = Scon23.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -2751,7 +3139,7 @@ body_str = <<-BODY
  I should say not, Socrates.
 BODY
 
-msg143 = Mcon13.messages.create({
+msg143 = Mcon23.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -2764,28 +3152,13 @@ msg143 = Mcon13.messages.create({
 
 
 
-      
- Scon13.update(message_timestamp: 9.months.ago) 
- Mcon13.update(message_timestamp: 9.months.ago) 
-
- Bcon13.update(message_timestamp: 9.months.ago) 
- Acon13.update(message_timestamp: 9.months.ago) 
-
-
-      MetCon14 = MetaConversation.create();
-
-      Scon14 = soc.conversations.create(title: "But if there is no one", meta_conversation: MetCon14)
-      Mcon14 = meno.conversations.create(title: "But if there is no one", meta_conversation: MetCon14)
-      Bcon14 = boy.conversations.create(title: "But if there is no one", meta_conversation: MetCon14)
-      Acon14 = anytus.conversations.create(title: "But if there is no one", meta_conversation: MetCon14 )
-
 body_str = <<-BODY 
  But if there is no one who desires to be miserable, there is
 no one, Meno, who desires evil; for what is misery but the desire and
 possession of evil?
 BODY
 
-msg144 = Scon14.messages.create({
+msg144 = Scon23.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -2803,7 +3176,7 @@ body_str = <<-BODY
 desires evil.
 BODY
 
-msg145 = Mcon14.messages.create({
+msg145 = Mcon23.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -2821,7 +3194,7 @@ body_str = <<-BODY
 desire and power of attaining good?
 BODY
 
-msg146 = Scon14.messages.create({
+msg146 = Scon23.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -2834,84 +3207,81 @@ msg146 = Scon14.messages.create({
 
 
 
-      
- Scon14.update(message_timestamp: 9.months.ago) 
- Mcon14.update(message_timestamp: 9.months.ago) 
-
- Bcon14.update(message_timestamp: 9.months.ago) 
- Acon14.update(message_timestamp: 9.months.ago) 
-
-
-      MetCon15 = MetaConversation.create();
-
-      Scon15 = soc.conversations.create(title: "Yes, I did say so.", meta_conversation: MetCon15)
-      Mcon15 = meno.conversations.create(title: "Yes, I did say so.", meta_conversation: MetCon15)
-      Bcon15 = boy.conversations.create(title: "Yes, I did say so.", meta_conversation: MetCon15)
-      Acon15 = anytus.conversations.create(title: "Yes, I did say so.", meta_conversation: MetCon15 )
-
 body_str = <<-BODY 
  Yes, I did say so.
 BODY
 
-msg147 = Mcon15.messages.create({
+msg147 = Mcon23.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.months.ago
+    created_at: 8.months.ago
     })
 
     msg147.send_msg
-    msg147.update({updated_at: 9.months.ago})
+    msg147.update({updated_at: 8.months.ago})
 
 
 
-
-      
- Scon15.update(message_timestamp: 9.months.ago) 
- Mcon15.update(message_timestamp: 9.months.ago) 
-
- Bcon15.update(message_timestamp: 9.months.ago) 
- Acon15.update(message_timestamp: 9.months.ago) 
-
-
-      MetCon16 = MetaConversation.create();
-
-      Scon16 = soc.conversations.create(title: "But if this be affirmed, then", meta_conversation: MetCon16)
-      Mcon16 = meno.conversations.create(title: "But if this be affirmed, then", meta_conversation: MetCon16)
-      Bcon16 = boy.conversations.create(title: "But if this be affirmed, then", meta_conversation: MetCon16)
-      Acon16 = anytus.conversations.create(title: "But if this be affirmed, then", meta_conversation: MetCon16 )
 
 body_str = <<-BODY 
  But if this be affirmed, then the desire of good is common to
 all, and one man is no better than another in that respect?
 BODY
 
-msg148 = Scon16.messages.create({
+msg148 = Scon23.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.months.ago
+    created_at: 8.months.ago
     })
 
     msg148.send_msg
-    msg148.update({updated_at: 9.months.ago})
+    msg148.update({updated_at: 8.months.ago})
 
 
 
+
+      
+        Scon23.update({
+                             message_timestamp: 8.months.ago,
+                             read: true
+                           }) 
+        Mcon23.update({
+                             message_timestamp: 8.months.ago,
+                             read: true
+                           }) 
+        Bcon23.update({
+                             message_timestamp: 8.months.ago,
+                             read: true
+                           }) 
+        Acon23.update({
+                             message_timestamp: 8.months.ago,
+                             read: true
+                           }) 
+
+
+
+      MetCon24 = MetaConversation.create();
+
+      Scon24 = soc.conversations.create(title: "True.", meta_conversation: MetCon24)
+      Mcon24 = meno.conversations.create(title: "True.", meta_conversation: MetCon24)
+      Bcon24 = boy.conversations.create(title: "True.", meta_conversation: MetCon24)
+      Acon24 = anytus.conversations.create(title: "True.", meta_conversation: MetCon24 )
 
 body_str = <<-BODY 
  True.
 BODY
 
-msg149 = Mcon16.messages.create({
+msg149 = Mcon24.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.months.ago
+    created_at: 8.months.ago
     })
 
     msg149.send_msg
-    msg149.update({updated_at: 9.months.ago})
+    msg149.update({updated_at: 8.months.ago})
 
 
 
@@ -2921,24 +3291,51 @@ body_str = <<-BODY
 must be better in the power of attaining it?
 BODY
 
-msg150 = Scon16.messages.create({
+msg150 = Scon24.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.months.ago
+    created_at: 8.months.ago
     })
 
     msg150.send_msg
-    msg150.update({updated_at: 9.months.ago})
+    msg150.update({updated_at: 8.months.ago})
 
 
 
+
+      
+        Scon24.update({
+                             message_timestamp: 8.months.ago,
+                             read: true
+                           }) 
+        Mcon24.update({
+                             message_timestamp: 8.months.ago,
+                             read: true
+                           }) 
+        Bcon24.update({
+                             message_timestamp: 8.months.ago,
+                             read: true
+                           }) 
+        Acon24.update({
+                             message_timestamp: 8.months.ago,
+                             read: true
+                           }) 
+
+
+
+      MetCon25 = MetaConversation.create();
+
+      Scon25 = soc.conversations.create(title: "Exactly.", meta_conversation: MetCon25)
+      Mcon25 = meno.conversations.create(title: "Exactly.", meta_conversation: MetCon25)
+      Bcon25 = boy.conversations.create(title: "Exactly.", meta_conversation: MetCon25)
+      Acon25 = anytus.conversations.create(title: "Exactly.", meta_conversation: MetCon25 )
 
 body_str = <<-BODY 
  Exactly.
 BODY
 
-msg151 = Mcon16.messages.create({
+msg151 = Mcon25.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -2956,7 +3353,7 @@ body_str = <<-BODY
 the power of attaining good?
 BODY
 
-msg152 = Scon16.messages.create({
+msg152 = Scon25.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -2974,7 +3371,7 @@ body_str = <<-BODY
 this matter.
 BODY
 
-msg153 = Mcon16.messages.create({
+msg153 = Mcon25.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -2993,7 +3390,7 @@ point of view; for very likely you may be right:--You affirm virtue to
 be the power of attaining goods?
 BODY
 
-msg154 = Scon16.messages.create({
+msg154 = Scon25.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -3006,26 +3403,11 @@ msg154 = Scon16.messages.create({
 
 
 
-      
- Scon16.update(message_timestamp: 8.months.ago) 
- Mcon16.update(message_timestamp: 8.months.ago) 
-
- Bcon16.update(message_timestamp: 8.months.ago) 
- Acon16.update(message_timestamp: 8.months.ago) 
-
-
-      MetCon17 = MetaConversation.create();
-
-      Scon17 = soc.conversations.create(title: "Yes.", meta_conversation: MetCon17)
-      Mcon17 = meno.conversations.create(title: "Yes.", meta_conversation: MetCon17)
-      Bcon17 = boy.conversations.create(title: "Yes.", meta_conversation: MetCon17)
-      Acon17 = anytus.conversations.create(title: "Yes.", meta_conversation: MetCon17 )
-
 body_str = <<-BODY 
  Yes.
 BODY
 
-msg155 = Mcon17.messages.create({
+msg155 = Mcon25.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -3044,7 +3426,7 @@ the possession of gold and silver, and having office and honour in the
 state--those are what you would call goods?
 BODY
 
-msg156 = Scon17.messages.create({
+msg156 = Scon25.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -3061,7 +3443,7 @@ body_str = <<-BODY
  Yes, I should include all those.
 BODY
 
-msg157 = Mcon17.messages.create({
+msg157 = Mcon25.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -3082,15 +3464,15 @@ be of no consequence? And is any mode of acquisition, even if unjust and
 dishonest, equally to be deemed virtue?
 BODY
 
-msg158 = Scon17.messages.create({
+msg158 = Scon25.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.months.ago
+    created_at: 7.months.ago
     })
 
     msg158.send_msg
-    msg158.update({updated_at: 8.months.ago})
+    msg158.update({updated_at: 7.months.ago})
 
 
 
@@ -3099,33 +3481,45 @@ body_str = <<-BODY
  Not virtue, Socrates, but vice.
 BODY
 
-msg159 = Mcon17.messages.create({
+msg159 = Mcon25.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.months.ago
+    created_at: 7.months.ago
     })
 
     msg159.send_msg
-    msg159.update({updated_at: 8.months.ago})
+    msg159.update({updated_at: 7.months.ago})
 
 
 
 
       
- Scon17.update(message_timestamp: 8.months.ago) 
- Mcon17.update(message_timestamp: 8.months.ago) 
+        Scon25.update({
+                             message_timestamp: 7.months.ago,
+                             read: true
+                           }) 
+        Mcon25.update({
+                             message_timestamp: 7.months.ago,
+                             read: true
+                           }) 
+        Bcon25.update({
+                             message_timestamp: 7.months.ago,
+                             read: true
+                           }) 
+        Acon25.update({
+                             message_timestamp: 7.months.ago,
+                             read: true
+                           }) 
 
- Bcon17.update(message_timestamp: 8.months.ago) 
- Acon17.update(message_timestamp: 8.months.ago) 
 
 
-      MetCon18 = MetaConversation.create();
+      MetCon26 = MetaConversation.create();
 
-      Scon18 = soc.conversations.create(title: "Then justice or temperance or holiness,", meta_conversation: MetCon18)
-      Mcon18 = meno.conversations.create(title: "Then justice or temperance or holiness,", meta_conversation: MetCon18)
-      Bcon18 = boy.conversations.create(title: "Then justice or temperance or holiness,", meta_conversation: MetCon18)
-      Acon18 = anytus.conversations.create(title: "Then justice or temperance or holiness,", meta_conversation: MetCon18 )
+      Scon26 = soc.conversations.create(title: "Then justice or temperance or holiness,", meta_conversation: MetCon26)
+      Mcon26 = meno.conversations.create(title: "Then justice or temperance or holiness,", meta_conversation: MetCon26)
+      Bcon26 = boy.conversations.create(title: "Then justice or temperance or holiness,", meta_conversation: MetCon26)
+      Acon26 = anytus.conversations.create(title: "Then justice or temperance or holiness,", meta_conversation: MetCon26 )
 
 body_str = <<-BODY 
  Then justice or temperance or holiness, or some other part
@@ -3133,32 +3527,59 @@ of virtue, as would appear, must accompany the acquisition, and without
 them the mere acquisition of good will not be virtue.
 BODY
 
-msg160 = Scon18.messages.create({
+msg160 = Scon26.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.months.ago
+    created_at: 7.months.ago
     })
 
     msg160.send_msg
-    msg160.update({updated_at: 8.months.ago})
+    msg160.update({updated_at: 7.months.ago})
 
 
 
+
+      
+        Scon26.update({
+                             message_timestamp: 7.months.ago,
+                             read: true
+                           }) 
+        Mcon26.update({
+                             message_timestamp: 7.months.ago,
+                             read: true
+                           }) 
+        Bcon26.update({
+                             message_timestamp: 7.months.ago,
+                             read: true
+                           }) 
+        Acon26.update({
+                             message_timestamp: 7.months.ago,
+                             read: true
+                           }) 
+
+
+
+      MetCon27 = MetaConversation.create();
+
+      Scon27 = soc.conversations.create(title: "Why, how can there be virtue", meta_conversation: MetCon27)
+      Mcon27 = meno.conversations.create(title: "Why, how can there be virtue", meta_conversation: MetCon27)
+      Bcon27 = boy.conversations.create(title: "Why, how can there be virtue", meta_conversation: MetCon27)
+      Acon27 = anytus.conversations.create(title: "Why, how can there be virtue", meta_conversation: MetCon27 )
 
 body_str = <<-BODY 
  Why, how can there be virtue without these?
 BODY
 
-msg161 = Mcon18.messages.create({
+msg161 = Mcon27.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.months.ago
+    created_at: 7.months.ago
     })
 
     msg161.send_msg
-    msg161.update({updated_at: 8.months.ago})
+    msg161.update({updated_at: 7.months.ago})
 
 
 
@@ -3169,15 +3590,15 @@ manner for oneself or another, or in other words the want of them, may
 be equally virtue?
 BODY
 
-msg162 = Scon18.messages.create({
+msg162 = Scon27.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.months.ago
+    created_at: 7.months.ago
     })
 
     msg162.send_msg
-    msg162.update({updated_at: 8.months.ago})
+    msg162.update({updated_at: 7.months.ago})
 
 
 
@@ -3186,7 +3607,7 @@ body_str = <<-BODY
  True.
 BODY
 
-msg163 = Mcon18.messages.create({
+msg163 = Mcon27.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -3199,13 +3620,40 @@ msg163 = Mcon18.messages.create({
 
 
 
+      
+        Scon27.update({
+                             message_timestamp: 7.months.ago,
+                             read: true
+                           }) 
+        Mcon27.update({
+                             message_timestamp: 7.months.ago,
+                             read: true
+                           }) 
+        Bcon27.update({
+                             message_timestamp: 7.months.ago,
+                             read: true
+                           }) 
+        Acon27.update({
+                             message_timestamp: 7.months.ago,
+                             read: true
+                           }) 
+
+
+
+      MetCon28 = MetaConversation.create();
+
+      Scon28 = soc.conversations.create(title: "Then the acquisition of such goods", meta_conversation: MetCon28)
+      Mcon28 = meno.conversations.create(title: "Then the acquisition of such goods", meta_conversation: MetCon28)
+      Bcon28 = boy.conversations.create(title: "Then the acquisition of such goods", meta_conversation: MetCon28)
+      Acon28 = anytus.conversations.create(title: "Then the acquisition of such goods", meta_conversation: MetCon28 )
+
 body_str = <<-BODY 
  Then the acquisition of such goods is no more virtue than the
 non-acquisition and want of them, but whatever is accompanied by justice
 or honesty is virtue, and whatever is devoid of justice is vice.
 BODY
 
-msg164 = Scon18.messages.create({
+msg164 = Scon28.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -3218,26 +3666,11 @@ msg164 = Scon18.messages.create({
 
 
 
-      
- Scon18.update(message_timestamp: 7.months.ago) 
- Mcon18.update(message_timestamp: 7.months.ago) 
-
- Bcon18.update(message_timestamp: 7.months.ago) 
- Acon18.update(message_timestamp: 7.months.ago) 
-
-
-      MetCon19 = MetaConversation.create();
-
-      Scon19 = soc.conversations.create(title: "It cannot be otherwise, in my", meta_conversation: MetCon19)
-      Mcon19 = meno.conversations.create(title: "It cannot be otherwise, in my", meta_conversation: MetCon19)
-      Bcon19 = boy.conversations.create(title: "It cannot be otherwise, in my", meta_conversation: MetCon19)
-      Acon19 = anytus.conversations.create(title: "It cannot be otherwise, in my", meta_conversation: MetCon19 )
-
 body_str = <<-BODY 
  It cannot be otherwise, in my judgment.
 BODY
 
-msg165 = Mcon19.messages.create({
+msg165 = Mcon28.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -3255,7 +3688,7 @@ body_str = <<-BODY
 the like, were each of them a part of virtue?
 BODY
 
-msg166 = Scon19.messages.create({
+msg166 = Scon28.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -3272,7 +3705,7 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg167 = Mcon19.messages.create({
+msg167 = Mcon28.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -3285,26 +3718,11 @@ msg167 = Mcon19.messages.create({
 
 
 
-      
- Scon19.update(message_timestamp: 7.months.ago) 
- Mcon19.update(message_timestamp: 7.months.ago) 
-
- Bcon19.update(message_timestamp: 7.months.ago) 
- Acon19.update(message_timestamp: 7.months.ago) 
-
-
-      MetCon20 = MetaConversation.create();
-
-      Scon20 = soc.conversations.create(title: "And so, Meno, this is the", meta_conversation: MetCon20)
-      Mcon20 = meno.conversations.create(title: "And so, Meno, this is the", meta_conversation: MetCon20)
-      Bcon20 = boy.conversations.create(title: "And so, Meno, this is the", meta_conversation: MetCon20)
-      Acon20 = anytus.conversations.create(title: "And so, Meno, this is the", meta_conversation: MetCon20 )
-
 body_str = <<-BODY 
  And so, Meno, this is the way in which you mock me.
 BODY
 
-msg168 = Scon20.messages.create({
+msg168 = Scon28.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -3321,7 +3739,7 @@ body_str = <<-BODY
  Why do you say that, Socrates?
 BODY
 
-msg169 = Mcon20.messages.create({
+msg169 = Mcon28.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -3334,21 +3752,6 @@ msg169 = Mcon20.messages.create({
 
 
 
-      
- Scon20.update(message_timestamp: 7.months.ago) 
- Mcon20.update(message_timestamp: 7.months.ago) 
-
- Bcon20.update(message_timestamp: 7.months.ago) 
- Acon20.update(message_timestamp: 7.months.ago) 
-
-
-      MetCon21 = MetaConversation.create();
-
-      Scon21 = soc.conversations.create(title: "Why, because I asked you to", meta_conversation: MetCon21)
-      Mcon21 = meno.conversations.create(title: "Why, because I asked you to", meta_conversation: MetCon21)
-      Bcon21 = boy.conversations.create(title: "Why, because I asked you to", meta_conversation: MetCon21)
-      Acon21 = anytus.conversations.create(title: "Why, because I asked you to", meta_conversation: MetCon21 )
-
 body_str = <<-BODY 
  Why, because I asked you to deliver virtue into my hands whole
 and unbroken, and I gave you a pattern according to which you were to
@@ -3357,7 +3760,7 @@ virtue is the power of attaining good justly, or with justice; and
 justice you acknowledge to be a part of virtue.
 BODY
 
-msg170 = Scon21.messages.create({
+msg170 = Scon28.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -3374,7 +3777,7 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg171 = Mcon21.messages.create({
+msg171 = Mcon28.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -3393,15 +3796,15 @@ what you do with a part of virtue; for justice and the like are said by
 you to be parts of virtue.
 BODY
 
-msg172 = Scon21.messages.create({
+msg172 = Scon28.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.months.ago
+    created_at: 6.months.ago
     })
 
     msg172.send_msg
-    msg172.update({updated_at: 7.months.ago})
+    msg172.update({updated_at: 6.months.ago})
 
 
 
@@ -3410,15 +3813,15 @@ body_str = <<-BODY
  What of that?
 BODY
 
-msg173 = Mcon21.messages.create({
+msg173 = Mcon28.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.months.ago
+    created_at: 6.months.ago
     })
 
     msg173.send_msg
-    msg173.update({updated_at: 7.months.ago})
+    msg173.update({updated_at: 6.months.ago})
 
 
 
@@ -3437,15 +3840,15 @@ question over again; for can any one who does not know virtue know a
 part of virtue?
 BODY
 
-msg174 = Scon21.messages.create({
+msg174 = Scon28.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.months.ago
+    created_at: 6.months.ago
     })
 
     msg174.send_msg
-    msg174.update({updated_at: 7.months.ago})
+    msg174.update({updated_at: 6.months.ago})
 
 
 
@@ -3454,7 +3857,7 @@ body_str = <<-BODY
  No; I do not say that he can.
 BODY
 
-msg175 = Mcon21.messages.create({
+msg175 = Mcon28.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -3472,7 +3875,7 @@ body_str = <<-BODY
 answer given in terms which were as yet unexplained or unadmitted?
 BODY
 
-msg176 = Scon21.messages.create({
+msg176 = Scon28.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -3485,26 +3888,11 @@ msg176 = Scon21.messages.create({
 
 
 
-      
- Scon21.update(message_timestamp: 6.months.ago) 
- Mcon21.update(message_timestamp: 6.months.ago) 
-
- Bcon21.update(message_timestamp: 6.months.ago) 
- Acon21.update(message_timestamp: 6.months.ago) 
-
-
-      MetCon22 = MetaConversation.create();
-
-      Scon22 = soc.conversations.create(title: "Yes, Socrates; and we were quite", meta_conversation: MetCon22)
-      Mcon22 = meno.conversations.create(title: "Yes, Socrates; and we were quite", meta_conversation: MetCon22)
-      Bcon22 = boy.conversations.create(title: "Yes, Socrates; and we were quite", meta_conversation: MetCon22)
-      Acon22 = anytus.conversations.create(title: "Yes, Socrates; and we were quite", meta_conversation: MetCon22 )
-
 body_str = <<-BODY 
  Yes, Socrates; and we were quite right in doing so.
 BODY
 
-msg177 = Mcon22.messages.create({
+msg177 = Mcon28.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -3524,7 +3912,7 @@ virtue, or anything at all in that fashion; we should only have to ask
 over again the old question, What is virtue? Am I not right?
 BODY
 
-msg178 = Scon22.messages.create({
+msg178 = Scon28.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -3541,7 +3929,7 @@ body_str = <<-BODY
  I believe that you are.
 BODY
 
-msg179 = Mcon22.messages.create({
+msg179 = Mcon28.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -3554,27 +3942,12 @@ msg179 = Mcon22.messages.create({
 
 
 
-      
- Scon22.update(message_timestamp: 6.months.ago) 
- Mcon22.update(message_timestamp: 6.months.ago) 
-
- Bcon22.update(message_timestamp: 6.months.ago) 
- Acon22.update(message_timestamp: 6.months.ago) 
-
-
-      MetCon23 = MetaConversation.create();
-
-      Scon23 = soc.conversations.create(title: "Then begin again, and answer me,", meta_conversation: MetCon23)
-      Mcon23 = meno.conversations.create(title: "Then begin again, and answer me,", meta_conversation: MetCon23)
-      Bcon23 = boy.conversations.create(title: "Then begin again, and answer me,", meta_conversation: MetCon23)
-      Acon23 = anytus.conversations.create(title: "Then begin again, and answer me,", meta_conversation: MetCon23 )
-
 body_str = <<-BODY 
  Then begin again, and answer me, What, according to you and
 your friend Gorgias, is the definition of virtue?
 BODY
 
-msg180 = Scon23.messages.create({
+msg180 = Scon28.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -3604,7 +3977,7 @@ for if you did in other places as you do in Athens, you would be cast
 into prison as a magician.
 BODY
 
-msg181 = Mcon23.messages.create({
+msg181 = Mcon28.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -3621,7 +3994,7 @@ body_str = <<-BODY
  You are a rogue, Meno, and had all but caught me.
 BODY
 
-msg182 = Scon23.messages.create({
+msg182 = Scon28.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -3638,15 +4011,15 @@ body_str = <<-BODY
  What do you mean, Socrates?
 BODY
 
-msg183 = Mcon23.messages.create({
+msg183 = Mcon28.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.months.ago
+    created_at: 5.months.ago
     })
 
     msg183.send_msg
-    msg183.update({updated_at: 6.months.ago})
+    msg183.update({updated_at: 5.months.ago})
 
 
 
@@ -3655,7 +4028,7 @@ body_str = <<-BODY
  I can tell why you made a simile about me.
 BODY
 
-msg184 = Scon23.messages.create({
+msg184 = Scon28.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -3672,7 +4045,7 @@ body_str = <<-BODY
  Why?
 BODY
 
-msg185 = Mcon23.messages.create({
+msg185 = Mcon28.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -3697,7 +4070,7 @@ in the same case, although you did once perhaps know before you touched
 me. However, I have no objection to join with you in the enquiry.
 BODY
 
-msg186 = Scon23.messages.create({
+msg186 = Scon28.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -3717,7 +4090,7 @@ what you want, how will you ever know that this is the thing which you
 did not know?
 BODY
 
-msg187 = Mcon23.messages.create({
+msg187 = Mcon28.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -3739,7 +4112,7 @@ not know the very subject about which he is to enquire (Compare Aristot.
 Post. Anal.).
 BODY
 
-msg188 = Scon23.messages.create({
+msg188 = Scon28.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -3756,7 +4129,7 @@ body_str = <<-BODY
  Well, Socrates, and is not the argument sound?
 BODY
 
-msg189 = Mcon23.messages.create({
+msg189 = Mcon28.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -3773,7 +4146,7 @@ body_str = <<-BODY
  I think not.
 BODY
 
-msg190 = Scon23.messages.create({
+msg190 = Scon28.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -3790,7 +4163,7 @@ body_str = <<-BODY
  Why not?
 BODY
 
-msg191 = Mcon23.messages.create({
+msg191 = Mcon28.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -3808,7 +4181,7 @@ body_str = <<-BODY
 women who spoke of things divine that--
 BODY
 
-msg192 = Scon23.messages.create({
+msg192 = Scon28.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -3825,15 +4198,15 @@ body_str = <<-BODY
  What did they say?
 BODY
 
-msg193 = Mcon23.messages.create({
+msg193 = Mcon28.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.months.ago
+    created_at: 4.months.ago
     })
 
     msg193.send_msg
-    msg193.update({updated_at: 5.months.ago})
+    msg193.update({updated_at: 4.months.ago})
 
 
 
@@ -3842,15 +4215,15 @@ body_str = <<-BODY
  They spoke of a glorious truth, as I conceive.
 BODY
 
-msg194 = Scon23.messages.create({
+msg194 = Scon28.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.months.ago
+    created_at: 4.months.ago
     })
 
     msg194.send_msg
-    msg194.update({updated_at: 5.months.ago})
+    msg194.update({updated_at: 4.months.ago})
 
 
 
@@ -3859,7 +4232,7 @@ body_str = <<-BODY
  What was it? and who were they?
 BODY
 
-msg195 = Mcon23.messages.create({
+msg195 = Mcon28.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -3900,7 +4273,7 @@ inquisitive. In that confiding, I will gladly enquire with you into the
 nature of virtue.
 BODY
 
-msg196 = Scon23.messages.create({
+msg196 = Scon28.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -3919,7 +4292,7 @@ learn, and that what we call learning is only a process of recollection?
 Can you teach me how this is?
 BODY
 
-msg197 = Mcon23.messages.create({
+msg197 = Mcon28.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -3939,7 +4312,7 @@ but only recollection; and thus you imagine that you will involve me in
 a contradiction.
 BODY
 
-msg198 = Scon23.messages.create({
+msg198 = Scon28.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -3952,13 +4325,40 @@ msg198 = Scon23.messages.create({
 
 
 
+      
+        Scon28.update({
+                             message_timestamp: 4.months.ago,
+                             read: true
+                           }) 
+        Mcon28.update({
+                             message_timestamp: 4.months.ago,
+                             read: true
+                           }) 
+        Bcon28.update({
+                             message_timestamp: 4.months.ago,
+                             read: true
+                           }) 
+        Acon28.update({
+                             message_timestamp: 4.months.ago,
+                             read: true
+                           }) 
+
+
+
+      MetCon29 = MetaConversation.create();
+
+      Scon29 = soc.conversations.create(title: "Indeed, Socrates, I protest that I", meta_conversation: MetCon29)
+      Mcon29 = meno.conversations.create(title: "Indeed, Socrates, I protest that I", meta_conversation: MetCon29)
+      Bcon29 = boy.conversations.create(title: "Indeed, Socrates, I protest that I", meta_conversation: MetCon29)
+      Acon29 = anytus.conversations.create(title: "Indeed, Socrates, I protest that I", meta_conversation: MetCon29 )
+
 body_str = <<-BODY 
  Indeed, Socrates, I protest that I had no such intention. I only
 asked the question from habit; but if you can prove to me that what you
 say is true, I wish that you would.
 BODY
 
-msg199 = Mcon23.messages.create({
+msg199 = Mcon29.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -3977,7 +4377,7 @@ the utmost of my power. Suppose that you call one of your numerous
 attendants, that I may demonstrate on him.
 BODY
 
-msg200 = Scon23.messages.create({
+msg200 = Scon29.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -3994,7 +4394,7 @@ body_str = <<-BODY
  Certainly. Come hither, boy.
 BODY
 
-msg201 = Mcon23.messages.create({
+msg201 = Mcon29.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -4011,7 +4411,7 @@ body_str = <<-BODY
  He is Greek, and speaks Greek, does he not?
 BODY
 
-msg202 = Scon23.messages.create({
+msg202 = Scon29.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -4028,7 +4428,7 @@ body_str = <<-BODY
  Yes, indeed; he was born in the house.
 BODY
 
-msg203 = Mcon23.messages.create({
+msg203 = Mcon29.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -4046,7 +4446,7 @@ body_str = <<-BODY
 whether he learns of me or only remembers.
 BODY
 
-msg204 = Scon23.messages.create({
+msg204 = Scon29.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -4063,7 +4463,7 @@ body_str = <<-BODY
  I will.
 BODY
 
-msg205 = Mcon23.messages.create({
+msg205 = Mcon29.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -4080,15 +4480,15 @@ body_str = <<-BODY
  Tell me, boy, do you know that a figure like this is a square?
 BODY
 
-msg206 = Scon23.messages.create({
+msg206 = Scon29.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.months.ago
+    created_at: 3.months.ago
     })
 
     msg206.send_msg
-    msg206.update({updated_at: 4.months.ago})
+    msg206.update({updated_at: 3.months.ago})
 
 
 
@@ -4097,7 +4497,7 @@ body_str = <<-BODY
  I do.
 BODY
 
-msg207 = Bcon23.messages.create({
+msg207 = Bcon29.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -4110,11 +4510,38 @@ msg207 = Bcon23.messages.create({
 
 
 
+      
+        Scon29.update({
+                             message_timestamp: 3.months.ago,
+                             read: true
+                           }) 
+        Mcon29.update({
+                             message_timestamp: 3.months.ago,
+                             read: true
+                           }) 
+        Bcon29.update({
+                             message_timestamp: 3.months.ago,
+                             read: true
+                           }) 
+        Acon29.update({
+                             message_timestamp: 3.months.ago,
+                             read: true
+                           }) 
+
+
+
+      MetCon30 = MetaConversation.create();
+
+      Scon30 = soc.conversations.create(title: "And you know that a square", meta_conversation: MetCon30)
+      Mcon30 = meno.conversations.create(title: "And you know that a square", meta_conversation: MetCon30)
+      Bcon30 = boy.conversations.create(title: "And you know that a square", meta_conversation: MetCon30)
+      Acon30 = anytus.conversations.create(title: "And you know that a square", meta_conversation: MetCon30 )
+
 body_str = <<-BODY 
  And you know that a square figure has these four lines equal?
 BODY
 
-msg208 = Scon23.messages.create({
+msg208 = Scon30.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -4131,7 +4558,7 @@ body_str = <<-BODY
  Certainly.
 BODY
 
-msg209 = Bcon23.messages.create({
+msg209 = Bcon30.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -4149,7 +4576,7 @@ body_str = <<-BODY
 square are also equal?
 BODY
 
-msg210 = Scon23.messages.create({
+msg210 = Scon30.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -4162,11 +4589,38 @@ msg210 = Scon23.messages.create({
 
 
 
+      
+        Scon30.update({
+                             message_timestamp: 3.months.ago,
+                             read: true
+                           }) 
+        Mcon30.update({
+                             message_timestamp: 3.months.ago,
+                             read: true
+                           }) 
+        Bcon30.update({
+                             message_timestamp: 3.months.ago,
+                             read: true
+                           }) 
+        Acon30.update({
+                             message_timestamp: 3.months.ago,
+                             read: true
+                           }) 
+
+
+
+      MetCon31 = MetaConversation.create();
+
+      Scon31 = soc.conversations.create(title: "Yes.", meta_conversation: MetCon31)
+      Mcon31 = meno.conversations.create(title: "Yes.", meta_conversation: MetCon31)
+      Bcon31 = boy.conversations.create(title: "Yes.", meta_conversation: MetCon31)
+      Acon31 = anytus.conversations.create(title: "Yes.", meta_conversation: MetCon31 )
+
 body_str = <<-BODY 
  Yes.
 BODY
 
-msg211 = Bcon23.messages.create({
+msg211 = Bcon31.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -4183,7 +4637,7 @@ body_str = <<-BODY
  A square may be of any size?
 BODY
 
-msg212 = Scon23.messages.create({
+msg212 = Scon31.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -4200,7 +4654,7 @@ body_str = <<-BODY
  Certainly.
 BODY
 
-msg213 = Bcon23.messages.create({
+msg213 = Bcon31.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -4214,19 +4668,31 @@ msg213 = Bcon23.messages.create({
 
 
       
- Scon23.update(message_timestamp: 3.months.ago) 
- Mcon23.update(message_timestamp: 3.months.ago) 
+        Scon31.update({
+                             message_timestamp: 3.months.ago,
+                             read: true
+                           }) 
+        Mcon31.update({
+                             message_timestamp: 3.months.ago,
+                             read: true
+                           }) 
+        Bcon31.update({
+                             message_timestamp: 3.months.ago,
+                             read: true
+                           }) 
+        Acon31.update({
+                             message_timestamp: 3.months.ago,
+                             read: true
+                           }) 
 
- Bcon23.update(message_timestamp: 3.months.ago) 
- Acon23.update(message_timestamp: 3.months.ago) 
 
 
-      MetCon24 = MetaConversation.create();
+      MetCon32 = MetaConversation.create();
 
-      Scon24 = soc.conversations.create(title: "And if one side of the", meta_conversation: MetCon24)
-      Mcon24 = meno.conversations.create(title: "And if one side of the", meta_conversation: MetCon24)
-      Bcon24 = boy.conversations.create(title: "And if one side of the", meta_conversation: MetCon24)
-      Acon24 = anytus.conversations.create(title: "And if one side of the", meta_conversation: MetCon24 )
+      Scon32 = soc.conversations.create(title: "And if one side of the", meta_conversation: MetCon32)
+      Mcon32 = meno.conversations.create(title: "And if one side of the", meta_conversation: MetCon32)
+      Bcon32 = boy.conversations.create(title: "And if one side of the", meta_conversation: MetCon32)
+      Acon32 = anytus.conversations.create(title: "And if one side of the", meta_conversation: MetCon32 )
 
 body_str = <<-BODY 
  And if one side of the figure be of two feet, and the other
@@ -4235,7 +4701,7 @@ one direction the space was of two feet, and in the other direction of
 one foot, the whole would be of two feet taken once?
 BODY
 
-msg214 = Scon24.messages.create({
+msg214 = Scon32.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -4252,7 +4718,7 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg215 = Bcon24.messages.create({
+msg215 = Bcon32.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -4270,7 +4736,7 @@ body_str = <<-BODY
 feet?
 BODY
 
-msg216 = Scon24.messages.create({
+msg216 = Scon32.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -4287,15 +4753,15 @@ body_str = <<-BODY
  There are.
 BODY
 
-msg217 = Bcon24.messages.create({
+msg217 = Bcon32.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.months.ago
+    created_at: 2.months.ago
     })
 
     msg217.send_msg
-    msg217.update({updated_at: 3.months.ago})
+    msg217.update({updated_at: 2.months.ago})
 
 
 
@@ -4304,15 +4770,15 @@ body_str = <<-BODY
  Then the square is of twice two feet?
 BODY
 
-msg218 = Scon24.messages.create({
+msg218 = Scon32.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.months.ago
+    created_at: 2.months.ago
     })
 
     msg218.send_msg
-    msg218.update({updated_at: 3.months.ago})
+    msg218.update({updated_at: 2.months.ago})
 
 
 
@@ -4321,15 +4787,15 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg219 = Bcon24.messages.create({
+msg219 = Bcon32.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.months.ago
+    created_at: 2.months.ago
     })
 
     msg219.send_msg
-    msg219.update({updated_at: 3.months.ago})
+    msg219.update({updated_at: 2.months.ago})
 
 
 
@@ -4338,15 +4804,15 @@ body_str = <<-BODY
  And how many are twice two feet? count and tell me.
 BODY
 
-msg220 = Scon24.messages.create({
+msg220 = Scon32.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.months.ago
+    created_at: 2.months.ago
     })
 
     msg220.send_msg
-    msg220.update({updated_at: 3.months.ago})
+    msg220.update({updated_at: 2.months.ago})
 
 
 
@@ -4355,7 +4821,7 @@ body_str = <<-BODY
  Four, Socrates.
 BODY
 
-msg221 = Bcon24.messages.create({
+msg221 = Bcon32.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -4373,7 +4839,7 @@ body_str = <<-BODY
 and having like this the lines equal?
 BODY
 
-msg222 = Scon24.messages.create({
+msg222 = Scon32.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -4390,7 +4856,7 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg223 = Bcon24.messages.create({
+msg223 = Bcon32.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -4407,7 +4873,7 @@ body_str = <<-BODY
  And of how many feet will that be?
 BODY
 
-msg224 = Scon24.messages.create({
+msg224 = Scon32.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -4420,26 +4886,11 @@ msg224 = Scon24.messages.create({
 
 
 
-      
- Scon24.update(message_timestamp: 2.months.ago) 
- Mcon24.update(message_timestamp: 2.months.ago) 
-
- Bcon24.update(message_timestamp: 2.months.ago) 
- Acon24.update(message_timestamp: 2.months.ago) 
-
-
-      MetCon25 = MetaConversation.create();
-
-      Scon25 = soc.conversations.create(title: "Of eight feet.", meta_conversation: MetCon25)
-      Mcon25 = meno.conversations.create(title: "Of eight feet.", meta_conversation: MetCon25)
-      Bcon25 = boy.conversations.create(title: "Of eight feet.", meta_conversation: MetCon25)
-      Acon25 = anytus.conversations.create(title: "Of eight feet.", meta_conversation: MetCon25 )
-
 body_str = <<-BODY 
  Of eight feet.
 BODY
 
-msg225 = Bcon25.messages.create({
+msg225 = Bcon32.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -4457,7 +4908,7 @@ body_str = <<-BODY
 side of that double square: this is two feet--what will that be?
 BODY
 
-msg226 = Scon25.messages.create({
+msg226 = Scon32.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -4474,7 +4925,7 @@ body_str = <<-BODY
  Clearly, Socrates, it will be double.
 BODY
 
-msg227 = Bcon25.messages.create({
+msg227 = Bcon32.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -4494,7 +4945,7 @@ a line is necessary in order to produce a figure of eight square feet;
 does he not?
 BODY
 
-msg228 = Scon25.messages.create({
+msg228 = Scon32.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -4511,7 +4962,7 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg229 = Mcon25.messages.create({
+msg229 = Mcon32.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -4528,7 +4979,7 @@ body_str = <<-BODY
  And does he really know?
 BODY
 
-msg230 = Scon25.messages.create({
+msg230 = Scon32.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -4541,26 +4992,11 @@ msg230 = Scon25.messages.create({
 
 
 
-      
- Scon25.update(message_timestamp: 2.months.ago) 
- Mcon25.update(message_timestamp: 2.months.ago) 
-
- Bcon25.update(message_timestamp: 2.months.ago) 
- Acon25.update(message_timestamp: 2.months.ago) 
-
-
-      MetCon26 = MetaConversation.create();
-
-      Scon26 = soc.conversations.create(title: "Certainly not.", meta_conversation: MetCon26)
-      Mcon26 = meno.conversations.create(title: "Certainly not.", meta_conversation: MetCon26)
-      Bcon26 = boy.conversations.create(title: "Certainly not.", meta_conversation: MetCon26)
-      Acon26 = anytus.conversations.create(title: "Certainly not.", meta_conversation: MetCon26 )
-
 body_str = <<-BODY 
  Certainly not.
 BODY
 
-msg231 = Mcon26.messages.create({
+msg231 = Mcon32.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -4578,7 +5014,7 @@ body_str = <<-BODY
 double.
 BODY
 
-msg232 = Scon26.messages.create({
+msg232 = Scon32.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -4595,7 +5031,7 @@ body_str = <<-BODY
  True.
 BODY
 
-msg233 = Mcon26.messages.create({
+msg233 = Mcon32.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -4617,7 +5053,7 @@ of eight feet; and I want to know whether you still say that a double
 square comes from double line?
 BODY
 
-msg234 = Scon26.messages.create({
+msg234 = Scon32.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -4634,7 +5070,7 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg235 = Bcon26.messages.create({
+msg235 = Bcon32.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -4647,27 +5083,12 @@ msg235 = Bcon26.messages.create({
 
 
 
-      
- Scon26.update(message_timestamp: 1.months.ago) 
- Mcon26.update(message_timestamp: 1.months.ago) 
-
- Bcon26.update(message_timestamp: 1.months.ago) 
- Acon26.update(message_timestamp: 1.months.ago) 
-
-
-      MetCon27 = MetaConversation.create();
-
-      Scon27 = soc.conversations.create(title: "But does not this line become", meta_conversation: MetCon27)
-      Mcon27 = meno.conversations.create(title: "But does not this line become", meta_conversation: MetCon27)
-      Bcon27 = boy.conversations.create(title: "But does not this line become", meta_conversation: MetCon27)
-      Acon27 = anytus.conversations.create(title: "But does not this line become", meta_conversation: MetCon27 )
-
 body_str = <<-BODY 
  But does not this line become doubled if we add another such
 line here?
 BODY
 
-msg236 = Scon27.messages.create({
+msg236 = Scon32.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -4684,7 +5105,7 @@ body_str = <<-BODY
  Certainly.
 BODY
 
-msg237 = Bcon27.messages.create({
+msg237 = Bcon32.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -4701,7 +5122,7 @@ body_str = <<-BODY
  And four such lines will make a space containing eight feet?
 BODY
 
-msg238 = Scon27.messages.create({
+msg238 = Scon32.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -4718,7 +5139,7 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg239 = Bcon27.messages.create({
+msg239 = Bcon32.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -4736,15 +5157,15 @@ body_str = <<-BODY
 the figure of eight feet?
 BODY
 
-msg240 = Scon27.messages.create({
+msg240 = Scon32.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 12.weeks.ago
+    created_at: 1.months.ago
     })
 
     msg240.send_msg
-    msg240.update({updated_at: 12.weeks.ago})
+    msg240.update({updated_at: 1.months.ago})
 
 
 
@@ -4753,15 +5174,15 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg241 = Bcon27.messages.create({
+msg241 = Bcon32.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.weeks.ago
+    created_at: 1.months.ago
     })
 
     msg241.send_msg
-    msg241.update({updated_at: 11.weeks.ago})
+    msg241.update({updated_at: 1.months.ago})
 
 
 
@@ -4771,15 +5192,15 @@ body_str = <<-BODY
 which is equal to the figure of four feet?
 BODY
 
-msg242 = Scon27.messages.create({
+msg242 = Scon32.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.weeks.ago
+    created_at: 1.months.ago
     })
 
     msg242.send_msg
-    msg242.update({updated_at: 11.weeks.ago})
+    msg242.update({updated_at: 1.months.ago})
 
 
 
@@ -4788,32 +5209,59 @@ body_str = <<-BODY
  True.
 BODY
 
-msg243 = Bcon27.messages.create({
+msg243 = Bcon32.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.weeks.ago
+    created_at: 1.months.ago
     })
 
     msg243.send_msg
-    msg243.update({updated_at: 11.weeks.ago})
+    msg243.update({updated_at: 1.months.ago})
 
 
 
+
+      
+        Scon32.update({
+                             message_timestamp: 1.months.ago,
+                             read: true
+                           }) 
+        Mcon32.update({
+                             message_timestamp: 1.months.ago,
+                             read: true
+                           }) 
+        Bcon32.update({
+                             message_timestamp: 1.months.ago,
+                             read: true
+                           }) 
+        Acon32.update({
+                             message_timestamp: 1.months.ago,
+                             read: true
+                           }) 
+
+
+
+      MetCon33 = MetaConversation.create();
+
+      Scon33 = soc.conversations.create(title: "And is not that four times", meta_conversation: MetCon33)
+      Mcon33 = meno.conversations.create(title: "And is not that four times", meta_conversation: MetCon33)
+      Bcon33 = boy.conversations.create(title: "And is not that four times", meta_conversation: MetCon33)
+      Acon33 = anytus.conversations.create(title: "And is not that four times", meta_conversation: MetCon33 )
 
 body_str = <<-BODY 
  And is not that four times four?
 BODY
 
-msg244 = Scon27.messages.create({
+msg244 = Scon33.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.weeks.ago
+    created_at: 1.months.ago
     })
 
     msg244.send_msg
-    msg244.update({updated_at: 11.weeks.ago})
+    msg244.update({updated_at: 1.months.ago})
 
 
 
@@ -4822,39 +5270,24 @@ body_str = <<-BODY
  Certainly.
 BODY
 
-msg245 = Bcon27.messages.create({
+msg245 = Bcon33.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.weeks.ago
+    created_at: 12.weeks.ago
     })
 
     msg245.send_msg
-    msg245.update({updated_at: 11.weeks.ago})
+    msg245.update({updated_at: 12.weeks.ago})
 
 
 
-
-      
- Scon27.update(message_timestamp: 11.weeks.ago) 
- Mcon27.update(message_timestamp: 11.weeks.ago) 
-
- Bcon27.update(message_timestamp: 11.weeks.ago) 
- Acon27.update(message_timestamp: 11.weeks.ago) 
-
-
-      MetCon28 = MetaConversation.create();
-
-      Scon28 = soc.conversations.create(title: "And four times is not double?", meta_conversation: MetCon28)
-      Mcon28 = meno.conversations.create(title: "And four times is not double?", meta_conversation: MetCon28)
-      Bcon28 = boy.conversations.create(title: "And four times is not double?", meta_conversation: MetCon28)
-      Acon28 = anytus.conversations.create(title: "And four times is not double?", meta_conversation: MetCon28 )
 
 body_str = <<-BODY 
  And four times is not double?
 BODY
 
-msg246 = Scon28.messages.create({
+msg246 = Scon33.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -4871,7 +5304,7 @@ body_str = <<-BODY
  No, indeed.
 BODY
 
-msg247 = Bcon28.messages.create({
+msg247 = Bcon33.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -4888,7 +5321,7 @@ body_str = <<-BODY
  But how much?
 BODY
 
-msg248 = Scon28.messages.create({
+msg248 = Scon33.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -4905,7 +5338,7 @@ body_str = <<-BODY
  Four times as much.
 BODY
 
-msg249 = Bcon28.messages.create({
+msg249 = Bcon33.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -4923,7 +5356,7 @@ body_str = <<-BODY
 but four times as much.
 BODY
 
-msg250 = Scon28.messages.create({
+msg250 = Scon33.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -4940,7 +5373,7 @@ body_str = <<-BODY
  True.
 BODY
 
-msg251 = Bcon28.messages.create({
+msg251 = Bcon33.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -4957,7 +5390,7 @@ body_str = <<-BODY
  Four times four are sixteen--are they not?
 BODY
 
-msg252 = Scon28.messages.create({
+msg252 = Scon33.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -4974,7 +5407,7 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg253 = Bcon28.messages.create({
+msg253 = Bcon33.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -4992,7 +5425,7 @@ body_str = <<-BODY
 one of sixteen feet;--do you see?
 BODY
 
-msg254 = Scon28.messages.create({
+msg254 = Scon33.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -5009,7 +5442,7 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg255 = Bcon28.messages.create({
+msg255 = Bcon33.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -5026,7 +5459,7 @@ body_str = <<-BODY
  And the space of four feet is made from this half line?
 BODY
 
-msg256 = Scon28.messages.create({
+msg256 = Scon33.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -5043,15 +5476,15 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg257 = Bcon28.messages.create({
+msg257 = Bcon33.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.weeks.ago
+    created_at: 11.weeks.ago
     })
 
     msg257.send_msg
-    msg257.update({updated_at: 10.weeks.ago})
+    msg257.update({updated_at: 11.weeks.ago})
 
 
 
@@ -5061,15 +5494,15 @@ body_str = <<-BODY
 and half the size of the other?
 BODY
 
-msg258 = Scon28.messages.create({
+msg258 = Scon33.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.weeks.ago
+    created_at: 11.weeks.ago
     })
 
     msg258.send_msg
-    msg258.update({updated_at: 10.weeks.ago})
+    msg258.update({updated_at: 11.weeks.ago})
 
 
 
@@ -5078,7 +5511,7 @@ body_str = <<-BODY
  Certainly.
 BODY
 
-msg259 = Bcon28.messages.create({
+msg259 = Bcon33.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -5096,7 +5529,7 @@ body_str = <<-BODY
 this one, and less than that one?
 BODY
 
-msg260 = Scon28.messages.create({
+msg260 = Scon33.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -5113,7 +5546,7 @@ body_str = <<-BODY
  Yes; I think so.
 BODY
 
-msg261 = Bcon28.messages.create({
+msg261 = Bcon33.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -5126,12 +5559,39 @@ msg261 = Bcon28.messages.create({
 
 
 
+      
+        Scon33.update({
+                             message_timestamp: 10.weeks.ago,
+                             read: true
+                           }) 
+        Mcon33.update({
+                             message_timestamp: 10.weeks.ago,
+                             read: true
+                           }) 
+        Bcon33.update({
+                             message_timestamp: 10.weeks.ago,
+                             read: true
+                           }) 
+        Acon33.update({
+                             message_timestamp: 10.weeks.ago,
+                             read: true
+                           }) 
+
+
+
+      MetCon34 = MetaConversation.create();
+
+      Scon34 = soc.conversations.create(title: "Very good; I like to hear", meta_conversation: MetCon34)
+      Mcon34 = meno.conversations.create(title: "Very good; I like to hear", meta_conversation: MetCon34)
+      Bcon34 = boy.conversations.create(title: "Very good; I like to hear", meta_conversation: MetCon34)
+      Acon34 = anytus.conversations.create(title: "Very good; I like to hear", meta_conversation: MetCon34 )
+
 body_str = <<-BODY 
  Very good; I like to hear you say what you think. And now tell
 me, is not this a line of two feet and that of four?
 BODY
 
-msg262 = Scon28.messages.create({
+msg262 = Scon34.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -5144,11 +5604,38 @@ msg262 = Scon28.messages.create({
 
 
 
+      
+        Scon34.update({
+                             message_timestamp: 10.weeks.ago,
+                             read: true
+                           }) 
+        Mcon34.update({
+                             message_timestamp: 10.weeks.ago,
+                             read: true
+                           }) 
+        Bcon34.update({
+                             message_timestamp: 10.weeks.ago,
+                             read: true
+                           }) 
+        Acon34.update({
+                             message_timestamp: 10.weeks.ago,
+                             read: true
+                           }) 
+
+
+
+      MetCon35 = MetaConversation.create();
+
+      Scon35 = soc.conversations.create(title: "Yes.", meta_conversation: MetCon35)
+      Mcon35 = meno.conversations.create(title: "Yes.", meta_conversation: MetCon35)
+      Bcon35 = boy.conversations.create(title: "Yes.", meta_conversation: MetCon35)
+      Acon35 = anytus.conversations.create(title: "Yes.", meta_conversation: MetCon35 )
+
 body_str = <<-BODY 
  Yes.
 BODY
 
-msg263 = Bcon28.messages.create({
+msg263 = Bcon35.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -5161,27 +5648,12 @@ msg263 = Bcon28.messages.create({
 
 
 
-      
- Scon28.update(message_timestamp: 10.weeks.ago) 
- Mcon28.update(message_timestamp: 10.weeks.ago) 
-
- Bcon28.update(message_timestamp: 10.weeks.ago) 
- Acon28.update(message_timestamp: 10.weeks.ago) 
-
-
-      MetCon29 = MetaConversation.create();
-
-      Scon29 = soc.conversations.create(title: "Then the line which forms the", meta_conversation: MetCon29)
-      Mcon29 = meno.conversations.create(title: "Then the line which forms the", meta_conversation: MetCon29)
-      Bcon29 = boy.conversations.create(title: "Then the line which forms the", meta_conversation: MetCon29)
-      Acon29 = anytus.conversations.create(title: "Then the line which forms the", meta_conversation: MetCon29 )
-
 body_str = <<-BODY 
  Then the line which forms the side of eight feet ought to be
 more than this line of two feet, and less than the other of four feet?
 BODY
 
-msg264 = Scon29.messages.create({
+msg264 = Scon35.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -5198,7 +5670,7 @@ body_str = <<-BODY
  It ought.
 BODY
 
-msg265 = Bcon29.messages.create({
+msg265 = Bcon35.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -5215,7 +5687,7 @@ body_str = <<-BODY
  Try and see if you can tell me how much it will be.
 BODY
 
-msg266 = Scon29.messages.create({
+msg266 = Scon35.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -5232,7 +5704,7 @@ body_str = <<-BODY
  Three feet.
 BODY
 
-msg267 = Bcon29.messages.create({
+msg267 = Bcon35.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -5252,39 +5724,24 @@ here are two also and there is one: and that makes the figure of which
 you speak?
 BODY
 
-msg268 = Scon29.messages.create({
+msg268 = Scon35.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.weeks.ago
+    created_at: 9.weeks.ago
     })
 
     msg268.send_msg
-    msg268.update({updated_at: 10.weeks.ago})
+    msg268.update({updated_at: 9.weeks.ago})
 
 
 
-
-      
- Scon29.update(message_timestamp: 10.weeks.ago) 
- Mcon29.update(message_timestamp: 10.weeks.ago) 
-
- Bcon29.update(message_timestamp: 10.weeks.ago) 
- Acon29.update(message_timestamp: 10.weeks.ago) 
-
-
-      MetCon30 = MetaConversation.create();
-
-      Scon30 = soc.conversations.create(title: "Yes.", meta_conversation: MetCon30)
-      Mcon30 = meno.conversations.create(title: "Yes.", meta_conversation: MetCon30)
-      Bcon30 = boy.conversations.create(title: "Yes.", meta_conversation: MetCon30)
-      Acon30 = anytus.conversations.create(title: "Yes.", meta_conversation: MetCon30 )
 
 body_str = <<-BODY 
  Yes.
 BODY
 
-msg269 = Bcon30.messages.create({
+msg269 = Bcon35.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -5302,7 +5759,7 @@ body_str = <<-BODY
 the whole space will be three times three feet?
 BODY
 
-msg270 = Scon30.messages.create({
+msg270 = Scon35.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -5319,7 +5776,7 @@ body_str = <<-BODY
  That is evident.
 BODY
 
-msg271 = Bcon30.messages.create({
+msg271 = Bcon35.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -5336,7 +5793,7 @@ body_str = <<-BODY
  And how much are three times three feet?
 BODY
 
-msg272 = Scon30.messages.create({
+msg272 = Scon35.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -5349,26 +5806,11 @@ msg272 = Scon30.messages.create({
 
 
 
-      
- Scon30.update(message_timestamp: 9.weeks.ago) 
- Mcon30.update(message_timestamp: 9.weeks.ago) 
-
- Bcon30.update(message_timestamp: 9.weeks.ago) 
- Acon30.update(message_timestamp: 9.weeks.ago) 
-
-
-      MetCon31 = MetaConversation.create();
-
-      Scon31 = soc.conversations.create(title: "Nine.", meta_conversation: MetCon31)
-      Mcon31 = meno.conversations.create(title: "Nine.", meta_conversation: MetCon31)
-      Bcon31 = boy.conversations.create(title: "Nine.", meta_conversation: MetCon31)
-      Acon31 = anytus.conversations.create(title: "Nine.", meta_conversation: MetCon31 )
-
 body_str = <<-BODY 
  Nine.
 BODY
 
-msg273 = Bcon31.messages.create({
+msg273 = Bcon35.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -5385,7 +5827,7 @@ body_str = <<-BODY
  And how much is the double of four?
 BODY
 
-msg274 = Scon31.messages.create({
+msg274 = Scon35.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -5402,7 +5844,7 @@ body_str = <<-BODY
  Eight.
 BODY
 
-msg275 = Bcon31.messages.create({
+msg275 = Bcon35.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -5419,7 +5861,7 @@ body_str = <<-BODY
  Then the figure of eight is not made out of a line of three?
 BODY
 
-msg276 = Scon31.messages.create({
+msg276 = Scon35.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -5436,7 +5878,7 @@ body_str = <<-BODY
  No.
 BODY
 
-msg277 = Bcon31.messages.create({
+msg277 = Bcon35.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -5454,15 +5896,15 @@ body_str = <<-BODY
 not reckon, try and show me the line.
 BODY
 
-msg278 = Scon31.messages.create({
+msg278 = Scon35.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.weeks.ago
+    created_at: 8.weeks.ago
     })
 
     msg278.send_msg
-    msg278.update({updated_at: 9.weeks.ago})
+    msg278.update({updated_at: 8.weeks.ago})
 
 
 
@@ -5471,33 +5913,18 @@ body_str = <<-BODY
  Indeed, Socrates, I do not know.
 BODY
 
-msg279 = Bcon31.messages.create({
+msg279 = Bcon35.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.weeks.ago
+    created_at: 8.weeks.ago
     })
 
     msg279.send_msg
-    msg279.update({updated_at: 9.weeks.ago})
+    msg279.update({updated_at: 8.weeks.ago})
 
 
 
-
-      
- Scon31.update(message_timestamp: 9.weeks.ago) 
- Mcon31.update(message_timestamp: 9.weeks.ago) 
-
- Bcon31.update(message_timestamp: 9.weeks.ago) 
- Acon31.update(message_timestamp: 9.weeks.ago) 
-
-
-      MetCon32 = MetaConversation.create();
-
-      Scon32 = soc.conversations.create(title: "Do you see, Meno, what advances", meta_conversation: MetCon32)
-      Mcon32 = meno.conversations.create(title: "Do you see, Meno, what advances", meta_conversation: MetCon32)
-      Bcon32 = boy.conversations.create(title: "Do you see, Meno, what advances", meta_conversation: MetCon32)
-      Acon32 = anytus.conversations.create(title: "Do you see, Meno, what advances", meta_conversation: MetCon32 )
 
 body_str = <<-BODY 
  Do you see, Meno, what advances he has made in his power of
@@ -5507,15 +5934,15 @@ and answered confidently as if he knew, and had no difficulty; now he
 has a difficulty, and neither knows nor fancies that he knows.
 BODY
 
-msg280 = Scon32.messages.create({
+msg280 = Scon35.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.weeks.ago
+    created_at: 8.weeks.ago
     })
 
     msg280.send_msg
-    msg280.update({updated_at: 9.weeks.ago})
+    msg280.update({updated_at: 8.weeks.ago})
 
 
 
@@ -5524,47 +5951,32 @@ body_str = <<-BODY
  True.
 BODY
 
-msg281 = Mcon32.messages.create({
+msg281 = Mcon35.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.weeks.ago
+    created_at: 8.weeks.ago
     })
 
     msg281.send_msg
-    msg281.update({updated_at: 9.weeks.ago})
+    msg281.update({updated_at: 8.weeks.ago})
 
 
 
-
-      
- Scon32.update(message_timestamp: 9.weeks.ago) 
- Mcon32.update(message_timestamp: 9.weeks.ago) 
-
- Bcon32.update(message_timestamp: 9.weeks.ago) 
- Acon32.update(message_timestamp: 9.weeks.ago) 
-
-
-      MetCon33 = MetaConversation.create();
-
-      Scon33 = soc.conversations.create(title: "Is he not better off in", meta_conversation: MetCon33)
-      Mcon33 = meno.conversations.create(title: "Is he not better off in", meta_conversation: MetCon33)
-      Bcon33 = boy.conversations.create(title: "Is he not better off in", meta_conversation: MetCon33)
-      Acon33 = anytus.conversations.create(title: "Is he not better off in", meta_conversation: MetCon33 )
 
 body_str = <<-BODY 
  Is he not better off in knowing his ignorance?
 BODY
 
-msg282 = Scon33.messages.create({
+msg282 = Scon35.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.weeks.ago
+    created_at: 8.weeks.ago
     })
 
     msg282.send_msg
-    msg282.update({updated_at: 9.weeks.ago})
+    msg282.update({updated_at: 8.weeks.ago})
 
 
 
@@ -5573,15 +5985,15 @@ body_str = <<-BODY
  I think that he is.
 BODY
 
-msg283 = Mcon33.messages.create({
+msg283 = Mcon35.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.weeks.ago
+    created_at: 8.weeks.ago
     })
 
     msg283.send_msg
-    msg283.update({updated_at: 9.weeks.ago})
+    msg283.update({updated_at: 8.weeks.ago})
 
 
 
@@ -5591,15 +6003,15 @@ body_str = <<-BODY
 shock,' have we done him any harm?
 BODY
 
-msg284 = Scon33.messages.create({
+msg284 = Scon35.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.weeks.ago
+    created_at: 8.weeks.ago
     })
 
     msg284.send_msg
-    msg284.update({updated_at: 9.weeks.ago})
+    msg284.update({updated_at: 8.weeks.ago})
 
 
 
@@ -5608,7 +6020,7 @@ body_str = <<-BODY
  I think not.
 BODY
 
-msg285 = Mcon33.messages.create({
+msg285 = Mcon35.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -5628,7 +6040,7 @@ ignorance, but then he would have been ready to tell all the world again
 and again that the double space should have a double side.
 BODY
 
-msg286 = Scon33.messages.create({
+msg286 = Scon35.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -5645,7 +6057,7 @@ body_str = <<-BODY
  True.
 BODY
 
-msg287 = Mcon33.messages.create({
+msg287 = Mcon35.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -5665,7 +6077,7 @@ it, until he had fallen into perplexity under the idea that he did not
 know, and had desired to know?
 BODY
 
-msg288 = Scon33.messages.create({
+msg288 = Scon35.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -5682,7 +6094,7 @@ body_str = <<-BODY
  I think not, Socrates.
 BODY
 
-msg289 = Mcon33.messages.create({
+msg289 = Mcon35.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -5699,15 +6111,15 @@ body_str = <<-BODY
  Then he was the better for the torpedo's touch?
 BODY
 
-msg290 = Scon33.messages.create({
+msg290 = Scon35.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.weeks.ago
+    created_at: 7.weeks.ago
     })
 
     msg290.send_msg
-    msg290.update({updated_at: 8.weeks.ago})
+    msg290.update({updated_at: 7.weeks.ago})
 
 
 
@@ -5716,15 +6128,15 @@ body_str = <<-BODY
  I think so.
 BODY
 
-msg291 = Mcon33.messages.create({
+msg291 = Mcon35.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.weeks.ago
+    created_at: 7.weeks.ago
     })
 
     msg291.send_msg
-    msg291.update({updated_at: 8.weeks.ago})
+    msg291.update({updated_at: 7.weeks.ago})
 
 
 
@@ -5737,15 +6149,15 @@ eliciting his opinion. Tell me, boy, is not this a square of four feet
 which I have drawn?
 BODY
 
-msg292 = Scon33.messages.create({
+msg292 = Scon35.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.weeks.ago
+    created_at: 7.weeks.ago
     })
 
     msg292.send_msg
-    msg292.update({updated_at: 8.weeks.ago})
+    msg292.update({updated_at: 7.weeks.ago})
 
 
 
@@ -5754,15 +6166,15 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg293 = Bcon33.messages.create({
+msg293 = Bcon35.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.weeks.ago
+    created_at: 7.weeks.ago
     })
 
     msg293.send_msg
-    msg293.update({updated_at: 8.weeks.ago})
+    msg293.update({updated_at: 7.weeks.ago})
 
 
 
@@ -5771,15 +6183,15 @@ body_str = <<-BODY
  And now I add another square equal to the former one?
 BODY
 
-msg294 = Scon33.messages.create({
+msg294 = Scon35.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.weeks.ago
+    created_at: 7.weeks.ago
     })
 
     msg294.send_msg
-    msg294.update({updated_at: 8.weeks.ago})
+    msg294.update({updated_at: 7.weeks.ago})
 
 
 
@@ -5788,15 +6200,15 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg295 = Bcon33.messages.create({
+msg295 = Bcon35.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.weeks.ago
+    created_at: 7.weeks.ago
     })
 
     msg295.send_msg
-    msg295.update({updated_at: 8.weeks.ago})
+    msg295.update({updated_at: 7.weeks.ago})
 
 
 
@@ -5805,15 +6217,15 @@ body_str = <<-BODY
  And a third, which is equal to either of them?
 BODY
 
-msg296 = Scon33.messages.create({
+msg296 = Scon35.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.weeks.ago
+    created_at: 7.weeks.ago
     })
 
     msg296.send_msg
-    msg296.update({updated_at: 8.weeks.ago})
+    msg296.update({updated_at: 7.weeks.ago})
 
 
 
@@ -5822,15 +6234,15 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg297 = Bcon33.messages.create({
+msg297 = Bcon35.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.weeks.ago
+    created_at: 7.weeks.ago
     })
 
     msg297.send_msg
-    msg297.update({updated_at: 8.weeks.ago})
+    msg297.update({updated_at: 7.weeks.ago})
 
 
 
@@ -5839,15 +6251,15 @@ body_str = <<-BODY
  Suppose that we fill up the vacant corner?
 BODY
 
-msg298 = Scon33.messages.create({
+msg298 = Scon35.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.weeks.ago
+    created_at: 7.weeks.ago
     })
 
     msg298.send_msg
-    msg298.update({updated_at: 8.weeks.ago})
+    msg298.update({updated_at: 7.weeks.ago})
 
 
 
@@ -5856,7 +6268,7 @@ body_str = <<-BODY
  Very good.
 BODY
 
-msg299 = Bcon33.messages.create({
+msg299 = Bcon35.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -5873,7 +6285,7 @@ body_str = <<-BODY
  Here, then, there are four equal spaces?
 BODY
 
-msg300 = Scon33.messages.create({
+msg300 = Scon35.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -5890,7 +6302,7 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg301 = Bcon33.messages.create({
+msg301 = Bcon35.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -5903,26 +6315,11 @@ msg301 = Bcon33.messages.create({
 
 
 
-      
- Scon33.update(message_timestamp: 7.weeks.ago) 
- Mcon33.update(message_timestamp: 7.weeks.ago) 
-
- Bcon33.update(message_timestamp: 7.weeks.ago) 
- Acon33.update(message_timestamp: 7.weeks.ago) 
-
-
-      MetCon34 = MetaConversation.create();
-
-      Scon34 = soc.conversations.create(title: "And how many times larger is", meta_conversation: MetCon34)
-      Mcon34 = meno.conversations.create(title: "And how many times larger is", meta_conversation: MetCon34)
-      Bcon34 = boy.conversations.create(title: "And how many times larger is", meta_conversation: MetCon34)
-      Acon34 = anytus.conversations.create(title: "And how many times larger is", meta_conversation: MetCon34 )
-
 body_str = <<-BODY 
  And how many times larger is this space than this other?
 BODY
 
-msg302 = Scon34.messages.create({
+msg302 = Scon35.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -5939,33 +6336,18 @@ body_str = <<-BODY
  Four times.
 BODY
 
-msg303 = Bcon34.messages.create({
+msg303 = Bcon35.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.weeks.ago
+    created_at: 6.weeks.ago
     })
 
     msg303.send_msg
-    msg303.update({updated_at: 7.weeks.ago})
+    msg303.update({updated_at: 6.weeks.ago})
 
 
 
-
-      
- Scon34.update(message_timestamp: 7.weeks.ago) 
- Mcon34.update(message_timestamp: 7.weeks.ago) 
-
- Bcon34.update(message_timestamp: 7.weeks.ago) 
- Acon34.update(message_timestamp: 7.weeks.ago) 
-
-
-      MetCon35 = MetaConversation.create();
-
-      Scon35 = soc.conversations.create(title: "But it ought to have been", meta_conversation: MetCon35)
-      Mcon35 = meno.conversations.create(title: "But it ought to have been", meta_conversation: MetCon35)
-      Bcon35 = boy.conversations.create(title: "But it ought to have been", meta_conversation: MetCon35)
-      Acon35 = anytus.conversations.create(title: "But it ought to have been", meta_conversation: MetCon35 )
 
 body_str = <<-BODY 
  But it ought to have been twice only, as you will remember.
@@ -5975,28 +6357,55 @@ msg304 = Scon35.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.weeks.ago
+    created_at: 6.weeks.ago
     })
 
     msg304.send_msg
-    msg304.update({updated_at: 7.weeks.ago})
+    msg304.update({updated_at: 6.weeks.ago})
 
 
 
+
+      
+        Scon35.update({
+                             message_timestamp: 6.weeks.ago,
+                             read: true
+                           }) 
+        Mcon35.update({
+                             message_timestamp: 6.weeks.ago,
+                             read: true
+                           }) 
+        Bcon35.update({
+                             message_timestamp: 6.weeks.ago,
+                             read: true
+                           }) 
+        Acon35.update({
+                             message_timestamp: 6.weeks.ago,
+                             read: true
+                           }) 
+
+
+
+      MetCon36 = MetaConversation.create();
+
+      Scon36 = soc.conversations.create(title: "True.", meta_conversation: MetCon36)
+      Mcon36 = meno.conversations.create(title: "True.", meta_conversation: MetCon36)
+      Bcon36 = boy.conversations.create(title: "True.", meta_conversation: MetCon36)
+      Acon36 = anytus.conversations.create(title: "True.", meta_conversation: MetCon36 )
 
 body_str = <<-BODY 
  True.
 BODY
 
-msg305 = Bcon35.messages.create({
+msg305 = Bcon36.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.weeks.ago
+    created_at: 6.weeks.ago
     })
 
     msg305.send_msg
-    msg305.update({updated_at: 7.weeks.ago})
+    msg305.update({updated_at: 6.weeks.ago})
 
 
 
@@ -6006,15 +6415,15 @@ body_str = <<-BODY
 each of these spaces?
 BODY
 
-msg306 = Scon35.messages.create({
+msg306 = Scon36.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.weeks.ago
+    created_at: 6.weeks.ago
     })
 
     msg306.send_msg
-    msg306.update({updated_at: 7.weeks.ago})
+    msg306.update({updated_at: 6.weeks.ago})
 
 
 
@@ -6023,15 +6432,15 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg307 = Bcon35.messages.create({
+msg307 = Bcon36.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.weeks.ago
+    created_at: 6.weeks.ago
     })
 
     msg307.send_msg
-    msg307.update({updated_at: 7.weeks.ago})
+    msg307.update({updated_at: 6.weeks.ago})
 
 
 
@@ -6041,15 +6450,15 @@ body_str = <<-BODY
 space?
 BODY
 
-msg308 = Scon35.messages.create({
+msg308 = Scon36.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.weeks.ago
+    created_at: 6.weeks.ago
     })
 
     msg308.send_msg
-    msg308.update({updated_at: 7.weeks.ago})
+    msg308.update({updated_at: 6.weeks.ago})
 
 
 
@@ -6058,15 +6467,15 @@ body_str = <<-BODY
  There are.
 BODY
 
-msg309 = Bcon35.messages.create({
+msg309 = Bcon36.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.weeks.ago
+    created_at: 6.weeks.ago
     })
 
     msg309.send_msg
-    msg309.update({updated_at: 7.weeks.ago})
+    msg309.update({updated_at: 6.weeks.ago})
 
 
 
@@ -6075,33 +6484,18 @@ body_str = <<-BODY
  Look and see how much this space is.
 BODY
 
-msg310 = Scon35.messages.create({
+msg310 = Scon36.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.weeks.ago
+    created_at: 6.weeks.ago
     })
 
     msg310.send_msg
-    msg310.update({updated_at: 7.weeks.ago})
+    msg310.update({updated_at: 6.weeks.ago})
 
 
 
-
-      
- Scon35.update(message_timestamp: 7.weeks.ago) 
- Mcon35.update(message_timestamp: 7.weeks.ago) 
-
- Bcon35.update(message_timestamp: 7.weeks.ago) 
- Acon35.update(message_timestamp: 7.weeks.ago) 
-
-
-      MetCon36 = MetaConversation.create();
-
-      Scon36 = soc.conversations.create(title: "I do not understand.", meta_conversation: MetCon36)
-      Mcon36 = meno.conversations.create(title: "I do not understand.", meta_conversation: MetCon36)
-      Bcon36 = boy.conversations.create(title: "I do not understand.", meta_conversation: MetCon36)
-      Acon36 = anytus.conversations.create(title: "I do not understand.", meta_conversation: MetCon36 )
 
 body_str = <<-BODY 
  I do not understand.
@@ -6111,11 +6505,11 @@ msg311 = Bcon36.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.weeks.ago
+    created_at: 6.weeks.ago
     })
 
     msg311.send_msg
-    msg311.update({updated_at: 7.weeks.ago})
+    msg311.update({updated_at: 6.weeks.ago})
 
 
 
@@ -6128,43 +6522,28 @@ msg312 = Scon36.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.weeks.ago
+    created_at: 6.weeks.ago
     })
 
     msg312.send_msg
-    msg312.update({updated_at: 7.weeks.ago})
+    msg312.update({updated_at: 6.weeks.ago})
 
 
 
-
-      
- Scon36.update(message_timestamp: 7.weeks.ago) 
- Mcon36.update(message_timestamp: 7.weeks.ago) 
-
- Bcon36.update(message_timestamp: 7.weeks.ago) 
- Acon36.update(message_timestamp: 7.weeks.ago) 
-
-
-      MetCon37 = MetaConversation.create();
-
-      Scon37 = soc.conversations.create(title: "Yes.", meta_conversation: MetCon37)
-      Mcon37 = meno.conversations.create(title: "Yes.", meta_conversation: MetCon37)
-      Bcon37 = boy.conversations.create(title: "Yes.", meta_conversation: MetCon37)
-      Acon37 = anytus.conversations.create(title: "Yes.", meta_conversation: MetCon37 )
 
 body_str = <<-BODY 
  Yes.
 BODY
 
-msg313 = Bcon37.messages.create({
+msg313 = Bcon36.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.weeks.ago
+    created_at: 5.weeks.ago
     })
 
     msg313.send_msg
-    msg313.update({updated_at: 6.weeks.ago})
+    msg313.update({updated_at: 5.weeks.ago})
 
 
 
@@ -6173,15 +6552,15 @@ body_str = <<-BODY
  And how many spaces are there in this section?
 BODY
 
-msg314 = Scon37.messages.create({
+msg314 = Scon36.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.weeks.ago
+    created_at: 5.weeks.ago
     })
 
     msg314.send_msg
-    msg314.update({updated_at: 6.weeks.ago})
+    msg314.update({updated_at: 5.weeks.ago})
 
 
 
@@ -6190,15 +6569,15 @@ body_str = <<-BODY
  Four.
 BODY
 
-msg315 = Bcon37.messages.create({
+msg315 = Bcon36.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.weeks.ago
+    created_at: 5.weeks.ago
     })
 
     msg315.send_msg
-    msg315.update({updated_at: 6.weeks.ago})
+    msg315.update({updated_at: 5.weeks.ago})
 
 
 
@@ -6207,15 +6586,15 @@ body_str = <<-BODY
  And how many in this?
 BODY
 
-msg316 = Scon37.messages.create({
+msg316 = Scon36.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.weeks.ago
+    created_at: 5.weeks.ago
     })
 
     msg316.send_msg
-    msg316.update({updated_at: 6.weeks.ago})
+    msg316.update({updated_at: 5.weeks.ago})
 
 
 
@@ -6224,18 +6603,45 @@ body_str = <<-BODY
  Two.
 BODY
 
-msg317 = Bcon37.messages.create({
+msg317 = Bcon36.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.weeks.ago
+    created_at: 5.weeks.ago
     })
 
     msg317.send_msg
-    msg317.update({updated_at: 6.weeks.ago})
+    msg317.update({updated_at: 5.weeks.ago})
 
 
 
+
+      
+        Scon36.update({
+                             message_timestamp: 5.weeks.ago,
+                             read: true
+                           }) 
+        Mcon36.update({
+                             message_timestamp: 5.weeks.ago,
+                             read: true
+                           }) 
+        Bcon36.update({
+                             message_timestamp: 5.weeks.ago,
+                             read: true
+                           }) 
+        Acon36.update({
+                             message_timestamp: 5.weeks.ago,
+                             read: true
+                           }) 
+
+
+
+      MetCon37 = MetaConversation.create();
+
+      Scon37 = soc.conversations.create(title: "And four is how many times", meta_conversation: MetCon37)
+      Mcon37 = meno.conversations.create(title: "And four is how many times", meta_conversation: MetCon37)
+      Bcon37 = boy.conversations.create(title: "And four is how many times", meta_conversation: MetCon37)
+      Acon37 = anytus.conversations.create(title: "And four is how many times", meta_conversation: MetCon37 )
 
 body_str = <<-BODY 
  And four is how many times two?
@@ -6245,11 +6651,11 @@ msg318 = Scon37.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.weeks.ago
+    created_at: 5.weeks.ago
     })
 
     msg318.send_msg
-    msg318.update({updated_at: 6.weeks.ago})
+    msg318.update({updated_at: 5.weeks.ago})
 
 
 
@@ -6262,11 +6668,11 @@ msg319 = Bcon37.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.weeks.ago
+    created_at: 5.weeks.ago
     })
 
     msg319.send_msg
-    msg319.update({updated_at: 6.weeks.ago})
+    msg319.update({updated_at: 5.weeks.ago})
 
 
 
@@ -6279,11 +6685,11 @@ msg320 = Scon37.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.weeks.ago
+    created_at: 5.weeks.ago
     })
 
     msg320.send_msg
-    msg320.update({updated_at: 6.weeks.ago})
+    msg320.update({updated_at: 5.weeks.ago})
 
 
 
@@ -6296,11 +6702,11 @@ msg321 = Bcon37.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.weeks.ago
+    created_at: 5.weeks.ago
     })
 
     msg321.send_msg
-    msg321.update({updated_at: 6.weeks.ago})
+    msg321.update({updated_at: 5.weeks.ago})
 
 
 
@@ -6313,43 +6719,28 @@ msg322 = Scon37.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.weeks.ago
+    created_at: 5.weeks.ago
     })
 
     msg322.send_msg
-    msg322.update({updated_at: 6.weeks.ago})
+    msg322.update({updated_at: 5.weeks.ago})
 
 
 
-
-      
- Scon37.update(message_timestamp: 6.weeks.ago) 
- Mcon37.update(message_timestamp: 6.weeks.ago) 
-
- Bcon37.update(message_timestamp: 6.weeks.ago) 
- Acon37.update(message_timestamp: 6.weeks.ago) 
-
-
-      MetCon38 = MetaConversation.create();
-
-      Scon38 = soc.conversations.create(title: "From this.", meta_conversation: MetCon38)
-      Mcon38 = meno.conversations.create(title: "From this.", meta_conversation: MetCon38)
-      Bcon38 = boy.conversations.create(title: "From this.", meta_conversation: MetCon38)
-      Acon38 = anytus.conversations.create(title: "From this.", meta_conversation: MetCon38 )
 
 body_str = <<-BODY 
  From this.
 BODY
 
-msg323 = Bcon38.messages.create({
+msg323 = Bcon37.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.weeks.ago
+    created_at: 4.weeks.ago
     })
 
     msg323.send_msg
-    msg323.update({updated_at: 6.weeks.ago})
+    msg323.update({updated_at: 4.weeks.ago})
 
 
 
@@ -6359,15 +6750,15 @@ body_str = <<-BODY
 the figure of four feet?
 BODY
 
-msg324 = Scon38.messages.create({
+msg324 = Scon37.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.weeks.ago
+    created_at: 4.weeks.ago
     })
 
     msg324.send_msg
-    msg324.update({updated_at: 6.weeks.ago})
+    msg324.update({updated_at: 4.weeks.ago})
 
 
 
@@ -6376,33 +6767,18 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg325 = Bcon38.messages.create({
+msg325 = Bcon37.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.weeks.ago
+    created_at: 4.weeks.ago
     })
 
     msg325.send_msg
-    msg325.update({updated_at: 6.weeks.ago})
+    msg325.update({updated_at: 4.weeks.ago})
 
 
 
-
-      
- Scon38.update(message_timestamp: 6.weeks.ago) 
- Mcon38.update(message_timestamp: 6.weeks.ago) 
-
- Bcon38.update(message_timestamp: 6.weeks.ago) 
- Acon38.update(message_timestamp: 6.weeks.ago) 
-
-
-      MetCon39 = MetaConversation.create();
-
-      Scon39 = soc.conversations.create(title: "And that is the line which", meta_conversation: MetCon39)
-      Mcon39 = meno.conversations.create(title: "And that is the line which", meta_conversation: MetCon39)
-      Bcon39 = boy.conversations.create(title: "And that is the line which", meta_conversation: MetCon39)
-      Acon39 = anytus.conversations.create(title: "And that is the line which", meta_conversation: MetCon39 )
 
 body_str = <<-BODY 
  And that is the line which the learned call the diagonal.
@@ -6410,47 +6786,32 @@ And if this is the proper name, then you, Meno's slave, are prepared to
 affirm that the double space is the square of the diagonal?
 BODY
 
-msg326 = Scon39.messages.create({
+msg326 = Scon37.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.weeks.ago
+    created_at: 4.weeks.ago
     })
 
     msg326.send_msg
-    msg326.update({updated_at: 6.weeks.ago})
+    msg326.update({updated_at: 4.weeks.ago})
 
 
 
-
-      
- Scon39.update(message_timestamp: 6.weeks.ago) 
- Mcon39.update(message_timestamp: 6.weeks.ago) 
-
- Bcon39.update(message_timestamp: 6.weeks.ago) 
- Acon39.update(message_timestamp: 6.weeks.ago) 
-
-
-      MetCon40 = MetaConversation.create();
-
-      Scon40 = soc.conversations.create(title: "Certainly, Socrates.", meta_conversation: MetCon40)
-      Mcon40 = meno.conversations.create(title: "Certainly, Socrates.", meta_conversation: MetCon40)
-      Bcon40 = boy.conversations.create(title: "Certainly, Socrates.", meta_conversation: MetCon40)
-      Acon40 = anytus.conversations.create(title: "Certainly, Socrates.", meta_conversation: MetCon40 )
 
 body_str = <<-BODY 
  Certainly, Socrates.
 BODY
 
-msg327 = Bcon40.messages.create({
+msg327 = Bcon37.messages.create({
     source_address: "boy#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.weeks.ago
+    created_at: 4.weeks.ago
     })
 
     msg327.send_msg
-    msg327.update({updated_at: 5.weeks.ago})
+    msg327.update({updated_at: 4.weeks.ago})
 
 
 
@@ -6460,15 +6821,15 @@ body_str = <<-BODY
 out of his own head?
 BODY
 
-msg328 = Scon40.messages.create({
+msg328 = Scon37.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.weeks.ago
+    created_at: 4.weeks.ago
     })
 
     msg328.send_msg
-    msg328.update({updated_at: 5.weeks.ago})
+    msg328.update({updated_at: 4.weeks.ago})
 
 
 
@@ -6477,47 +6838,32 @@ body_str = <<-BODY
  Yes, they were all his own.
 BODY
 
-msg329 = Mcon40.messages.create({
+msg329 = Mcon37.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.weeks.ago
+    created_at: 4.weeks.ago
     })
 
     msg329.send_msg
-    msg329.update({updated_at: 5.weeks.ago})
+    msg329.update({updated_at: 4.weeks.ago})
 
 
 
-
-      
- Scon40.update(message_timestamp: 5.weeks.ago) 
- Mcon40.update(message_timestamp: 5.weeks.ago) 
-
- Bcon40.update(message_timestamp: 5.weeks.ago) 
- Acon40.update(message_timestamp: 5.weeks.ago) 
-
-
-      MetCon41 = MetaConversation.create();
-
-      Scon41 = soc.conversations.create(title: "And yet, as we were just", meta_conversation: MetCon41)
-      Mcon41 = meno.conversations.create(title: "And yet, as we were just", meta_conversation: MetCon41)
-      Bcon41 = boy.conversations.create(title: "And yet, as we were just", meta_conversation: MetCon41)
-      Acon41 = anytus.conversations.create(title: "And yet, as we were just", meta_conversation: MetCon41 )
 
 body_str = <<-BODY 
  And yet, as we were just now saying, he did not know?
 BODY
 
-msg330 = Scon41.messages.create({
+msg330 = Scon37.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.weeks.ago
+    created_at: 4.weeks.ago
     })
 
     msg330.send_msg
-    msg330.update({updated_at: 5.weeks.ago})
+    msg330.update({updated_at: 4.weeks.ago})
 
 
 
@@ -6526,47 +6872,32 @@ body_str = <<-BODY
  True.
 BODY
 
-msg331 = Mcon41.messages.create({
+msg331 = Mcon37.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.weeks.ago
+    created_at: 4.weeks.ago
     })
 
     msg331.send_msg
-    msg331.update({updated_at: 5.weeks.ago})
+    msg331.update({updated_at: 4.weeks.ago})
 
 
 
-
-      
- Scon41.update(message_timestamp: 5.weeks.ago) 
- Mcon41.update(message_timestamp: 5.weeks.ago) 
-
- Bcon41.update(message_timestamp: 5.weeks.ago) 
- Acon41.update(message_timestamp: 5.weeks.ago) 
-
-
-      MetCon42 = MetaConversation.create();
-
-      Scon42 = soc.conversations.create(title: "But still he had in him", meta_conversation: MetCon42)
-      Mcon42 = meno.conversations.create(title: "But still he had in him", meta_conversation: MetCon42)
-      Bcon42 = boy.conversations.create(title: "But still he had in him", meta_conversation: MetCon42)
-      Acon42 = anytus.conversations.create(title: "But still he had in him", meta_conversation: MetCon42 )
 
 body_str = <<-BODY 
  But still he had in him those notions of his--had he not?
 BODY
 
-msg332 = Scon42.messages.create({
+msg332 = Scon37.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.weeks.ago
+    created_at: 4.weeks.ago
     })
 
     msg332.send_msg
-    msg332.update({updated_at: 5.weeks.ago})
+    msg332.update({updated_at: 4.weeks.ago})
 
 
 
@@ -6575,15 +6906,15 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg333 = Mcon42.messages.create({
+msg333 = Mcon37.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.weeks.ago
+    created_at: 4.weeks.ago
     })
 
     msg333.send_msg
-    msg333.update({updated_at: 5.weeks.ago})
+    msg333.update({updated_at: 4.weeks.ago})
 
 
 
@@ -6593,15 +6924,15 @@ body_str = <<-BODY
 which he does not know?
 BODY
 
-msg334 = Scon42.messages.create({
+msg334 = Scon37.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.weeks.ago
+    created_at: 3.weeks.ago
     })
 
     msg334.send_msg
-    msg334.update({updated_at: 5.weeks.ago})
+    msg334.update({updated_at: 3.weeks.ago})
 
 
 
@@ -6610,15 +6941,15 @@ body_str = <<-BODY
  He has.
 BODY
 
-msg335 = Mcon42.messages.create({
+msg335 = Mcon37.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.weeks.ago
+    created_at: 3.weeks.ago
     })
 
     msg335.send_msg
-    msg335.update({updated_at: 5.weeks.ago})
+    msg335.update({updated_at: 3.weeks.ago})
 
 
 
@@ -6629,15 +6960,15 @@ as in a dream; but if he were frequently asked the same questions, in
 different forms, he would know as well as any one at last?
 BODY
 
-msg336 = Scon42.messages.create({
+msg336 = Scon37.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.weeks.ago
+    created_at: 3.weeks.ago
     })
 
     msg336.send_msg
-    msg336.update({updated_at: 5.weeks.ago})
+    msg336.update({updated_at: 3.weeks.ago})
 
 
 
@@ -6646,48 +6977,33 @@ body_str = <<-BODY
  I dare say.
 BODY
 
-msg337 = Mcon42.messages.create({
+msg337 = Mcon37.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.weeks.ago
+    created_at: 3.weeks.ago
     })
 
     msg337.send_msg
-    msg337.update({updated_at: 4.weeks.ago})
+    msg337.update({updated_at: 3.weeks.ago})
 
 
 
-
-      
- Scon42.update(message_timestamp: 4.weeks.ago) 
- Mcon42.update(message_timestamp: 4.weeks.ago) 
-
- Bcon42.update(message_timestamp: 4.weeks.ago) 
- Acon42.update(message_timestamp: 4.weeks.ago) 
-
-
-      MetCon43 = MetaConversation.create();
-
-      Scon43 = soc.conversations.create(title: "Without any one teaching him he", meta_conversation: MetCon43)
-      Mcon43 = meno.conversations.create(title: "Without any one teaching him he", meta_conversation: MetCon43)
-      Bcon43 = boy.conversations.create(title: "Without any one teaching him he", meta_conversation: MetCon43)
-      Acon43 = anytus.conversations.create(title: "Without any one teaching him he", meta_conversation: MetCon43 )
 
 body_str = <<-BODY 
  Without any one teaching him he will recover his knowledge for
 himself, if he is only asked questions?
 BODY
 
-msg338 = Scon43.messages.create({
+msg338 = Scon37.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.weeks.ago
+    created_at: 3.weeks.ago
     })
 
     msg338.send_msg
-    msg338.update({updated_at: 4.weeks.ago})
+    msg338.update({updated_at: 3.weeks.ago})
 
 
 
@@ -6696,15 +7012,15 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg339 = Mcon43.messages.create({
+msg339 = Mcon37.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.weeks.ago
+    created_at: 3.weeks.ago
     })
 
     msg339.send_msg
-    msg339.update({updated_at: 4.weeks.ago})
+    msg339.update({updated_at: 3.weeks.ago})
 
 
 
@@ -6714,47 +7030,32 @@ body_str = <<-BODY
 recollection?
 BODY
 
-msg340 = Scon43.messages.create({
+msg340 = Scon37.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.weeks.ago
+    created_at: 3.weeks.ago
     })
 
     msg340.send_msg
-    msg340.update({updated_at: 4.weeks.ago})
+    msg340.update({updated_at: 3.weeks.ago})
 
 
 
-
-      
- Scon43.update(message_timestamp: 4.weeks.ago) 
- Mcon43.update(message_timestamp: 4.weeks.ago) 
-
- Bcon43.update(message_timestamp: 4.weeks.ago) 
- Acon43.update(message_timestamp: 4.weeks.ago) 
-
-
-      MetCon44 = MetaConversation.create();
-
-      Scon44 = soc.conversations.create(title: "True.", meta_conversation: MetCon44)
-      Mcon44 = meno.conversations.create(title: "True.", meta_conversation: MetCon44)
-      Bcon44 = boy.conversations.create(title: "True.", meta_conversation: MetCon44)
-      Acon44 = anytus.conversations.create(title: "True.", meta_conversation: MetCon44 )
 
 body_str = <<-BODY 
  True.
 BODY
 
-msg341 = Mcon44.messages.create({
+msg341 = Mcon37.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.weeks.ago
+    created_at: 3.weeks.ago
     })
 
     msg341.send_msg
-    msg341.update({updated_at: 4.weeks.ago})
+    msg341.update({updated_at: 3.weeks.ago})
 
 
 
@@ -6764,15 +7065,15 @@ body_str = <<-BODY
 acquired or always possessed?
 BODY
 
-msg342 = Scon44.messages.create({
+msg342 = Scon37.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.weeks.ago
+    created_at: 3.weeks.ago
     })
 
     msg342.send_msg
-    msg342.update({updated_at: 4.weeks.ago})
+    msg342.update({updated_at: 3.weeks.ago})
 
 
 
@@ -6781,15 +7082,15 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg343 = Mcon44.messages.create({
+msg343 = Mcon37.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.weeks.ago
+    created_at: 3.weeks.ago
     })
 
     msg343.send_msg
-    msg343.update({updated_at: 4.weeks.ago})
+    msg343.update({updated_at: 3.weeks.ago})
 
 
 
@@ -6803,15 +7104,15 @@ has any one ever taught him all this? You must know about him, if, as
 you say, he was born and bred in your house.
 BODY
 
-msg344 = Scon44.messages.create({
+msg344 = Scon37.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.weeks.ago
+    created_at: 3.weeks.ago
     })
 
     msg344.send_msg
-    msg344.update({updated_at: 4.weeks.ago})
+    msg344.update({updated_at: 3.weeks.ago})
 
 
 
@@ -6820,15 +7121,15 @@ body_str = <<-BODY
  And I am certain that no one ever did teach him.
 BODY
 
-msg345 = Mcon44.messages.create({
+msg345 = Mcon37.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.weeks.ago
+    created_at: 3.weeks.ago
     })
 
     msg345.send_msg
-    msg345.update({updated_at: 4.weeks.ago})
+    msg345.update({updated_at: 3.weeks.ago})
 
 
 
@@ -6837,15 +7138,15 @@ body_str = <<-BODY
  And yet he has the knowledge?
 BODY
 
-msg346 = Scon44.messages.create({
+msg346 = Scon37.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.weeks.ago
+    created_at: 3.weeks.ago
     })
 
     msg346.send_msg
-    msg346.update({updated_at: 4.weeks.ago})
+    msg346.update({updated_at: 3.weeks.ago})
 
 
 
@@ -6854,15 +7155,15 @@ body_str = <<-BODY
  The fact, Socrates, is undeniable.
 BODY
 
-msg347 = Mcon44.messages.create({
+msg347 = Mcon37.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.weeks.ago
+    created_at: 3.weeks.ago
     })
 
     msg347.send_msg
-    msg347.update({updated_at: 4.weeks.ago})
+    msg347.update({updated_at: 3.weeks.ago})
 
 
 
@@ -6872,79 +7173,49 @@ body_str = <<-BODY
 must have had and learned it at some other time?
 BODY
 
-msg348 = Scon44.messages.create({
+msg348 = Scon37.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.weeks.ago
+    created_at: 2.weeks.ago
     })
 
     msg348.send_msg
-    msg348.update({updated_at: 4.weeks.ago})
+    msg348.update({updated_at: 2.weeks.ago})
 
 
 
-
-      
- Scon44.update(message_timestamp: 4.weeks.ago) 
- Mcon44.update(message_timestamp: 4.weeks.ago) 
-
- Bcon44.update(message_timestamp: 4.weeks.ago) 
- Acon44.update(message_timestamp: 4.weeks.ago) 
-
-
-      MetCon45 = MetaConversation.create();
-
-      Scon45 = soc.conversations.create(title: "Clearly he must.", meta_conversation: MetCon45)
-      Mcon45 = meno.conversations.create(title: "Clearly he must.", meta_conversation: MetCon45)
-      Bcon45 = boy.conversations.create(title: "Clearly he must.", meta_conversation: MetCon45)
-      Acon45 = anytus.conversations.create(title: "Clearly he must.", meta_conversation: MetCon45 )
 
 body_str = <<-BODY 
  Clearly he must.
 BODY
 
-msg349 = Mcon45.messages.create({
+msg349 = Mcon37.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.weeks.ago
+    created_at: 2.weeks.ago
     })
 
     msg349.send_msg
-    msg349.update({updated_at: 3.weeks.ago})
+    msg349.update({updated_at: 2.weeks.ago})
 
 
 
-
-      
- Scon45.update(message_timestamp: 3.weeks.ago) 
- Mcon45.update(message_timestamp: 3.weeks.ago) 
-
- Bcon45.update(message_timestamp: 3.weeks.ago) 
- Acon45.update(message_timestamp: 3.weeks.ago) 
-
-
-      MetCon46 = MetaConversation.create();
-
-      Scon46 = soc.conversations.create(title: "Which must have been the time", meta_conversation: MetCon46)
-      Mcon46 = meno.conversations.create(title: "Which must have been the time", meta_conversation: MetCon46)
-      Bcon46 = boy.conversations.create(title: "Which must have been the time", meta_conversation: MetCon46)
-      Acon46 = anytus.conversations.create(title: "Which must have been the time", meta_conversation: MetCon46 )
 
 body_str = <<-BODY 
  Which must have been the time when he was not a man?
 BODY
 
-msg350 = Scon46.messages.create({
+msg350 = Scon37.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.weeks.ago
+    created_at: 2.weeks.ago
     })
 
     msg350.send_msg
-    msg350.update({updated_at: 3.weeks.ago})
+    msg350.update({updated_at: 2.weeks.ago})
 
 
 
@@ -6953,15 +7224,15 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg351 = Mcon46.messages.create({
+msg351 = Mcon37.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.weeks.ago
+    created_at: 2.weeks.ago
     })
 
     msg351.send_msg
-    msg351.update({updated_at: 3.weeks.ago})
+    msg351.update({updated_at: 2.weeks.ago})
 
 
 
@@ -6973,47 +7244,32 @@ into knowledge by putting questions to him, his soul must have always
 possessed this knowledge, for he always either was or was not a man?
 BODY
 
-msg352 = Scon46.messages.create({
+msg352 = Scon37.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.weeks.ago
+    created_at: 2.weeks.ago
     })
 
     msg352.send_msg
-    msg352.update({updated_at: 3.weeks.ago})
+    msg352.update({updated_at: 2.weeks.ago})
 
 
 
-
-      
- Scon46.update(message_timestamp: 3.weeks.ago) 
- Mcon46.update(message_timestamp: 3.weeks.ago) 
-
- Bcon46.update(message_timestamp: 3.weeks.ago) 
- Acon46.update(message_timestamp: 3.weeks.ago) 
-
-
-      MetCon47 = MetaConversation.create();
-
-      Scon47 = soc.conversations.create(title: "Obviously.", meta_conversation: MetCon47)
-      Mcon47 = meno.conversations.create(title: "Obviously.", meta_conversation: MetCon47)
-      Bcon47 = boy.conversations.create(title: "Obviously.", meta_conversation: MetCon47)
-      Acon47 = anytus.conversations.create(title: "Obviously.", meta_conversation: MetCon47 )
 
 body_str = <<-BODY 
  Obviously.
 BODY
 
-msg353 = Mcon47.messages.create({
+msg353 = Mcon37.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.weeks.ago
+    created_at: 2.weeks.ago
     })
 
     msg353.send_msg
-    msg353.update({updated_at: 3.weeks.ago})
+    msg353.update({updated_at: 2.weeks.ago})
 
 
 
@@ -7024,32 +7280,59 @@ then the soul is immortal. Wherefore be of good cheer, and try to
 recollect what you do not know, or rather what you do not remember.
 BODY
 
-msg354 = Scon47.messages.create({
+msg354 = Scon37.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.weeks.ago
+    created_at: 2.weeks.ago
     })
 
     msg354.send_msg
-    msg354.update({updated_at: 3.weeks.ago})
+    msg354.update({updated_at: 2.weeks.ago})
 
 
 
+
+      
+        Scon37.update({
+                             message_timestamp: 2.weeks.ago,
+                             read: true
+                           }) 
+        Mcon37.update({
+                             message_timestamp: 2.weeks.ago,
+                             read: true
+                           }) 
+        Bcon37.update({
+                             message_timestamp: 2.weeks.ago,
+                             read: true
+                           }) 
+        Acon37.update({
+                             message_timestamp: 2.weeks.ago,
+                             read: true
+                           }) 
+
+
+
+      MetCon38 = MetaConversation.create();
+
+      Scon38 = soc.conversations.create(title: "I feel, somehow, that I like", meta_conversation: MetCon38)
+      Mcon38 = meno.conversations.create(title: "I feel, somehow, that I like", meta_conversation: MetCon38)
+      Bcon38 = boy.conversations.create(title: "I feel, somehow, that I like", meta_conversation: MetCon38)
+      Acon38 = anytus.conversations.create(title: "I feel, somehow, that I like", meta_conversation: MetCon38 )
 
 body_str = <<-BODY 
  I feel, somehow, that I like what you are saying.
 BODY
 
-msg355 = Mcon47.messages.create({
+msg355 = Mcon38.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.weeks.ago
+    created_at: 2.weeks.ago
     })
 
     msg355.send_msg
-    msg355.update({updated_at: 3.weeks.ago})
+    msg355.update({updated_at: 2.weeks.ago})
 
 
 
@@ -7064,47 +7347,32 @@ theme upon which I am ready to fight, in word and deed, to the utmost of
 my power.
 BODY
 
-msg356 = Scon47.messages.create({
+msg356 = Scon38.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.weeks.ago
+    created_at: 2.weeks.ago
     })
 
     msg356.send_msg
-    msg356.update({updated_at: 3.weeks.ago})
+    msg356.update({updated_at: 2.weeks.ago})
 
 
 
-
-      
- Scon47.update(message_timestamp: 3.weeks.ago) 
- Mcon47.update(message_timestamp: 3.weeks.ago) 
-
- Bcon47.update(message_timestamp: 3.weeks.ago) 
- Acon47.update(message_timestamp: 3.weeks.ago) 
-
-
-      MetCon48 = MetaConversation.create();
-
-      Scon48 = soc.conversations.create(title: "There again, Socrates, your words seem", meta_conversation: MetCon48)
-      Mcon48 = meno.conversations.create(title: "There again, Socrates, your words seem", meta_conversation: MetCon48)
-      Bcon48 = boy.conversations.create(title: "There again, Socrates, your words seem", meta_conversation: MetCon48)
-      Acon48 = anytus.conversations.create(title: "There again, Socrates, your words seem", meta_conversation: MetCon48 )
 
 body_str = <<-BODY 
  There again, Socrates, your words seem to me excellent.
 BODY
 
-msg357 = Mcon48.messages.create({
+msg357 = Mcon38.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.weeks.ago
+    created_at: 1.weeks.ago
     })
 
     msg357.send_msg
-    msg357.update({updated_at: 3.weeks.ago})
+    msg357.update({updated_at: 1.weeks.ago})
 
 
 
@@ -7115,33 +7383,45 @@ which he does not know, shall you and I make an effort to enquire
 together into the nature of virtue?
 BODY
 
-msg358 = Scon48.messages.create({
+msg358 = Scon38.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.weeks.ago
+    created_at: 1.weeks.ago
     })
 
     msg358.send_msg
-    msg358.update({updated_at: 3.weeks.ago})
+    msg358.update({updated_at: 1.weeks.ago})
 
 
 
 
       
- Scon48.update(message_timestamp: 3.weeks.ago) 
- Mcon48.update(message_timestamp: 3.weeks.ago) 
+        Scon38.update({
+                             message_timestamp: 1.weeks.ago,
+                             read: true
+                           }) 
+        Mcon38.update({
+                             message_timestamp: 1.weeks.ago,
+                             read: true
+                           }) 
+        Bcon38.update({
+                             message_timestamp: 1.weeks.ago,
+                             read: true
+                           }) 
+        Acon38.update({
+                             message_timestamp: 1.weeks.ago,
+                             read: true
+                           }) 
 
- Bcon48.update(message_timestamp: 3.weeks.ago) 
- Acon48.update(message_timestamp: 3.weeks.ago) 
 
 
-      MetCon49 = MetaConversation.create();
+      MetCon39 = MetaConversation.create();
 
-      Scon49 = soc.conversations.create(title: "By all means, Socrates. And yet", meta_conversation: MetCon49)
-      Mcon49 = meno.conversations.create(title: "By all means, Socrates. And yet", meta_conversation: MetCon49)
-      Bcon49 = boy.conversations.create(title: "By all means, Socrates. And yet", meta_conversation: MetCon49)
-      Acon49 = anytus.conversations.create(title: "By all means, Socrates. And yet", meta_conversation: MetCon49 )
+      Scon39 = soc.conversations.create(title: "By all means, Socrates. And yet", meta_conversation: MetCon39)
+      Mcon39 = meno.conversations.create(title: "By all means, Socrates. And yet", meta_conversation: MetCon39)
+      Bcon39 = boy.conversations.create(title: "By all means, Socrates. And yet", meta_conversation: MetCon39)
+      Acon39 = anytus.conversations.create(title: "By all means, Socrates. And yet", meta_conversation: MetCon39 )
 
 body_str = <<-BODY 
  By all means, Socrates. And yet I would much rather return to my
@@ -7150,15 +7430,15 @@ it as a thing to be taught, or as a gift of nature, or as coming to men
 in some other way?
 BODY
 
-msg359 = Mcon49.messages.create({
+msg359 = Mcon39.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.weeks.ago
+    created_at: 1.weeks.ago
     })
 
     msg359.send_msg
-    msg359.update({updated_at: 3.weeks.ago})
+    msg359.update({updated_at: 1.weeks.ago})
 
 
 
@@ -7195,15 +7475,15 @@ the name. But is virtue taught or not? or rather, does not every one see
 that knowledge alone is taught?
 BODY
 
-msg360 = Scon49.messages.create({
+msg360 = Scon39.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.weeks.ago
+    created_at: 1.weeks.ago
     })
 
     msg360.send_msg
-    msg360.update({updated_at: 3.weeks.ago})
+    msg360.update({updated_at: 1.weeks.ago})
 
 
 
@@ -7212,15 +7492,15 @@ body_str = <<-BODY
  I agree.
 BODY
 
-msg361 = Mcon49.messages.create({
+msg361 = Mcon39.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.weeks.ago
+    created_at: 1.weeks.ago
     })
 
     msg361.send_msg
-    msg361.update({updated_at: 2.weeks.ago})
+    msg361.update({updated_at: 1.weeks.ago})
 
 
 
@@ -7229,15 +7509,15 @@ body_str = <<-BODY
  Then if virtue is knowledge, virtue will be taught?
 BODY
 
-msg362 = Scon49.messages.create({
+msg362 = Scon39.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.weeks.ago
+    created_at: 1.weeks.ago
     })
 
     msg362.send_msg
-    msg362.update({updated_at: 2.weeks.ago})
+    msg362.update({updated_at: 1.weeks.ago})
 
 
 
@@ -7246,33 +7526,60 @@ body_str = <<-BODY
  Certainly.
 BODY
 
-msg363 = Mcon49.messages.create({
+msg363 = Mcon39.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.weeks.ago
+    created_at: 1.weeks.ago
     })
 
     msg363.send_msg
-    msg363.update({updated_at: 2.weeks.ago})
+    msg363.update({updated_at: 1.weeks.ago})
 
 
 
+
+      
+        Scon39.update({
+                             message_timestamp: 1.weeks.ago,
+                             read: true
+                           }) 
+        Mcon39.update({
+                             message_timestamp: 1.weeks.ago,
+                             read: true
+                           }) 
+        Bcon39.update({
+                             message_timestamp: 1.weeks.ago,
+                             read: true
+                           }) 
+        Acon39.update({
+                             message_timestamp: 1.weeks.ago,
+                             read: true
+                           }) 
+
+
+
+      MetCon40 = MetaConversation.create();
+
+      Scon40 = soc.conversations.create(title: "Then now we have made a", meta_conversation: MetCon40)
+      Mcon40 = meno.conversations.create(title: "Then now we have made a", meta_conversation: MetCon40)
+      Bcon40 = boy.conversations.create(title: "Then now we have made a", meta_conversation: MetCon40)
+      Acon40 = anytus.conversations.create(title: "Then now we have made a", meta_conversation: MetCon40 )
 
 body_str = <<-BODY 
  Then now we have made a quick end of this question: if virtue
 is of such a nature, it will be taught; and if not, not?
 BODY
 
-msg364 = Scon49.messages.create({
+msg364 = Scon40.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.weeks.ago
+    created_at: 1.weeks.ago
     })
 
     msg364.send_msg
-    msg364.update({updated_at: 2.weeks.ago})
+    msg364.update({updated_at: 1.weeks.ago})
 
 
 
@@ -7281,15 +7588,15 @@ body_str = <<-BODY
  Certainly.
 BODY
 
-msg365 = Mcon49.messages.create({
+msg365 = Mcon40.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.weeks.ago
+    created_at: 1.weeks.ago
     })
 
     msg365.send_msg
-    msg365.update({updated_at: 2.weeks.ago})
+    msg365.update({updated_at: 1.weeks.ago})
 
 
 
@@ -7299,15 +7606,15 @@ body_str = <<-BODY
 another species?
 BODY
 
-msg366 = Scon49.messages.create({
+msg366 = Scon40.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.weeks.ago
+    created_at: 1.weeks.ago
     })
 
     msg366.send_msg
-    msg366.update({updated_at: 2.weeks.ago})
+    msg366.update({updated_at: 1.weeks.ago})
 
 
 
@@ -7316,15 +7623,15 @@ body_str = <<-BODY
  Yes, that appears to be the question which comes next in order.
 BODY
 
-msg367 = Mcon49.messages.create({
+msg367 = Mcon40.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.weeks.ago
+    created_at: 1.weeks.ago
     })
 
     msg367.send_msg
-    msg367.update({updated_at: 2.weeks.ago})
+    msg367.update({updated_at: 1.weeks.ago})
 
 
 
@@ -7334,15 +7641,15 @@ body_str = <<-BODY
 which is not set aside.
 BODY
 
-msg368 = Scon49.messages.create({
+msg368 = Scon40.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.weeks.ago
+    created_at: 12.days.ago
     })
 
     msg368.send_msg
-    msg368.update({updated_at: 2.weeks.ago})
+    msg368.update({updated_at: 12.days.ago})
 
 
 
@@ -7351,15 +7658,15 @@ body_str = <<-BODY
  Certainly.
 BODY
 
-msg369 = Mcon49.messages.create({
+msg369 = Mcon40.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.weeks.ago
+    created_at: 11.days.ago
     })
 
     msg369.send_msg
-    msg369.update({updated_at: 2.weeks.ago})
+    msg369.update({updated_at: 11.days.ago})
 
 
 
@@ -7370,15 +7677,15 @@ knowledge, virtue may be that good; but if knowledge embraces all good,
 then we shall be right in thinking that virtue is knowledge?
 BODY
 
-msg370 = Scon49.messages.create({
+msg370 = Scon40.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.weeks.ago
+    created_at: 11.days.ago
     })
 
     msg370.send_msg
-    msg370.update({updated_at: 2.weeks.ago})
+    msg370.update({updated_at: 11.days.ago})
 
 
 
@@ -7387,15 +7694,15 @@ body_str = <<-BODY
  True.
 BODY
 
-msg371 = Mcon49.messages.create({
+msg371 = Mcon40.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.weeks.ago
+    created_at: 11.days.ago
     })
 
     msg371.send_msg
-    msg371.update({updated_at: 1.weeks.ago})
+    msg371.update({updated_at: 11.days.ago})
 
 
 
@@ -7404,32 +7711,59 @@ body_str = <<-BODY
  And virtue makes us good?
 BODY
 
-msg372 = Scon49.messages.create({
+msg372 = Scon40.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.weeks.ago
+    created_at: 11.days.ago
     })
 
     msg372.send_msg
-    msg372.update({updated_at: 1.weeks.ago})
+    msg372.update({updated_at: 11.days.ago})
 
 
 
+
+      
+        Scon40.update({
+                             message_timestamp: 11.days.ago,
+                             read: true
+                           }) 
+        Mcon40.update({
+                             message_timestamp: 11.days.ago,
+                             read: true
+                           }) 
+        Bcon40.update({
+                             message_timestamp: 11.days.ago,
+                             read: true
+                           }) 
+        Acon40.update({
+                             message_timestamp: 11.days.ago,
+                             read: true
+                           }) 
+
+
+
+      MetCon41 = MetaConversation.create();
+
+      Scon41 = soc.conversations.create(title: "Yes.", meta_conversation: MetCon41)
+      Mcon41 = meno.conversations.create(title: "Yes.", meta_conversation: MetCon41)
+      Bcon41 = boy.conversations.create(title: "Yes.", meta_conversation: MetCon41)
+      Acon41 = anytus.conversations.create(title: "Yes.", meta_conversation: MetCon41 )
 
 body_str = <<-BODY 
  Yes.
 BODY
 
-msg373 = Mcon49.messages.create({
+msg373 = Mcon41.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.weeks.ago
+    created_at: 11.days.ago
     })
 
     msg373.send_msg
-    msg373.update({updated_at: 1.weeks.ago})
+    msg373.update({updated_at: 11.days.ago})
 
 
 
@@ -7439,15 +7773,15 @@ body_str = <<-BODY
 things are profitable?
 BODY
 
-msg374 = Scon49.messages.create({
+msg374 = Scon41.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.weeks.ago
+    created_at: 11.days.ago
     })
 
     msg374.send_msg
-    msg374.update({updated_at: 1.weeks.ago})
+    msg374.update({updated_at: 11.days.ago})
 
 
 
@@ -7456,15 +7790,15 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg375 = Mcon49.messages.create({
+msg375 = Mcon41.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.weeks.ago
+    created_at: 11.days.ago
     })
 
     msg375.send_msg
-    msg375.update({updated_at: 1.weeks.ago})
+    msg375.update({updated_at: 11.days.ago})
 
 
 
@@ -7473,47 +7807,32 @@ body_str = <<-BODY
  Then virtue is profitable?
 BODY
 
-msg376 = Scon49.messages.create({
+msg376 = Scon41.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.weeks.ago
+    created_at: 11.days.ago
     })
 
     msg376.send_msg
-    msg376.update({updated_at: 1.weeks.ago})
+    msg376.update({updated_at: 11.days.ago})
 
 
 
-
-      
- Scon49.update(message_timestamp: 1.weeks.ago) 
- Mcon49.update(message_timestamp: 1.weeks.ago) 
-
- Bcon49.update(message_timestamp: 1.weeks.ago) 
- Acon49.update(message_timestamp: 1.weeks.ago) 
-
-
-      MetCon50 = MetaConversation.create();
-
-      Scon50 = soc.conversations.create(title: "That is the only inference.", meta_conversation: MetCon50)
-      Mcon50 = meno.conversations.create(title: "That is the only inference.", meta_conversation: MetCon50)
-      Bcon50 = boy.conversations.create(title: "That is the only inference.", meta_conversation: MetCon50)
-      Acon50 = anytus.conversations.create(title: "That is the only inference.", meta_conversation: MetCon50 )
 
 body_str = <<-BODY 
  That is the only inference.
 BODY
 
-msg377 = Mcon50.messages.create({
+msg377 = Mcon41.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.weeks.ago
+    created_at: 11.days.ago
     })
 
     msg377.send_msg
-    msg377.update({updated_at: 1.weeks.ago})
+    msg377.update({updated_at: 11.days.ago})
 
 
 
@@ -7524,15 +7843,15 @@ us. Health and strength, and beauty and wealth--these, and the like of
 these, we call profitable?
 BODY
 
-msg378 = Scon50.messages.create({
+msg378 = Scon41.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.weeks.ago
+    created_at: 11.days.ago
     })
 
     msg378.send_msg
-    msg378.update({updated_at: 1.weeks.ago})
+    msg378.update({updated_at: 11.days.ago})
 
 
 
@@ -7541,15 +7860,15 @@ body_str = <<-BODY
  True.
 BODY
 
-msg379 = Mcon50.messages.create({
+msg379 = Mcon41.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.weeks.ago
+    created_at: 11.days.ago
     })
 
     msg379.send_msg
-    msg379.update({updated_at: 1.weeks.ago})
+    msg379.update({updated_at: 11.days.ago})
 
 
 
@@ -7559,15 +7878,15 @@ body_str = <<-BODY
 not think so?
 BODY
 
-msg380 = Scon50.messages.create({
+msg380 = Scon41.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 12.days.ago
+    created_at: 11.days.ago
     })
 
     msg380.send_msg
-    msg380.update({updated_at: 12.days.ago})
+    msg380.update({updated_at: 11.days.ago})
 
 
 
@@ -7576,7 +7895,7 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg381 = Mcon50.messages.create({
+msg381 = Mcon41.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
@@ -7595,15 +7914,15 @@ or the reverse? Are they not profitable when they are rightly used, and
 hurtful when they are not rightly used?
 BODY
 
-msg382 = Scon50.messages.create({
+msg382 = Scon41.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.days.ago
+    created_at: 10.days.ago
     })
 
     msg382.send_msg
-    msg382.update({updated_at: 11.days.ago})
+    msg382.update({updated_at: 10.days.ago})
 
 
 
@@ -7612,15 +7931,15 @@ body_str = <<-BODY
  Certainly.
 BODY
 
-msg383 = Mcon50.messages.create({
+msg383 = Mcon41.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.days.ago
+    created_at: 10.days.ago
     })
 
     msg383.send_msg
-    msg383.update({updated_at: 11.days.ago})
+    msg383.update({updated_at: 10.days.ago})
 
 
 
@@ -7631,15 +7950,15 @@ temperance, justice, courage, quickness of apprehension, memory,
 magnanimity, and the like?
 BODY
 
-msg384 = Scon50.messages.create({
+msg384 = Scon41.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.days.ago
+    created_at: 10.days.ago
     })
 
     msg384.send_msg
-    msg384.update({updated_at: 11.days.ago})
+    msg384.update({updated_at: 10.days.ago})
 
 
 
@@ -7648,15 +7967,15 @@ body_str = <<-BODY
  Surely.
 BODY
 
-msg385 = Mcon50.messages.create({
+msg385 = Mcon41.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.days.ago
+    created_at: 10.days.ago
     })
 
     msg385.send_msg
-    msg385.update({updated_at: 11.days.ago})
+    msg385.update({updated_at: 10.days.ago})
 
 
 
@@ -7668,15 +7987,15 @@ wanting prudence, which is only a sort of confidence? When a man has no
 sense he is harmed by courage, but when he has sense he is profited?
 BODY
 
-msg386 = Scon50.messages.create({
+msg386 = Scon41.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.days.ago
+    created_at: 10.days.ago
     })
 
     msg386.send_msg
-    msg386.update({updated_at: 11.days.ago})
+    msg386.update({updated_at: 10.days.ago})
 
 
 
@@ -7685,15 +8004,15 @@ body_str = <<-BODY
  True.
 BODY
 
-msg387 = Mcon50.messages.create({
+msg387 = Mcon41.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.days.ago
+    created_at: 10.days.ago
     })
 
     msg387.send_msg
-    msg387.update({updated_at: 11.days.ago})
+    msg387.update({updated_at: 10.days.ago})
 
 
 
@@ -7704,15 +8023,15 @@ apprehension; whatever things are learned or done with sense are
 profitable, but when done without sense they are hurtful?
 BODY
 
-msg388 = Scon50.messages.create({
+msg388 = Scon41.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.days.ago
+    created_at: 10.days.ago
     })
 
     msg388.send_msg
-    msg388.update({updated_at: 11.days.ago})
+    msg388.update({updated_at: 10.days.ago})
 
 
 
@@ -7721,15 +8040,15 @@ body_str = <<-BODY
  Very true.
 BODY
 
-msg389 = Mcon50.messages.create({
+msg389 = Mcon41.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.days.ago
+    created_at: 10.days.ago
     })
 
     msg389.send_msg
-    msg389.update({updated_at: 11.days.ago})
+    msg389.update({updated_at: 10.days.ago})
 
 
 
@@ -7740,15 +8059,15 @@ under the guidance of wisdom, ends in happiness; but when she is under
 the guidance of folly, in the opposite?
 BODY
 
-msg390 = Scon50.messages.create({
+msg390 = Scon41.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.days.ago
+    created_at: 10.days.ago
     })
 
     msg390.send_msg
-    msg390.update({updated_at: 11.days.ago})
+    msg390.update({updated_at: 10.days.ago})
 
 
 
@@ -7757,15 +8076,15 @@ body_str = <<-BODY
  That appears to be true.
 BODY
 
-msg391 = Mcon50.messages.create({
+msg391 = Mcon41.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.days.ago
+    created_at: 9.days.ago
     })
 
     msg391.send_msg
-    msg391.update({updated_at: 11.days.ago})
+    msg391.update({updated_at: 9.days.ago})
 
 
 
@@ -7779,15 +8098,15 @@ and therefore if virtue is profitable, virtue must be a sort of wisdom
 or prudence?
 BODY
 
-msg392 = Scon50.messages.create({
+msg392 = Scon41.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.days.ago
+    created_at: 9.days.ago
     })
 
     msg392.send_msg
-    msg392.update({updated_at: 11.days.ago})
+    msg392.update({updated_at: 9.days.ago})
 
 
 
@@ -7796,18 +8115,45 @@ body_str = <<-BODY
  I quite agree.
 BODY
 
-msg393 = Mcon50.messages.create({
+msg393 = Mcon41.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.days.ago
+    created_at: 9.days.ago
     })
 
     msg393.send_msg
-    msg393.update({updated_at: 11.days.ago})
+    msg393.update({updated_at: 9.days.ago})
 
 
 
+
+      
+        Scon41.update({
+                             message_timestamp: 9.days.ago,
+                             read: true
+                           }) 
+        Mcon41.update({
+                             message_timestamp: 9.days.ago,
+                             read: true
+                           }) 
+        Bcon41.update({
+                             message_timestamp: 9.days.ago,
+                             read: true
+                           }) 
+        Acon41.update({
+                             message_timestamp: 9.days.ago,
+                             read: true
+                           }) 
+
+
+
+      MetCon42 = MetaConversation.create();
+
+      Scon42 = soc.conversations.create(title: "And the other goods, such as", meta_conversation: MetCon42)
+      Mcon42 = meno.conversations.create(title: "And the other goods, such as", meta_conversation: MetCon42)
+      Bcon42 = boy.conversations.create(title: "And the other goods, such as", meta_conversation: MetCon42)
+      Acon42 = anytus.conversations.create(title: "And the other goods, such as", meta_conversation: MetCon42 )
 
 body_str = <<-BODY 
  And the other goods, such as wealth and the like, of which we
@@ -7818,15 +8164,15 @@ herself are benefited when under the guidance of wisdom and harmed by
 folly?
 BODY
 
-msg394 = Scon50.messages.create({
+msg394 = Scon42.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.days.ago
+    created_at: 9.days.ago
     })
 
     msg394.send_msg
-    msg394.update({updated_at: 10.days.ago})
+    msg394.update({updated_at: 9.days.ago})
 
 
 
@@ -7835,15 +8181,15 @@ body_str = <<-BODY
  True.
 BODY
 
-msg395 = Mcon50.messages.create({
+msg395 = Mcon42.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.days.ago
+    created_at: 9.days.ago
     })
 
     msg395.send_msg
-    msg395.update({updated_at: 10.days.ago})
+    msg395.update({updated_at: 9.days.ago})
 
 
 
@@ -7853,15 +8199,15 @@ body_str = <<-BODY
 wrongly.
 BODY
 
-msg396 = Scon50.messages.create({
+msg396 = Scon42.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.days.ago
+    created_at: 9.days.ago
     })
 
     msg396.send_msg
-    msg396.update({updated_at: 10.days.ago})
+    msg396.update({updated_at: 9.days.ago})
 
 
 
@@ -7870,15 +8216,15 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg397 = Mcon50.messages.create({
+msg397 = Mcon42.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.days.ago
+    created_at: 9.days.ago
     })
 
     msg397.send_msg
-    msg397.update({updated_at: 10.days.ago})
+    msg397.update({updated_at: 9.days.ago})
 
 
 
@@ -7890,15 +8236,15 @@ wisdom, if they are to be good; and so wisdom is inferred to be that
 which profits--and virtue, as we say, is profitable?
 BODY
 
-msg398 = Scon50.messages.create({
+msg398 = Scon42.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.days.ago
+    created_at: 9.days.ago
     })
 
     msg398.send_msg
-    msg398.update({updated_at: 10.days.ago})
+    msg398.update({updated_at: 9.days.ago})
 
 
 
@@ -7907,33 +8253,60 @@ body_str = <<-BODY
  Certainly.
 BODY
 
-msg399 = Mcon50.messages.create({
+msg399 = Mcon42.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.days.ago
+    created_at: 9.days.ago
     })
 
     msg399.send_msg
-    msg399.update({updated_at: 10.days.ago})
+    msg399.update({updated_at: 9.days.ago})
 
 
 
+
+      
+        Scon42.update({
+                             message_timestamp: 9.days.ago,
+                             read: true
+                           }) 
+        Mcon42.update({
+                             message_timestamp: 9.days.ago,
+                             read: true
+                           }) 
+        Bcon42.update({
+                             message_timestamp: 9.days.ago,
+                             read: true
+                           }) 
+        Acon42.update({
+                             message_timestamp: 9.days.ago,
+                             read: true
+                           }) 
+
+
+
+      MetCon43 = MetaConversation.create();
+
+      Scon43 = soc.conversations.create(title: "And thus we arrive at the", meta_conversation: MetCon43)
+      Mcon43 = meno.conversations.create(title: "And thus we arrive at the", meta_conversation: MetCon43)
+      Bcon43 = boy.conversations.create(title: "And thus we arrive at the", meta_conversation: MetCon43)
+      Acon43 = anytus.conversations.create(title: "And thus we arrive at the", meta_conversation: MetCon43 )
 
 body_str = <<-BODY 
  And thus we arrive at the conclusion that virtue is either
 wholly or partly wisdom?
 BODY
 
-msg400 = Scon50.messages.create({
+msg400 = Scon43.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.days.ago
+    created_at: 9.days.ago
     })
 
     msg400.send_msg
-    msg400.update({updated_at: 10.days.ago})
+    msg400.update({updated_at: 9.days.ago})
 
 
 
@@ -7942,15 +8315,15 @@ body_str = <<-BODY
  I think that what you are saying, Socrates, is very true.
 BODY
 
-msg401 = Mcon50.messages.create({
+msg401 = Mcon43.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.days.ago
+    created_at: 9.days.ago
     })
 
     msg401.send_msg
-    msg401.update({updated_at: 10.days.ago})
+    msg401.update({updated_at: 9.days.ago})
 
 
 
@@ -7959,15 +8332,15 @@ body_str = <<-BODY
  But if this is true, then the good are not by nature good?
 BODY
 
-msg402 = Scon50.messages.create({
+msg402 = Scon43.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.days.ago
+    created_at: 8.days.ago
     })
 
     msg402.send_msg
-    msg402.update({updated_at: 10.days.ago})
+    msg402.update({updated_at: 8.days.ago})
 
 
 
@@ -7976,15 +8349,15 @@ body_str = <<-BODY
  I think not.
 BODY
 
-msg403 = Mcon50.messages.create({
+msg403 = Mcon43.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.days.ago
+    created_at: 8.days.ago
     })
 
     msg403.send_msg
-    msg403.update({updated_at: 10.days.ago})
+    msg403.update({updated_at: 8.days.ago})
 
 
 
@@ -7999,47 +8372,32 @@ one might tamper with them; and when they grew up they would have been
 useful to the state?
 BODY
 
-msg404 = Scon50.messages.create({
+msg404 = Scon43.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.days.ago
+    created_at: 8.days.ago
     })
 
     msg404.send_msg
-    msg404.update({updated_at: 10.days.ago})
+    msg404.update({updated_at: 8.days.ago})
 
 
 
-
-      
- Scon50.update(message_timestamp: 10.days.ago) 
- Mcon50.update(message_timestamp: 10.days.ago) 
-
- Bcon50.update(message_timestamp: 10.days.ago) 
- Acon50.update(message_timestamp: 10.days.ago) 
-
-
-      MetCon51 = MetaConversation.create();
-
-      Scon51 = soc.conversations.create(title: "Yes, Socrates, that would have been", meta_conversation: MetCon51)
-      Mcon51 = meno.conversations.create(title: "Yes, Socrates, that would have been", meta_conversation: MetCon51)
-      Bcon51 = boy.conversations.create(title: "Yes, Socrates, that would have been", meta_conversation: MetCon51)
-      Acon51 = anytus.conversations.create(title: "Yes, Socrates, that would have been", meta_conversation: MetCon51 )
 
 body_str = <<-BODY 
  Yes, Socrates, that would have been the right way.
 BODY
 
-msg405 = Mcon51.messages.create({
+msg405 = Mcon43.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.days.ago
+    created_at: 8.days.ago
     })
 
     msg405.send_msg
-    msg405.update({updated_at: 10.days.ago})
+    msg405.update({updated_at: 8.days.ago})
 
 
 
@@ -8049,15 +8407,15 @@ body_str = <<-BODY
 instruction?
 BODY
 
-msg406 = Scon51.messages.create({
+msg406 = Scon43.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.days.ago
+    created_at: 8.days.ago
     })
 
     msg406.send_msg
-    msg406.update({updated_at: 9.days.ago})
+    msg406.update({updated_at: 8.days.ago})
 
 
 
@@ -8068,15 +8426,15 @@ supposition that virtue is knowledge, there can be no doubt that virtue
 is taught.
 BODY
 
-msg407 = Mcon51.messages.create({
+msg407 = Mcon43.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.days.ago
+    created_at: 8.days.ago
     })
 
     msg407.send_msg
-    msg407.update({updated_at: 9.days.ago})
+    msg407.update({updated_at: 8.days.ago})
 
 
 
@@ -8085,15 +8443,15 @@ body_str = <<-BODY
  Yes, indeed; but what if the supposition is erroneous?
 BODY
 
-msg408 = Scon51.messages.create({
+msg408 = Scon43.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.days.ago
+    created_at: 8.days.ago
     })
 
     msg408.send_msg
-    msg408.update({updated_at: 9.days.ago})
+    msg408.update({updated_at: 8.days.ago})
 
 
 
@@ -8102,48 +8460,60 @@ body_str = <<-BODY
  I certainly thought just now that we were right.
 BODY
 
-msg409 = Mcon51.messages.create({
+msg409 = Mcon43.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.days.ago
+    created_at: 8.days.ago
     })
 
     msg409.send_msg
-    msg409.update({updated_at: 9.days.ago})
+    msg409.update({updated_at: 8.days.ago})
 
 
 
 
       
- Scon51.update(message_timestamp: 9.days.ago) 
- Mcon51.update(message_timestamp: 9.days.ago) 
+        Scon43.update({
+                             message_timestamp: 8.days.ago,
+                             read: true
+                           }) 
+        Mcon43.update({
+                             message_timestamp: 8.days.ago,
+                             read: true
+                           }) 
+        Bcon43.update({
+                             message_timestamp: 8.days.ago,
+                             read: true
+                           }) 
+        Acon43.update({
+                             message_timestamp: 8.days.ago,
+                             read: true
+                           }) 
 
- Bcon51.update(message_timestamp: 9.days.ago) 
- Acon51.update(message_timestamp: 9.days.ago) 
 
 
-      MetCon52 = MetaConversation.create();
+      MetCon44 = MetaConversation.create();
 
-      Scon52 = soc.conversations.create(title: "Yes, Meno; but a principle which", meta_conversation: MetCon52)
-      Mcon52 = meno.conversations.create(title: "Yes, Meno; but a principle which", meta_conversation: MetCon52)
-      Bcon52 = boy.conversations.create(title: "Yes, Meno; but a principle which", meta_conversation: MetCon52)
-      Acon52 = anytus.conversations.create(title: "Yes, Meno; but a principle which", meta_conversation: MetCon52 )
+      Scon44 = soc.conversations.create(title: "Yes, Meno; but a principle which", meta_conversation: MetCon44)
+      Mcon44 = meno.conversations.create(title: "Yes, Meno; but a principle which", meta_conversation: MetCon44)
+      Bcon44 = boy.conversations.create(title: "Yes, Meno; but a principle which", meta_conversation: MetCon44)
+      Acon44 = anytus.conversations.create(title: "Yes, Meno; but a principle which", meta_conversation: MetCon44 )
 
 body_str = <<-BODY 
  Yes, Meno; but a principle which has any soundness should
 stand firm not only just now, but always.
 BODY
 
-msg410 = Scon52.messages.create({
+msg410 = Scon44.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.days.ago
+    created_at: 8.days.ago
     })
 
     msg410.send_msg
-    msg410.update({updated_at: 9.days.ago})
+    msg410.update({updated_at: 8.days.ago})
 
 
 
@@ -8153,15 +8523,15 @@ body_str = <<-BODY
 is virtue?
 BODY
 
-msg411 = Mcon52.messages.create({
+msg411 = Mcon44.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.days.ago
+    created_at: 8.days.ago
     })
 
     msg411.send_msg
-    msg411.update({updated_at: 9.days.ago})
+    msg411.update({updated_at: 8.days.ago})
 
 
 
@@ -8174,15 +8544,15 @@ now and say whether virtue, and not only virtue but anything that is
 taught, must not have teachers and disciples?
 BODY
 
-msg412 = Scon52.messages.create({
+msg412 = Scon44.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.days.ago
+    created_at: 8.days.ago
     })
 
     msg412.send_msg
-    msg412.update({updated_at: 9.days.ago})
+    msg412.update({updated_at: 8.days.ago})
 
 
 
@@ -8191,15 +8561,15 @@ body_str = <<-BODY
  Surely.
 BODY
 
-msg413 = Mcon52.messages.create({
+msg413 = Mcon44.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.days.ago
+    created_at: 8.days.ago
     })
 
     msg413.send_msg
-    msg413.update({updated_at: 9.days.ago})
+    msg413.update({updated_at: 8.days.ago})
 
 
 
@@ -8209,15 +8579,15 @@ body_str = <<-BODY
 disciples exist be assumed to be incapable of being taught?
 BODY
 
-msg414 = Scon52.messages.create({
+msg414 = Scon44.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.days.ago
+    created_at: 7.days.ago
     })
 
     msg414.send_msg
-    msg414.update({updated_at: 9.days.ago})
+    msg414.update({updated_at: 7.days.ago})
 
 
 
@@ -8226,15 +8596,15 @@ body_str = <<-BODY
  True; but do you think that there are no teachers of virtue?
 BODY
 
-msg415 = Mcon52.messages.create({
+msg415 = Mcon44.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, boy#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.days.ago
+    created_at: 7.days.ago
     })
 
     msg415.send_msg
-    msg415.update({updated_at: 9.days.ago})
+    msg415.update({updated_at: 7.days.ago})
 
 
 
@@ -8260,15 +8630,15 @@ wanted Meno to be a good physician, to whom should we send him? Should
 we not send him to the physicians?
 BODY
 
-msg416 = Scon52.messages.create({
+msg416 = Scon44.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "boy#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.days.ago
+    created_at: 7.days.ago
     })
 
     msg416.send_msg
-    msg416.update({updated_at: 9.days.ago})
+    msg416.update({updated_at: 7.days.ago})
 
 
 
@@ -8277,15 +8647,15 @@ body_str = <<-BODY
  Certainly.
 BODY
 
-msg417 = Acon52.messages.create({
+msg417 = Acon44.messages.create({
     source_address: "anytus#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.days.ago
+    created_at: 7.days.ago
     })
 
     msg417.send_msg
-    msg417.update({updated_at: 8.days.ago})
+    msg417.update({updated_at: 7.days.ago})
 
 
 
@@ -8295,32 +8665,59 @@ body_str = <<-BODY
 him to the cobblers?
 BODY
 
-msg418 = Scon52.messages.create({
+msg418 = Scon44.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.days.ago
+    created_at: 7.days.ago
     })
 
     msg418.send_msg
-    msg418.update({updated_at: 8.days.ago})
+    msg418.update({updated_at: 7.days.ago})
 
 
 
+
+      
+        Scon44.update({
+                             message_timestamp: 7.days.ago,
+                             read: true
+                           }) 
+        Mcon44.update({
+                             message_timestamp: 7.days.ago,
+                             read: true
+                           }) 
+        Bcon44.update({
+                             message_timestamp: 7.days.ago,
+                             read: true
+                           }) 
+        Acon44.update({
+                             message_timestamp: 7.days.ago,
+                             read: true
+                           }) 
+
+
+
+      MetCon45 = MetaConversation.create();
+
+      Scon45 = soc.conversations.create(title: "Yes.", meta_conversation: MetCon45)
+      Mcon45 = meno.conversations.create(title: "Yes.", meta_conversation: MetCon45)
+      Bcon45 = boy.conversations.create(title: "Yes.", meta_conversation: MetCon45)
+      Acon45 = anytus.conversations.create(title: "Yes.", meta_conversation: MetCon45 )
 
 body_str = <<-BODY 
  Yes.
 BODY
 
-msg419 = Acon52.messages.create({
+msg419 = Acon45.messages.create({
     source_address: "anytus#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.days.ago
+    created_at: 7.days.ago
     })
 
     msg419.send_msg
-    msg419.update({updated_at: 8.days.ago})
+    msg419.update({updated_at: 7.days.ago})
 
 
 
@@ -8329,15 +8726,15 @@ body_str = <<-BODY
  And so forth?
 BODY
 
-msg420 = Scon52.messages.create({
+msg420 = Scon45.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.days.ago
+    created_at: 7.days.ago
     })
 
     msg420.send_msg
-    msg420.update({updated_at: 8.days.ago})
+    msg420.update({updated_at: 7.days.ago})
 
 
 
@@ -8346,18 +8743,45 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg421 = Acon52.messages.create({
+msg421 = Acon45.messages.create({
     source_address: "anytus#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.days.ago
+    created_at: 7.days.ago
     })
 
     msg421.send_msg
-    msg421.update({updated_at: 8.days.ago})
+    msg421.update({updated_at: 7.days.ago})
 
 
 
+
+      
+        Scon45.update({
+                             message_timestamp: 7.days.ago,
+                             read: true
+                           }) 
+        Mcon45.update({
+                             message_timestamp: 7.days.ago,
+                             read: true
+                           }) 
+        Bcon45.update({
+                             message_timestamp: 7.days.ago,
+                             read: true
+                           }) 
+        Acon45.update({
+                             message_timestamp: 7.days.ago,
+                             read: true
+                           }) 
+
+
+
+      MetCon46 = MetaConversation.create();
+
+      Scon46 = soc.conversations.create(title: "Let me trouble you with one", meta_conversation: MetCon46)
+      Mcon46 = meno.conversations.create(title: "Let me trouble you with one", meta_conversation: MetCon46)
+      Bcon46 = boy.conversations.create(title: "Let me trouble you with one", meta_conversation: MetCon46)
+      Acon46 = anytus.conversations.create(title: "Let me trouble you with one", meta_conversation: MetCon46 )
 
 body_str = <<-BODY 
  Let me trouble you with one more question. When we say that we
@@ -8369,15 +8793,15 @@ who will come and learn? And if these were our reasons, should we not be
 right in sending him?
 BODY
 
-msg422 = Scon52.messages.create({
+msg422 = Scon46.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.days.ago
+    created_at: 7.days.ago
     })
 
     msg422.send_msg
-    msg422.update({updated_at: 8.days.ago})
+    msg422.update({updated_at: 7.days.ago})
 
 
 
@@ -8386,15 +8810,15 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg423 = Acon52.messages.create({
+msg423 = Acon46.messages.create({
     source_address: "anytus#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.days.ago
+    created_at: 7.days.ago
     })
 
     msg423.send_msg
-    msg423.update({updated_at: 8.days.ago})
+    msg423.update({updated_at: 7.days.ago})
 
 
 
@@ -8409,47 +8833,32 @@ which he wishes him to acquire--would not such conduct be the height of
 folly?
 BODY
 
-msg424 = Scon52.messages.create({
+msg424 = Scon46.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.days.ago
+    created_at: 7.days.ago
     })
 
     msg424.send_msg
-    msg424.update({updated_at: 8.days.ago})
+    msg424.update({updated_at: 7.days.ago})
 
 
 
-
-      
- Scon52.update(message_timestamp: 8.days.ago) 
- Mcon52.update(message_timestamp: 8.days.ago) 
-
- Bcon52.update(message_timestamp: 8.days.ago) 
- Acon52.update(message_timestamp: 8.days.ago) 
-
-
-      MetCon53 = MetaConversation.create();
-
-      Scon53 = soc.conversations.create(title: "Yes, by Zeus, and of ignorance", meta_conversation: MetCon53)
-      Mcon53 = meno.conversations.create(title: "Yes, by Zeus, and of ignorance", meta_conversation: MetCon53)
-      Bcon53 = boy.conversations.create(title: "Yes, by Zeus, and of ignorance", meta_conversation: MetCon53)
-      Acon53 = anytus.conversations.create(title: "Yes, by Zeus, and of ignorance", meta_conversation: MetCon53 )
 
 body_str = <<-BODY 
  Yes, by Zeus, and of ignorance too.
 BODY
 
-msg425 = Acon53.messages.create({
+msg425 = Acon46.messages.create({
     source_address: "anytus#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.days.ago
+    created_at: 7.days.ago
     })
 
     msg425.send_msg
-    msg425.update({updated_at: 8.days.ago})
+    msg425.update({updated_at: 7.days.ago})
 
 
 
@@ -8466,15 +8875,15 @@ profess and avouch that they are the common teachers of all Hellas, and
 are ready to impart instruction to any one who likes, at a fixed price?
 BODY
 
-msg426 = Scon53.messages.create({
+msg426 = Scon46.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.days.ago
+    created_at: 6.days.ago
     })
 
     msg426.send_msg
-    msg426.update({updated_at: 8.days.ago})
+    msg426.update({updated_at: 6.days.ago})
 
 
 
@@ -8483,15 +8892,15 @@ body_str = <<-BODY
  Whom do you mean, Socrates?
 BODY
 
-msg427 = Acon53.messages.create({
+msg427 = Acon46.messages.create({
     source_address: "anytus#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.days.ago
+    created_at: 6.days.ago
     })
 
     msg427.send_msg
-    msg427.update({updated_at: 8.days.ago})
+    msg427.update({updated_at: 6.days.ago})
 
 
 
@@ -8501,15 +8910,15 @@ body_str = <<-BODY
 whom mankind call Sophists?
 BODY
 
-msg428 = Scon53.messages.create({
+msg428 = Scon46.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.days.ago
+    created_at: 6.days.ago
     })
 
     msg428.send_msg
-    msg428.update({updated_at: 8.days.ago})
+    msg428.update({updated_at: 6.days.ago})
 
 
 
@@ -8522,15 +8931,15 @@ a manifest pest and corrupting influence to those who have to do with
 them.
 BODY
 
-msg429 = Acon53.messages.create({
+msg429 = Acon46.messages.create({
     source_address: "anytus#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.days.ago
+    created_at: 6.days.ago
     })
 
     msg429.send_msg
-    msg429.update({updated_at: 7.days.ago})
+    msg429.update({updated_at: 6.days.ago})
 
 
 
@@ -8559,15 +8968,15 @@ who were deemed by many to be the wisest men of Hellas have been out of
 their minds?
 BODY
 
-msg430 = Scon53.messages.create({
+msg430 = Scon46.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.days.ago
+    created_at: 6.days.ago
     })
 
     msg430.send_msg
-    msg430.update({updated_at: 7.days.ago})
+    msg430.update({updated_at: 6.days.ago})
 
 
 
@@ -8580,15 +8989,15 @@ of their minds, and most of all, the cities who allowed them to come in,
 and did not drive them out, citizen and stranger alike.
 BODY
 
-msg431 = Acon53.messages.create({
+msg431 = Acon46.messages.create({
     source_address: "anytus#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.days.ago
+    created_at: 6.days.ago
     })
 
     msg431.send_msg
-    msg431.update({updated_at: 7.days.ago})
+    msg431.update({updated_at: 6.days.ago})
 
 
 
@@ -8598,48 +9007,60 @@ body_str = <<-BODY
 angry with them?
 BODY
 
-msg432 = Scon53.messages.create({
+msg432 = Scon46.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.days.ago
+    created_at: 6.days.ago
     })
 
     msg432.send_msg
-    msg432.update({updated_at: 7.days.ago})
+    msg432.update({updated_at: 6.days.ago})
 
 
 
 
       
- Scon53.update(message_timestamp: 7.days.ago) 
- Mcon53.update(message_timestamp: 7.days.ago) 
+        Scon46.update({
+                             message_timestamp: 6.days.ago,
+                             read: true
+                           }) 
+        Mcon46.update({
+                             message_timestamp: 6.days.ago,
+                             read: true
+                           }) 
+        Bcon46.update({
+                             message_timestamp: 6.days.ago,
+                             read: true
+                           }) 
+        Acon46.update({
+                             message_timestamp: 6.days.ago,
+                             read: true
+                           }) 
 
- Bcon53.update(message_timestamp: 7.days.ago) 
- Acon53.update(message_timestamp: 7.days.ago) 
 
 
-      MetCon54 = MetaConversation.create();
+      MetCon47 = MetaConversation.create();
 
-      Scon54 = soc.conversations.create(title: "No, indeed, neither I nor any", meta_conversation: MetCon54)
-      Mcon54 = meno.conversations.create(title: "No, indeed, neither I nor any", meta_conversation: MetCon54)
-      Bcon54 = boy.conversations.create(title: "No, indeed, neither I nor any", meta_conversation: MetCon54)
-      Acon54 = anytus.conversations.create(title: "No, indeed, neither I nor any", meta_conversation: MetCon54 )
+      Scon47 = soc.conversations.create(title: "No, indeed, neither I nor any", meta_conversation: MetCon47)
+      Mcon47 = meno.conversations.create(title: "No, indeed, neither I nor any", meta_conversation: MetCon47)
+      Bcon47 = boy.conversations.create(title: "No, indeed, neither I nor any", meta_conversation: MetCon47)
+      Acon47 = anytus.conversations.create(title: "No, indeed, neither I nor any", meta_conversation: MetCon47 )
 
 body_str = <<-BODY 
  No, indeed, neither I nor any of my belongings has ever had, nor
 would I suffer them to have, anything to do with them.
 BODY
 
-msg433 = Acon54.messages.create({
+msg433 = Acon47.messages.create({
     source_address: "anytus#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.days.ago
+    created_at: 6.days.ago
     })
 
     msg433.send_msg
-    msg433.update({updated_at: 7.days.ago})
+    msg433.update({updated_at: 6.days.ago})
 
 
 
@@ -8648,15 +9069,15 @@ body_str = <<-BODY
  Then you are entirely unacquainted with them?
 BODY
 
-msg434 = Scon54.messages.create({
+msg434 = Scon47.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.days.ago
+    created_at: 6.days.ago
     })
 
     msg434.send_msg
-    msg434.update({updated_at: 7.days.ago})
+    msg434.update({updated_at: 6.days.ago})
 
 
 
@@ -8665,48 +9086,33 @@ body_str = <<-BODY
  And I have no wish to be acquainted.
 BODY
 
-msg435 = Acon54.messages.create({
+msg435 = Acon47.messages.create({
     source_address: "anytus#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.days.ago
+    created_at: 6.days.ago
     })
 
     msg435.send_msg
-    msg435.update({updated_at: 7.days.ago})
+    msg435.update({updated_at: 6.days.ago})
 
 
 
-
-      
- Scon54.update(message_timestamp: 7.days.ago) 
- Mcon54.update(message_timestamp: 7.days.ago) 
-
- Bcon54.update(message_timestamp: 7.days.ago) 
- Acon54.update(message_timestamp: 7.days.ago) 
-
-
-      MetCon55 = MetaConversation.create();
-
-      Scon55 = soc.conversations.create(title: "Then, my dear friend, how can", meta_conversation: MetCon55)
-      Mcon55 = meno.conversations.create(title: "Then, my dear friend, how can", meta_conversation: MetCon55)
-      Bcon55 = boy.conversations.create(title: "Then, my dear friend, how can", meta_conversation: MetCon55)
-      Acon55 = anytus.conversations.create(title: "Then, my dear friend, how can", meta_conversation: MetCon55 )
 
 body_str = <<-BODY 
  Then, my dear friend, how can you know whether a thing is good
 or bad of which you are wholly ignorant?
 BODY
 
-msg436 = Scon55.messages.create({
+msg436 = Scon47.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.days.ago
+    created_at: 6.days.ago
     })
 
     msg436.send_msg
-    msg436.update({updated_at: 7.days.ago})
+    msg436.update({updated_at: 6.days.ago})
 
 
 
@@ -8716,18 +9122,45 @@ body_str = <<-BODY
 whether I am acquainted with them or not.
 BODY
 
-msg437 = Acon55.messages.create({
+msg437 = Acon47.messages.create({
     source_address: "anytus#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.days.ago
+    created_at: 5.days.ago
     })
 
     msg437.send_msg
-    msg437.update({updated_at: 7.days.ago})
+    msg437.update({updated_at: 5.days.ago})
 
 
 
+
+      
+        Scon47.update({
+                             message_timestamp: 5.days.ago,
+                             read: true
+                           }) 
+        Mcon47.update({
+                             message_timestamp: 5.days.ago,
+                             read: true
+                           }) 
+        Bcon47.update({
+                             message_timestamp: 5.days.ago,
+                             read: true
+                           }) 
+        Acon47.update({
+                             message_timestamp: 5.days.ago,
+                             read: true
+                           }) 
+
+
+
+      MetCon48 = MetaConversation.create();
+
+      Scon48 = soc.conversations.create(title: "You must be a diviner, Anytus,", meta_conversation: MetCon48)
+      Mcon48 = meno.conversations.create(title: "You must be a diviner, Anytus,", meta_conversation: MetCon48)
+      Bcon48 = boy.conversations.create(title: "You must be a diviner, Anytus,", meta_conversation: MetCon48)
+      Acon48 = anytus.conversations.create(title: "You must be a diviner, Anytus,", meta_conversation: MetCon48 )
 
 body_str = <<-BODY 
  You must be a diviner, Anytus, for I really cannot make out,
@@ -8739,15 +9172,15 @@ how to become eminent in the virtues which I was just now describing. He
 is the friend of your family, and you will oblige him.
 BODY
 
-msg438 = Scon55.messages.create({
+msg438 = Scon48.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.days.ago
+    created_at: 5.days.ago
     })
 
     msg438.send_msg
-    msg438.update({updated_at: 7.days.ago})
+    msg438.update({updated_at: 5.days.ago})
 
 
 
@@ -8756,15 +9189,15 @@ body_str = <<-BODY
  Why do you not tell him yourself?
 BODY
 
-msg439 = Acon55.messages.create({
+msg439 = Acon48.messages.create({
     source_address: "anytus#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.days.ago
+    created_at: 5.days.ago
     })
 
     msg439.send_msg
-    msg439.update({updated_at: 7.days.ago})
+    msg439.update({updated_at: 5.days.ago})
 
 
 
@@ -8776,15 +9209,15 @@ that you are right. And now I wish that you, on your part, would tell me
 to whom among the Athenians he should go. Whom would you name?
 BODY
 
-msg440 = Scon55.messages.create({
+msg440 = Scon48.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.days.ago
+    created_at: 5.days.ago
     })
 
     msg440.send_msg
-    msg440.update({updated_at: 7.days.ago})
+    msg440.update({updated_at: 5.days.ago})
 
 
 
@@ -8795,15 +9228,15 @@ random, if he will mind him, will do far more good to him than the
 Sophists.
 BODY
 
-msg441 = Acon55.messages.create({
+msg441 = Acon48.messages.create({
     source_address: "anytus#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.days.ago
+    created_at: 5.days.ago
     })
 
     msg441.send_msg
-    msg441.update({updated_at: 7.days.ago})
+    msg441.update({updated_at: 5.days.ago})
 
 
 
@@ -8814,15 +9247,15 @@ been taught by any one, were they nevertheless able to teach others that
 which they had never learned themselves?
 BODY
 
-msg442 = Scon55.messages.create({
+msg442 = Scon48.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.days.ago
+    created_at: 5.days.ago
     })
 
     msg442.send_msg
-    msg442.update({updated_at: 7.days.ago})
+    msg442.update({updated_at: 5.days.ago})
 
 
 
@@ -8832,18 +9265,45 @@ body_str = <<-BODY
 gentlemen. Have there not been many good men in this city?
 BODY
 
-msg443 = Acon55.messages.create({
+msg443 = Acon48.messages.create({
     source_address: "anytus#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.days.ago
+    created_at: 5.days.ago
     })
 
     msg443.send_msg
-    msg443.update({updated_at: 6.days.ago})
+    msg443.update({updated_at: 5.days.ago})
 
 
 
+
+      
+        Scon48.update({
+                             message_timestamp: 5.days.ago,
+                             read: true
+                           }) 
+        Mcon48.update({
+                             message_timestamp: 5.days.ago,
+                             read: true
+                           }) 
+        Bcon48.update({
+                             message_timestamp: 5.days.ago,
+                             read: true
+                           }) 
+        Acon48.update({
+                             message_timestamp: 5.days.ago,
+                             read: true
+                           }) 
+
+
+
+      MetCon49 = MetaConversation.create();
+
+      Scon49 = soc.conversations.create(title: "Yes, certainly, Anytus; and many good", meta_conversation: MetCon49)
+      Mcon49 = meno.conversations.create(title: "Yes, certainly, Anytus; and many good", meta_conversation: MetCon49)
+      Bcon49 = boy.conversations.create(title: "Yes, certainly, Anytus; and many good", meta_conversation: MetCon49)
+      Acon49 = anytus.conversations.create(title: "Yes, certainly, Anytus; and many good", meta_conversation: MetCon49 )
 
 body_str = <<-BODY 
  Yes, certainly, Anytus; and many good statesmen also there
@@ -8859,15 +9319,15 @@ which I and Meno have been arguing. Look at the matter in your own way:
 Would you not admit that Themistocles was a good man?
 BODY
 
-msg444 = Scon55.messages.create({
+msg444 = Scon49.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.days.ago
+    created_at: 5.days.ago
     })
 
     msg444.send_msg
-    msg444.update({updated_at: 6.days.ago})
+    msg444.update({updated_at: 5.days.ago})
 
 
 
@@ -8876,15 +9336,15 @@ body_str = <<-BODY
  Certainly; no man better.
 BODY
 
-msg445 = Acon55.messages.create({
+msg445 = Acon49.messages.create({
     source_address: "anytus#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.days.ago
+    created_at: 5.days.ago
     })
 
     msg445.send_msg
-    msg445.update({updated_at: 6.days.ago})
+    msg445.update({updated_at: 5.days.ago})
 
 
 
@@ -8894,15 +9354,15 @@ body_str = <<-BODY
 was a good teacher, of his own virtue?
 BODY
 
-msg446 = Scon55.messages.create({
+msg446 = Scon49.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.days.ago
+    created_at: 5.days.ago
     })
 
     msg446.send_msg
-    msg446.update({updated_at: 6.days.ago})
+    msg446.update({updated_at: 5.days.ago})
 
 
 
@@ -8911,15 +9371,15 @@ body_str = <<-BODY
  Yes certainly,--if he wanted to be so.
 BODY
 
-msg447 = Acon55.messages.create({
+msg447 = Acon49.messages.create({
     source_address: "anytus#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.days.ago
+    created_at: 5.days.ago
     })
 
     msg447.send_msg
-    msg447.update({updated_at: 6.days.ago})
+    msg447.update({updated_at: 5.days.ago})
 
 
 
@@ -8935,15 +9395,15 @@ and in anything which could be learned from a master he was well
 trained? Have you not heard from our elders of him?
 BODY
 
-msg448 = Scon55.messages.create({
+msg448 = Scon49.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.days.ago
+    created_at: 5.days.ago
     })
 
     msg448.send_msg
-    msg448.update({updated_at: 6.days.ago})
+    msg448.update({updated_at: 5.days.ago})
 
 
 
@@ -8952,15 +9412,15 @@ body_str = <<-BODY
  I have.
 BODY
 
-msg449 = Acon55.messages.create({
+msg449 = Acon49.messages.create({
     source_address: "anytus#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.days.ago
+    created_at: 4.days.ago
     })
 
     msg449.send_msg
-    msg449.update({updated_at: 6.days.ago})
+    msg449.update({updated_at: 4.days.ago})
 
 
 
@@ -8970,15 +9430,15 @@ body_str = <<-BODY
 capacity?
 BODY
 
-msg450 = Scon55.messages.create({
+msg450 = Scon49.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.days.ago
+    created_at: 4.days.ago
     })
 
     msg450.send_msg
-    msg450.update({updated_at: 6.days.ago})
+    msg450.update({updated_at: 4.days.ago})
 
 
 
@@ -8987,15 +9447,15 @@ body_str = <<-BODY
  Very likely not.
 BODY
 
-msg451 = Acon55.messages.create({
+msg451 = Acon49.messages.create({
     source_address: "anytus#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.days.ago
+    created_at: 4.days.ago
     })
 
     msg451.send_msg
-    msg451.update({updated_at: 6.days.ago})
+    msg451.update({updated_at: 4.days.ago})
 
 
 
@@ -9006,15 +9466,15 @@ Cleophantus, son of Themistocles, was a wise or good man, as his father
 was?
 BODY
 
-msg452 = Scon55.messages.create({
+msg452 = Scon49.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.days.ago
+    created_at: 4.days.ago
     })
 
     msg452.send_msg
-    msg452.update({updated_at: 6.days.ago})
+    msg452.update({updated_at: 4.days.ago})
 
 
 
@@ -9023,15 +9483,15 @@ body_str = <<-BODY
  I have certainly never heard any one say so.
 BODY
 
-msg453 = Acon55.messages.create({
+msg453 = Acon49.messages.create({
     source_address: "anytus#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.days.ago
+    created_at: 4.days.ago
     })
 
     msg453.send_msg
-    msg453.update({updated_at: 6.days.ago})
+    msg453.update({updated_at: 4.days.ago})
 
 
 
@@ -9044,15 +9504,15 @@ no better than his neighbours in those qualities in which he himself
 excelled?
 BODY
 
-msg454 = Scon55.messages.create({
+msg454 = Scon49.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.days.ago
+    created_at: 4.days.ago
     })
 
     msg454.send_msg
-    msg454.update({updated_at: 6.days.ago})
+    msg454.update({updated_at: 4.days.ago})
 
 
 
@@ -9061,15 +9521,15 @@ body_str = <<-BODY
  Indeed, indeed, I think not.
 BODY
 
-msg455 = Acon55.messages.create({
+msg455 = Acon49.messages.create({
     source_address: "anytus#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.days.ago
+    created_at: 4.days.ago
     })
 
     msg455.send_msg
-    msg455.update({updated_at: 5.days.ago})
+    msg455.update({updated_at: 4.days.ago})
 
 
 
@@ -9080,15 +9540,15 @@ the best men of the past. Let us take another,--Aristides, the son of
 Lysimachus: would you not acknowledge that he was a good man?
 BODY
 
-msg456 = Scon55.messages.create({
+msg456 = Scon49.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.days.ago
+    created_at: 4.days.ago
     })
 
     msg456.send_msg
-    msg456.update({updated_at: 5.days.ago})
+    msg456.update({updated_at: 4.days.ago})
 
 
 
@@ -9097,15 +9557,15 @@ body_str = <<-BODY
  To be sure I should.
 BODY
 
-msg457 = Acon55.messages.create({
+msg457 = Acon49.messages.create({
     source_address: "anytus#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.days.ago
+    created_at: 4.days.ago
     })
 
     msg457.send_msg
-    msg457.update({updated_at: 5.days.ago})
+    msg457.update({updated_at: 4.days.ago})
 
 
 
@@ -9119,15 +9579,15 @@ Pericles, again, magnificent in his wisdom; and he, as you are aware,
 had two sons, Paralus and Xanthippus.
 BODY
 
-msg458 = Scon55.messages.create({
+msg458 = Scon49.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.days.ago
+    created_at: 4.days.ago
     })
 
     msg458.send_msg
-    msg458.update({updated_at: 5.days.ago})
+    msg458.update({updated_at: 4.days.ago})
 
 
 
@@ -9136,33 +9596,18 @@ body_str = <<-BODY
  I know.
 BODY
 
-msg459 = Acon55.messages.create({
+msg459 = Acon49.messages.create({
     source_address: "anytus#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.days.ago
+    created_at: 4.days.ago
     })
 
     msg459.send_msg
-    msg459.update({updated_at: 5.days.ago})
+    msg459.update({updated_at: 4.days.ago})
 
 
 
-
-      
- Scon55.update(message_timestamp: 5.days.ago) 
- Mcon55.update(message_timestamp: 5.days.ago) 
-
- Bcon55.update(message_timestamp: 5.days.ago) 
- Acon55.update(message_timestamp: 5.days.ago) 
-
-
-      MetCon56 = MetaConversation.create();
-
-      Scon56 = soc.conversations.create(title: "And you know, also, that he", meta_conversation: MetCon56)
-      Mcon56 = meno.conversations.create(title: "And you know, also, that he", meta_conversation: MetCon56)
-      Bcon56 = boy.conversations.create(title: "And you know, also, that he", meta_conversation: MetCon56)
-      Acon56 = anytus.conversations.create(title: "And you know, also, that he", meta_conversation: MetCon56 )
 
 body_str = <<-BODY 
  And you know, also, that he taught them to be unrivalled
@@ -9179,47 +9624,32 @@ who had the reputation of being the most celebrated wrestlers of that
 day. Do you remember them?
 BODY
 
-msg460 = Scon56.messages.create({
+msg460 = Scon49.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.days.ago
+    created_at: 4.days.ago
     })
 
     msg460.send_msg
-    msg460.update({updated_at: 5.days.ago})
+    msg460.update({updated_at: 4.days.ago})
 
 
 
-
-      
- Scon56.update(message_timestamp: 5.days.ago) 
- Mcon56.update(message_timestamp: 5.days.ago) 
-
- Bcon56.update(message_timestamp: 5.days.ago) 
- Acon56.update(message_timestamp: 5.days.ago) 
-
-
-      MetCon57 = MetaConversation.create();
-
-      Scon57 = soc.conversations.create(title: "I have heard of them.", meta_conversation: MetCon57)
-      Mcon57 = meno.conversations.create(title: "I have heard of them.", meta_conversation: MetCon57)
-      Bcon57 = boy.conversations.create(title: "I have heard of them.", meta_conversation: MetCon57)
-      Acon57 = anytus.conversations.create(title: "I have heard of them.", meta_conversation: MetCon57 )
 
 body_str = <<-BODY 
  I have heard of them.
 BODY
 
-msg461 = Acon57.messages.create({
+msg461 = Acon49.messages.create({
     source_address: "anytus#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.days.ago
+    created_at: 4.days.ago
     })
 
     msg461.send_msg
-    msg461.update({updated_at: 5.days.ago})
+    msg461.update({updated_at: 4.days.ago})
 
 
 
@@ -9237,18 +9667,45 @@ himself spare the time from cares of state. Once more, I suspect, friend
 Anytus, that virtue is not a thing which can be taught?
 BODY
 
-msg462 = Scon57.messages.create({
+msg462 = Scon49.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.days.ago
+    created_at: 4.days.ago
     })
 
     msg462.send_msg
-    msg462.update({updated_at: 5.days.ago})
+    msg462.update({updated_at: 4.days.ago})
 
 
 
+
+      
+        Scon49.update({
+                             message_timestamp: 4.days.ago,
+                             read: true
+                           }) 
+        Mcon49.update({
+                             message_timestamp: 4.days.ago,
+                             read: true
+                           }) 
+        Bcon49.update({
+                             message_timestamp: 4.days.ago,
+                             read: true
+                           }) 
+        Acon49.update({
+                             message_timestamp: 4.days.ago,
+                             read: true
+                           }) 
+
+
+
+      MetCon50 = MetaConversation.create();
+
+      Scon50 = soc.conversations.create(title: "Socrates, I think that you are", meta_conversation: MetCon50)
+      Mcon50 = meno.conversations.create(title: "Socrates, I think that you are", meta_conversation: MetCon50)
+      Bcon50 = boy.conversations.create(title: "Socrates, I think that you are", meta_conversation: MetCon50)
+      Acon50 = anytus.conversations.create(title: "Socrates, I think that you are", meta_conversation: MetCon50 )
 
 body_str = <<-BODY 
  Socrates, I think that you are too ready to speak evil of men:
@@ -9258,15 +9715,15 @@ to do them good, and this is certainly the case at Athens, as I believe
 that you know.
 BODY
 
-msg463 = Acon57.messages.create({
+msg463 = Acon50.messages.create({
     source_address: "anytus#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.days.ago
+    created_at: 3.days.ago
     })
 
     msg463.send_msg
-    msg463.update({updated_at: 5.days.ago})
+    msg463.update({updated_at: 3.days.ago})
 
 
 
@@ -9281,47 +9738,32 @@ return to you, Meno; for I suppose that there are gentlemen in your
 region too?
 BODY
 
-msg464 = Scon57.messages.create({
+msg464 = Scon50.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.days.ago
+    created_at: 3.days.ago
     })
 
     msg464.send_msg
-    msg464.update({updated_at: 5.days.ago})
+    msg464.update({updated_at: 3.days.ago})
 
 
 
-
-      
- Scon57.update(message_timestamp: 5.days.ago) 
- Mcon57.update(message_timestamp: 5.days.ago) 
-
- Bcon57.update(message_timestamp: 5.days.ago) 
- Acon57.update(message_timestamp: 5.days.ago) 
-
-
-      MetCon58 = MetaConversation.create();
-
-      Scon58 = soc.conversations.create(title: "Certainly there are.", meta_conversation: MetCon58)
-      Mcon58 = meno.conversations.create(title: "Certainly there are.", meta_conversation: MetCon58)
-      Bcon58 = boy.conversations.create(title: "Certainly there are.", meta_conversation: MetCon58)
-      Acon58 = anytus.conversations.create(title: "Certainly there are.", meta_conversation: MetCon58 )
 
 body_str = <<-BODY 
  Certainly there are.
 BODY
 
-msg465 = Mcon58.messages.create({
+msg465 = Mcon50.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.days.ago
+    created_at: 3.days.ago
     })
 
     msg465.send_msg
-    msg465.update({updated_at: 5.days.ago})
+    msg465.update({updated_at: 3.days.ago})
 
 
 
@@ -9331,15 +9773,15 @@ body_str = <<-BODY
 to be teachers? and do they agree that virtue is taught?
 BODY
 
-msg466 = Scon58.messages.create({
+msg466 = Scon50.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.days.ago
+    created_at: 3.days.ago
     })
 
     msg466.send_msg
-    msg466.update({updated_at: 5.days.ago})
+    msg466.update({updated_at: 3.days.ago})
 
 
 
@@ -9350,15 +9792,15 @@ them saying at one time that virtue can be taught, and then again the
 reverse.
 BODY
 
-msg467 = Mcon58.messages.create({
+msg467 = Mcon50.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.days.ago
+    created_at: 3.days.ago
     })
 
     msg467.send_msg
-    msg467.update({updated_at: 5.days.ago})
+    msg467.update({updated_at: 3.days.ago})
 
 
 
@@ -9368,15 +9810,15 @@ body_str = <<-BODY
 possibility of their own vocation?
 BODY
 
-msg468 = Scon58.messages.create({
+msg468 = Scon50.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.days.ago
+    created_at: 3.days.ago
     })
 
     msg468.send_msg
-    msg468.update({updated_at: 5.days.ago})
+    msg468.update({updated_at: 3.days.ago})
 
 
 
@@ -9385,15 +9827,15 @@ body_str = <<-BODY
  I think not, Socrates.
 BODY
 
-msg469 = Mcon58.messages.create({
+msg469 = Mcon50.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.days.ago
+    created_at: 3.days.ago
     })
 
     msg469.send_msg
-    msg469.update({updated_at: 4.days.ago})
+    msg469.update({updated_at: 3.days.ago})
 
 
 
@@ -9403,33 +9845,18 @@ body_str = <<-BODY
 professors? Do they seem to you to be teachers of virtue?
 BODY
 
-msg470 = Scon58.messages.create({
+msg470 = Scon50.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.days.ago
+    created_at: 3.days.ago
     })
 
     msg470.send_msg
-    msg470.update({updated_at: 4.days.ago})
+    msg470.update({updated_at: 3.days.ago})
 
 
 
-
-      
- Scon58.update(message_timestamp: 4.days.ago) 
- Mcon58.update(message_timestamp: 4.days.ago) 
-
- Bcon58.update(message_timestamp: 4.days.ago) 
- Acon58.update(message_timestamp: 4.days.ago) 
-
-
-      MetCon59 = MetaConversation.create();
-
-      Scon59 = soc.conversations.create(title: "I often wonder, Socrates, that Gorgias", meta_conversation: MetCon59)
-      Mcon59 = meno.conversations.create(title: "I often wonder, Socrates, that Gorgias", meta_conversation: MetCon59)
-      Bcon59 = boy.conversations.create(title: "I often wonder, Socrates, that Gorgias", meta_conversation: MetCon59)
-      Acon59 = anytus.conversations.create(title: "I often wonder, Socrates, that Gorgias", meta_conversation: MetCon59 )
 
 body_str = <<-BODY 
  I often wonder, Socrates, that Gorgias is never heard promising to
@@ -9437,15 +9864,15 @@ teach virtue: and when he hears others promising he only laughs at them;
 but he thinks that men should be taught to speak.
 BODY
 
-msg471 = Mcon59.messages.create({
+msg471 = Mcon50.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.days.ago
+    created_at: 3.days.ago
     })
 
     msg471.send_msg
-    msg471.update({updated_at: 4.days.ago})
+    msg471.update({updated_at: 3.days.ago})
 
 
 
@@ -9454,15 +9881,15 @@ body_str = <<-BODY
  Then do you not think that the Sophists are teachers?
 BODY
 
-msg472 = Scon59.messages.create({
+msg472 = Scon50.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.days.ago
+    created_at: 3.days.ago
     })
 
     msg472.send_msg
-    msg472.update({updated_at: 4.days.ago})
+    msg472.update({updated_at: 3.days.ago})
 
 
 
@@ -9472,15 +9899,15 @@ body_str = <<-BODY
 doubt, and sometimes I think that they are teachers and sometimes not.
 BODY
 
-msg473 = Mcon59.messages.create({
+msg473 = Mcon50.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.days.ago
+    created_at: 3.days.ago
     })
 
     msg473.send_msg
-    msg473.update({updated_at: 4.days.ago})
+    msg473.update({updated_at: 3.days.ago})
 
 
 
@@ -9491,47 +9918,32 @@ doubts whether virtue can be taught or not, but that Theognis the poet
 says the very same thing?
 BODY
 
-msg474 = Scon59.messages.create({
+msg474 = Scon50.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.days.ago
+    created_at: 3.days.ago
     })
 
     msg474.send_msg
-    msg474.update({updated_at: 4.days.ago})
+    msg474.update({updated_at: 3.days.ago})
 
 
 
-
-      
- Scon59.update(message_timestamp: 4.days.ago) 
- Mcon59.update(message_timestamp: 4.days.ago) 
-
- Bcon59.update(message_timestamp: 4.days.ago) 
- Acon59.update(message_timestamp: 4.days.ago) 
-
-
-      MetCon60 = MetaConversation.create();
-
-      Scon60 = soc.conversations.create(title: "Where does he say so?", meta_conversation: MetCon60)
-      Mcon60 = meno.conversations.create(title: "Where does he say so?", meta_conversation: MetCon60)
-      Bcon60 = boy.conversations.create(title: "Where does he say so?", meta_conversation: MetCon60)
-      Acon60 = anytus.conversations.create(title: "Where does he say so?", meta_conversation: MetCon60 )
 
 body_str = <<-BODY 
  Where does he say so?
 BODY
 
-msg475 = Mcon60.messages.create({
+msg475 = Mcon50.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.days.ago
+    created_at: 3.days.ago
     })
 
     msg475.send_msg
-    msg475.update({updated_at: 4.days.ago})
+    msg475.update({updated_at: 3.days.ago})
 
 
 
@@ -9540,15 +9952,15 @@ body_str = <<-BODY
  In these elegiac verses (Theog.):
 BODY
 
-msg476 = Scon60.messages.create({
+msg476 = Scon50.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.days.ago
+    created_at: 2.days.ago
     })
 
     msg476.send_msg
-    msg476.update({updated_at: 4.days.ago})
+    msg476.update({updated_at: 2.days.ago})
 
 
 
@@ -9561,15 +9973,15 @@ body_str = <<-BODY
  Clearly.
 BODY
 
-msg477 = Mcon60.messages.create({
+msg477 = Mcon50.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.days.ago
+    created_at: 2.days.ago
     })
 
     msg477.send_msg
-    msg477.update({updated_at: 4.days.ago})
+    msg477.update({updated_at: 2.days.ago})
 
 
 
@@ -9578,15 +9990,15 @@ body_str = <<-BODY
  But in some other verses he shifts about and says (Theog.):
 BODY
 
-msg478 = Scon60.messages.create({
+msg478 = Scon50.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.days.ago
+    created_at: 2.days.ago
     })
 
     msg478.send_msg
-    msg478.update({updated_at: 4.days.ago})
+    msg478.update({updated_at: 2.days.ago})
 
 
 
@@ -9604,51 +10016,75 @@ BODY
 
 
       
- Scon60.update(message_timestamp: 4.days.ago) 
- Mcon60.update(message_timestamp: 4.days.ago) 
+        Scon50.update({
+                             message_timestamp: 2.days.ago,
+                             read: true
+                           }) 
+        Mcon50.update({
+                             message_timestamp: 2.days.ago,
+                             read: true
+                           }) 
+        Bcon50.update({
+                             message_timestamp: 2.days.ago,
+                             read: true
+                           }) 
+        Acon50.update({
+                             message_timestamp: 2.days.ago,
+                             read: true
+                           }) 
 
- Bcon60.update(message_timestamp: 4.days.ago) 
- Acon60.update(message_timestamp: 4.days.ago) 
 
 
-      MetCon61 = MetaConversation.create();
+      MetCon51 = MetaConversation.create();
 
-      Scon61 = soc.conversations.create(title: "Clearly.", meta_conversation: MetCon61)
-      Mcon61 = meno.conversations.create(title: "Clearly.", meta_conversation: MetCon61)
-      Bcon61 = boy.conversations.create(title: "Clearly.", meta_conversation: MetCon61)
-      Acon61 = anytus.conversations.create(title: "Clearly.", meta_conversation: MetCon61 )
+      Scon51 = soc.conversations.create(title: "Clearly.", meta_conversation: MetCon51)
+      Mcon51 = meno.conversations.create(title: "Clearly.", meta_conversation: MetCon51)
+      Bcon51 = boy.conversations.create(title: "Clearly.", meta_conversation: MetCon51)
+      Acon51 = anytus.conversations.create(title: "Clearly.", meta_conversation: MetCon51 )
 
 body_str = <<-BODY 
  Clearly.
 BODY
 
-msg480 = Mcon61.messages.create({
+msg480 = Mcon51.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.days.ago
+    created_at: 2.days.ago
     })
 
     msg480.send_msg
-    msg480.update({updated_at: 4.days.ago})
+    msg480.update({updated_at: 2.days.ago})
 
 
 
 
       
- Scon61.update(message_timestamp: 4.days.ago) 
- Mcon61.update(message_timestamp: 4.days.ago) 
+        Scon51.update({
+                             message_timestamp: 2.days.ago,
+                             read: true
+                           }) 
+        Mcon51.update({
+                             message_timestamp: 2.days.ago,
+                             read: true
+                           }) 
+        Bcon51.update({
+                             message_timestamp: 2.days.ago,
+                             read: true
+                           }) 
+        Acon51.update({
+                             message_timestamp: 2.days.ago,
+                             read: true
+                           }) 
 
- Bcon61.update(message_timestamp: 4.days.ago) 
- Acon61.update(message_timestamp: 4.days.ago) 
 
 
-      MetCon62 = MetaConversation.create();
+      MetCon52 = MetaConversation.create();
 
-      Scon62 = soc.conversations.create(title: "And is there anything else of", meta_conversation: MetCon62)
-      Mcon62 = meno.conversations.create(title: "And is there anything else of", meta_conversation: MetCon62)
-      Bcon62 = boy.conversations.create(title: "And is there anything else of", meta_conversation: MetCon62)
-      Acon62 = anytus.conversations.create(title: "And is there anything else of", meta_conversation: MetCon62 )
+      Scon52 = soc.conversations.create(title: "And is there anything else of", meta_conversation: MetCon52)
+      Mcon52 = meno.conversations.create(title: "And is there anything else of", meta_conversation: MetCon52)
+      Bcon52 = boy.conversations.create(title: "And is there anything else of", meta_conversation: MetCon52)
+      Acon52 = anytus.conversations.create(title: "And is there anything else of", meta_conversation: MetCon52 )
 
 body_str = <<-BODY 
  And is there anything else of which the professors are
@@ -9660,15 +10096,15 @@ sometimes the opposite? Can you say that they are teachers in any true
 sense whose ideas are in such confusion?
 BODY
 
-msg481 = Scon62.messages.create({
+msg481 = Scon52.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.days.ago
+    created_at: 2.days.ago
     })
 
     msg481.send_msg
-    msg481.update({updated_at: 4.days.ago})
+    msg481.update({updated_at: 2.days.ago})
 
 
 
@@ -9677,15 +10113,15 @@ body_str = <<-BODY
  I should say, certainly not.
 BODY
 
-msg482 = Mcon62.messages.create({
+msg482 = Mcon52.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.days.ago
+    created_at: 2.days.ago
     })
 
     msg482.send_msg
-    msg482.update({updated_at: 4.days.ago})
+    msg482.update({updated_at: 2.days.ago})
 
 
 
@@ -9695,15 +10131,15 @@ body_str = <<-BODY
 clearly there can be no other teachers?
 BODY
 
-msg483 = Scon62.messages.create({
+msg483 = Scon52.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.days.ago
+    created_at: 2.days.ago
     })
 
     msg483.send_msg
-    msg483.update({updated_at: 4.days.ago})
+    msg483.update({updated_at: 2.days.ago})
 
 
 
@@ -9712,15 +10148,15 @@ body_str = <<-BODY
  No.
 BODY
 
-msg484 = Mcon62.messages.create({
+msg484 = Mcon52.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.days.ago
+    created_at: 2.days.ago
     })
 
     msg484.send_msg
-    msg484.update({updated_at: 3.days.ago})
+    msg484.update({updated_at: 2.days.ago})
 
 
 
@@ -9729,15 +10165,15 @@ body_str = <<-BODY
  And if there are no teachers, neither are there disciples?
 BODY
 
-msg485 = Scon62.messages.create({
+msg485 = Scon52.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.days.ago
+    created_at: 2.days.ago
     })
 
     msg485.send_msg
-    msg485.update({updated_at: 3.days.ago})
+    msg485.update({updated_at: 2.days.ago})
 
 
 
@@ -9746,15 +10182,15 @@ body_str = <<-BODY
  Agreed.
 BODY
 
-msg486 = Mcon62.messages.create({
+msg486 = Mcon52.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.days.ago
+    created_at: 2.days.ago
     })
 
     msg486.send_msg
-    msg486.update({updated_at: 3.days.ago})
+    msg486.update({updated_at: 2.days.ago})
 
 
 
@@ -9764,32 +10200,59 @@ body_str = <<-BODY
 there are neither teachers nor disciples?
 BODY
 
-msg487 = Scon62.messages.create({
+msg487 = Scon52.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.days.ago
+    created_at: 2.days.ago
     })
 
     msg487.send_msg
-    msg487.update({updated_at: 3.days.ago})
+    msg487.update({updated_at: 2.days.ago})
 
 
 
+
+      
+        Scon52.update({
+                             message_timestamp: 2.days.ago,
+                             read: true
+                           }) 
+        Mcon52.update({
+                             message_timestamp: 2.days.ago,
+                             read: true
+                           }) 
+        Bcon52.update({
+                             message_timestamp: 2.days.ago,
+                             read: true
+                           }) 
+        Acon52.update({
+                             message_timestamp: 2.days.ago,
+                             read: true
+                           }) 
+
+
+
+      MetCon53 = MetaConversation.create();
+
+      Scon53 = soc.conversations.create(title: "We have.", meta_conversation: MetCon53)
+      Mcon53 = meno.conversations.create(title: "We have.", meta_conversation: MetCon53)
+      Bcon53 = boy.conversations.create(title: "We have.", meta_conversation: MetCon53)
+      Acon53 = anytus.conversations.create(title: "We have.", meta_conversation: MetCon53 )
 
 body_str = <<-BODY 
  We have.
 BODY
 
-msg488 = Mcon62.messages.create({
+msg488 = Mcon53.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.days.ago
+    created_at: 2.days.ago
     })
 
     msg488.send_msg
-    msg488.update({updated_at: 3.days.ago})
+    msg488.update({updated_at: 2.days.ago})
 
 
 
@@ -9798,15 +10261,15 @@ body_str = <<-BODY
  And there are no teachers of virtue to be found anywhere?
 BODY
 
-msg489 = Scon62.messages.create({
+msg489 = Scon53.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.days.ago
+    created_at: 2.days.ago
     })
 
     msg489.send_msg
-    msg489.update({updated_at: 3.days.ago})
+    msg489.update({updated_at: 2.days.ago})
 
 
 
@@ -9815,15 +10278,15 @@ body_str = <<-BODY
  There are not.
 BODY
 
-msg490 = Mcon62.messages.create({
+msg490 = Mcon53.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.days.ago
+    created_at: 1.days.ago
     })
 
     msg490.send_msg
-    msg490.update({updated_at: 3.days.ago})
+    msg490.update({updated_at: 1.days.ago})
 
 
 
@@ -9832,15 +10295,15 @@ body_str = <<-BODY
  And if there are no teachers, neither are there scholars?
 BODY
 
-msg491 = Scon62.messages.create({
+msg491 = Scon53.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.days.ago
+    created_at: 1.days.ago
     })
 
     msg491.send_msg
-    msg491.update({updated_at: 3.days.ago})
+    msg491.update({updated_at: 1.days.ago})
 
 
 
@@ -9849,15 +10312,15 @@ body_str = <<-BODY
  That, I think, is true.
 BODY
 
-msg492 = Mcon62.messages.create({
+msg492 = Mcon53.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.days.ago
+    created_at: 1.days.ago
     })
 
     msg492.send_msg
-    msg492.update({updated_at: 3.days.ago})
+    msg492.update({updated_at: 1.days.ago})
 
 
 
@@ -9866,33 +10329,45 @@ body_str = <<-BODY
  Then virtue cannot be taught?
 BODY
 
-msg493 = Scon62.messages.create({
+msg493 = Scon53.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.days.ago
+    created_at: 1.days.ago
     })
 
     msg493.send_msg
-    msg493.update({updated_at: 3.days.ago})
+    msg493.update({updated_at: 1.days.ago})
 
 
 
 
       
- Scon62.update(message_timestamp: 3.days.ago) 
- Mcon62.update(message_timestamp: 3.days.ago) 
+        Scon53.update({
+                             message_timestamp: 1.days.ago,
+                             read: true
+                           }) 
+        Mcon53.update({
+                             message_timestamp: 1.days.ago,
+                             read: true
+                           }) 
+        Bcon53.update({
+                             message_timestamp: 1.days.ago,
+                             read: true
+                           }) 
+        Acon53.update({
+                             message_timestamp: 1.days.ago,
+                             read: true
+                           }) 
 
- Bcon62.update(message_timestamp: 3.days.ago) 
- Acon62.update(message_timestamp: 3.days.ago) 
 
 
-      MetCon63 = MetaConversation.create();
+      MetCon54 = MetaConversation.create();
 
-      Scon63 = soc.conversations.create(title: "Not if we are right in", meta_conversation: MetCon63)
-      Mcon63 = meno.conversations.create(title: "Not if we are right in", meta_conversation: MetCon63)
-      Bcon63 = boy.conversations.create(title: "Not if we are right in", meta_conversation: MetCon63)
-      Acon63 = anytus.conversations.create(title: "Not if we are right in", meta_conversation: MetCon63 )
+      Scon54 = soc.conversations.create(title: "Not if we are right in", meta_conversation: MetCon54)
+      Mcon54 = meno.conversations.create(title: "Not if we are right in", meta_conversation: MetCon54)
+      Bcon54 = boy.conversations.create(title: "Not if we are right in", meta_conversation: MetCon54)
+      Acon54 = anytus.conversations.create(title: "Not if we are right in", meta_conversation: MetCon54 )
 
 body_str = <<-BODY 
  Not if we are right in our view. But I cannot believe, Socrates,
@@ -9900,15 +10375,15 @@ that there are no good men: And if there are, how did they come into
 existence?
 BODY
 
-msg494 = Mcon63.messages.create({
+msg494 = Mcon54.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.days.ago
+    created_at: 1.days.ago
     })
 
     msg494.send_msg
-    msg494.update({updated_at: 3.days.ago})
+    msg494.update({updated_at: 1.days.ago})
 
 
 
@@ -9924,15 +10399,15 @@ that of knowledge (episteme);--and indeed if this be denied, there is no
 seeing how there can be any good men at all.
 BODY
 
-msg495 = Scon63.messages.create({
+msg495 = Scon54.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.days.ago
+    created_at: 1.days.ago
     })
 
     msg495.send_msg
-    msg495.update({updated_at: 3.days.ago})
+    msg495.update({updated_at: 1.days.ago})
 
 
 
@@ -9941,15 +10416,15 @@ body_str = <<-BODY
  How do you mean, Socrates?
 BODY
 
-msg496 = Mcon63.messages.create({
+msg496 = Mcon54.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.days.ago
+    created_at: 1.days.ago
     })
 
     msg496.send_msg
-    msg496.update({updated_at: 2.days.ago})
+    msg496.update({updated_at: 1.days.ago})
 
 
 
@@ -9959,15 +10434,15 @@ body_str = <<-BODY
 Were we not right in admitting this? It must be so.
 BODY
 
-msg497 = Scon63.messages.create({
+msg497 = Scon54.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.days.ago
+    created_at: 1.days.ago
     })
 
     msg497.send_msg
-    msg497.update({updated_at: 2.days.ago})
+    msg497.update({updated_at: 1.days.ago})
 
 
 
@@ -9976,98 +10451,95 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg498 = Mcon63.messages.create({
+msg498 = Mcon54.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.days.ago
+    created_at: 1.days.ago
     })
 
     msg498.send_msg
-    msg498.update({updated_at: 2.days.ago})
+    msg498.update({updated_at: 1.days.ago})
 
 
 
-
-      
- Scon63.update(message_timestamp: 2.days.ago) 
- Mcon63.update(message_timestamp: 2.days.ago) 
-
- Bcon63.update(message_timestamp: 2.days.ago) 
- Acon63.update(message_timestamp: 2.days.ago) 
-
-
-      MetCon64 = MetaConversation.create();
-
-      Scon64 = soc.conversations.create(title: "And in supposing that they will", meta_conversation: MetCon64)
-      Mcon64 = meno.conversations.create(title: "And in supposing that they will", meta_conversation: MetCon64)
-      Bcon64 = boy.conversations.create(title: "And in supposing that they will", meta_conversation: MetCon64)
-      Acon64 = anytus.conversations.create(title: "And in supposing that they will", meta_conversation: MetCon64 )
 
 body_str = <<-BODY 
  And in supposing that they will be useful only if they are
 true guides to us of action--there we were also right?
 BODY
 
-msg499 = Scon64.messages.create({
+msg499 = Scon54.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.days.ago
+    created_at: 1.days.ago
     })
 
     msg499.send_msg
-    msg499.update({updated_at: 2.days.ago})
-
-
-
-
-body_str = <<-BODY 
- Yes.
-BODY
-
-msg500 = Mcon64.messages.create({
-    source_address: "meno#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
-    body: body_str,
-    created_at: 2.days.ago
-    })
-
-    msg500.send_msg
-    msg500.update({updated_at: 2.days.ago})
+    msg499.update({updated_at: 1.days.ago})
 
 
 
 
       
- Scon64.update(message_timestamp: 2.days.ago) 
- Mcon64.update(message_timestamp: 2.days.ago) 
+        Scon54.update({
+                             message_timestamp: 1.days.ago,
+                             read: true
+                           }) 
+        Mcon54.update({
+                             message_timestamp: 1.days.ago,
+                             read: true
+                           }) 
+        Bcon54.update({
+                             message_timestamp: 1.days.ago,
+                             read: true
+                           }) 
+        Acon54.update({
+                             message_timestamp: 1.days.ago,
+                             read: true
+                           }) 
 
- Bcon64.update(message_timestamp: 2.days.ago) 
- Acon64.update(message_timestamp: 2.days.ago) 
 
 
-      MetCon65 = MetaConversation.create();
+      MetCon55 = MetaConversation.create();
 
-      Scon65 = soc.conversations.create(title: "But when we said that a", meta_conversation: MetCon65)
-      Mcon65 = meno.conversations.create(title: "But when we said that a", meta_conversation: MetCon65)
-      Bcon65 = boy.conversations.create(title: "But when we said that a", meta_conversation: MetCon65)
-      Acon65 = anytus.conversations.create(title: "But when we said that a", meta_conversation: MetCon65 )
+      Scon55 = soc.conversations.create(title: "Yes.", meta_conversation: MetCon55)
+      Mcon55 = meno.conversations.create(title: "Yes.", meta_conversation: MetCon55)
+      Bcon55 = boy.conversations.create(title: "Yes.", meta_conversation: MetCon55)
+      Acon55 = anytus.conversations.create(title: "Yes.", meta_conversation: MetCon55 )
+
+body_str = <<-BODY 
+ Yes.
+BODY
+
+msg500 = Mcon55.messages.create({
+    source_address: "meno#{EMAIL_SIGNATURE}",
+    target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
+    body: body_str,
+    created_at: 1.days.ago
+    })
+
+    msg500.send_msg
+    msg500.update({updated_at: 1.days.ago})
+
+
+
 
 body_str = <<-BODY 
  But when we said that a man cannot be a good guide unless he
 have knowledge (phrhonesis), this we were wrong.
 BODY
 
-msg501 = Scon65.messages.create({
+msg501 = Scon55.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.days.ago
+    created_at: 1.days.ago
     })
 
     msg501.send_msg
-    msg501.update({updated_at: 2.days.ago})
+    msg501.update({updated_at: 1.days.ago})
 
 
 
@@ -10076,15 +10548,15 @@ body_str = <<-BODY
  What do you mean by the word 'right'?
 BODY
 
-msg502 = Mcon65.messages.create({
+msg502 = Mcon55.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.days.ago
+    created_at: 12.hours.ago
     })
 
     msg502.send_msg
-    msg502.update({updated_at: 2.days.ago})
+    msg502.update({updated_at: 12.hours.ago})
 
 
 
@@ -10095,15 +10567,15 @@ else, and went to the place and led others thither, would he not be a
 right and good guide?
 BODY
 
-msg503 = Scon65.messages.create({
+msg503 = Scon55.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.days.ago
+    created_at: 11.hours.ago
     })
 
     msg503.send_msg
-    msg503.update({updated_at: 2.days.ago})
+    msg503.update({updated_at: 11.hours.ago})
 
 
 
@@ -10112,15 +10584,15 @@ body_str = <<-BODY
  Certainly.
 BODY
 
-msg504 = Mcon65.messages.create({
+msg504 = Mcon55.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.days.ago
+    created_at: 11.hours.ago
     })
 
     msg504.send_msg
-    msg504.update({updated_at: 2.days.ago})
+    msg504.update({updated_at: 11.hours.ago})
 
 
 
@@ -10130,32 +10602,59 @@ body_str = <<-BODY
 never been and did not know, might be a good guide also, might he not?
 BODY
 
-msg505 = Scon65.messages.create({
+msg505 = Scon55.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.days.ago
+    created_at: 11.hours.ago
     })
 
     msg505.send_msg
-    msg505.update({updated_at: 2.days.ago})
+    msg505.update({updated_at: 11.hours.ago})
 
 
 
+
+      
+        Scon55.update({
+                             message_timestamp: 11.hours.ago,
+                             read: false
+                           }) 
+        Mcon55.update({
+                             message_timestamp: 11.hours.ago,
+                             read: false
+                           }) 
+        Bcon55.update({
+                             message_timestamp: 11.hours.ago,
+                             read: false
+                           }) 
+        Acon55.update({
+                             message_timestamp: 11.hours.ago,
+                             read: false
+                           }) 
+
+
+
+      MetCon56 = MetaConversation.create();
+
+      Scon56 = soc.conversations.create(title: "Certainly.", meta_conversation: MetCon56)
+      Mcon56 = meno.conversations.create(title: "Certainly.", meta_conversation: MetCon56)
+      Bcon56 = boy.conversations.create(title: "Certainly.", meta_conversation: MetCon56)
+      Acon56 = anytus.conversations.create(title: "Certainly.", meta_conversation: MetCon56 )
 
 body_str = <<-BODY 
  Certainly.
 BODY
 
-msg506 = Mcon65.messages.create({
+msg506 = Mcon56.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.days.ago
+    created_at: 11.hours.ago
     })
 
     msg506.send_msg
-    msg506.update({updated_at: 2.days.ago})
+    msg506.update({updated_at: 11.hours.ago})
 
 
 
@@ -10166,32 +10665,59 @@ knows, he will be just as good a guide if he thinks the truth, as he who
 knows the truth?
 BODY
 
-msg507 = Scon65.messages.create({
+msg507 = Scon56.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.days.ago
+    created_at: 11.hours.ago
     })
 
     msg507.send_msg
-    msg507.update({updated_at: 2.days.ago})
+    msg507.update({updated_at: 11.hours.ago})
 
 
 
+
+      
+        Scon56.update({
+                             message_timestamp: 11.hours.ago,
+                             read: false
+                           }) 
+        Mcon56.update({
+                             message_timestamp: 11.hours.ago,
+                             read: false
+                           }) 
+        Bcon56.update({
+                             message_timestamp: 11.hours.ago,
+                             read: false
+                           }) 
+        Acon56.update({
+                             message_timestamp: 11.hours.ago,
+                             read: false
+                           }) 
+
+
+
+      MetCon57 = MetaConversation.create();
+
+      Scon57 = soc.conversations.create(title: "Exactly.", meta_conversation: MetCon57)
+      Mcon57 = meno.conversations.create(title: "Exactly.", meta_conversation: MetCon57)
+      Bcon57 = boy.conversations.create(title: "Exactly.", meta_conversation: MetCon57)
+      Acon57 = anytus.conversations.create(title: "Exactly.", meta_conversation: MetCon57 )
 
 body_str = <<-BODY 
  Exactly.
 BODY
 
-msg508 = Mcon65.messages.create({
+msg508 = Mcon57.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.days.ago
+    created_at: 11.hours.ago
     })
 
     msg508.send_msg
-    msg508.update({updated_at: 2.days.ago})
+    msg508.update({updated_at: 11.hours.ago})
 
 
 
@@ -10203,15 +10729,15 @@ about the nature of virtue, when we said that knowledge only is the
 guide of right action; whereas there is also right opinion.
 BODY
 
-msg509 = Scon65.messages.create({
+msg509 = Scon57.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.days.ago
+    created_at: 11.hours.ago
     })
 
     msg509.send_msg
-    msg509.update({updated_at: 1.days.ago})
+    msg509.update({updated_at: 11.hours.ago})
 
 
 
@@ -10220,47 +10746,59 @@ body_str = <<-BODY
  True.
 BODY
 
-msg510 = Mcon65.messages.create({
+msg510 = Mcon57.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.days.ago
+    created_at: 11.hours.ago
     })
 
     msg510.send_msg
-    msg510.update({updated_at: 1.days.ago})
+    msg510.update({updated_at: 11.hours.ago})
 
 
 
 
       
- Scon65.update(message_timestamp: 1.days.ago) 
- Mcon65.update(message_timestamp: 1.days.ago) 
+        Scon57.update({
+                             message_timestamp: 11.hours.ago,
+                             read: false
+                           }) 
+        Mcon57.update({
+                             message_timestamp: 11.hours.ago,
+                             read: false
+                           }) 
+        Bcon57.update({
+                             message_timestamp: 11.hours.ago,
+                             read: false
+                           }) 
+        Acon57.update({
+                             message_timestamp: 11.hours.ago,
+                             read: false
+                           }) 
 
- Bcon65.update(message_timestamp: 1.days.ago) 
- Acon65.update(message_timestamp: 1.days.ago) 
 
 
-      MetCon66 = MetaConversation.create();
+      MetCon58 = MetaConversation.create();
 
-      Scon66 = soc.conversations.create(title: "Then right opinion is not less", meta_conversation: MetCon66)
-      Mcon66 = meno.conversations.create(title: "Then right opinion is not less", meta_conversation: MetCon66)
-      Bcon66 = boy.conversations.create(title: "Then right opinion is not less", meta_conversation: MetCon66)
-      Acon66 = anytus.conversations.create(title: "Then right opinion is not less", meta_conversation: MetCon66 )
+      Scon58 = soc.conversations.create(title: "Then right opinion is not less", meta_conversation: MetCon58)
+      Mcon58 = meno.conversations.create(title: "Then right opinion is not less", meta_conversation: MetCon58)
+      Bcon58 = boy.conversations.create(title: "Then right opinion is not less", meta_conversation: MetCon58)
+      Acon58 = anytus.conversations.create(title: "Then right opinion is not less", meta_conversation: MetCon58 )
 
 body_str = <<-BODY 
  Then right opinion is not less useful than knowledge?
 BODY
 
-msg511 = Scon66.messages.create({
+msg511 = Scon58.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.days.ago
+    created_at: 11.hours.ago
     })
 
     msg511.send_msg
-    msg511.update({updated_at: 1.days.ago})
+    msg511.update({updated_at: 11.hours.ago})
 
 
 
@@ -10271,36 +10809,90 @@ always be right; but he who has right opinion will sometimes be right,
 and sometimes not.
 BODY
 
-msg512 = Mcon66.messages.create({
+msg512 = Mcon58.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.days.ago
+    created_at: 11.hours.ago
     })
 
     msg512.send_msg
-    msg512.update({updated_at: 1.days.ago})
+    msg512.update({updated_at: 11.hours.ago})
 
 
 
+
+      
+        Scon58.update({
+                             message_timestamp: 11.hours.ago,
+                             read: false
+                           }) 
+        Mcon58.update({
+                             message_timestamp: 11.hours.ago,
+                             read: false
+                           }) 
+        Bcon58.update({
+                             message_timestamp: 11.hours.ago,
+                             read: false
+                           }) 
+        Acon58.update({
+                             message_timestamp: 11.hours.ago,
+                             read: false
+                           }) 
+
+
+
+      MetCon59 = MetaConversation.create();
+
+      Scon59 = soc.conversations.create(title: "What do you mean? Can he", meta_conversation: MetCon59)
+      Mcon59 = meno.conversations.create(title: "What do you mean? Can he", meta_conversation: MetCon59)
+      Bcon59 = boy.conversations.create(title: "What do you mean? Can he", meta_conversation: MetCon59)
+      Acon59 = anytus.conversations.create(title: "What do you mean? Can he", meta_conversation: MetCon59 )
 
 body_str = <<-BODY 
  What do you mean? Can he be wrong who has right opinion, so
 long as he has right opinion?
 BODY
 
-msg513 = Scon66.messages.create({
+msg513 = Scon59.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.days.ago
+    created_at: 10.hours.ago
     })
 
     msg513.send_msg
-    msg513.update({updated_at: 1.days.ago})
+    msg513.update({updated_at: 10.hours.ago})
 
 
 
+
+      
+        Scon59.update({
+                             message_timestamp: 10.hours.ago,
+                             read: false
+                           }) 
+        Mcon59.update({
+                             message_timestamp: 10.hours.ago,
+                             read: false
+                           }) 
+        Bcon59.update({
+                             message_timestamp: 10.hours.ago,
+                             read: false
+                           }) 
+        Acon59.update({
+                             message_timestamp: 10.hours.ago,
+                             read: false
+                           }) 
+
+
+
+      MetCon60 = MetaConversation.create();
+
+      Scon60 = soc.conversations.create(title: "I admit the cogency of your", meta_conversation: MetCon60)
+      Mcon60 = meno.conversations.create(title: "I admit the cogency of your", meta_conversation: MetCon60)
+      Bcon60 = boy.conversations.create(title: "I admit the cogency of your", meta_conversation: MetCon60)
+      Acon60 = anytus.conversations.create(title: "I admit the cogency of your", meta_conversation: MetCon60 )
 
 body_str = <<-BODY 
  I admit the cogency of your argument, and therefore, Socrates, I
@@ -10308,15 +10900,15 @@ wonder that knowledge should be preferred to right opinion--or why they
 should ever differ.
 BODY
 
-msg514 = Mcon66.messages.create({
+msg514 = Mcon60.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.days.ago
+    created_at: 10.hours.ago
     })
 
     msg514.send_msg
-    msg514.update({updated_at: 1.days.ago})
+    msg514.update({updated_at: 10.hours.ago})
 
 
 
@@ -10325,15 +10917,15 @@ body_str = <<-BODY
  And shall I explain this wonder to you?
 BODY
 
-msg515 = Scon66.messages.create({
+msg515 = Scon60.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.days.ago
+    created_at: 10.hours.ago
     })
 
     msg515.send_msg
-    msg515.update({updated_at: 1.days.ago})
+    msg515.update({updated_at: 10.hours.ago})
 
 
 
@@ -10342,15 +10934,15 @@ body_str = <<-BODY
  Do tell me.
 BODY
 
-msg516 = Mcon66.messages.create({
+msg516 = Mcon60.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.days.ago
+    created_at: 10.hours.ago
     })
 
     msg516.send_msg
-    msg516.update({updated_at: 1.days.ago})
+    msg516.update({updated_at: 10.hours.ago})
 
 
 
@@ -10361,15 +10953,15 @@ Daedalus (Compare Euthyphro); but perhaps you have not got them in your
 country?
 BODY
 
-msg517 = Scon66.messages.create({
+msg517 = Scon60.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.days.ago
+    created_at: 10.hours.ago
     })
 
     msg517.send_msg
-    msg517.update({updated_at: 1.days.ago})
+    msg517.update({updated_at: 10.hours.ago})
 
 
 
@@ -10378,15 +10970,15 @@ body_str = <<-BODY
  What have they to do with the question?
 BODY
 
-msg518 = Mcon66.messages.create({
+msg518 = Mcon60.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.days.ago
+    created_at: 10.hours.ago
     })
 
     msg518.send_msg
-    msg518.update({updated_at: 1.days.ago})
+    msg518.update({updated_at: 10.hours.ago})
 
 
 
@@ -10396,15 +10988,15 @@ body_str = <<-BODY
 if they are not fastened they will play truant and run away.
 BODY
 
-msg519 = Scon66.messages.create({
+msg519 = Scon60.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 12.hours.ago
+    created_at: 10.hours.ago
     })
 
     msg519.send_msg
-    msg519.update({updated_at: 12.hours.ago})
+    msg519.update({updated_at: 10.hours.ago})
 
 
 
@@ -10413,15 +11005,15 @@ body_str = <<-BODY
  Well, what of that?
 BODY
 
-msg520 = Mcon66.messages.create({
+msg520 = Mcon60.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.hours.ago
+    created_at: 10.hours.ago
     })
 
     msg520.send_msg
-    msg520.update({updated_at: 11.hours.ago})
+    msg520.update({updated_at: 10.hours.ago})
 
 
 
@@ -10441,15 +11033,15 @@ place, they are abiding. And this is why knowledge is more honourable
 and excellent than true opinion, because fastened by a chain.
 BODY
 
-msg521 = Scon66.messages.create({
+msg521 = Scon60.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.hours.ago
+    created_at: 10.hours.ago
     })
 
     msg521.send_msg
-    msg521.update({updated_at: 11.hours.ago})
+    msg521.update({updated_at: 10.hours.ago})
 
 
 
@@ -10458,15 +11050,15 @@ body_str = <<-BODY
  What you are saying, Socrates, seems to be very like the truth.
 BODY
 
-msg522 = Mcon66.messages.create({
+msg522 = Mcon60.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.hours.ago
+    created_at: 10.hours.ago
     })
 
     msg522.send_msg
-    msg522.update({updated_at: 11.hours.ago})
+    msg522.update({updated_at: 10.hours.ago})
 
 
 
@@ -10478,15 +11070,15 @@ me. There are not many things which I profess to know, but this is most
 certainly one of them.
 BODY
 
-msg523 = Scon66.messages.create({
+msg523 = Scon60.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.hours.ago
+    created_at: 10.hours.ago
     })
 
     msg523.send_msg
-    msg523.update({updated_at: 11.hours.ago})
+    msg523.update({updated_at: 10.hours.ago})
 
 
 
@@ -10495,15 +11087,15 @@ body_str = <<-BODY
  Yes, Socrates; and you are quite right in saying so.
 BODY
 
-msg524 = Mcon66.messages.create({
+msg524 = Mcon60.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.hours.ago
+    created_at: 9.hours.ago
     })
 
     msg524.send_msg
-    msg524.update({updated_at: 11.hours.ago})
+    msg524.update({updated_at: 9.hours.ago})
 
 
 
@@ -10513,50 +11105,62 @@ body_str = <<-BODY
 the way perfects action quite as well as knowledge?
 BODY
 
-msg525 = Scon66.messages.create({
+msg525 = Scon60.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.hours.ago
+    created_at: 9.hours.ago
     })
 
     msg525.send_msg
-    msg525.update({updated_at: 11.hours.ago})
+    msg525.update({updated_at: 9.hours.ago})
 
 
 
-
-      
- Scon66.update(message_timestamp: 11.hours.ago) 
- Mcon66.update(message_timestamp: 11.hours.ago) 
-
- Bcon66.update(message_timestamp: 11.hours.ago) 
- Acon66.update(message_timestamp: 11.hours.ago) 
-
-
-      MetCon67 = MetaConversation.create();
-
-      Scon67 = soc.conversations.create(title: "There again, Socrates, I think you", meta_conversation: MetCon67)
-      Mcon67 = meno.conversations.create(title: "There again, Socrates, I think you", meta_conversation: MetCon67)
-      Bcon67 = boy.conversations.create(title: "There again, Socrates, I think you", meta_conversation: MetCon67)
-      Acon67 = anytus.conversations.create(title: "There again, Socrates, I think you", meta_conversation: MetCon67 )
 
 body_str = <<-BODY 
  There again, Socrates, I think you are right.
 BODY
 
-msg526 = Mcon67.messages.create({
+msg526 = Mcon60.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.hours.ago
+    created_at: 9.hours.ago
     })
 
     msg526.send_msg
-    msg526.update({updated_at: 11.hours.ago})
+    msg526.update({updated_at: 9.hours.ago})
 
 
 
+
+      
+        Scon60.update({
+                             message_timestamp: 9.hours.ago,
+                             read: false
+                           }) 
+        Mcon60.update({
+                             message_timestamp: 9.hours.ago,
+                             read: false
+                           }) 
+        Bcon60.update({
+                             message_timestamp: 9.hours.ago,
+                             read: false
+                           }) 
+        Acon60.update({
+                             message_timestamp: 9.hours.ago,
+                             read: false
+                           }) 
+
+
+
+      MetCon61 = MetaConversation.create();
+
+      Scon61 = soc.conversations.create(title: "Then right opinion is not a", meta_conversation: MetCon61)
+      Mcon61 = meno.conversations.create(title: "Then right opinion is not a", meta_conversation: MetCon61)
+      Bcon61 = boy.conversations.create(title: "Then right opinion is not a", meta_conversation: MetCon61)
+      Acon61 = anytus.conversations.create(title: "Then right opinion is not a", meta_conversation: MetCon61 )
 
 body_str = <<-BODY 
  Then right opinion is not a whit inferior to knowledge, or
@@ -10564,15 +11168,15 @@ less useful in action; nor is the man who has right opinion inferior to
 him who has knowledge?
 BODY
 
-msg527 = Scon67.messages.create({
+msg527 = Scon61.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.hours.ago
+    created_at: 9.hours.ago
     })
 
     msg527.send_msg
-    msg527.update({updated_at: 11.hours.ago})
+    msg527.update({updated_at: 9.hours.ago})
 
 
 
@@ -10581,15 +11185,15 @@ body_str = <<-BODY
  True.
 BODY
 
-msg528 = Mcon67.messages.create({
+msg528 = Mcon61.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.hours.ago
+    created_at: 9.hours.ago
     })
 
     msg528.send_msg
-    msg528.update({updated_at: 11.hours.ago})
+    msg528.update({updated_at: 9.hours.ago})
 
 
 
@@ -10599,32 +11203,59 @@ body_str = <<-BODY
 useful?
 BODY
 
-msg529 = Scon67.messages.create({
+msg529 = Scon61.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.hours.ago
+    created_at: 9.hours.ago
     })
 
     msg529.send_msg
-    msg529.update({updated_at: 11.hours.ago})
+    msg529.update({updated_at: 9.hours.ago})
 
 
 
+
+      
+        Scon61.update({
+                             message_timestamp: 9.hours.ago,
+                             read: false
+                           }) 
+        Mcon61.update({
+                             message_timestamp: 9.hours.ago,
+                             read: false
+                           }) 
+        Bcon61.update({
+                             message_timestamp: 9.hours.ago,
+                             read: false
+                           }) 
+        Acon61.update({
+                             message_timestamp: 9.hours.ago,
+                             read: false
+                           }) 
+
+
+
+      MetCon62 = MetaConversation.create();
+
+      Scon62 = soc.conversations.create(title: "Yes.", meta_conversation: MetCon62)
+      Mcon62 = meno.conversations.create(title: "Yes.", meta_conversation: MetCon62)
+      Bcon62 = boy.conversations.create(title: "Yes.", meta_conversation: MetCon62)
+      Acon62 = anytus.conversations.create(title: "Yes.", meta_conversation: MetCon62 )
 
 body_str = <<-BODY 
  Yes.
 BODY
 
-msg530 = Mcon67.messages.create({
+msg530 = Mcon62.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.hours.ago
+    created_at: 9.hours.ago
     })
 
     msg530.send_msg
-    msg530.update({updated_at: 11.hours.ago})
+    msg530.update({updated_at: 9.hours.ago})
 
 
 
@@ -10637,15 +11268,15 @@ or acquired by him--(do you imagine either of them to be given by
 nature?
 BODY
 
-msg531 = Scon67.messages.create({
+msg531 = Scon62.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.hours.ago
+    created_at: 9.hours.ago
     })
 
     msg531.send_msg
-    msg531.update({updated_at: 10.hours.ago})
+    msg531.update({updated_at: 9.hours.ago})
 
 
 
@@ -10654,15 +11285,15 @@ body_str = <<-BODY
  Not I.)
 BODY
 
-msg532 = Mcon67.messages.create({
+msg532 = Mcon62.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.hours.ago
+    created_at: 9.hours.ago
     })
 
     msg532.send_msg
-    msg532.update({updated_at: 10.hours.ago})
+    msg532.update({updated_at: 9.hours.ago})
 
 
 
@@ -10672,47 +11303,32 @@ body_str = <<-BODY
 nature good?
 BODY
 
-msg533 = Scon67.messages.create({
+msg533 = Scon62.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.hours.ago
+    created_at: 9.hours.ago
     })
 
     msg533.send_msg
-    msg533.update({updated_at: 10.hours.ago})
+    msg533.update({updated_at: 9.hours.ago})
 
 
 
-
-      
- Scon67.update(message_timestamp: 10.hours.ago) 
- Mcon67.update(message_timestamp: 10.hours.ago) 
-
- Bcon67.update(message_timestamp: 10.hours.ago) 
- Acon67.update(message_timestamp: 10.hours.ago) 
-
-
-      MetCon68 = MetaConversation.create();
-
-      Scon68 = soc.conversations.create(title: "Certainly not.", meta_conversation: MetCon68)
-      Mcon68 = meno.conversations.create(title: "Certainly not.", meta_conversation: MetCon68)
-      Bcon68 = boy.conversations.create(title: "Certainly not.", meta_conversation: MetCon68)
-      Acon68 = anytus.conversations.create(title: "Certainly not.", meta_conversation: MetCon68 )
 
 body_str = <<-BODY 
  Certainly not.
 BODY
 
-msg534 = Mcon68.messages.create({
+msg534 = Mcon62.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.hours.ago
+    created_at: 9.hours.ago
     })
 
     msg534.send_msg
-    msg534.update({updated_at: 10.hours.ago})
+    msg534.update({updated_at: 9.hours.ago})
 
 
 
@@ -10722,32 +11338,59 @@ body_str = <<-BODY
 virtue is acquired by teaching?
 BODY
 
-msg535 = Scon68.messages.create({
+msg535 = Scon62.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.hours.ago
+    created_at: 9.hours.ago
     })
 
     msg535.send_msg
-    msg535.update({updated_at: 10.hours.ago})
+    msg535.update({updated_at: 9.hours.ago})
 
 
 
+
+      
+        Scon62.update({
+                             message_timestamp: 9.hours.ago,
+                             read: false
+                           }) 
+        Mcon62.update({
+                             message_timestamp: 9.hours.ago,
+                             read: false
+                           }) 
+        Bcon62.update({
+                             message_timestamp: 9.hours.ago,
+                             read: false
+                           }) 
+        Acon62.update({
+                             message_timestamp: 9.hours.ago,
+                             read: false
+                           }) 
+
+
+
+      MetCon63 = MetaConversation.create();
+
+      Scon63 = soc.conversations.create(title: "Yes.", meta_conversation: MetCon63)
+      Mcon63 = meno.conversations.create(title: "Yes.", meta_conversation: MetCon63)
+      Bcon63 = boy.conversations.create(title: "Yes.", meta_conversation: MetCon63)
+      Acon63 = anytus.conversations.create(title: "Yes.", meta_conversation: MetCon63 )
 
 body_str = <<-BODY 
  Yes.
 BODY
 
-msg536 = Mcon68.messages.create({
+msg536 = Mcon63.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.hours.ago
+    created_at: 9.hours.ago
     })
 
     msg536.send_msg
-    msg536.update({updated_at: 10.hours.ago})
+    msg536.update({updated_at: 9.hours.ago})
 
 
 
@@ -10757,32 +11400,59 @@ body_str = <<-BODY
 was taught?
 BODY
 
-msg537 = Scon68.messages.create({
+msg537 = Scon63.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.hours.ago
+    created_at: 8.hours.ago
     })
 
     msg537.send_msg
-    msg537.update({updated_at: 10.hours.ago})
+    msg537.update({updated_at: 8.hours.ago})
 
 
 
+
+      
+        Scon63.update({
+                             message_timestamp: 8.hours.ago,
+                             read: false
+                           }) 
+        Mcon63.update({
+                             message_timestamp: 8.hours.ago,
+                             read: false
+                           }) 
+        Bcon63.update({
+                             message_timestamp: 8.hours.ago,
+                             read: false
+                           }) 
+        Acon63.update({
+                             message_timestamp: 8.hours.ago,
+                             read: false
+                           }) 
+
+
+
+      MetCon64 = MetaConversation.create();
+
+      Scon64 = soc.conversations.create(title: "Yes.", meta_conversation: MetCon64)
+      Mcon64 = meno.conversations.create(title: "Yes.", meta_conversation: MetCon64)
+      Bcon64 = boy.conversations.create(title: "Yes.", meta_conversation: MetCon64)
+      Acon64 = anytus.conversations.create(title: "Yes.", meta_conversation: MetCon64 )
 
 body_str = <<-BODY 
  Yes.
 BODY
 
-msg538 = Mcon68.messages.create({
+msg538 = Mcon64.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.hours.ago
+    created_at: 8.hours.ago
     })
 
     msg538.send_msg
-    msg538.update({updated_at: 10.hours.ago})
+    msg538.update({updated_at: 8.hours.ago})
 
 
 
@@ -10791,15 +11461,15 @@ body_str = <<-BODY
  And if it was taught it was wisdom?
 BODY
 
-msg539 = Scon68.messages.create({
+msg539 = Scon64.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.hours.ago
+    created_at: 8.hours.ago
     })
 
     msg539.send_msg
-    msg539.update({updated_at: 10.hours.ago})
+    msg539.update({updated_at: 8.hours.ago})
 
 
 
@@ -10808,15 +11478,15 @@ body_str = <<-BODY
  Certainly.
 BODY
 
-msg540 = Mcon68.messages.create({
+msg540 = Mcon64.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.hours.ago
+    created_at: 8.hours.ago
     })
 
     msg540.send_msg
-    msg540.update({updated_at: 10.hours.ago})
+    msg540.update({updated_at: 8.hours.ago})
 
 
 
@@ -10826,15 +11496,15 @@ body_str = <<-BODY
 were no teachers, not?
 BODY
 
-msg541 = Scon68.messages.create({
+msg541 = Scon64.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.hours.ago
+    created_at: 8.hours.ago
     })
 
     msg541.send_msg
-    msg541.update({updated_at: 10.hours.ago})
+    msg541.update({updated_at: 8.hours.ago})
 
 
 
@@ -10843,15 +11513,15 @@ body_str = <<-BODY
  True.
 BODY
 
-msg542 = Mcon68.messages.create({
+msg542 = Mcon64.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.hours.ago
+    created_at: 8.hours.ago
     })
 
     msg542.send_msg
-    msg542.update({updated_at: 9.hours.ago})
+    msg542.update({updated_at: 8.hours.ago})
 
 
 
@@ -10861,15 +11531,15 @@ body_str = <<-BODY
 virtue?
 BODY
 
-msg543 = Scon68.messages.create({
+msg543 = Scon64.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.hours.ago
+    created_at: 8.hours.ago
     })
 
     msg543.send_msg
-    msg543.update({updated_at: 9.hours.ago})
+    msg543.update({updated_at: 8.hours.ago})
 
 
 
@@ -10878,15 +11548,15 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg544 = Mcon68.messages.create({
+msg544 = Mcon64.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.hours.ago
+    created_at: 8.hours.ago
     })
 
     msg544.send_msg
-    msg544.update({updated_at: 9.hours.ago})
+    msg544.update({updated_at: 8.hours.ago})
 
 
 
@@ -10896,15 +11566,15 @@ body_str = <<-BODY
 wisdom?
 BODY
 
-msg545 = Scon68.messages.create({
+msg545 = Scon64.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.hours.ago
+    created_at: 8.hours.ago
     })
 
     msg545.send_msg
-    msg545.update({updated_at: 9.hours.ago})
+    msg545.update({updated_at: 8.hours.ago})
 
 
 
@@ -10913,32 +11583,59 @@ body_str = <<-BODY
  Certainly.
 BODY
 
-msg546 = Mcon68.messages.create({
+msg546 = Mcon64.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.hours.ago
+    created_at: 8.hours.ago
     })
 
     msg546.send_msg
-    msg546.update({updated_at: 9.hours.ago})
+    msg546.update({updated_at: 8.hours.ago})
 
 
 
+
+      
+        Scon64.update({
+                             message_timestamp: 8.hours.ago,
+                             read: false
+                           }) 
+        Mcon64.update({
+                             message_timestamp: 8.hours.ago,
+                             read: false
+                           }) 
+        Bcon64.update({
+                             message_timestamp: 8.hours.ago,
+                             read: false
+                           }) 
+        Acon64.update({
+                             message_timestamp: 8.hours.ago,
+                             read: false
+                           }) 
+
+
+
+      MetCon65 = MetaConversation.create();
+
+      Scon65 = soc.conversations.create(title: "And yet we admitted that it", meta_conversation: MetCon65)
+      Mcon65 = meno.conversations.create(title: "And yet we admitted that it", meta_conversation: MetCon65)
+      Bcon65 = boy.conversations.create(title: "And yet we admitted that it", meta_conversation: MetCon65)
+      Acon65 = anytus.conversations.create(title: "And yet we admitted that it", meta_conversation: MetCon65 )
 
 body_str = <<-BODY 
  And yet we admitted that it was a good?
 BODY
 
-msg547 = Scon68.messages.create({
+msg547 = Scon65.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.hours.ago
+    created_at: 8.hours.ago
     })
 
     msg547.send_msg
-    msg547.update({updated_at: 9.hours.ago})
+    msg547.update({updated_at: 8.hours.ago})
 
 
 
@@ -10947,15 +11644,15 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg548 = Mcon68.messages.create({
+msg548 = Mcon65.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.hours.ago
+    created_at: 8.hours.ago
     })
 
     msg548.send_msg
-    msg548.update({updated_at: 9.hours.ago})
+    msg548.update({updated_at: 8.hours.ago})
 
 
 
@@ -10964,15 +11661,15 @@ body_str = <<-BODY
  And the right guide is useful and good?
 BODY
 
-msg549 = Scon68.messages.create({
+msg549 = Scon65.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.hours.ago
+    created_at: 8.hours.ago
     })
 
     msg549.send_msg
-    msg549.update({updated_at: 9.hours.ago})
+    msg549.update({updated_at: 8.hours.ago})
 
 
 
@@ -10981,15 +11678,15 @@ body_str = <<-BODY
  Certainly.
 BODY
 
-msg550 = Mcon68.messages.create({
+msg550 = Mcon65.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.hours.ago
+    created_at: 7.hours.ago
     })
 
     msg550.send_msg
-    msg550.update({updated_at: 9.hours.ago})
+    msg550.update({updated_at: 7.hours.ago})
 
 
 
@@ -11001,15 +11698,15 @@ are not under the guidance of man: but the guides of man are true
 opinion and knowledge.
 BODY
 
-msg551 = Scon68.messages.create({
+msg551 = Scon65.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.hours.ago
+    created_at: 7.hours.ago
     })
 
     msg551.send_msg
-    msg551.update({updated_at: 9.hours.ago})
+    msg551.update({updated_at: 7.hours.ago})
 
 
 
@@ -11018,15 +11715,15 @@ body_str = <<-BODY
  I think so too.
 BODY
 
-msg552 = Mcon68.messages.create({
+msg552 = Mcon65.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.hours.ago
+    created_at: 7.hours.ago
     })
 
     msg552.send_msg
-    msg552.update({updated_at: 9.hours.ago})
+    msg552.update({updated_at: 7.hours.ago})
 
 
 
@@ -11035,47 +11732,32 @@ body_str = <<-BODY
  But if virtue is not taught, neither is virtue knowledge.
 BODY
 
-msg553 = Scon68.messages.create({
+msg553 = Scon65.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.hours.ago
+    created_at: 7.hours.ago
     })
 
     msg553.send_msg
-    msg553.update({updated_at: 9.hours.ago})
+    msg553.update({updated_at: 7.hours.ago})
 
 
 
-
-      
- Scon68.update(message_timestamp: 9.hours.ago) 
- Mcon68.update(message_timestamp: 9.hours.ago) 
-
- Bcon68.update(message_timestamp: 9.hours.ago) 
- Acon68.update(message_timestamp: 9.hours.ago) 
-
-
-      MetCon69 = MetaConversation.create();
-
-      Scon69 = soc.conversations.create(title: "Clearly not.", meta_conversation: MetCon69)
-      Mcon69 = meno.conversations.create(title: "Clearly not.", meta_conversation: MetCon69)
-      Bcon69 = boy.conversations.create(title: "Clearly not.", meta_conversation: MetCon69)
-      Acon69 = anytus.conversations.create(title: "Clearly not.", meta_conversation: MetCon69 )
 
 body_str = <<-BODY 
  Clearly not.
 BODY
 
-msg554 = Mcon69.messages.create({
+msg554 = Mcon65.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.hours.ago
+    created_at: 7.hours.ago
     })
 
     msg554.send_msg
-    msg554.update({updated_at: 8.hours.ago})
+    msg554.update({updated_at: 7.hours.ago})
 
 
 
@@ -11086,15 +11768,15 @@ has been set aside, and cannot be supposed to be our guide in political
 life.
 BODY
 
-msg555 = Scon69.messages.create({
+msg555 = Scon65.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.hours.ago
+    created_at: 7.hours.ago
     })
 
     msg555.send_msg
-    msg555.update({updated_at: 8.hours.ago})
+    msg555.update({updated_at: 7.hours.ago})
 
 
 
@@ -11103,15 +11785,15 @@ body_str = <<-BODY
  I think not.
 BODY
 
-msg556 = Mcon69.messages.create({
+msg556 = Mcon65.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.hours.ago
+    created_at: 7.hours.ago
     })
 
     msg556.send_msg
-    msg556.update({updated_at: 8.hours.ago})
+    msg556.update({updated_at: 7.hours.ago})
 
 
 
@@ -11123,15 +11805,15 @@ states. This was the reason why they were unable to make others like
 themselves--because their virtue was not grounded on knowledge.
 BODY
 
-msg557 = Scon69.messages.create({
+msg557 = Scon65.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.hours.ago
+    created_at: 7.hours.ago
     })
 
     msg557.send_msg
-    msg557.update({updated_at: 8.hours.ago})
+    msg557.update({updated_at: 7.hours.ago})
 
 
 
@@ -11140,33 +11822,18 @@ body_str = <<-BODY
  That is probably true, Socrates.
 BODY
 
-msg558 = Mcon69.messages.create({
+msg558 = Mcon65.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.hours.ago
+    created_at: 7.hours.ago
     })
 
     msg558.send_msg
-    msg558.update({updated_at: 8.hours.ago})
+    msg558.update({updated_at: 7.hours.ago})
 
 
 
-
-      
- Scon69.update(message_timestamp: 8.hours.ago) 
- Mcon69.update(message_timestamp: 8.hours.ago) 
-
- Bcon69.update(message_timestamp: 8.hours.ago) 
- Acon69.update(message_timestamp: 8.hours.ago) 
-
-
-      MetCon70 = MetaConversation.create();
-
-      Scon70 = soc.conversations.create(title: "But if not by knowledge, the", meta_conversation: MetCon70)
-      Mcon70 = meno.conversations.create(title: "But if not by knowledge, the", meta_conversation: MetCon70)
-      Bcon70 = boy.conversations.create(title: "But if not by knowledge, the", meta_conversation: MetCon70)
-      Acon70 = anytus.conversations.create(title: "But if not by knowledge, the", meta_conversation: MetCon70 )
 
 body_str = <<-BODY 
  But if not by knowledge, the only alternative which remains
@@ -11175,15 +11842,15 @@ politics what divination is in religion; for diviners and also prophets
 say many things truly, but they know not what they say.
 BODY
 
-msg559 = Scon70.messages.create({
+msg559 = Scon65.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.hours.ago
+    created_at: 7.hours.ago
     })
 
     msg559.send_msg
-    msg559.update({updated_at: 8.hours.ago})
+    msg559.update({updated_at: 7.hours.ago})
 
 
 
@@ -11192,15 +11859,15 @@ body_str = <<-BODY
  So I believe.
 BODY
 
-msg560 = Mcon70.messages.create({
+msg560 = Mcon65.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.hours.ago
+    created_at: 7.hours.ago
     })
 
     msg560.send_msg
-    msg560.update({updated_at: 8.hours.ago})
+    msg560.update({updated_at: 7.hours.ago})
 
 
 
@@ -11210,47 +11877,32 @@ body_str = <<-BODY
 having no understanding, yet succeed in many a grand deed and word?
 BODY
 
-msg561 = Scon70.messages.create({
+msg561 = Scon65.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.hours.ago
+    created_at: 7.hours.ago
     })
 
     msg561.send_msg
-    msg561.update({updated_at: 8.hours.ago})
+    msg561.update({updated_at: 7.hours.ago})
 
 
 
-
-      
- Scon70.update(message_timestamp: 8.hours.ago) 
- Mcon70.update(message_timestamp: 8.hours.ago) 
-
- Bcon70.update(message_timestamp: 8.hours.ago) 
- Acon70.update(message_timestamp: 8.hours.ago) 
-
-
-      MetCon71 = MetaConversation.create();
-
-      Scon71 = soc.conversations.create(title: "Certainly.", meta_conversation: MetCon71)
-      Mcon71 = meno.conversations.create(title: "Certainly.", meta_conversation: MetCon71)
-      Bcon71 = boy.conversations.create(title: "Certainly.", meta_conversation: MetCon71)
-      Acon71 = anytus.conversations.create(title: "Certainly.", meta_conversation: MetCon71 )
 
 body_str = <<-BODY 
  Certainly.
 BODY
 
-msg562 = Mcon71.messages.create({
+msg562 = Mcon65.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.hours.ago
+    created_at: 7.hours.ago
     })
 
     msg562.send_msg
-    msg562.update({updated_at: 8.hours.ago})
+    msg562.update({updated_at: 7.hours.ago})
 
 
 
@@ -11263,15 +11915,15 @@ and illumined, being inspired and possessed of God, in which condition
 they say many grand things, not knowing what they say.
 BODY
 
-msg563 = Scon71.messages.create({
+msg563 = Scon65.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.hours.ago
+    created_at: 6.hours.ago
     })
 
     msg563.send_msg
-    msg563.update({updated_at: 8.hours.ago})
+    msg563.update({updated_at: 6.hours.ago})
 
 
 
@@ -11280,15 +11932,15 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg564 = Mcon71.messages.create({
+msg564 = Mcon65.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.hours.ago
+    created_at: 6.hours.ago
     })
 
     msg564.send_msg
-    msg564.update({updated_at: 8.hours.ago})
+    msg564.update({updated_at: 6.hours.ago})
 
 
 
@@ -11299,48 +11951,60 @@ and the Spartans, when they praise a good man, say 'that he is a divine
 man.'
 BODY
 
-msg565 = Scon71.messages.create({
+msg565 = Scon65.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.hours.ago
+    created_at: 6.hours.ago
     })
 
     msg565.send_msg
-    msg565.update({updated_at: 7.hours.ago})
+    msg565.update({updated_at: 6.hours.ago})
 
 
 
 
       
- Scon71.update(message_timestamp: 7.hours.ago) 
- Mcon71.update(message_timestamp: 7.hours.ago) 
+        Scon65.update({
+                             message_timestamp: 6.hours.ago,
+                             read: false
+                           }) 
+        Mcon65.update({
+                             message_timestamp: 6.hours.ago,
+                             read: false
+                           }) 
+        Bcon65.update({
+                             message_timestamp: 6.hours.ago,
+                             read: false
+                           }) 
+        Acon65.update({
+                             message_timestamp: 6.hours.ago,
+                             read: false
+                           }) 
 
- Bcon71.update(message_timestamp: 7.hours.ago) 
- Acon71.update(message_timestamp: 7.hours.ago) 
 
 
-      MetCon72 = MetaConversation.create();
+      MetCon66 = MetaConversation.create();
 
-      Scon72 = soc.conversations.create(title: "And I think, Socrates, that they", meta_conversation: MetCon72)
-      Mcon72 = meno.conversations.create(title: "And I think, Socrates, that they", meta_conversation: MetCon72)
-      Bcon72 = boy.conversations.create(title: "And I think, Socrates, that they", meta_conversation: MetCon72)
-      Acon72 = anytus.conversations.create(title: "And I think, Socrates, that they", meta_conversation: MetCon72 )
+      Scon66 = soc.conversations.create(title: "And I think, Socrates, that they", meta_conversation: MetCon66)
+      Mcon66 = meno.conversations.create(title: "And I think, Socrates, that they", meta_conversation: MetCon66)
+      Bcon66 = boy.conversations.create(title: "And I think, Socrates, that they", meta_conversation: MetCon66)
+      Acon66 = anytus.conversations.create(title: "And I think, Socrates, that they", meta_conversation: MetCon66 )
 
 body_str = <<-BODY 
  And I think, Socrates, that they are right; although very likely
 our friend Anytus may take offence at the word.
 BODY
 
-msg566 = Mcon72.messages.create({
+msg566 = Mcon66.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.hours.ago
+    created_at: 6.hours.ago
     })
 
     msg566.send_msg
-    msg566.update({updated_at: 7.hours.ago})
+    msg566.update({updated_at: 6.hours.ago})
 
 
 
@@ -11358,15 +12022,15 @@ understanding; but the rest are flitting shades'; and he and his virtue
 in like manner will be a reality among shadows.
 BODY
 
-msg567 = Scon72.messages.create({
+msg567 = Scon66.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.hours.ago
+    created_at: 6.hours.ago
     })
 
     msg567.send_msg
-    msg567.update({updated_at: 7.hours.ago})
+    msg567.update({updated_at: 6.hours.ago})
 
 
 
@@ -11375,18 +12039,45 @@ body_str = <<-BODY
  That is excellent, Socrates.
 BODY
 
-msg568 = Mcon72.messages.create({
+msg568 = Mcon66.messages.create({
     source_address: "meno#{EMAIL_SIGNATURE}",
     target_address: "daimonic#{EMAIL_SIGNATURE}, anytus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.hours.ago
+    created_at: 6.hours.ago
     })
 
     msg568.send_msg
-    msg568.update({updated_at: 7.hours.ago})
+    msg568.update({updated_at: 6.hours.ago})
 
 
 
+
+      
+        Scon66.update({
+                             message_timestamp: 6.hours.ago,
+                             read: false
+                           }) 
+        Mcon66.update({
+                             message_timestamp: 6.hours.ago,
+                             read: false
+                           }) 
+        Bcon66.update({
+                             message_timestamp: 6.hours.ago,
+                             read: false
+                           }) 
+        Acon66.update({
+                             message_timestamp: 6.hours.ago,
+                             read: false
+                           }) 
+
+
+
+      MetCon67 = MetaConversation.create();
+
+      Scon67 = soc.conversations.create(title: "Then, Meno, the conclusion is that", meta_conversation: MetCon67)
+      Mcon67 = meno.conversations.create(title: "Then, Meno, the conclusion is that", meta_conversation: MetCon67)
+      Bcon67 = boy.conversations.create(title: "Then, Meno, the conclusion is that", meta_conversation: MetCon67)
+      Acon67 = anytus.conversations.create(title: "Then, Meno, the conclusion is that", meta_conversation: MetCon67 )
 
 body_str = <<-BODY 
  Then, Meno, the conclusion is that virtue comes to the
@@ -11399,14 +12090,14 @@ service to the Athenian people.
 
 BODY
 
-msg569 = Scon72.messages.create({
+msg569 = Scon67.messages.create({
     source_address: "daimonic#{EMAIL_SIGNATURE}",
     target_address: "anytus#{EMAIL_SIGNATURE}, meno#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.hours.ago
+    created_at: 6.hours.ago
     })
 
     msg569.send_msg
-    msg569.update({updated_at: 7.hours.ago})
+    msg569.update({updated_at: 6.hours.ago})
 
 

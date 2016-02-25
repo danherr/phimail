@@ -73,6 +73,7 @@ div.message-detail-header {
 .message-detail p.message-body.expanded {
   display: block;
   padding: 12px 0 12px 8px;
+  white-space: pre-wrap;
 }
 
 .message-source {
