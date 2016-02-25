@@ -85,6 +85,13 @@ var apiUtil = {
         });
     },
 
+    refreshAdmin: function () {
+        $.ajax({
+            type: "PATCH",
+            url: '/api/conversations/refresh_admin',
+            dataType: 'json',
+        })
+    },
 };
 
 module.exports = apiUtil;

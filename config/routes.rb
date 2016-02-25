@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       collection do
         patch 'batch_update'
         delete 'batch_delete'
+        patch 'refresh_admin'
       end
 
       resources :messages, only: [:create, :update, :destroy] do

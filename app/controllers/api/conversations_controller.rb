@@ -97,4 +97,16 @@ class Api::ConversationsController < ApplicationController
     index
   end
 
+  def refresh_admin
+    user = current_user
+    conversation_ids = user.conversations.joins(:messages).where("messages.source_address = ? ", "admin#{EMAIL_SIGNATURE}").select("conversations.id").map {|con| con.id}
+
+    conversation_updates = conversation_ids.map {|id| {read: false}}
+    
+    user.conversations.update(conversation_ids, conversation_updates);
+
+    render nothing: true
+  end
+
+    
 end

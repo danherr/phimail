@@ -46,11 +46,11 @@ considerate.
 The app does not yet send or recieve emails from the outside world, only between accounts on φmail 
 itself. If you'd like to see this behaviour, feel free to sign in as one of the other three accounts
 already on the system. These have usernames: 'meno', 'anytus' and 'boy'. All three use the 
-password: 'aB345678'.  Alternately: feel free to create an account - though it will be destroyed at the
+password: '12345678'.  Alternately: feel free to create an account - though it will be destroyed at the
 next reseed.
 
 Finally: if you log out and then log back in - this message will be marked as unread. This is not a bug
-but a feature, since this message is meant to attract the attention of every visitor.
+but a feature, since this message is meant to attract the attention of every new visitor.
 
 BODY
                       })

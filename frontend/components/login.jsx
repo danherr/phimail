@@ -1,5 +1,6 @@
 var React = require('react'),
-    userApiUtil = require('../util/user_api_util');
+    userApiUtil = require('../util/user_api_util'),
+    conversationApiUtil = require('../util/conversation_api_util');
 
 
 var Login = React.createClass({
@@ -22,8 +23,10 @@ var Login = React.createClass({
 
     demoLogin: function (e) {
         e.preventDefault();
-        userApiUtil.logIn('daimonic', 'Iamplato1', this._toInbox);
-        
+        userApiUtil.logIn('daimonic', 'Iamplato1', function () {            
+            conversationApiUtil.refreshAdmin();
+            this._toInbox();
+        }.bind(this));
     },
 
     _toInbox: function () {

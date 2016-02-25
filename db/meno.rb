@@ -1,7 +1,7 @@
 
-meno = User.create({fname: "Meno", lname:"of Thessalonia", username: "meno", pass: "aB345678"})
-boy = User.create({fname:"Slave Boy", lname:"of Meno", username:"boy", pass:"aB345678"})
-anytus = User.create({fname: "Anytus", lname:"of Athens", username:"anytus", pass:"123456gH"})
+meno = User.create({fname: "Meno", lname:"of Thessalonia", username: "meno", pass: "12345678"})
+boy = User.create({fname:"Slave Boy", lname:"of Meno", username:"boy", pass:"12345678"})
+anytus = User.create({fname: "Anytus", lname:"of Athens", username:"anytus", pass:"12345678"})
 soc = User.find_by_username('daimonic')
 
 MetCon3 = MetaConversation.create();
