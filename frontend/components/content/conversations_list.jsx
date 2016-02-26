@@ -39,7 +39,7 @@ var ConversationsList = React.createClass({
 
         this.reload(this.props);
 
-        /*         this.reloadInterval = window.setInterval(this.reload, 8000); */
+        this.reloadInterval = window.setInterval(this.reload, 6000);
 
     },
 
