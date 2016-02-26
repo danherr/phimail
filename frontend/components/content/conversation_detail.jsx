@@ -277,28 +277,34 @@ var ConversationDetail = React.createClass({
                     parentContext={this.props.route.context}
                 />
 
-                <section className="contacts-pane">
-                </section>
+                <section className="below-action-bar clearfix">
 
-                <section className="conversation-pane">
+                    <section className="contacts-pane">
+                    </section>
 
-                    <div className="conversation-detail-header">
-                        <h4 className="conversation-title">
-                            {this.state.conversation.title}
-                        </h4>
-                        <div className="conversation-detail-buttons">
-                            {expandAllButton}
+                    <section className="conversation-pane">
+
+                        <div className="conversation-detail-header">
+                            <h4 className="conversation-title">
+                                {this.state.conversation.title}
+                            </h4>
+                            <div className="conversation-detail-buttons">
+                                {expandAllButton}
+                            </div>
                         </div>
-                    </div>
 
-                    <div className="messages-list">
-                        {messageList}
-                    </div>
+                        <div className="messages-list">
+                            {messageList}
+                        </div>
 
-                    {replyButton}
+                        {replyButton}
 
+                    </section>
+                    
                 </section>
+                
             </section>
+            
         );
     }
 

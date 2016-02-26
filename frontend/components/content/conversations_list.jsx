@@ -102,8 +102,11 @@ var ConversationsList = React.createClass({
                     parentContext={this.props.route.context}
                     query={this.props.location.query}
                 />
-                <section className="conversations-list">
-                    {theList}
+
+                <section className="below-action-bar clearfix">
+                    <section className="conversations-list">
+                        {theList}
+                    </section>
                 </section>
             </section>
         );
