@@ -4,7 +4,7 @@ require('byebug')
 string = IO.read("./meno.txt")
 
 array = string.split("\r\n\r\n")
-$increments = ['years', 'months', 'weeks','days', 'hours', 'minutes', 'seconds']
+$increments = ['years', 'months', 'days', 'hours', 'minutes', 'seconds']
 $time_idx = 0
 $time_num = 10.0
 $num = 3
@@ -42,7 +42,7 @@ array = array.map! do |message|
 
   if message
 
-    if Random.rand > 0.9
+    if Random.rand > 0.94
 
       read = $time_idx <= 3;
       min_message = <<-msg

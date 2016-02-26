@@ -8,8 +8,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-
-
 User.destroy_all
 
 soc = User.create({fname: "Socrates", lname:"of Athens", username: "daimonic", pass: "Iamplato1", avatar_url: ActionController::Base.helpers.asset_path("socrates.png")})
@@ -21,6 +19,9 @@ Message.destroy_all
 MetaConversation.destroy_all
 
 load './db/meno.rb'
+load './db/euthyphro.rb'
+load './db/phaedrus.rb'
+load './db/crito.rb'
 
 admin = User.create!({fname:"Admin", lname:"istrator", username: "admin", pass:"iamtheROOT"})
 
@@ -36,7 +37,7 @@ This is a clone of Gmail, built in Ruby and JavaScript, with a Rails backend and
 written with React.js and Flux.
 
 This demo account holds the inbox of the philosopher Socrates. I have filled it with a chain of emails
-constructed from the text of plato's dialogue: the Meno. For more details on the script that did this, 
+constructed from the text of plato's dialogues: the Meno, the Euthyphro, the Crito and the Phaedrus. For more details on the scripts that did this, 
 see the readme on this project's GitHub page. These emails are divided into a little
 over 60 conversations, rather than all being in one chain. This is so that you can play with the 
 list interface.  I will be reseeding the database periodically, but I would ask that you not delete too 
@@ -45,7 +46,7 @@ considerate.
 
 The app does not yet send or recieve emails from the outside world, only between accounts on φmail 
 itself. If you'd like to see this behaviour, feel free to sign in as one of the other three accounts
-already on the system. These have usernames: 'meno', 'anytus' and 'boy'. All three use the 
+already on the system. These have usernames: 'crito', 'phaedrus', 'euthyphro', 'meno', 'anytus' and 'boy'. All three use the 
 password: '12345678'.  Alternately: feel free to create an account - though it will be destroyed at the
 next reseed.
 

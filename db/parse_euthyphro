@@ -1,0 +1,125 @@
+#! /usr/bin/env ruby
+
+require('byebug')
+
+string = IO.read("./euthyphro.txt")
+
+array = string.split("\r\n\r\n")
+$increments = ['years', 'months','days', 'hours', 'minutes', 'seconds']
+$time_idx = 2
+$time_num = 10.0
+$num = 3
+$soc = "daimonic#{'#{EMAIL_SIGNATURE}'}"
+$euth = "euthyphro#{'#{EMAIL_SIGNATURE}'}"
+$euth_target = $soc
+$soc_target = $euth
+$mnum = 1;
+header = <<-HEADER
+
+euthyphro = User.create({fname: "Euthyphro", lname:"of Prospalta", username: "euthyphro", pass: "12345678"})
+soc = User.find_by_username('daimonic')
+
+MetCon#{$num} = MetaConversation.create();
+
+Scon#{$num} = soc.conversations.create(title: 'A Question', meta_conversation: MetCon#{$num})
+Econ#{$num} = euthyphro.conversations.create(title: 'A Question', meta_conversation: MetCon#{$num})
+
+HEADER
+
+array = array.map! do |message|
+
+  temp = message.split(':', 2)
+  name = temp[0]
+  message = temp[1]
+
+  if message
+
+    if Random.rand > 0.95
+
+      read = $time_idx <= 3;
+      min_message = <<-msg
+
+        Scon#{$num}.update({
+                             message_timestamp: #{$time_num.floor}.#{$increments[$time_idx]}.ago,
+                             read: #{read}
+                           }) 
+        Econ#{$num}.update({
+                             message_timestamp: #{$time_num.floor}.#{$increments[$time_idx]}.ago,
+                             read: #{read}
+                           }) 
+msg
+                              
+      title = message.split(' ').take(6).join(' ')
+      $num = $num + 1
+      
+      min_message = <<-cons
+      #{min_message}
+
+      MetCon#{$num} = MetaConversation.create();
+
+      Scon#{$num} = soc.conversations.create(title: \"#{title}\", meta_conversation: MetCon#{$num})
+      Econ#{$num} = euthyphro.conversations.create(title: \"#{title}\", meta_conversation: MetCon#{$num})
+      cons
+
+      message =  min_message + "body_str = <<-BODY \n" + message
+    else
+      message = "body_str = <<-BODY \n" + message
+    end
+
+
+    if $time_idx == 6
+      $time_num -= (Random.rand)/10 if $time_num > 10
+    else
+      $time_num -= (Random.rand)/6
+      if $time_num <= 1
+        $time_num = 12
+        $time_idx += 1
+      end
+    end
+
+
+    if name == "SOCRATES"
+      seed = "msg#{$mnum} = Scon#{$num}.messages.create({\n"
+      message.sub!('SOCRATES:', "body_str = <<-BODY \n")
+      $source = $soc
+      $target = $soc_target
+    elsif name == "EUTHYPHRO"
+      seed = "msg#{$mnum} = Econ#{$num}.messages.create({\n"
+      message.sub!('EUTHYPHRO:', "body_str = <<-BODY \n")
+      $source = $euth
+      $target = $euth_target
+    else
+      seed = ""
+      clearseed = true
+    end
+
+    seed += <<-seed
+    source_address: \"#{$source}\",
+    target_address: \"#{$target}\",
+    body: body_str,
+    created_at: #{$time_num.floor}.#{$increments[$time_idx]}.ago
+    })
+
+    msg#{$mnum}.send_msg
+    msg#{$mnum}.update({updated_at: #{$time_num.floor}.#{$increments[$time_idx]}.ago})
+
+
+    seed
+
+
+    $mnum += 1
+    seed = "" if clearseed
+
+    message = message.concat("\nBODY\n\n")
+    if seed
+      message = message.concat(seed)
+    else
+      message = min_message
+    end
+    message
+  end
+end
+
+string = array.join("\n\n")
+
+File.write("./euthyphro.rb", header + string)
