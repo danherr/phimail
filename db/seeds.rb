@@ -18,6 +18,8 @@ MessageConversationLink.destroy_all
 Message.destroy_all
 MetaConversation.destroy_all
 
+Session.destroy_all
+
 load './db/meno.rb'
 load './db/euthyphro.rb'
 load './db/phaedrus.rb'
