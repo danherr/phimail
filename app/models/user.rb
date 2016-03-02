@@ -16,12 +16,17 @@ class User < ActiveRecord::Base
     user if user.try(:is_pass?, pass)
   end
 
+  def self.find_by_session_token(token)
+    
+  end
+
   validates :fname, :lname, :username, :session_token, :pass_digest, presence: true
   validate :strong_pass
 
   has_many :conversations
   has_many :message_conversation_links, through: :conversations
   has_many :messages, through: :conversations
+  has_many :sessions
 
   after_initialize :ensure_session_token, :ensure_profile_pic
 
@@ -36,11 +41,12 @@ class User < ActiveRecord::Base
     BCrypt::Password.new(pass_digest).is_password?(pass)
   end
 
-  def reset_session_token!
+  def new_session!
     self.session_token = User.new_session_token
     self.save!
     self.session_token
   end
+
 
   def drafts
     self.conversations.joins(:messages).where('NOT messages.sent').group('conversations.id')
