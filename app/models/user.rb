@@ -1,23 +1,9 @@
 class User < ActiveRecord::Base
 
-  def self.new_session_token
-    token = SecureRandom.urlsafe_base64
-
-    while User.exists?(session_token: token)
-      token = SecureRandom.urlsafe_base64
-    end
-
-    token
-  end
-
   def self.find_by_credentials(username, pass)
     user = User.find_by_username(username)
 
     user if user.try(:is_pass?, pass)
-  end
-
-  def self.find_by_session_token(token)
-    
   end
 
   validates :fname, :lname, :username, :session_token, :pass_digest, presence: true
@@ -28,7 +14,7 @@ class User < ActiveRecord::Base
   has_many :messages, through: :conversations
   has_many :sessions
 
-  after_initialize :ensure_session_token, :ensure_profile_pic
+  after_initialize :ensure_profile_pic
 
   attr_reader :pass
 
@@ -40,13 +26,6 @@ class User < ActiveRecord::Base
   def is_pass?(pass)
     BCrypt::Password.new(pass_digest).is_password?(pass)
   end
-
-  def new_session!
-    self.session_token = User.new_session_token
-    self.save!
-    self.session_token
-  end
-
 
   def drafts
     self.conversations.joins(:messages).where('NOT messages.sent').group('conversations.id')
@@ -61,12 +40,6 @@ class User < ActiveRecord::Base
   end
 
   private
-
-  def ensure_session_token
-    unless self.session_token
-      self.session_token = User.new_session_token
-    end
-  end
 
   def strong_pass
     if self.pass
