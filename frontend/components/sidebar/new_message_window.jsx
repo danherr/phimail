@@ -86,13 +86,16 @@ var NewMessageWindow = React.createClass({
             this.props.close()
         }.bind(this);
 
-        var target_address = this.state.address_array;
-        target_address.push(this.state.address_input.trim());
-        target_address = target_address.join(", ");
-
         var state = this.state;
 
-        state.target_address = target_address;
+        if (state.address_input.trim()) {
+            if (state.target_address.trim()) {
+                state.target_address += ", " + state.address_input.trim();
+            } else {
+                state.target_address = state.address_input.trim();
+            }
+        }
+
             
         FlashActions.newMessage("Sending...");
         

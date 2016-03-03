@@ -70,10 +70,20 @@ var ReplyEditor = React.createClass({
                 300
             );
         };
+
+        var state = this.state;
+
+        if (state.address_input.trim()) {
+            if (state.target_address.trim()) {
+                state.target_address += ", " + state.address_input.trim();
+            } else {
+                state.target_address = state.address_input.trim();
+            }
+        }
         
         FlashActions.newMessage("Sending...");
         
-        messageApiUtil.updateReply(this.state, true, callback);
+        messageApiUtil.updateReply(state, true, callback);
     },
 
     delete: function (e) {
