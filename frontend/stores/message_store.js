@@ -29,8 +29,11 @@ MessageStore.addFullMessage = function (message) {
 MessageStore.__onDispatch = function (payload) {
 
   if (payload.actionType === MessageConstants.receiveAll) {
-    this.rewriteStore(payload.conversation);
-    this.__emitChange();
+      this.rewriteStore(payload.conversation);
+      if (payload.callback) {
+          payload.callback();
+      }
+      this.__emitChange();
   } else if (payload.actionType === MessageConstants.receiveOne) {
 
     this.addFullMessage(payload.message);

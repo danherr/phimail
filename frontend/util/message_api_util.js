@@ -77,7 +77,7 @@ var messageApiUtil = {
     });
   },
 
-  updateReply: function (draft, send) {
+    updateReply: function (draft, send, callback) {
     $.ajax ({
       type: 'PATCH',
       url: '/api/conversations/' + draft.conversation_id + '/messages/' + draft.id,
@@ -86,8 +86,8 @@ var messageApiUtil = {
         message: draft,
         send: send
       },
-      success: function (data) {
-        MessageActions.receiveConversation(data);
+        success: function (data) {
+          MessageActions.receiveConversation(data, callback);
       }
     });
   },
