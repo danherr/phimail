@@ -1,6 +1,7 @@
 var React = require('react'),
     userApiUtil = require('../../util/user_api_util'),
     UserStore = require('../../stores/user_store'),
+    FlashStore = require('../../stores/flash_store'),
     UserDetail = require('./user_detail.jsx');
 
 
@@ -9,7 +10,18 @@ var SearchBar = React.createClass({
         return {
             hideUserDetail: true,
             searchString: "",
+            flashMessage: "",
         };
+    },
+
+    componentDidMount: function () {
+        this.flashStoreListener = FlashStore.addListener( function () {
+            this.setState({flashMessage: FlashStore.message()})
+        }.bind(this))
+    },
+    
+    componentWillUnmount: function () {
+        this.flashStoreListener.remove();
     },
 
     toggleUserDetail: function (value, e) {
@@ -40,6 +52,10 @@ var SearchBar = React.createClass({
                 <div className="logo">
                     φ<p>ι</p><div>λ</div>ο<em>σ</em>ο<p>φ</p><div>ί</div>α
                 </div>
+
+                <figure className={"flash " + (this.state.flashMessage ? "" : "hideme")}>
+                    {this.state.flashMessage}
+                </figure>
 
                 <div className="search-bar">
                     <input

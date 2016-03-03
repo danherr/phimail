@@ -3,6 +3,7 @@ var React = require('react'),
     SelectionStore = require('../../stores/selection_store'),
     conversationApiUtil = require('../../util/conversation_api_util'),
     ConversationActions = require('../../actions/conversation_actions'),
+    FlashActions = require('../../actions/flash_actions'),
     ConversationListItem = require('./conversation_list_item'),
     ActionBar = require('./action_bar');
 
@@ -12,7 +13,7 @@ var ConversationsList = React.createClass({
         conversations = ConversationStore.all();
         return {
             conversations: conversations,
-            selectedIds: this.getSelectedIds(conversations) || []
+            selectedIds: this.getSelectedIds(conversations) || [],
         };
     },
 
@@ -37,7 +38,7 @@ var ConversationsList = React.createClass({
             this.setState({selectedIds: this.getSelectedIds(this.state.conversations)});
         }.bind(this));
 
-        this.reload(this.props);
+        this.reload(this.props, true);
 
         this.reloadInterval = window.setInterval(this.reload, 6000);
 
@@ -48,7 +49,7 @@ var ConversationsList = React.createClass({
             newProps.location.pathname !== this.props.location.pathname
          || newProps.location.query.search !== this.props.location.query.search
         ) {
-            this.reload(newProps);
+            this.reload(newProps, true);
         }
     },
 
@@ -58,13 +59,21 @@ var ConversationsList = React.createClass({
         window.clearInterval(this.reloadInterval);
     },
 
-    reload: function (theProps) {
+    reload: function (theProps, noisy) {
         var options = {};
+        var callback = function () {};
+        if (noisy) {
+            FlashActions.newMessage("Loading...");
+            callback = function () {
+                window.setTimeout(FlashActions.clearFlash, 300);
+            }
+        }
+        
         theProps = theProps || this.props;
         options.context = theProps.route.context;
         options.page = theProps.params.page_num;
         options.search = theProps.location.query.search
-        conversationApiUtil.fetchConversations(options);
+        conversationApiUtil.fetchConversations(options, callback);
     },
 
     turnPage: function (num) {

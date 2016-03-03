@@ -4,19 +4,19 @@ var React = require('react'),
 
 
 var App = React.createClass({
-  render: function () {
+    render: function () {
 
-    return (
-      <main className="app">
-        <SearchBar history={this.props.history} />
-        <section className="clearfix below-search-bar">
-          <SideBar history={this.props.history}/>
+        return (
+            <main className="app">
+                <SearchBar history={this.props.history} />
+                <section className="clearfix below-search-bar">
+                    <SideBar history={this.props.history}/>
 
-          {this.props.children}
-        </section>
-      </main>
-    );
-  }
+                    {this.props.children}
+                </section>
+            </main>
+        );
+    }
 });
 
 

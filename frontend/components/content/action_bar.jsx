@@ -126,7 +126,7 @@ var ActionBar = React.createClass({
                         <div className={"actionbar-dropdown-list "
                                       + (this.state.leftDropExpanded ? "" : " hideme")}
                         >
-                        
+                            
                             
                             <div
                                 className="action-dropdown-item"
@@ -289,7 +289,7 @@ var ActionBar = React.createClass({
                                 Unstar
                             </div>
                         </div>
-                    
+                        
                     </div>
                 </div>
             );

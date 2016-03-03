@@ -25,6 +25,19 @@
   color: rgb(251, 187, 0);
 }
 
+.flash {
+  position: absolute;
+  z-index: 10;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgb(248, 235, 192);
+  border: 1px solid rgb(234, 193, 117);
+  font-weight: 700;
+  padding: 10px;
+  color: #000;
+}
+
 .search-bar {
     padding: 15px 55px 15px 0 ;
     float: left;
