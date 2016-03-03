@@ -275,6 +275,7 @@ var ConversationDetail = React.createClass({
                     history={this.props.history}
                     goBack={this.goBack}
                     parentContext={this.props.route.context}
+                    query={this.state.query}
                 />
 
                 <section className="below-action-bar clearfix">

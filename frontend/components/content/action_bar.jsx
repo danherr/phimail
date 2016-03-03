@@ -3,6 +3,7 @@ var React = require('react'),
     SelectionStore = require('../../stores/selection_store'),
     conversationApiUtil = require('../../util/conversation_api_util'),
     ConversationActions = require('../../actions/conversation_actions'),
+    FlashActions = require('../../actions/flash_actions'),
     ConversationListItem = require('./conversation_list_item');
 
 var ActionBar = React.createClass({
@@ -15,9 +16,22 @@ var ActionBar = React.createClass({
     
     markAllRead: function (e) {
         var conversationIds = ConversationStore.allIds();
-
+        var num = conversationIds.length;
+        
         var page = ConversationStore.pageData().pageNumber;
         var context = this.props.parentContext;
+
+        if (num > 1) {
+            FlashActions.newMessage(
+                num +
+                " conversations have been marked as read."
+            )
+        } else {
+            FlashActions.newMessage(
+                "The conversation has been marked as read."
+            )
+        }
+        
 
         conversationApiUtil.updateConversations(
             {read: true},
@@ -25,38 +39,71 @@ var ActionBar = React.createClass({
             {page: page, context: context, search: this.props.query.search});
     },
 
-    markSelectedRead: function (markRead, e) {
-        var page = ConversationStore.pageData().pageNumber;
-        var context = this.props.parentContext;
-        conversationApiUtil.updateConversations(
-            {read: markRead},
-            this.props.referents,
-            {page: page, context: context, search: this.props.query.search});
-    },
-
     delete: function (e) {
         var page = ConversationStore.pageData().pageNumber;
         var context = this.props.parentContext;
 
+        var num = this.props.referents.length;
+        
         conversationApiUtil.deleteConversations(
             this.props.referents,
             {page: page, context: context, search: this.props.query.search});
+
+        if (this.props.context === "detail"){
+            this.props.goBack();
+        }
+        
+        if (num > 1) {
+            FlashActions.newMessage(
+                num +
+                " conversations have been destroyed forever."
+            )
+        } else {
+            FlashActions.newMessage(
+                "The conversation has been destroyed forever."
+            )
+        }
+
     },
 
     changeMark: function (markType, markVal, dropDownContract, e) {
         var page = ConversationStore.pageData().pageNumber;
         var context = this.props.parentContext;
         var ob = {};
+        var num = this.props.referents.length;
+
+        if (num > 1) {
+            FlashActions.newMessage(
+                num +
+                " conversations have been marked as " +
+                 (markVal ? markType : this.falsifyMarkType[markType]) +
+                "."
+            )
+        } else {
+            FlashActions.newMessage(
+                "The conversation has been marked as " +
+                  (markVal ? markType : this.falsifyMarkType[markType]) +
+                "."
+            )
+        }
+        
         ob[markType] = markVal;
 
         conversationApiUtil.updateConversations(
             ob,
             this.props.referents,
-            {page: page, context: context, search: this.props.query.search});
-
+            {page: page, context: context, search: this.props.query.search}
+        );
+                    
         if (dropDownContract) {
             this.toggleDropDown(dropDownContract)
         }
+    },
+
+    falsifyMarkType: {
+        "important": "not important",
+        "starred": "unstarred",
+        "read": "unread",
     },
 
     toggleDropDown: function (stateBool, e) {
