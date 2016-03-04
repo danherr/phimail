@@ -10,7 +10,7 @@
 
 User.destroy_all
 
-soc = User.create({fname: "Socrates", lname:"of Athens", username: "daimonic", pass: "Iamplato1", avatar_url: ActionController::Base.helpers.asset_path("socrates.png")})
+soc = User.create({fname: "Socrates", lname:"of Athens", username: "daemonic", pass: "Iamplato1", avatar_url: ActionController::Base.helpers.asset_path("socrates.png")})
 fred = User.create({fname: "Friedrich", lname:"Nietzsche", username: "ubermensch", pass: "Will2Power"})
 
 Conversation.destroy_all
@@ -30,7 +30,7 @@ intro = admin.conversations.create!(title: 'Welcome to φmail!')
 
 intro_msg = intro.messages.create!({
                         source_address: "admin#{EMAIL_SIGNATURE}",
-                        target_address: "daimonic#{EMAIL_SIGNATURE}",
+                        target_address: "daemonic#{EMAIL_SIGNATURE}",
                         body: <<-BODY,
 Hello and welcome to φmail.
 
@@ -42,8 +42,8 @@ constructed from the text of plato's dialogues: the Meno, the Euthyphro, the Cri
 see the readme on this project's GitHub page. These emails are divided into a little
 over 60 conversations, rather than all being in one chain. This is so that you can play with the 
 list interface.  I will be reseeding the database periodically, but I would ask that you not delete too 
-many of the demo conversations.  If the inbox is empty, its likely a previous visitor was less 
-considerate.
+many of the demo conversations, and certainly don't delete this one.  If the inbox is empty, its likely 
+a previous visitor was less considerate.
 
 The app does not yet send or recieve emails from the outside world, only between accounts on φmail 
 itself. If you'd like to see this behaviour, feel free to sign in as one of the other three accounts

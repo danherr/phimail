@@ -1,6 +1,6 @@
 
 phaedrus = User.create({fname: "Phaedrus", lname:"son of Pythocles", username: "phaedrus", pass: "12345678"})
-soc = User.find_by_username('daimonic')
+soc = User.find_by_username('daemonic')
 
 MetCon3 = MetaConversation.create();
 
@@ -36,7 +36,7 @@ BODY
 
 msg4 = Pcon3.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 9.years.ago
     })
@@ -52,7 +52,7 @@ body_str = <<-BODY
 BODY
 
 msg5 = Scon3.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 9.years.ago
@@ -71,7 +71,7 @@ BODY
 
 msg6 = Pcon3.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 9.years.ago
     })
@@ -88,7 +88,7 @@ Lysias gave you a feast of discourse?
 BODY
 
 msg7 = Scon3.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 9.years.ago
@@ -106,7 +106,7 @@ BODY
 
 msg8 = Pcon3.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 9.years.ago
     })
@@ -124,7 +124,7 @@ business'?
 BODY
 
 msg9 = Scon3.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 9.years.ago
@@ -142,13 +142,13 @@ BODY
 
 msg10 = Pcon3.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.years.ago
+    created_at: 8.years.ago
     })
 
     msg10.send_msg
-    msg10.update({updated_at: 9.years.ago})
+    msg10.update({updated_at: 8.years.ago})
 
 
 
@@ -158,18 +158,33 @@ body_str = <<-BODY
 BODY
 
 msg11 = Scon3.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.years.ago
+    created_at: 8.years.ago
     })
 
     msg11.send_msg
-    msg11.update({updated_at: 9.years.ago})
+    msg11.update({updated_at: 8.years.ago})
 
 
 
 
+      
+        Scon3.update({
+                             message_timestamp: 8.years.ago,
+                             read: true
+                           }) 
+        Pcon3.update({
+                             message_timestamp: 8.years.ago,
+                             read: true
+                           }) 
+
+
+      MetCon4 = MetaConversation.create();
+
+      Scon4 = soc.conversations.create(title: "My tale, Socrates, is one of", meta_conversation: MetCon4)
+      Pcon4 =  phaedrus.conversations.create(title: "My tale, Socrates, is one of", meta_conversation: MetCon4)
 body_str = <<-BODY 
  My tale, Socrates, is one of your sort, for love was the theme
 which occupied us--love after a fashion: Lysias has been writing about
@@ -178,34 +193,19 @@ the point: he ingeniously proved that the non-lover should be accepted
 rather than the lover.
 BODY
 
-msg12 = Pcon3.messages.create({
+msg12 = Pcon4.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.years.ago
+    created_at: 8.years.ago
     })
 
     msg12.send_msg
-    msg12.update({updated_at: 9.years.ago})
+    msg12.update({updated_at: 8.years.ago})
 
 
 
 
-      
-        Scon3.update({
-                             message_timestamp: 9.years.ago,
-                             read: true
-                           }) 
-        Pcon3.update({
-                             message_timestamp: 9.years.ago,
-                             read: true
-                           }) 
-
-
-      MetCon4 = MetaConversation.create();
-
-      Scon4 = soc.conversations.create(title: "O that is noble of him!", meta_conversation: MetCon4)
-      Pcon4 =  phaedrus.conversations.create(title: "O that is noble of him!", meta_conversation: MetCon4)
 body_str = <<-BODY 
  O that is noble of him! I wish that he would say the poor man
 rather than the rich, and the old man rather than the young one;--then
@@ -217,14 +217,14 @@ without going in, I will keep you company.
 BODY
 
 msg13 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.years.ago
+    created_at: 8.years.ago
     })
 
     msg13.send_msg
-    msg13.update({updated_at: 9.years.ago})
+    msg13.update({updated_at: 8.years.ago})
 
 
 
@@ -238,7 +238,7 @@ BODY
 
 msg14 = Pcon4.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.years.ago
     })
@@ -271,7 +271,7 @@ bidden or not.
 BODY
 
 msg15 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.years.ago
@@ -291,7 +291,7 @@ BODY
 
 msg16 = Pcon4.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.years.ago
     })
@@ -307,7 +307,7 @@ body_str = <<-BODY
 BODY
 
 msg17 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.years.ago
@@ -319,6 +319,21 @@ msg17 = Scon4.messages.create({
 
 
 
+      
+        Scon4.update({
+                             message_timestamp: 8.years.ago,
+                             read: true
+                           }) 
+        Pcon4.update({
+                             message_timestamp: 8.years.ago,
+                             read: true
+                           }) 
+
+
+      MetCon5 = MetaConversation.create();
+
+      Scon5 = soc.conversations.create(title: "I will do as I say;", meta_conversation: MetCon5)
+      Pcon5 =  phaedrus.conversations.create(title: "I will do as I say;", meta_conversation: MetCon5)
 body_str = <<-BODY 
  I will do as I say; but believe me, Socrates, I did not learn
 the very words--O no; nevertheless I have a general notion of what
@@ -326,9 +341,9 @@ he said, and will give you a summary of the points in which the lover
 differed from the non-lover. Let me begin at the beginning.
 BODY
 
-msg18 = Pcon4.messages.create({
+msg18 = Pcon5.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.years.ago
     })
@@ -347,8 +362,8 @@ suppose that I am going to have your memory exercised at my expense, if
 you have Lysias himself here.
 BODY
 
-msg19 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg19 = Scon5.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.years.ago
@@ -365,9 +380,9 @@ body_str = <<-BODY
 you. But if I am to read, where would you please to sit?
 BODY
 
-msg20 = Pcon4.messages.create({
+msg20 = Pcon5.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.years.ago
     })
@@ -383,8 +398,8 @@ body_str = <<-BODY
 some quiet spot.
 BODY
 
-msg21 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg21 = Scon5.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.years.ago
@@ -403,9 +418,9 @@ water; this will be the easiest way, and at midday and in the summer is
 far from being unpleasant.
 BODY
 
-msg22 = Pcon4.messages.create({
+msg22 = Pcon5.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.years.ago
     })
@@ -420,15 +435,15 @@ body_str = <<-BODY
  Lead on, and look out for a place in which we can sit down.
 BODY
 
-msg23 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg23 = Scon5.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.years.ago
+    created_at: 7.years.ago
     })
 
     msg23.send_msg
-    msg23.update({updated_at: 8.years.ago})
+    msg23.update({updated_at: 7.years.ago})
 
 
 
@@ -437,9 +452,9 @@ body_str = <<-BODY
  Do you see the tallest plane-tree in the distance?
 BODY
 
-msg24 = Pcon4.messages.create({
+msg24 = Pcon5.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.years.ago
     })
@@ -454,8 +469,8 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg25 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg25 = Scon5.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.years.ago
@@ -472,9 +487,9 @@ body_str = <<-BODY
 either sit or lie down.
 BODY
 
-msg26 = Pcon4.messages.create({
+msg26 = Pcon5.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.years.ago
     })
@@ -489,8 +504,8 @@ body_str = <<-BODY
  Move forward.
 BODY
 
-msg27 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg27 = Scon5.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.years.ago
@@ -508,9 +523,9 @@ somewhere here at which Boreas is said to have carried off Orithyia from
 the banks of the Ilissus?
 BODY
 
-msg28 = Pcon4.messages.create({
+msg28 = Pcon5.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.years.ago
     })
@@ -525,8 +540,8 @@ body_str = <<-BODY
  Such is the tradition.
 BODY
 
-msg29 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg29 = Scon5.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.years.ago
@@ -543,9 +558,9 @@ body_str = <<-BODY
 clear and bright; I can fancy that there might be maidens playing near.
 BODY
 
-msg30 = Pcon4.messages.create({
+msg30 = Pcon5.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.years.ago
     })
@@ -556,21 +571,6 @@ msg30 = Pcon4.messages.create({
 
 
 
-      
-        Scon4.update({
-                             message_timestamp: 7.years.ago,
-                             read: true
-                           }) 
-        Pcon4.update({
-                             message_timestamp: 7.years.ago,
-                             read: true
-                           }) 
-
-
-      MetCon5 = MetaConversation.create();
-
-      Scon5 = soc.conversations.create(title: "I believe that the spot is", meta_conversation: MetCon5)
-      Pcon5 =  phaedrus.conversations.create(title: "I believe that the spot is", meta_conversation: MetCon5)
 body_str = <<-BODY 
  I believe that the spot is not exactly here, but about a
 quarter of a mile lower down, where you cross to the temple of Artemis,
@@ -578,7 +578,7 @@ and there is, I think, some sort of an altar of Boreas at the place.
 BODY
 
 msg31 = Scon5.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.years.ago
@@ -597,7 +597,7 @@ BODY
 
 msg32 = Pcon5.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.years.ago
     })
@@ -636,7 +636,7 @@ to which you were conducting us?
 BODY
 
 msg33 = Scon5.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.years.ago
@@ -669,7 +669,7 @@ BODY
 
 msg34 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.years.ago
     })
@@ -680,21 +680,6 @@ msg34 = Pcon6.messages.create({
 
 
 
-      
-        Scon6.update({
-                             message_timestamp: 7.years.ago,
-                             read: true
-                           }) 
-        Pcon6.update({
-                             message_timestamp: 7.years.ago,
-                             read: true
-                           }) 
-
-
-      MetCon7 = MetaConversation.create();
-
-      Scon7 = soc.conversations.create(title: "By Here, a fair resting-place, full", meta_conversation: MetCon7)
-      Pcon7 =  phaedrus.conversations.create(title: "By Here, a fair resting-place, full", meta_conversation: MetCon7)
 body_str = <<-BODY 
  By Here, a fair resting-place, full of summer sounds and
 scents. Here is this lofty and spreading plane-tree, and the agnus
@@ -708,15 +693,15 @@ greatest charm of all is the grass, like a pillow gently sloping to the
 head. My dear Phaedrus, you have been an admirable guide.
 BODY
 
-msg35 = Scon7.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg35 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.years.ago
+    created_at: 6.years.ago
     })
 
     msg35.send_msg
-    msg35.update({updated_at: 7.years.ago})
+    msg35.update({updated_at: 6.years.ago})
 
 
 
@@ -728,15 +713,15 @@ about by a guide. Do you ever cross the border? I rather think that you
 never venture even outside the gates.
 BODY
 
-msg36 = Pcon7.messages.create({
+msg36 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.years.ago
+    created_at: 6.years.ago
     })
 
     msg36.send_msg
-    msg36.update({updated_at: 7.years.ago})
+    msg36.update({updated_at: 6.years.ago})
 
 
 
@@ -753,8 +738,8 @@ and over the wide world. And now having arrived, I intend to lie down,
 and do you choose any posture in which you can read best. Begin.
 BODY
 
-msg37 = Scon7.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg37 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 6.years.ago
@@ -837,9 +822,9 @@ but the recollection of these remains with them, and is an earnest of
 good things to come.
 BODY
 
-msg38 = Pcon7.messages.create({
+msg38 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 6.years.ago
     })
@@ -896,8 +881,8 @@ than I am, I followed your example, and, like you, my divine darling, I
 became inspired with a phrenzy.
 BODY
 
-msg40 = Scon7.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg40 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 6.years.ago
@@ -913,9 +898,9 @@ body_str = <<-BODY
  Indeed, you are pleased to be merry.
 BODY
 
-msg41 = Pcon7.messages.create({
+msg41 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 6.years.ago
     })
@@ -930,8 +915,8 @@ body_str = <<-BODY
  Do you mean that I am not in earnest?
 BODY
 
-msg42 = Scon7.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg42 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 6.years.ago
@@ -950,9 +935,9 @@ whether you think that any Hellene could have said more or spoken better
 on the same subject.
 BODY
 
-msg43 = Pcon7.messages.create({
+msg43 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 6.years.ago
     })
@@ -976,8 +961,8 @@ ostentatiously to exult in showing how well he could say the same thing
 in two or three ways.
 BODY
 
-msg44 = Scon7.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg44 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 6.years.ago
@@ -996,9 +981,9 @@ rightly allowed, and I do not think that any one could have spoken
 better or more exhaustively.
 BODY
 
-msg45 = Pcon7.messages.create({
+msg45 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 6.years.ago
     })
@@ -1015,8 +1000,8 @@ women, who have spoken and written of these things, would rise up in
 judgment against me, if out of complaisance I assented to you.
 BODY
 
-msg46 = Scon7.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg46 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 6.years.ago
@@ -1033,15 +1018,15 @@ body_str = <<-BODY
 this?
 BODY
 
-msg47 = Pcon7.messages.create({
+msg47 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.years.ago
+    created_at: 5.years.ago
     })
 
     msg47.send_msg
-    msg47.update({updated_at: 6.years.ago})
+    msg47.update({updated_at: 5.years.ago})
 
 
 
@@ -1058,8 +1043,8 @@ like a pitcher, from the waters of another, though I have actually
 forgotten in my stupidity who was my informant.
 BODY
 
-msg48 = Scon7.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg48 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.years.ago
@@ -1080,9 +1065,9 @@ like the nine Archons, will promise to set up a golden image at Delphi,
 not only of myself, but of you, and as large as life.
 BODY
 
-msg49 = Pcon7.messages.create({
+msg49 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.years.ago
     })
@@ -1106,8 +1091,8 @@ them, for there can be none in the invention; but when you leave the
 commonplaces, then there may be some originality.
 BODY
 
-msg50 = Scon7.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg50 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.years.ago
@@ -1129,9 +1114,9 @@ gold, and take your place by the colossal offerings of the Cypselids at
 Olympia.
 BODY
 
-msg51 = Pcon7.messages.create({
+msg51 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.years.ago
     })
@@ -1148,8 +1133,8 @@ lay a finger upon his love! And so, Phaedrus, you really imagine that I
 am going to improve upon the ingenuity of Lysias?
 BODY
 
-msg52 = Scon7.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg52 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.years.ago
@@ -1172,9 +1157,9 @@ and I am stronger, remember, and younger than you:--Wherefore perpend,
 and do not compel me to use violence.
 BODY
 
-msg53 = Pcon7.messages.create({
+msg53 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.years.ago
     })
@@ -1191,8 +1176,8 @@ compete with Lysias in an extempore speech! He is a master in his art
 and I am an untaught man.
 BODY
 
-msg54 = Scon7.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg54 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.years.ago
@@ -1209,9 +1194,9 @@ body_str = <<-BODY
 pretences; for, indeed, I know the word that is irresistible.
 BODY
 
-msg55 = Pcon7.messages.create({
+msg55 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.years.ago
     })
@@ -1226,8 +1211,8 @@ body_str = <<-BODY
  Then don't say it.
 BODY
 
-msg56 = Scon7.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg56 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.years.ago
@@ -1247,9 +1232,9 @@ face of this very plane-tree, I will never tell you another; never let
 you have word of another!'
 BODY
 
-msg57 = Pcon7.messages.create({
+msg57 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.years.ago
     })
@@ -1265,41 +1250,26 @@ body_str = <<-BODY
 more to say.
 BODY
 
-msg58 = Scon7.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg58 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.years.ago
+    created_at: 5.years.ago
     })
 
     msg58.send_msg
-    msg58.update({updated_at: 4.years.ago})
+    msg58.update({updated_at: 5.years.ago})
 
 
 
 
-      
-        Scon7.update({
-                             message_timestamp: 4.years.ago,
-                             read: true
-                           }) 
-        Pcon7.update({
-                             message_timestamp: 4.years.ago,
-                             read: true
-                           }) 
-
-
-      MetCon8 = MetaConversation.create();
-
-      Scon8 = soc.conversations.create(title: "Then why are you still at", meta_conversation: MetCon8)
-      Pcon8 =  phaedrus.conversations.create(title: "Then why are you still at", meta_conversation: MetCon8)
 body_str = <<-BODY 
  Then why are you still at your tricks?
 BODY
 
-msg59 = Pcon8.messages.create({
+msg59 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 4.years.ago
     })
@@ -1315,8 +1285,8 @@ body_str = <<-BODY
 oath, for I cannot allow myself to be starved.
 BODY
 
-msg60 = Scon8.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg60 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 4.years.ago
@@ -1332,9 +1302,9 @@ body_str = <<-BODY
  Proceed.
 BODY
 
-msg61 = Pcon8.messages.create({
+msg61 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 4.years.ago
     })
@@ -1349,8 +1319,8 @@ body_str = <<-BODY
  Shall I tell you what I will do?
 BODY
 
-msg62 = Scon8.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg62 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 4.years.ago
@@ -1366,9 +1336,9 @@ body_str = <<-BODY
  What?
 BODY
 
-msg63 = Pcon8.messages.create({
+msg63 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 4.years.ago
     })
@@ -1385,8 +1355,8 @@ as I can, for if I see you I shall feel ashamed and not know what to
 say.
 BODY
 
-msg64 = Scon8.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg64 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 4.years.ago
@@ -1402,9 +1372,9 @@ body_str = <<-BODY
  Only go on and you may do anything else which you please.
 BODY
 
-msg65 = Pcon8.messages.create({
+msg65 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 4.years.ago
     })
@@ -1423,8 +1393,8 @@ good friend here desires me to rehearse, in order that his friend whom
 he always deemed wise may seem to him to be wiser than ever.
 BODY
 
-msg66 = Scon8.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg66 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 4.years.ago
@@ -1452,9 +1422,9 @@ body_str = <<-BODY
  Yes, Socrates, you seem to have a very unusual flow of words.
 BODY
 
-msg68 = Pcon8.messages.create({
+msg68 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 4.years.ago
     })
@@ -1471,8 +1441,8 @@ so that you must not wonder, if, as I proceed, I appear to be in a
 divine fury, for already I am getting into dithyrambics.
 BODY
 
-msg69 = Scon8.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg69 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 4.years.ago
@@ -1488,15 +1458,15 @@ body_str = <<-BODY
  Nothing can be truer.
 BODY
 
-msg70 = Pcon8.messages.create({
+msg70 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.years.ago
+    created_at: 4.years.ago
     })
 
     msg70.send_msg
-    msg70.update({updated_at: 3.years.ago})
+    msg70.update({updated_at: 4.years.ago})
 
 
 
@@ -1507,15 +1477,15 @@ perhaps the fit may be averted; all is in their hands above. I will go
 on talking to my youth. Listen:--
 BODY
 
-msg71 = Scon8.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg71 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.years.ago
+    created_at: 4.years.ago
     })
 
     msg71.send_msg
-    msg71.update({updated_at: 3.years.ago})
+    msg71.update({updated_at: 4.years.ago})
 
 
 
@@ -1546,9 +1516,9 @@ similar speech about all the advantages of accepting the non-lover. Why
 do you not proceed?
 BODY
 
-msg73 = Pcon8.messages.create({
+msg73 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 3.years.ago
     })
@@ -1572,8 +1542,8 @@ make the best of my way home, lest a worse thing be inflicted upon me by
 you.
 BODY
 
-msg74 = Scon8.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg74 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 3.years.ago
@@ -1592,9 +1562,9 @@ standing still, as people say, in the meridian. Let us rather stay and
 talk over what has been said, and then return in the cool.
 BODY
 
-msg75 = Pcon8.messages.create({
+msg75 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 3.years.ago
     })
@@ -1614,8 +1584,8 @@ Simmias the Theban, but all the rest are far behind you. And now I do
 verily believe that you have been the cause of another.
 BODY
 
-msg76 = Scon8.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg76 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 3.years.ago
@@ -1631,9 +1601,9 @@ body_str = <<-BODY
  That is good news. But what do you mean?
 BODY
 
-msg77 = Pcon8.messages.create({
+msg77 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 3.years.ago
     })
@@ -1659,8 +1629,8 @@ from men at the price of sinning against the gods.' Now I recognize my
 error.
 BODY
 
-msg78 = Scon8.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg78 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 3.years.ago
@@ -1676,9 +1646,9 @@ body_str = <<-BODY
  What error?
 BODY
 
-msg79 = Pcon8.messages.create({
+msg79 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 3.years.ago
     })
@@ -1694,8 +1664,8 @@ body_str = <<-BODY
 made me utter one as bad.
 BODY
 
-msg80 = Scon8.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg80 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 3.years.ago
@@ -1711,48 +1681,33 @@ body_str = <<-BODY
  How so?
 BODY
 
-msg81 = Pcon8.messages.create({
+msg81 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.years.ago
+    created_at: 3.years.ago
     })
 
     msg81.send_msg
-    msg81.update({updated_at: 2.years.ago})
+    msg81.update({updated_at: 3.years.ago})
 
 
 
 
-      
-        Scon8.update({
-                             message_timestamp: 2.years.ago,
-                             read: true
-                           }) 
-        Pcon8.update({
-                             message_timestamp: 2.years.ago,
-                             read: true
-                           }) 
-
-
-      MetCon9 = MetaConversation.create();
-
-      Scon9 = soc.conversations.create(title: "It was foolish, I say,--to a", meta_conversation: MetCon9)
-      Pcon9 =  phaedrus.conversations.create(title: "It was foolish, I say,--to a", meta_conversation: MetCon9)
 body_str = <<-BODY 
  It was foolish, I say,--to a certain extent, impious; can
 anything be more dreadful?
 BODY
 
-msg82 = Scon9.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg82 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.years.ago
+    created_at: 3.years.ago
     })
 
     msg82.send_msg
-    msg82.update({updated_at: 2.years.ago})
+    msg82.update({updated_at: 3.years.ago})
 
 
 
@@ -1761,47 +1716,32 @@ body_str = <<-BODY
  Nothing, if the speech was really such as you describe.
 BODY
 
-msg83 = Pcon9.messages.create({
+msg83 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.years.ago
+    created_at: 3.years.ago
     })
 
     msg83.send_msg
-    msg83.update({updated_at: 2.years.ago})
+    msg83.update({updated_at: 3.years.ago})
 
 
 
 
-      
-        Scon9.update({
-                             message_timestamp: 2.years.ago,
-                             read: true
-                           }) 
-        Pcon9.update({
-                             message_timestamp: 2.years.ago,
-                             read: true
-                           }) 
-
-
-      MetCon10 = MetaConversation.create();
-
-      Scon10 = soc.conversations.create(title: "Well, and is not Eros the", meta_conversation: MetCon10)
-      Pcon10 =  phaedrus.conversations.create(title: "Well, and is not Eros the", meta_conversation: MetCon10)
 body_str = <<-BODY 
  Well, and is not Eros the son of Aphrodite, and a god?
 BODY
 
-msg84 = Scon10.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg84 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.years.ago
+    created_at: 3.years.ago
     })
 
     msg84.send_msg
-    msg84.update({updated_at: 2.years.ago})
+    msg84.update({updated_at: 3.years.ago})
 
 
 
@@ -1810,15 +1750,15 @@ body_str = <<-BODY
  So men say.
 BODY
 
-msg85 = Pcon10.messages.create({
+msg85 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.years.ago
+    created_at: 3.years.ago
     })
 
     msg85.send_msg
-    msg85.update({updated_at: 2.years.ago})
+    msg85.update({updated_at: 3.years.ago})
 
 
 
@@ -1840,8 +1780,8 @@ he at once purged himself. And the purgation was a recantation, which
 began thus,--
 BODY
 
-msg86 = Scon10.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg86 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 2.years.ago
@@ -1861,9 +1801,9 @@ body_str = <<-BODY
  Nothing could be more agreeable to me than to hear you say so.
 BODY
 
-msg87 = Pcon10.messages.create({
+msg87 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 2.years.ago
     })
@@ -1886,8 +1826,8 @@ of sailors to which good manners were unknown--he would certainly never
 have admitted the justice of our censure?
 BODY
 
-msg88 = Scon10.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg88 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 2.years.ago
@@ -1903,9 +1843,9 @@ body_str = <<-BODY
  I dare say not, Socrates.
 BODY
 
-msg89 = Pcon10.messages.create({
+msg89 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 2.years.ago
     })
@@ -1924,8 +1864,8 @@ delay, but to write another discourse, which shall prove that 'ceteris
 paribus' the lover ought to be accepted rather than the non-lover.
 BODY
 
-msg90 = Scon10.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg90 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 2.years.ago
@@ -1943,9 +1883,9 @@ lover, and Lysias shall be compelled by me to write another discourse on
 the same theme.
 BODY
 
-msg91 = Pcon10.messages.create({
+msg91 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 2.years.ago
     })
@@ -1961,8 +1901,8 @@ body_str = <<-BODY
 believe you.
 BODY
 
-msg92 = Scon10.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg92 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 2.years.ago
@@ -1978,9 +1918,9 @@ body_str = <<-BODY
  Speak, and fear not.
 BODY
 
-msg93 = Pcon10.messages.create({
+msg93 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 2.years.ago
     })
@@ -1997,8 +1937,8 @@ who ought to listen now; lest, if he hear me not, he should accept a
 non-lover before he knows what he is doing?
 BODY
 
-msg94 = Scon10.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg94 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 2.years.ago
@@ -2014,9 +1954,9 @@ body_str = <<-BODY
  He is close at hand, and always at your service.
 BODY
 
-msg95 = Pcon10.messages.create({
+msg95 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 2.years.ago
     })
@@ -2046,15 +1986,15 @@ future which has saved them from falling. But it would be tedious to
 speak of what every one knows.
 BODY
 
-msg96 = Scon10.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg96 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.years.ago
+    created_at: 2.years.ago
     })
 
     msg96.send_msg
-    msg96.update({updated_at: 1.years.ago})
+    msg96.update({updated_at: 2.years.ago})
 
 
 
@@ -2238,9 +2178,9 @@ him a 'speech writer' again and again. So that a feeling of pride may
 probably induce him to give up writing speeches.
 BODY
 
-msg104 = Pcon10.messages.create({
+msg104 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 1.years.ago
     })
@@ -2258,8 +2198,8 @@ is frightened at a little noise; and, possibly, you think that his
 assailant was in earnest?
 BODY
 
-msg105 = Scon10.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg105 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 1.years.ago
@@ -2278,9 +2218,9 @@ and leaving them in a written form, lest they should be called Sophists
 by posterity.
 BODY
 
-msg106 = Pcon10.messages.create({
+msg106 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 1.years.ago
     })
@@ -2304,15 +2244,15 @@ posterity. And they add their admirers' names at the top of the writing,
 out of gratitude to them.
 BODY
 
-msg107 = Scon10.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg107 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 12.months.ago
+    created_at: 1.years.ago
     })
 
     msg107.send_msg
-    msg107.update({updated_at: 12.months.ago})
+    msg107.update({updated_at: 1.years.ago})
 
 
 
@@ -2321,15 +2261,15 @@ body_str = <<-BODY
  What do you mean? I do not understand.
 BODY
 
-msg108 = Pcon10.messages.create({
+msg108 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.months.ago
+    created_at: 1.years.ago
     })
 
     msg108.send_msg
-    msg108.update({updated_at: 11.months.ago})
+    msg108.update({updated_at: 1.years.ago})
 
 
 
@@ -2339,15 +2279,15 @@ body_str = <<-BODY
 with the names of his approvers?
 BODY
 
-msg109 = Scon10.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg109 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.months.ago
+    created_at: 1.years.ago
     })
 
     msg109.send_msg
-    msg109.update({updated_at: 11.months.ago})
+    msg109.update({updated_at: 1.years.ago})
 
 
 
@@ -2356,15 +2296,15 @@ body_str = <<-BODY
  How so?
 BODY
 
-msg110 = Pcon10.messages.create({
+msg110 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.months.ago
+    created_at: 1.years.ago
     })
 
     msg110.send_msg
-    msg110.update({updated_at: 11.months.ago})
+    msg110.update({updated_at: 1.years.ago})
 
 
 
@@ -2377,47 +2317,32 @@ wisdom to his admirers in what is often a long and tedious composition.
 Now what is that sort of thing but a regular piece of authorship?
 BODY
 
-msg111 = Scon10.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg111 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.months.ago
+    created_at: 1.years.ago
     })
 
     msg111.send_msg
-    msg111.update({updated_at: 11.months.ago})
+    msg111.update({updated_at: 1.years.ago})
 
 
 
 
-      
-        Scon10.update({
-                             message_timestamp: 11.months.ago,
-                             read: true
-                           }) 
-        Pcon10.update({
-                             message_timestamp: 11.months.ago,
-                             read: true
-                           }) 
-
-
-      MetCon11 = MetaConversation.create();
-
-      Scon11 = soc.conversations.create(title: "True.", meta_conversation: MetCon11)
-      Pcon11 =  phaedrus.conversations.create(title: "True.", meta_conversation: MetCon11)
 body_str = <<-BODY 
  True.
 BODY
 
-msg112 = Pcon11.messages.create({
+msg112 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.months.ago
+    created_at: 1.years.ago
     })
 
     msg112.send_msg
-    msg112.update({updated_at: 11.months.ago})
+    msg112.update({updated_at: 1.years.ago})
 
 
 
@@ -2429,15 +2354,15 @@ of his speech-making, and not thought good enough to write, then he and
 his party are in mourning.
 BODY
 
-msg113 = Scon11.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg113 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.months.ago
+    created_at: 12.months.ago
     })
 
     msg113.send_msg
-    msg113.update({updated_at: 11.months.ago})
+    msg113.update({updated_at: 12.months.ago})
 
 
 
@@ -2446,9 +2371,9 @@ body_str = <<-BODY
  Very true.
 BODY
 
-msg114 = Pcon11.messages.create({
+msg114 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 11.months.ago
     })
@@ -2464,8 +2389,8 @@ body_str = <<-BODY
 value the practice of writing.
 BODY
 
-msg115 = Scon11.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg115 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 11.months.ago
@@ -2481,15 +2406,15 @@ body_str = <<-BODY
  No doubt.
 BODY
 
-msg116 = Pcon11.messages.create({
+msg116 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.months.ago
+    created_at: 11.months.ago
     })
 
     msg116.send_msg
-    msg116.update({updated_at: 10.months.ago})
+    msg116.update({updated_at: 11.months.ago})
 
 
 
@@ -2501,15 +2426,15 @@ state, is he not thought by posterity, when they see his compositions,
 and does he not think himself, while he is yet alive, to be a god?
 BODY
 
-msg117 = Scon11.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg117 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.months.ago
+    created_at: 11.months.ago
     })
 
     msg117.send_msg
-    msg117.update({updated_at: 10.months.ago})
+    msg117.update({updated_at: 11.months.ago})
 
 
 
@@ -2518,15 +2443,15 @@ body_str = <<-BODY
  Very true.
 BODY
 
-msg118 = Pcon11.messages.create({
+msg118 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.months.ago
+    created_at: 11.months.ago
     })
 
     msg118.send_msg
-    msg118.update({updated_at: 10.months.ago})
+    msg118.update({updated_at: 11.months.ago})
 
 
 
@@ -2536,15 +2461,15 @@ body_str = <<-BODY
 ill-disposed, would reproach Lysias with being an author?
 BODY
 
-msg119 = Scon11.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg119 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.months.ago
+    created_at: 11.months.ago
     })
 
     msg119.send_msg
-    msg119.update({updated_at: 10.months.ago})
+    msg119.update({updated_at: 11.months.ago})
 
 
 
@@ -2554,15 +2479,15 @@ body_str = <<-BODY
 slur upon his own favourite pursuit.
 BODY
 
-msg120 = Pcon11.messages.create({
+msg120 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.months.ago
+    created_at: 11.months.ago
     })
 
     msg120.send_msg
-    msg120.update({updated_at: 10.months.ago})
+    msg120.update({updated_at: 11.months.ago})
 
 
 
@@ -2572,15 +2497,15 @@ body_str = <<-BODY
 writing.
 BODY
 
-msg121 = Scon11.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg121 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.months.ago
+    created_at: 11.months.ago
     })
 
     msg121.send_msg
-    msg121.update({updated_at: 10.months.ago})
+    msg121.update({updated_at: 11.months.ago})
 
 
 
@@ -2589,15 +2514,15 @@ body_str = <<-BODY
  Certainly not.
 BODY
 
-msg122 = Pcon11.messages.create({
+msg122 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.months.ago
+    created_at: 11.months.ago
     })
 
     msg122.send_msg
-    msg122.update({updated_at: 10.months.ago})
+    msg122.update({updated_at: 11.months.ago})
 
 
 
@@ -2606,15 +2531,15 @@ body_str = <<-BODY
  The disgrace begins when a man writes not well, but badly.
 BODY
 
-msg123 = Scon11.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg123 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.months.ago
+    created_at: 11.months.ago
     })
 
     msg123.send_msg
-    msg123.update({updated_at: 10.months.ago})
+    msg123.update({updated_at: 11.months.ago})
 
 
 
@@ -2623,15 +2548,15 @@ body_str = <<-BODY
  Clearly.
 BODY
 
-msg124 = Pcon11.messages.create({
+msg124 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.months.ago
+    created_at: 11.months.ago
     })
 
     msg124.send_msg
-    msg124.update({updated_at: 10.months.ago})
+    msg124.update({updated_at: 11.months.ago})
 
 
 
@@ -2643,15 +2568,15 @@ any other work, in metre or out of metre, poet or prose writer, to teach
 us this?
 BODY
 
-msg125 = Scon11.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg125 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.months.ago
+    created_at: 11.months.ago
     })
 
     msg125.send_msg
-    msg125.update({updated_at: 10.months.ago})
+    msg125.update({updated_at: 11.months.ago})
 
 
 
@@ -2663,9 +2588,9 @@ always have previous pain as a condition of them, and therefore are
 rightly called slavish.
 BODY
 
-msg126 = Pcon11.messages.create({
+msg126 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 10.months.ago
     })
@@ -2690,15 +2615,15 @@ perhaps, out of respect, give us of the gifts which they receive from
 the gods that they may impart them to men.
 BODY
 
-msg127 = Scon11.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg127 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.months.ago
+    created_at: 10.months.ago
     })
 
     msg127.send_msg
-    msg127.update({updated_at: 9.months.ago})
+    msg127.update({updated_at: 10.months.ago})
 
 
 
@@ -2707,15 +2632,15 @@ body_str = <<-BODY
  What gifts do you mean? I never heard of any.
 BODY
 
-msg128 = Pcon11.messages.create({
+msg128 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.months.ago
+    created_at: 10.months.ago
     })
 
     msg128.send_msg
-    msg128.update({updated_at: 9.months.ago})
+    msg128.update({updated_at: 10.months.ago})
 
 
 
@@ -2740,15 +2665,15 @@ divine as well as human, and they have the sweetest utterance. For many
 reasons, then, we ought always to talk and not to sleep at mid-day.
 BODY
 
-msg129 = Scon11.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg129 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.months.ago
+    created_at: 10.months.ago
     })
 
     msg129.send_msg
-    msg129.update({updated_at: 9.months.ago})
+    msg129.update({updated_at: 10.months.ago})
 
 
 
@@ -2757,15 +2682,15 @@ body_str = <<-BODY
  Let us talk.
 BODY
 
-msg130 = Pcon11.messages.create({
+msg130 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.months.ago
+    created_at: 10.months.ago
     })
 
     msg130.send_msg
-    msg130.update({updated_at: 9.months.ago})
+    msg130.update({updated_at: 10.months.ago})
 
 
 
@@ -2775,15 +2700,15 @@ body_str = <<-BODY
 proposing?
 BODY
 
-msg131 = Scon11.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg131 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.months.ago
+    created_at: 10.months.ago
     })
 
     msg131.send_msg
-    msg131.update({updated_at: 9.months.ago})
+    msg131.update({updated_at: 10.months.ago})
 
 
 
@@ -2792,15 +2717,15 @@ body_str = <<-BODY
  Very good.
 BODY
 
-msg132 = Pcon11.messages.create({
+msg132 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.months.ago
+    created_at: 10.months.ago
     })
 
     msg132.send_msg
-    msg132.update({updated_at: 9.months.ago})
+    msg132.update({updated_at: 10.months.ago})
 
 
 
@@ -2810,15 +2735,15 @@ body_str = <<-BODY
 truth of the matter about which he is going to speak?
 BODY
 
-msg133 = Scon11.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg133 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.months.ago
+    created_at: 10.months.ago
     })
 
     msg133.send_msg
-    msg133.update({updated_at: 9.months.ago})
+    msg133.update({updated_at: 10.months.ago})
 
 
 
@@ -2831,15 +2756,15 @@ or honourable, but only with opinion about them, and that from opinion
 comes persuasion, and not from the truth.
 BODY
 
-msg134 = Pcon11.messages.create({
+msg134 = Pcon6.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.months.ago
+    created_at: 10.months.ago
     })
 
     msg134.send_msg
-    msg134.update({updated_at: 9.months.ago})
+    msg134.update({updated_at: 10.months.ago})
 
 
 
@@ -2850,32 +2775,47 @@ probably something in them; and therefore the meaning of this saying is
 not hastily to be dismissed.
 BODY
 
-msg135 = Scon11.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg135 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.months.ago
+    created_at: 10.months.ago
     })
 
     msg135.send_msg
-    msg135.update({updated_at: 9.months.ago})
+    msg135.update({updated_at: 10.months.ago})
 
 
 
 
+      
+        Scon6.update({
+                             message_timestamp: 10.months.ago,
+                             read: true
+                           }) 
+        Pcon6.update({
+                             message_timestamp: 10.months.ago,
+                             read: true
+                           }) 
+
+
+      MetCon7 = MetaConversation.create();
+
+      Scon7 = soc.conversations.create(title: "Very true.", meta_conversation: MetCon7)
+      Pcon7 =  phaedrus.conversations.create(title: "Very true.", meta_conversation: MetCon7)
 body_str = <<-BODY 
  Very true.
 BODY
 
-msg136 = Pcon11.messages.create({
+msg136 = Pcon7.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.months.ago
+    created_at: 10.months.ago
     })
 
     msg136.send_msg
-    msg136.update({updated_at: 9.months.ago})
+    msg136.update({updated_at: 10.months.ago})
 
 
 
@@ -2887,8 +2827,8 @@ like, but I knew that you believed a horse to be of tame animals the one
 which has the longest ears.
 BODY
 
-msg137 = Scon11.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg137 = Scon7.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 9.months.ago
@@ -2904,9 +2844,9 @@ body_str = <<-BODY
  That would be ridiculous.
 BODY
 
-msg138 = Pcon11.messages.create({
+msg138 = Pcon7.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 9.months.ago
     })
@@ -2925,8 +2865,8 @@ noble animal and a most useful possession, especially in war, and you
 may get on his back and fight, and he will carry baggage or anything.'
 BODY
 
-msg139 = Scon11.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg139 = Scon7.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 9.months.ago
@@ -2942,15 +2882,15 @@ body_str = <<-BODY
  How ridiculous!
 BODY
 
-msg140 = Pcon11.messages.create({
+msg140 = Pcon7.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.months.ago
+    created_at: 9.months.ago
     })
 
     msg140.send_msg
-    msg140.update({updated_at: 8.months.ago})
+    msg140.update({updated_at: 9.months.ago})
 
 
 
@@ -2960,15 +2900,15 @@ body_str = <<-BODY
 than a cunning enemy?
 BODY
 
-msg141 = Scon11.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg141 = Scon7.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.months.ago
+    created_at: 9.months.ago
     })
 
     msg141.send_msg
-    msg141.update({updated_at: 8.months.ago})
+    msg141.update({updated_at: 9.months.ago})
 
 
 
@@ -2977,19 +2917,34 @@ body_str = <<-BODY
  Certainly.
 BODY
 
-msg142 = Pcon11.messages.create({
+msg142 = Pcon7.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.months.ago
+    created_at: 9.months.ago
     })
 
     msg142.send_msg
-    msg142.update({updated_at: 8.months.ago})
+    msg142.update({updated_at: 9.months.ago})
 
 
 
 
+      
+        Scon7.update({
+                             message_timestamp: 9.months.ago,
+                             read: true
+                           }) 
+        Pcon7.update({
+                             message_timestamp: 9.months.ago,
+                             read: true
+                           }) 
+
+
+      MetCon8 = MetaConversation.create();
+
+      Scon8 = soc.conversations.create(title: "And when the orator instead of", meta_conversation: MetCon8)
+      Pcon8 =  phaedrus.conversations.create(title: "And when the orator instead of", meta_conversation: MetCon8)
 body_str = <<-BODY 
  And when the orator instead of putting an ass in the place
 of a horse, puts good for evil, being himself as ignorant of their true
@@ -3000,15 +2955,15 @@ he confounds with evil,--what will be the harvest which rhetoric will be
 likely to gather after the sowing of that seed?
 BODY
 
-msg143 = Scon11.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg143 = Scon8.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.months.ago
+    created_at: 9.months.ago
     })
 
     msg143.send_msg
-    msg143.update({updated_at: 8.months.ago})
+    msg143.update({updated_at: 9.months.ago})
 
 
 
@@ -3017,15 +2972,15 @@ body_str = <<-BODY
  The reverse of good.
 BODY
 
-msg144 = Pcon11.messages.create({
+msg144 = Pcon8.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.months.ago
+    created_at: 9.months.ago
     })
 
     msg144.send_msg
-    msg144.update({updated_at: 8.months.ago})
+    msg144.update({updated_at: 9.months.ago})
 
 
 
@@ -3039,15 +2994,15 @@ first, and then come to me. At the same time I boldly assert that mere
 knowledge of the truth will not give you the art of persuasion.
 BODY
 
-msg145 = Scon11.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg145 = Scon8.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.months.ago
+    created_at: 9.months.ago
     })
 
     msg145.send_msg
-    msg145.update({updated_at: 8.months.ago})
+    msg145.update({updated_at: 9.months.ago})
 
 
 
@@ -3056,15 +3011,15 @@ body_str = <<-BODY
  There is reason in the lady's defence of herself.
 BODY
 
-msg146 = Pcon11.messages.create({
+msg146 = Pcon8.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.months.ago
+    created_at: 9.months.ago
     })
 
     msg146.send_msg
-    msg146.update({updated_at: 8.months.ago})
+    msg146.update({updated_at: 9.months.ago})
 
 
 
@@ -3078,15 +3033,15 @@ art. Lo! a Spartan appears, and says that there never is nor ever will
 be a real art of speaking which is divorced from the truth.
 BODY
 
-msg147 = Scon11.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg147 = Scon8.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.months.ago
+    created_at: 9.months.ago
     })
 
     msg147.send_msg
-    msg147.update({updated_at: 8.months.ago})
+    msg147.update({updated_at: 9.months.ago})
 
 
 
@@ -3096,9 +3051,9 @@ body_str = <<-BODY
 may examine them.
 BODY
 
-msg148 = Pcon11.messages.create({
+msg148 = Pcon8.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.months.ago
     })
@@ -3116,8 +3071,8 @@ anything as he ought to speak unless he have a knowledge of philosophy.
 And let Phaedrus answer you.
 BODY
 
-msg149 = Scon11.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg149 = Scon8.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.months.ago
@@ -3129,13 +3084,28 @@ msg149 = Scon11.messages.create({
 
 
 
+      
+        Scon8.update({
+                             message_timestamp: 8.months.ago,
+                             read: true
+                           }) 
+        Pcon8.update({
+                             message_timestamp: 8.months.ago,
+                             read: true
+                           }) 
+
+
+      MetCon9 = MetaConversation.create();
+
+      Scon9 = soc.conversations.create(title: "Put the question.", meta_conversation: MetCon9)
+      Pcon9 =  phaedrus.conversations.create(title: "Put the question.", meta_conversation: MetCon9)
 body_str = <<-BODY 
  Put the question.
 BODY
 
-msg150 = Pcon11.messages.create({
+msg150 = Pcon9.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.months.ago
     })
@@ -3154,15 +3124,15 @@ all matters, great as well as small, good and bad alike, and is in all
 equally right, and equally to be esteemed--that is what you have heard?
 BODY
 
-msg151 = Scon11.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg151 = Scon9.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.months.ago
+    created_at: 8.months.ago
     })
 
     msg151.send_msg
-    msg151.update({updated_at: 7.months.ago})
+    msg151.update({updated_at: 8.months.ago})
 
 
 
@@ -3173,15 +3143,15 @@ the art confined to speaking and writing in lawsuits, and to speaking in
 public assemblies--not extended farther.
 BODY
 
-msg152 = Pcon11.messages.create({
+msg152 = Pcon9.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.months.ago
+    created_at: 8.months.ago
     })
 
     msg152.send_msg
-    msg152.update({updated_at: 7.months.ago})
+    msg152.update({updated_at: 8.months.ago})
 
 
 
@@ -3192,15 +3162,15 @@ Nestor and Odysseus, which they composed in their leisure hours when at
 Troy, and never of the rhetoric of Palamedes?
 BODY
 
-msg153 = Scon11.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg153 = Scon9.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.months.ago
+    created_at: 8.months.ago
     })
 
     msg153.send_msg
-    msg153.update({updated_at: 7.months.ago})
+    msg153.update({updated_at: 8.months.ago})
 
 
 
@@ -3210,15 +3180,15 @@ body_str = <<-BODY
 Nestor, and Thrasymachus or Theodorus your Odysseus.
 BODY
 
-msg154 = Pcon11.messages.create({
+msg154 = Pcon9.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.months.ago
+    created_at: 8.months.ago
     })
 
     msg154.send_msg
-    msg154.update({updated_at: 7.months.ago})
+    msg154.update({updated_at: 8.months.ago})
 
 
 
@@ -3229,15 +3199,15 @@ you tell me, instead, what are plaintiff and defendant doing in a law
 court--are they not contending?
 BODY
 
-msg155 = Scon11.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg155 = Scon9.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.months.ago
+    created_at: 8.months.ago
     })
 
     msg155.send_msg
-    msg155.update({updated_at: 7.months.ago})
+    msg155.update({updated_at: 8.months.ago})
 
 
 
@@ -3246,15 +3216,15 @@ body_str = <<-BODY
  Exactly so.
 BODY
 
-msg156 = Pcon11.messages.create({
+msg156 = Pcon9.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.months.ago
+    created_at: 8.months.ago
     })
 
     msg156.send_msg
-    msg156.update({updated_at: 7.months.ago})
+    msg156.update({updated_at: 8.months.ago})
 
 
 
@@ -3263,15 +3233,15 @@ body_str = <<-BODY
  About the just and unjust--that is the matter in dispute?
 BODY
 
-msg157 = Scon11.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg157 = Scon9.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.months.ago
+    created_at: 8.months.ago
     })
 
     msg157.send_msg
-    msg157.update({updated_at: 7.months.ago})
+    msg157.update({updated_at: 8.months.ago})
 
 
 
@@ -3280,9 +3250,9 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg158 = Pcon11.messages.create({
+msg158 = Pcon9.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.months.ago
     })
@@ -3299,8 +3269,8 @@ the same persons to be at one time just, at another time, if he is so
 inclined, to be unjust?
 BODY
 
-msg159 = Scon11.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg159 = Scon9.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.months.ago
@@ -3316,9 +3286,9 @@ body_str = <<-BODY
  Exactly.
 BODY
 
-msg160 = Pcon11.messages.create({
+msg160 = Pcon9.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.months.ago
     })
@@ -3335,8 +3305,8 @@ things seem good to the city at one time, and at another time the
 reverse of good?
 BODY
 
-msg161 = Scon11.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg161 = Scon9.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.months.ago
@@ -3352,9 +3322,9 @@ body_str = <<-BODY
  That is true.
 BODY
 
-msg162 = Pcon11.messages.create({
+msg162 = Pcon9.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.months.ago
     })
@@ -3371,8 +3341,8 @@ art of speaking by which he makes the same things appear to his hearers
 like and unlike, one and many, at rest and in motion?
 BODY
 
-msg163 = Scon11.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg163 = Scon9.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.months.ago
@@ -3388,9 +3358,9 @@ body_str = <<-BODY
  Very true.
 BODY
 
-msg164 = Pcon11.messages.create({
+msg164 = Pcon9.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.months.ago
     })
@@ -3409,8 +3379,8 @@ everything to which a likeness can be found, and draws into the light of
 day the likenesses and disguises which are used by others?
 BODY
 
-msg165 = Scon11.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg165 = Scon9.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.months.ago
@@ -3426,15 +3396,15 @@ body_str = <<-BODY
  How do you mean?
 BODY
 
-msg166 = Pcon11.messages.create({
+msg166 = Pcon9.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.months.ago
+    created_at: 7.months.ago
     })
 
     msg166.send_msg
-    msg166.update({updated_at: 6.months.ago})
+    msg166.update({updated_at: 7.months.ago})
 
 
 
@@ -3444,15 +3414,15 @@ body_str = <<-BODY
 deception--when the difference is large or small?
 BODY
 
-msg167 = Scon11.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg167 = Scon9.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.months.ago
+    created_at: 7.months.ago
     })
 
     msg167.send_msg
-    msg167.update({updated_at: 6.months.ago})
+    msg167.update({updated_at: 7.months.ago})
 
 
 
@@ -3461,15 +3431,15 @@ body_str = <<-BODY
  When the difference is small.
 BODY
 
-msg168 = Pcon11.messages.create({
+msg168 = Pcon9.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.months.ago
+    created_at: 7.months.ago
     })
 
     msg168.send_msg
-    msg168.update({updated_at: 6.months.ago})
+    msg168.update({updated_at: 7.months.ago})
 
 
 
@@ -3479,15 +3449,15 @@ body_str = <<-BODY
 degrees into the other extreme than when you go all at once?
 BODY
 
-msg169 = Scon11.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg169 = Scon9.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.months.ago
+    created_at: 7.months.ago
     })
 
     msg169.send_msg
-    msg169.update({updated_at: 6.months.ago})
+    msg169.update({updated_at: 7.months.ago})
 
 
 
@@ -3496,15 +3466,15 @@ body_str = <<-BODY
  Of course.
 BODY
 
-msg170 = Pcon11.messages.create({
+msg170 = Pcon9.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.months.ago
+    created_at: 7.months.ago
     })
 
     msg170.send_msg
-    msg170.update({updated_at: 6.months.ago})
+    msg170.update({updated_at: 7.months.ago})
 
 
 
@@ -3514,8 +3484,8 @@ body_str = <<-BODY
 exactly know the real likenesses and differences of things?
 BODY
 
-msg171 = Scon11.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg171 = Scon9.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 6.months.ago
@@ -3531,9 +3501,9 @@ body_str = <<-BODY
  He must.
 BODY
 
-msg172 = Pcon11.messages.create({
+msg172 = Pcon9.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 6.months.ago
     })
@@ -3550,8 +3520,8 @@ can he detect the greater or less degree of likeness in other things to
 that of which by the hypothesis he is ignorant?
 BODY
 
-msg173 = Scon11.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg173 = Scon9.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 6.months.ago
@@ -3567,9 +3537,9 @@ body_str = <<-BODY
  He cannot.
 BODY
 
-msg174 = Pcon11.messages.create({
+msg174 = Pcon9.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 6.months.ago
     })
@@ -3586,8 +3556,8 @@ variance with realities, it is clear that the error slips in through
 resemblances?
 BODY
 
-msg175 = Scon11.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg175 = Scon9.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 6.months.ago
@@ -3603,9 +3573,9 @@ body_str = <<-BODY
  Yes, that is the way.
 BODY
 
-msg176 = Pcon11.messages.create({
+msg176 = Pcon9.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 6.months.ago
     })
@@ -3623,15 +3593,15 @@ the gradual departure from truth into the opposite of truth which is
 effected by the help of resemblances, or how to avoid it?
 BODY
 
-msg177 = Scon11.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg177 = Scon9.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.months.ago
+    created_at: 6.months.ago
     })
 
     msg177.send_msg
-    msg177.update({updated_at: 5.months.ago})
+    msg177.update({updated_at: 6.months.ago})
 
 
 
@@ -3640,15 +3610,15 @@ body_str = <<-BODY
  He will not.
 BODY
 
-msg178 = Pcon11.messages.create({
+msg178 = Pcon9.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.months.ago
+    created_at: 6.months.ago
     })
 
     msg178.send_msg
-    msg178.update({updated_at: 5.months.ago})
+    msg178.update({updated_at: 6.months.ago})
 
 
 
@@ -3659,15 +3629,15 @@ will only attain an art of rhetoric which is ridiculous and is not an
 art at all?
 BODY
 
-msg179 = Scon11.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg179 = Scon9.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.months.ago
+    created_at: 6.months.ago
     })
 
     msg179.send_msg
-    msg179.update({updated_at: 5.months.ago})
+    msg179.update({updated_at: 6.months.ago})
 
 
 
@@ -3676,15 +3646,15 @@ body_str = <<-BODY
  That may be expected.
 BODY
 
-msg180 = Pcon11.messages.create({
+msg180 = Pcon9.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.months.ago
+    created_at: 6.months.ago
     })
 
     msg180.send_msg
-    msg180.update({updated_at: 5.months.ago})
+    msg180.update({updated_at: 6.months.ago})
 
 
 
@@ -3695,15 +3665,15 @@ art, according to our notion of them, in the speech of Lysias which you
 have in your hand, and in my own speech?
 BODY
 
-msg181 = Scon11.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg181 = Scon9.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.months.ago
+    created_at: 6.months.ago
     })
 
     msg181.send_msg
-    msg181.update({updated_at: 5.months.ago})
+    msg181.update({updated_at: 6.months.ago})
 
 
 
@@ -3713,9 +3683,9 @@ body_str = <<-BODY
 argument has been too abstract and wanting in illustrations.
 BODY
 
-msg182 = Pcon11.messages.create({
+msg182 = Pcon9.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.months.ago
     })
@@ -3726,21 +3696,6 @@ msg182 = Pcon11.messages.create({
 
 
 
-      
-        Scon11.update({
-                             message_timestamp: 5.months.ago,
-                             read: true
-                           }) 
-        Pcon11.update({
-                             message_timestamp: 5.months.ago,
-                             read: true
-                           }) 
-
-
-      MetCon12 = MetaConversation.create();
-
-      Scon12 = soc.conversations.create(title: "Yes; and the two speeches happen", meta_conversation: MetCon12)
-      Pcon12 =  phaedrus.conversations.create(title: "Yes; and the two speeches happen", meta_conversation: MetCon12)
 body_str = <<-BODY 
  Yes; and the two speeches happen to afford a very good example
 of the way in which the speaker who knows the truth may, without any
@@ -3751,8 +3706,8 @@ their inspiration to me. For I do not imagine that I have any rhetorical
 art of my own.
 BODY
 
-msg183 = Scon12.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg183 = Scon9.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.months.ago
@@ -3768,9 +3723,9 @@ body_str = <<-BODY
  Granted; if you will only please to get on.
 BODY
 
-msg184 = Pcon12.messages.create({
+msg184 = Pcon9.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.months.ago
     })
@@ -3785,8 +3740,8 @@ body_str = <<-BODY
  Suppose that you read me the first words of Lysias' speech.
 BODY
 
-msg185 = Scon12.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg185 = Scon9.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.months.ago
@@ -3805,9 +3760,9 @@ ought not to fail in my suit, because I am not your lover. For lovers
 repent--'
 BODY
 
-msg186 = Pcon12.messages.create({
+msg186 = Pcon9.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.months.ago
     })
@@ -3823,8 +3778,8 @@ body_str = <<-BODY
 words?
 BODY
 
-msg187 = Scon12.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg187 = Scon9.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.months.ago
@@ -3840,15 +3795,15 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg188 = Pcon12.messages.create({
+msg188 = Pcon9.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.months.ago
+    created_at: 5.months.ago
     })
 
     msg188.send_msg
-    msg188.update({updated_at: 4.months.ago})
+    msg188.update({updated_at: 5.months.ago})
 
 
 
@@ -3858,15 +3813,15 @@ body_str = <<-BODY
 whereas about other things we differ.
 BODY
 
-msg189 = Scon12.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg189 = Scon9.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.months.ago
+    created_at: 5.months.ago
     })
 
     msg189.send_msg
-    msg189.update({updated_at: 4.months.ago})
+    msg189.update({updated_at: 5.months.ago})
 
 
 
@@ -3875,15 +3830,15 @@ body_str = <<-BODY
  I think that I understand you; but will you explain yourself?
 BODY
 
-msg190 = Pcon12.messages.create({
+msg190 = Pcon9.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.months.ago
+    created_at: 5.months.ago
     })
 
     msg190.send_msg
-    msg190.update({updated_at: 4.months.ago})
+    msg190.update({updated_at: 5.months.ago})
 
 
 
@@ -3893,15 +3848,15 @@ body_str = <<-BODY
 present in the minds of all?
 BODY
 
-msg191 = Scon12.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg191 = Scon9.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.months.ago
+    created_at: 5.months.ago
     })
 
     msg191.send_msg
-    msg191.update({updated_at: 4.months.ago})
+    msg191.update({updated_at: 5.months.ago})
 
 
 
@@ -3910,15 +3865,15 @@ body_str = <<-BODY
  Certainly.
 BODY
 
-msg192 = Pcon12.messages.create({
+msg192 = Pcon9.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.months.ago
+    created_at: 5.months.ago
     })
 
     msg192.send_msg
-    msg192.update({updated_at: 4.months.ago})
+    msg192.update({updated_at: 5.months.ago})
 
 
 
@@ -3928,15 +3883,15 @@ body_str = <<-BODY
 company and are at odds with one another and with ourselves?
 BODY
 
-msg193 = Scon12.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg193 = Scon9.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.months.ago
+    created_at: 5.months.ago
     })
 
     msg193.send_msg
-    msg193.update({updated_at: 4.months.ago})
+    msg193.update({updated_at: 5.months.ago})
 
 
 
@@ -3945,25 +3900,40 @@ body_str = <<-BODY
  Precisely.
 BODY
 
-msg194 = Pcon12.messages.create({
+msg194 = Pcon9.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.months.ago
+    created_at: 5.months.ago
     })
 
     msg194.send_msg
-    msg194.update({updated_at: 4.months.ago})
+    msg194.update({updated_at: 5.months.ago})
 
 
 
 
+      
+        Scon9.update({
+                             message_timestamp: 5.months.ago,
+                             read: true
+                           }) 
+        Pcon9.update({
+                             message_timestamp: 5.months.ago,
+                             read: true
+                           }) 
+
+
+      MetCon10 = MetaConversation.create();
+
+      Scon10 = soc.conversations.create(title: "Then in some things we agree,", meta_conversation: MetCon10)
+      Pcon10 =  phaedrus.conversations.create(title: "Then in some things we agree,", meta_conversation: MetCon10)
 body_str = <<-BODY 
  Then in some things we agree, but not in others?
 BODY
 
-msg195 = Scon12.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg195 = Scon10.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 4.months.ago
@@ -3979,9 +3949,9 @@ body_str = <<-BODY
  That is true.
 BODY
 
-msg196 = Pcon12.messages.create({
+msg196 = Pcon10.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 4.months.ago
     })
@@ -3997,8 +3967,8 @@ body_str = <<-BODY
 rhetoric the greater power?
 BODY
 
-msg197 = Scon12.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg197 = Scon10.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 4.months.ago
@@ -4010,13 +3980,28 @@ msg197 = Scon12.messages.create({
 
 
 
+      
+        Scon10.update({
+                             message_timestamp: 4.months.ago,
+                             read: true
+                           }) 
+        Pcon10.update({
+                             message_timestamp: 4.months.ago,
+                             read: true
+                           }) 
+
+
+      MetCon11 = MetaConversation.create();
+
+      Scon11 = soc.conversations.create(title: "Clearly, in the uncertain class.", meta_conversation: MetCon11)
+      Pcon11 =  phaedrus.conversations.create(title: "Clearly, in the uncertain class.", meta_conversation: MetCon11)
 body_str = <<-BODY 
  Clearly, in the uncertain class.
 BODY
 
-msg198 = Pcon12.messages.create({
+msg198 = Pcon11.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 4.months.ago
     })
@@ -4033,8 +4018,8 @@ acquire a distinct notion of both classes, as well of that in which the
 many err, as of that in which they do not err?
 BODY
 
-msg199 = Scon12.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg199 = Scon11.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 4.months.ago
@@ -4051,15 +4036,15 @@ body_str = <<-BODY
 principle.
 BODY
 
-msg200 = Pcon12.messages.create({
+msg200 = Pcon11.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.months.ago
+    created_at: 4.months.ago
     })
 
     msg200.send_msg
-    msg200.update({updated_at: 3.months.ago})
+    msg200.update({updated_at: 4.months.ago})
 
 
 
@@ -4070,15 +4055,15 @@ observation of particulars in speaking, and not make a mistake about the
 class to which they are to be referred.
 BODY
 
-msg201 = Scon12.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg201 = Scon11.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.months.ago
+    created_at: 4.months.ago
     })
 
     msg201.send_msg
-    msg201.update({updated_at: 3.months.ago})
+    msg201.update({updated_at: 4.months.ago})
 
 
 
@@ -4087,15 +4072,15 @@ body_str = <<-BODY
  Certainly.
 BODY
 
-msg202 = Pcon12.messages.create({
+msg202 = Pcon11.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.months.ago
+    created_at: 4.months.ago
     })
 
     msg202.send_msg
-    msg202.update({updated_at: 3.months.ago})
+    msg202.update({updated_at: 4.months.ago})
 
 
 
@@ -4105,15 +4090,15 @@ body_str = <<-BODY
 the undisputed class?
 BODY
 
-msg203 = Scon12.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg203 = Scon11.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.months.ago
+    created_at: 4.months.ago
     })
 
     msg203.send_msg
-    msg203.update({updated_at: 3.months.ago})
+    msg203.update({updated_at: 4.months.ago})
 
 
 
@@ -4124,15 +4109,15 @@ would have allowed you to say as you did, that he is an evil both to the
 lover and the beloved, and also the greatest possible good?
 BODY
 
-msg204 = Pcon12.messages.create({
+msg204 = Pcon11.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.months.ago
+    created_at: 4.months.ago
     })
 
     msg204.send_msg
-    msg204.update({updated_at: 3.months.ago})
+    msg204.update({updated_at: 4.months.ago})
 
 
 
@@ -4143,15 +4128,15 @@ beginning of my speech? for, having been in an ecstasy, I cannot well
 remember.
 BODY
 
-msg205 = Scon12.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg205 = Scon11.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.months.ago
+    created_at: 4.months.ago
     })
 
     msg205.send_msg
-    msg205.update({updated_at: 3.months.ago})
+    msg205.update({updated_at: 4.months.ago})
 
 
 
@@ -4160,9 +4145,9 @@ body_str = <<-BODY
  Yes, indeed; that you did, and no mistake.
 BODY
 
-msg206 = Pcon12.messages.create({
+msg206 = Pcon11.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 3.months.ago
     })
@@ -4183,8 +4168,8 @@ him to be, and according to this model he fashioned and framed the
 remainder of his discourse. Suppose we read his beginning over again:
 BODY
 
-msg207 = Scon12.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg207 = Scon11.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 3.months.ago
@@ -4200,9 +4185,9 @@ body_str = <<-BODY
  If you please; but you will not find what you want.
 BODY
 
-msg208 = Pcon12.messages.create({
+msg208 = Pcon11.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 3.months.ago
     })
@@ -4217,8 +4202,8 @@ body_str = <<-BODY
  Read, that I may have his exact words.
 BODY
 
-msg209 = Scon12.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg209 = Scon11.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 3.months.ago
@@ -4237,9 +4222,9 @@ not to fail in my suit because I am not your lover, for lovers repent of
 the kindnesses which they have shown, when their love is over.'
 BODY
 
-msg210 = Pcon12.messages.create({
+msg210 = Pcon11.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 3.months.ago
     })
@@ -4251,20 +4236,20 @@ msg210 = Pcon12.messages.create({
 
 
       
-        Scon12.update({
+        Scon11.update({
                              message_timestamp: 3.months.ago,
                              read: true
                            }) 
-        Pcon12.update({
+        Pcon11.update({
                              message_timestamp: 3.months.ago,
                              read: true
                            }) 
 
 
-      MetCon13 = MetaConversation.create();
+      MetCon12 = MetaConversation.create();
 
-      Scon13 = soc.conversations.create(title: "Here he appears to have done", meta_conversation: MetCon13)
-      Pcon13 =  phaedrus.conversations.create(title: "Here he appears to have done", meta_conversation: MetCon13)
+      Scon12 = soc.conversations.create(title: "Here he appears to have done", meta_conversation: MetCon12)
+      Pcon12 =  phaedrus.conversations.create(title: "Here he appears to have done", meta_conversation: MetCon12)
 body_str = <<-BODY 
  Here he appears to have done just the reverse of what he
 ought; for he has begun at the end, and is swimming on his back through
@@ -4272,15 +4257,15 @@ the flood to the place of starting. His address to the fair youth begins
 where the lover would have ended. Am I not right, sweet Phaedrus?
 BODY
 
-msg211 = Scon13.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg211 = Scon12.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.months.ago
+    created_at: 3.months.ago
     })
 
     msg211.send_msg
-    msg211.update({updated_at: 2.months.ago})
+    msg211.update({updated_at: 3.months.ago})
 
 
 
@@ -4289,15 +4274,15 @@ body_str = <<-BODY
  Yes, indeed, Socrates; he does begin at the end.
 BODY
 
-msg212 = Pcon13.messages.create({
+msg212 = Pcon12.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.months.ago
+    created_at: 3.months.ago
     })
 
     msg212.send_msg
-    msg212.update({updated_at: 2.months.ago})
+    msg212.update({updated_at: 3.months.ago})
 
 
 
@@ -4311,15 +4296,15 @@ you would recognize a rhetorical necessity in the succession of the
 several parts of the composition?
 BODY
 
-msg213 = Scon13.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg213 = Scon12.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.months.ago
+    created_at: 3.months.ago
     })
 
     msg213.send_msg
-    msg213.update({updated_at: 2.months.ago})
+    msg213.update({updated_at: 3.months.ago})
 
 
 
@@ -4329,15 +4314,15 @@ body_str = <<-BODY
 any such insight into his principles of composition.
 BODY
 
-msg214 = Pcon13.messages.create({
+msg214 = Pcon12.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.months.ago
+    created_at: 3.months.ago
     })
 
     msg214.send_msg
-    msg214.update({updated_at: 2.months.ago})
+    msg214.update({updated_at: 3.months.ago})
 
 
 
@@ -4349,15 +4334,15 @@ should be a middle, beginning, and end, adapted to one another and to
 the whole?
 BODY
 
-msg215 = Scon13.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg215 = Scon12.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.months.ago
+    created_at: 3.months.ago
     })
 
     msg215.send_msg
-    msg215.update({updated_at: 2.months.ago})
+    msg215.update({updated_at: 3.months.ago})
 
 
 
@@ -4366,15 +4351,15 @@ body_str = <<-BODY
  Certainly.
 BODY
 
-msg216 = Pcon13.messages.create({
+msg216 = Pcon12.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.months.ago
+    created_at: 3.months.ago
     })
 
     msg216.send_msg
-    msg216.update({updated_at: 2.months.ago})
+    msg216.update({updated_at: 3.months.ago})
 
 
 
@@ -4385,79 +4370,49 @@ can find any more connexion in his words than in the epitaph which is
 said by some to have been inscribed on the grave of Midas the Phrygian.
 BODY
 
-msg217 = Scon13.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg217 = Scon12.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.months.ago
+    created_at: 3.months.ago
     })
 
     msg217.send_msg
-    msg217.update({updated_at: 2.months.ago})
+    msg217.update({updated_at: 3.months.ago})
 
 
 
 
-      
-        Scon13.update({
-                             message_timestamp: 2.months.ago,
-                             read: true
-                           }) 
-        Pcon13.update({
-                             message_timestamp: 2.months.ago,
-                             read: true
-                           }) 
-
-
-      MetCon14 = MetaConversation.create();
-
-      Scon14 = soc.conversations.create(title: "What is there remarkable in the", meta_conversation: MetCon14)
-      Pcon14 =  phaedrus.conversations.create(title: "What is there remarkable in the", meta_conversation: MetCon14)
 body_str = <<-BODY 
  What is there remarkable in the epitaph?
 BODY
 
-msg218 = Pcon14.messages.create({
+msg218 = Pcon12.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.months.ago
+    created_at: 3.months.ago
     })
 
     msg218.send_msg
-    msg218.update({updated_at: 2.months.ago})
+    msg218.update({updated_at: 3.months.ago})
 
 
 
 
-      
-        Scon14.update({
-                             message_timestamp: 2.months.ago,
-                             read: true
-                           }) 
-        Pcon14.update({
-                             message_timestamp: 2.months.ago,
-                             read: true
-                           }) 
-
-
-      MetCon15 = MetaConversation.create();
-
-      Scon15 = soc.conversations.create(title: "It is as follows:--", meta_conversation: MetCon15)
-      Pcon15 =  phaedrus.conversations.create(title: "It is as follows:--", meta_conversation: MetCon15)
 body_str = <<-BODY 
  It is as follows:--
 BODY
 
-msg219 = Scon15.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg219 = Scon12.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.months.ago
+    created_at: 3.months.ago
     })
 
     msg219.send_msg
-    msg219.update({updated_at: 2.months.ago})
+    msg219.update({updated_at: 3.months.ago})
 
 
 
@@ -4470,9 +4425,9 @@ body_str = <<-BODY
  You are making fun of that oration of ours.
 BODY
 
-msg220 = Pcon15.messages.create({
+msg220 = Pcon12.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 2.months.ago
     })
@@ -4491,8 +4446,8 @@ to the other speech, which, as I think, is also suggestive to students
 of rhetoric.
 BODY
 
-msg221 = Scon15.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg221 = Scon12.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 2.months.ago
@@ -4508,9 +4463,9 @@ body_str = <<-BODY
  In what way?
 BODY
 
-msg222 = Pcon15.messages.create({
+msg222 = Pcon12.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 2.months.ago
     })
@@ -4521,29 +4476,14 @@ msg222 = Pcon15.messages.create({
 
 
 
-      
-        Scon15.update({
-                             message_timestamp: 2.months.ago,
-                             read: true
-                           }) 
-        Pcon15.update({
-                             message_timestamp: 2.months.ago,
-                             read: true
-                           }) 
-
-
-      MetCon16 = MetaConversation.create();
-
-      Scon16 = soc.conversations.create(title: "The two speeches, as you may", meta_conversation: MetCon16)
-      Pcon16 =  phaedrus.conversations.create(title: "The two speeches, as you may", meta_conversation: MetCon16)
 body_str = <<-BODY 
  The two speeches, as you may remember, were unlike; the one
 argued that the lover and the other that the non-lover ought to be
 accepted.
 BODY
 
-msg223 = Scon16.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg223 = Scon12.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 2.months.ago
@@ -4559,15 +4499,15 @@ body_str = <<-BODY
  And right manfully.
 BODY
 
-msg224 = Pcon16.messages.create({
+msg224 = Pcon12.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.months.ago
+    created_at: 2.months.ago
     })
 
     msg224.send_msg
-    msg224.update({updated_at: 1.months.ago})
+    msg224.update({updated_at: 2.months.ago})
 
 
 
@@ -4577,15 +4517,15 @@ body_str = <<-BODY
 them, for, as I said, 'love is a madness.'
 BODY
 
-msg225 = Scon16.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg225 = Scon12.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.months.ago
+    created_at: 2.months.ago
     })
 
     msg225.send_msg
-    msg225.update({updated_at: 1.months.ago})
+    msg225.update({updated_at: 2.months.ago})
 
 
 
@@ -4594,15 +4534,15 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg226 = Pcon16.messages.create({
+msg226 = Pcon12.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.months.ago
+    created_at: 2.months.ago
     })
 
     msg226.send_msg
-    msg226.update({updated_at: 1.months.ago})
+    msg226.update({updated_at: 2.months.ago})
 
 
 
@@ -4613,15 +4553,15 @@ infirmity, the other was a divine release of the soul from the yoke of
 custom and convention.
 BODY
 
-msg227 = Scon16.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg227 = Scon12.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.months.ago
+    created_at: 2.months.ago
     })
 
     msg227.send_msg
-    msg227.update({updated_at: 1.months.ago})
+    msg227.update({updated_at: 2.months.ago})
 
 
 
@@ -4630,34 +4570,19 @@ body_str = <<-BODY
  True.
 BODY
 
-msg228 = Pcon16.messages.create({
+msg228 = Pcon12.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.months.ago
+    created_at: 2.months.ago
     })
 
     msg228.send_msg
-    msg228.update({updated_at: 1.months.ago})
+    msg228.update({updated_at: 2.months.ago})
 
 
 
 
-      
-        Scon16.update({
-                             message_timestamp: 1.months.ago,
-                             read: true
-                           }) 
-        Pcon16.update({
-                             message_timestamp: 1.months.ago,
-                             read: true
-                           }) 
-
-
-      MetCon17 = MetaConversation.create();
-
-      Scon17 = soc.conversations.create(title: "The divine madness was subdivided into", meta_conversation: MetCon17)
-      Pcon17 =  phaedrus.conversations.create(title: "The divine madness was subdivided into", meta_conversation: MetCon17)
 body_str = <<-BODY 
  The divine madness was subdivided into four kinds, prophetic,
 initiatory, poetic, erotic, having four gods presiding over them; the
@@ -4671,15 +4596,15 @@ mine, Phaedrus, and the guardian of fair children, and to him we sung
 the hymn in measured and solemn strain.
 BODY
 
-msg229 = Scon17.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg229 = Scon12.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.months.ago
+    created_at: 2.months.ago
     })
 
     msg229.send_msg
-    msg229.update({updated_at: 1.months.ago})
+    msg229.update({updated_at: 2.months.ago})
 
 
 
@@ -4688,15 +4613,15 @@ body_str = <<-BODY
  I know that I had great pleasure in listening to you.
 BODY
 
-msg230 = Pcon17.messages.create({
+msg230 = Pcon12.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.months.ago
+    created_at: 2.months.ago
     })
 
     msg230.send_msg
-    msg230.update({updated_at: 1.months.ago})
+    msg230.update({updated_at: 2.months.ago})
 
 
 
@@ -4706,15 +4631,15 @@ body_str = <<-BODY
 from blame to praise.
 BODY
 
-msg231 = Scon17.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg231 = Scon12.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.months.ago
+    created_at: 2.months.ago
     })
 
     msg231.send_msg
-    msg231.update({updated_at: 1.months.ago})
+    msg231.update({updated_at: 2.months.ago})
 
 
 
@@ -4723,15 +4648,15 @@ body_str = <<-BODY
  What do you mean?
 BODY
 
-msg232 = Pcon17.messages.create({
+msg232 = Pcon12.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.months.ago
+    created_at: 2.months.ago
     })
 
     msg232.send_msg
-    msg232.update({updated_at: 1.months.ago})
+    msg232.update({updated_at: 2.months.ago})
 
 
 
@@ -4743,8 +4668,8 @@ we should be too glad to have a clearer description if art could give us
 one.
 BODY
 
-msg233 = Scon17.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg233 = Scon12.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 1.months.ago
@@ -4760,9 +4685,9 @@ body_str = <<-BODY
  What are they?
 BODY
 
-msg234 = Pcon17.messages.create({
+msg234 = Pcon12.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 1.months.ago
     })
@@ -4780,8 +4705,8 @@ clearness and consistency to the discourse, the speaker should define
 his several notions and so make his meaning clear.
 BODY
 
-msg235 = Scon17.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg235 = Scon12.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 1.months.ago
@@ -4797,9 +4722,9 @@ body_str = <<-BODY
  What is the other principle, Socrates?
 BODY
 
-msg236 = Pcon17.messages.create({
+msg236 = Pcon12.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 1.months.ago
     })
@@ -4825,8 +4750,8 @@ same name, but divine, which the speaker held up before us and applauded
 and affirmed to be the author of the greatest benefits.
 BODY
 
-msg237 = Scon17.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg237 = Scon12.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 1.months.ago
@@ -4842,15 +4767,15 @@ body_str = <<-BODY
  Most true.
 BODY
 
-msg238 = Pcon17.messages.create({
+msg238 = Pcon12.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 12.days.ago
+    created_at: 1.months.ago
     })
 
     msg238.send_msg
-    msg238.update({updated_at: 12.days.ago})
+    msg238.update({updated_at: 1.months.ago})
 
 
 
@@ -4868,15 +4793,15 @@ teach and practise? Skilful speakers they are, and impart their skill to
 any who is willing to make kings of them and to bring gifts to them.
 BODY
 
-msg239 = Scon17.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg239 = Scon12.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.days.ago
+    created_at: 1.months.ago
     })
 
     msg239.send_msg
-    msg239.update({updated_at: 11.days.ago})
+    msg239.update({updated_at: 1.months.ago})
 
 
 
@@ -4887,15 +4812,15 @@ with the art of those whom you call, and rightly, in my opinion,
 dialecticians:--Still we are in the dark about rhetoric.
 BODY
 
-msg240 = Pcon17.messages.create({
+msg240 = Pcon12.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.days.ago
+    created_at: 1.months.ago
     })
 
     msg240.send_msg
-    msg240.update({updated_at: 11.days.ago})
+    msg240.update({updated_at: 1.months.ago})
 
 
 
@@ -4907,15 +4832,15 @@ and, at any rate, is not to be despised by you and me. But how much is
 left?
 BODY
 
-msg241 = Scon17.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg241 = Scon12.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.days.ago
+    created_at: 1.months.ago
     })
 
     msg241.send_msg
-    msg241.update({updated_at: 11.days.ago})
+    msg241.update({updated_at: 1.months.ago})
 
 
 
@@ -4924,15 +4849,15 @@ body_str = <<-BODY
  There is a great deal surely to be found in books of rhetoric?
 BODY
 
-msg242 = Pcon17.messages.create({
+msg242 = Pcon12.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.days.ago
+    created_at: 1.months.ago
     })
 
     msg242.send_msg
-    msg242.update({updated_at: 11.days.ago})
+    msg242.update({updated_at: 1.months.ago})
 
 
 
@@ -4943,15 +4868,15 @@ showing how the speech should begin, if I remember rightly; that is what
 you mean--the niceties of the art?
 BODY
 
-msg243 = Scon17.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg243 = Scon12.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.days.ago
+    created_at: 1.months.ago
     })
 
     msg243.send_msg
-    msg243.update({updated_at: 11.days.ago})
+    msg243.update({updated_at: 1.months.ago})
 
 
 
@@ -4960,15 +4885,15 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg244 = Pcon17.messages.create({
+msg244 = Pcon12.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.days.ago
+    created_at: 12.days.ago
     })
 
     msg244.send_msg
-    msg244.update({updated_at: 11.days.ago})
+    msg244.update({updated_at: 12.days.ago})
 
 
 
@@ -4980,8 +4905,8 @@ Byzantian word-maker also speaks, if I am not mistaken, of confirmation
 and further confirmation.
 BODY
 
-msg245 = Scon17.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg245 = Scon12.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 11.days.ago
@@ -4997,9 +4922,9 @@ body_str = <<-BODY
  You mean the excellent Theodorus.
 BODY
 
-msg246 = Pcon17.messages.create({
+msg246 = Pcon12.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 11.days.ago
     })
@@ -5025,32 +4950,47 @@ this; he said that he had himself discovered the true rule of art, which
 was to be neither long nor short, but of a convenient length.
 BODY
 
-msg247 = Scon17.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg247 = Scon12.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.days.ago
+    created_at: 11.days.ago
     })
 
     msg247.send_msg
-    msg247.update({updated_at: 10.days.ago})
+    msg247.update({updated_at: 11.days.ago})
 
 
 
 
+      
+        Scon12.update({
+                             message_timestamp: 11.days.ago,
+                             read: true
+                           }) 
+        Pcon12.update({
+                             message_timestamp: 11.days.ago,
+                             read: true
+                           }) 
+
+
+      MetCon13 = MetaConversation.create();
+
+      Scon13 = soc.conversations.create(title: "Well done, Prodicus!", meta_conversation: MetCon13)
+      Pcon13 =  phaedrus.conversations.create(title: "Well done, Prodicus!", meta_conversation: MetCon13)
 body_str = <<-BODY 
  Well done, Prodicus!
 BODY
 
-msg248 = Pcon17.messages.create({
+msg248 = Pcon13.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.days.ago
+    created_at: 11.days.ago
     })
 
     msg248.send_msg
-    msg248.update({updated_at: 10.days.ago})
+    msg248.update({updated_at: 11.days.ago})
 
 
 
@@ -5060,15 +5000,15 @@ body_str = <<-BODY
 with him.
 BODY
 
-msg249 = Scon17.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg249 = Scon13.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.days.ago
+    created_at: 11.days.ago
     })
 
     msg249.send_msg
-    msg249.update({updated_at: 10.days.ago})
+    msg249.update({updated_at: 11.days.ago})
 
 
 
@@ -5077,15 +5017,15 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg250 = Pcon17.messages.create({
+msg250 = Pcon13.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.days.ago
+    created_at: 11.days.ago
     })
 
     msg250.send_msg
-    msg250.update({updated_at: 10.days.ago})
+    msg250.update({updated_at: 11.days.ago})
 
 
 
@@ -5096,15 +5036,15 @@ and gnomology, and eikonology, and who teaches in them the names of
 which Licymnius made him a present; they were to give a polish.
 BODY
 
-msg251 = Scon17.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg251 = Scon13.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.days.ago
+    created_at: 11.days.ago
     })
 
     msg251.send_msg
-    msg251.update({updated_at: 10.days.ago})
+    msg251.update({updated_at: 11.days.ago})
 
 
 
@@ -5113,19 +5053,34 @@ body_str = <<-BODY
  Had not Protagoras something of the same sort?
 BODY
 
-msg252 = Pcon17.messages.create({
+msg252 = Pcon13.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.days.ago
+    created_at: 11.days.ago
     })
 
     msg252.send_msg
-    msg252.update({updated_at: 10.days.ago})
+    msg252.update({updated_at: 11.days.ago})
 
 
 
 
+      
+        Scon13.update({
+                             message_timestamp: 11.days.ago,
+                             read: true
+                           }) 
+        Pcon13.update({
+                             message_timestamp: 11.days.ago,
+                             read: true
+                           }) 
+
+
+      MetCon14 = MetaConversation.create();
+
+      Scon14 = soc.conversations.create(title: "Yes, rules of correct diction and", meta_conversation: MetCon14)
+      Pcon14 =  phaedrus.conversations.create(title: "Yes, rules of correct diction and", meta_conversation: MetCon14)
 body_str = <<-BODY 
  Yes, rules of correct diction and many other fine precepts;
 for the 'sorrows of a poor old man,' or any other pathetic case, no one
@@ -5136,15 +5091,15 @@ grounds or none. All of them agree in asserting that a speech should end
 in a recapitulation, though they do not all agree to use the same word.
 BODY
 
-msg253 = Scon17.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg253 = Scon14.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.days.ago
+    created_at: 11.days.ago
     })
 
     msg253.send_msg
-    msg253.update({updated_at: 10.days.ago})
+    msg253.update({updated_at: 11.days.ago})
 
 
 
@@ -5154,15 +5109,15 @@ body_str = <<-BODY
 order to remind the hearers of them.
 BODY
 
-msg254 = Pcon17.messages.create({
+msg254 = Pcon14.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.days.ago
+    created_at: 11.days.ago
     })
 
     msg254.send_msg
-    msg254.update({updated_at: 10.days.ago})
+    msg254.update({updated_at: 11.days.ago})
 
 
 
@@ -5172,26 +5127,41 @@ body_str = <<-BODY
 have you anything to add?
 BODY
 
-msg255 = Scon17.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg255 = Scon14.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.days.ago
+    created_at: 11.days.ago
     })
 
     msg255.send_msg
-    msg255.update({updated_at: 10.days.ago})
+    msg255.update({updated_at: 11.days.ago})
 
 
 
 
+      
+        Scon14.update({
+                             message_timestamp: 11.days.ago,
+                             read: true
+                           }) 
+        Pcon14.update({
+                             message_timestamp: 11.days.ago,
+                             read: true
+                           }) 
+
+
+      MetCon15 = MetaConversation.create();
+
+      Scon15 = soc.conversations.create(title: "Not much; nothing very important.", meta_conversation: MetCon15)
+      Pcon15 =  phaedrus.conversations.create(title: "Not much; nothing very important.", meta_conversation: MetCon15)
 body_str = <<-BODY 
  Not much; nothing very important.
 BODY
 
-msg256 = Pcon17.messages.create({
+msg256 = Pcon15.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 10.days.ago
     })
@@ -5202,29 +5172,14 @@ msg256 = Pcon17.messages.create({
 
 
 
-      
-        Scon17.update({
-                             message_timestamp: 10.days.ago,
-                             read: true
-                           }) 
-        Pcon17.update({
-                             message_timestamp: 10.days.ago,
-                             read: true
-                           }) 
-
-
-      MetCon18 = MetaConversation.create();
-
-      Scon18 = soc.conversations.create(title: "Leave the unimportant and let us", meta_conversation: MetCon18)
-      Pcon18 =  phaedrus.conversations.create(title: "Leave the unimportant and let us", meta_conversation: MetCon18)
 body_str = <<-BODY 
  Leave the unimportant and let us bring the really important
 question into the light of day, which is: What power has this art of
 rhetoric, and when?
 BODY
 
-msg257 = Scon18.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg257 = Scon15.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 10.days.ago
@@ -5240,15 +5195,15 @@ body_str = <<-BODY
  A very great power in public meetings.
 BODY
 
-msg258 = Pcon18.messages.create({
+msg258 = Pcon15.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.days.ago
+    created_at: 10.days.ago
     })
 
     msg258.send_msg
-    msg258.update({updated_at: 9.days.ago})
+    msg258.update({updated_at: 10.days.ago})
 
 
 
@@ -5259,15 +5214,15 @@ feeling as I have about the rhetoricians? To me there seem to be a great
 many holes in their web.
 BODY
 
-msg259 = Scon18.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg259 = Scon15.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.days.ago
+    created_at: 10.days.ago
     })
 
     msg259.send_msg
-    msg259.update({updated_at: 9.days.ago})
+    msg259.update({updated_at: 10.days.ago})
 
 
 
@@ -5276,15 +5231,15 @@ body_str = <<-BODY
  Give an example.
 BODY
 
-msg260 = Pcon18.messages.create({
+msg260 = Pcon15.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.days.ago
+    created_at: 10.days.ago
     })
 
     msg260.send_msg
-    msg260.update({updated_at: 9.days.ago})
+    msg260.update({updated_at: 10.days.ago})
 
 
 
@@ -5299,15 +5254,15 @@ imparting this knowledge to others,'--what do you suppose that they
 would say?
 BODY
 
-msg261 = Scon18.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg261 = Scon15.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.days.ago
+    created_at: 10.days.ago
     })
 
     msg261.send_msg
-    msg261.update({updated_at: 9.days.ago})
+    msg261.update({updated_at: 10.days.ago})
 
 
 
@@ -5317,15 +5272,15 @@ body_str = <<-BODY
 would give his medicines, and 'when,' and 'how much.'
 BODY
 
-msg262 = Pcon18.messages.create({
+msg262 = Pcon15.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.days.ago
+    created_at: 10.days.ago
     })
 
     msg262.send_msg
-    msg262.update({updated_at: 9.days.ago})
+    msg262.update({updated_at: 10.days.ago})
 
 
 
@@ -5336,15 +5291,15 @@ that; I expect the patient who consults me to be able to do these things
 for himself'?
 BODY
 
-msg263 = Scon18.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg263 = Scon15.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.days.ago
+    created_at: 10.days.ago
     })
 
     msg263.send_msg
-    msg263.update({updated_at: 9.days.ago})
+    msg263.update({updated_at: 10.days.ago})
 
 
 
@@ -5356,9 +5311,9 @@ book, or has stumbled on a prescription or two, although he has no real
 understanding of the art of medicine.
 BODY
 
-msg264 = Pcon18.messages.create({
+msg264 = Pcon15.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 9.days.ago
     })
@@ -5378,8 +5333,8 @@ speech, and in teaching this fancies that he is teaching the art of
 tragedy--?
 BODY
 
-msg265 = Scon18.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg265 = Scon15.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 9.days.ago
@@ -5397,9 +5352,9 @@ is anything but the arranging of these elements in a manner which will
 be suitable to one another and to the whole.
 BODY
 
-msg266 = Pcon18.messages.create({
+msg266 = Pcon15.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 9.days.ago
     })
@@ -5422,8 +5377,8 @@ if he has not got beyond your stage of knowledge, for you only know the
 preliminaries of harmony and not harmony itself.'
 BODY
 
-msg267 = Scon18.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg267 = Scon15.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 9.days.ago
@@ -5439,9 +5394,9 @@ body_str = <<-BODY
  Very true.
 BODY
 
-msg268 = Pcon18.messages.create({
+msg268 = Pcon15.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 9.days.ago
     })
@@ -5459,15 +5414,15 @@ and will not Acumenus say the same of medicine to the would-be
 physician?
 BODY
 
-msg269 = Scon18.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg269 = Scon15.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.days.ago
+    created_at: 9.days.ago
     })
 
     msg269.send_msg
-    msg269.update({updated_at: 8.days.ago})
+    msg269.update({updated_at: 9.days.ago})
 
 
 
@@ -5476,15 +5431,15 @@ body_str = <<-BODY
  Quite true.
 BODY
 
-msg270 = Pcon18.messages.create({
+msg270 = Pcon15.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.days.ago
+    created_at: 9.days.ago
     })
 
     msg270.send_msg
-    msg270.update({updated_at: 8.days.ago})
+    msg270.update({updated_at: 9.days.ago})
 
 
 
@@ -5507,15 +5462,15 @@ composition a whole,--an application of it such as this is they regard
 as an easy thing which their disciples may make for themselves.'
 BODY
 
-msg271 = Scon18.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg271 = Scon15.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.days.ago
+    created_at: 9.days.ago
     })
 
     msg271.send_msg
-    msg271.update({updated_at: 8.days.ago})
+    msg271.update({updated_at: 9.days.ago})
 
 
 
@@ -5527,15 +5482,15 @@ agree with you. But I still want to know where and how the true art of
 rhetoric and persuasion is to be acquired.
 BODY
 
-msg272 = Pcon18.messages.create({
+msg272 = Pcon15.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.days.ago
+    created_at: 9.days.ago
     })
 
     msg272.send_msg
-    msg272.update({updated_at: 8.days.ago})
+    msg272.update({updated_at: 9.days.ago})
 
 
 
@@ -5550,32 +5505,47 @@ extent defective. But the art, as far as there is an art, of rhetoric
 does not lie in the direction of Lysias or Thrasymachus.
 BODY
 
-msg273 = Scon18.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg273 = Scon15.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.days.ago
+    created_at: 9.days.ago
     })
 
     msg273.send_msg
-    msg273.update({updated_at: 8.days.ago})
+    msg273.update({updated_at: 9.days.ago})
 
 
 
 
+      
+        Scon15.update({
+                             message_timestamp: 9.days.ago,
+                             read: true
+                           }) 
+        Pcon15.update({
+                             message_timestamp: 9.days.ago,
+                             read: true
+                           }) 
+
+
+      MetCon16 = MetaConversation.create();
+
+      Scon16 = soc.conversations.create(title: "In what direction then?", meta_conversation: MetCon16)
+      Pcon16 =  phaedrus.conversations.create(title: "In what direction then?", meta_conversation: MetCon16)
 body_str = <<-BODY 
  In what direction then?
 BODY
 
-msg274 = Pcon18.messages.create({
+msg274 = Pcon16.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.days.ago
+    created_at: 9.days.ago
     })
 
     msg274.send_msg
-    msg274.update({updated_at: 8.days.ago})
+    msg274.update({updated_at: 9.days.ago})
 
 
 
@@ -5585,15 +5555,15 @@ body_str = <<-BODY
 rhetoricians.
 BODY
 
-msg275 = Scon18.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg275 = Scon16.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.days.ago
+    created_at: 9.days.ago
     })
 
     msg275.send_msg
-    msg275.update({updated_at: 8.days.ago})
+    msg275.update({updated_at: 9.days.ago})
 
 
 
@@ -5602,9 +5572,9 @@ body_str = <<-BODY
  What of that?
 BODY
 
-msg276 = Pcon18.messages.create({
+msg276 = Pcon16.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.days.ago
     })
@@ -5626,8 +5596,8 @@ negative of Mind, which were favourite themes of Anaxagoras, and applied
 what suited his purpose to the art of speaking.
 BODY
 
-msg277 = Scon18.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg277 = Scon16.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.days.ago
@@ -5639,13 +5609,28 @@ msg277 = Scon18.messages.create({
 
 
 
+      
+        Scon16.update({
+                             message_timestamp: 8.days.ago,
+                             read: true
+                           }) 
+        Pcon16.update({
+                             message_timestamp: 8.days.ago,
+                             read: true
+                           }) 
+
+
+      MetCon17 = MetaConversation.create();
+
+      Scon17 = soc.conversations.create(title: "Explain.", meta_conversation: MetCon17)
+      Pcon17 =  phaedrus.conversations.create(title: "Explain.", meta_conversation: MetCon17)
 body_str = <<-BODY 
  Explain.
 BODY
 
-msg278 = Pcon18.messages.create({
+msg278 = Pcon17.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.days.ago
     })
@@ -5660,8 +5645,8 @@ body_str = <<-BODY
  Rhetoric is like medicine.
 BODY
 
-msg279 = Scon18.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg279 = Scon17.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.days.ago
@@ -5677,9 +5662,9 @@ body_str = <<-BODY
  How so?
 BODY
 
-msg280 = Pcon18.messages.create({
+msg280 = Pcon17.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.days.ago
     })
@@ -5698,8 +5683,8 @@ medicine and food, in the other to implant the conviction or virtue
 which you desire, by the right application of words and training.
 BODY
 
-msg281 = Scon18.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg281 = Scon17.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.days.ago
@@ -5715,15 +5700,15 @@ body_str = <<-BODY
  There, Socrates, I suspect that you are right.
 BODY
 
-msg282 = Pcon18.messages.create({
+msg282 = Pcon17.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.days.ago
+    created_at: 8.days.ago
     })
 
     msg282.send_msg
-    msg282.update({updated_at: 7.days.ago})
+    msg282.update({updated_at: 8.days.ago})
 
 
 
@@ -5733,15 +5718,15 @@ body_str = <<-BODY
 intelligently without knowing the nature of the whole?
 BODY
 
-msg283 = Scon18.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg283 = Scon17.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.days.ago
+    created_at: 8.days.ago
     })
 
     msg283.send_msg
-    msg283.update({updated_at: 7.days.ago})
+    msg283.update({updated_at: 8.days.ago})
 
 
 
@@ -5751,15 +5736,15 @@ body_str = <<-BODY
 body can only be understood as a whole. (Compare Charmides.)
 BODY
 
-msg284 = Pcon18.messages.create({
+msg284 = Pcon17.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.days.ago
+    created_at: 8.days.ago
     })
 
     msg284.send_msg
-    msg284.update({updated_at: 7.days.ago})
+    msg284.update({updated_at: 8.days.ago})
 
 
 
@@ -5770,15 +5755,15 @@ content with the name of Hippocrates, but to examine and see whether his
 argument agrees with his conception of nature.
 BODY
 
-msg285 = Scon18.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg285 = Scon17.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.days.ago
+    created_at: 8.days.ago
     })
 
     msg285.send_msg
-    msg285.update({updated_at: 7.days.ago})
+    msg285.update({updated_at: 8.days.ago})
 
 
 
@@ -5787,9 +5772,9 @@ body_str = <<-BODY
  I agree.
 BODY
 
-msg286 = Pcon18.messages.create({
+msg286 = Pcon17.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.days.ago
     })
@@ -5811,8 +5796,8 @@ case of all of them, what is that power of acting or being acted upon
 which makes each and all of them to be what they are?
 BODY
 
-msg287 = Scon18.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg287 = Scon17.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.days.ago
@@ -5828,9 +5813,9 @@ body_str = <<-BODY
  You may very likely be right, Socrates.
 BODY
 
-msg288 = Pcon18.messages.create({
+msg288 = Pcon17.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.days.ago
     })
@@ -5850,8 +5835,8 @@ that being to which he addresses his speeches; and this, I conceive, to
 be the soul.
 BODY
 
-msg289 = Scon18.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg289 = Scon17.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.days.ago
@@ -5863,28 +5848,13 @@ msg289 = Scon18.messages.create({
 
 
 
-      
-        Scon18.update({
-                             message_timestamp: 7.days.ago,
-                             read: true
-                           }) 
-        Pcon18.update({
-                             message_timestamp: 7.days.ago,
-                             read: true
-                           }) 
-
-
-      MetCon19 = MetaConversation.create();
-
-      Scon19 = soc.conversations.create(title: "Certainly.", meta_conversation: MetCon19)
-      Pcon19 =  phaedrus.conversations.create(title: "Certainly.", meta_conversation: MetCon19)
 body_str = <<-BODY 
  Certainly.
 BODY
 
-msg290 = Pcon19.messages.create({
+msg290 = Pcon17.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.days.ago
     })
@@ -5900,8 +5870,8 @@ body_str = <<-BODY
 to produce conviction.
 BODY
 
-msg291 = Scon19.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg291 = Scon17.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.days.ago
@@ -5917,9 +5887,9 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg292 = Pcon19.messages.create({
+msg292 = Pcon17.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.days.ago
     })
@@ -5938,8 +5908,8 @@ like the body, multiform. That is what we should call showing the nature
 of the soul.
 BODY
 
-msg293 = Scon19.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg293 = Scon17.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.days.ago
@@ -5955,9 +5925,9 @@ body_str = <<-BODY
  Exactly.
 BODY
 
-msg294 = Pcon19.messages.create({
+msg294 = Pcon17.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.days.ago
     })
@@ -5973,15 +5943,15 @@ body_str = <<-BODY
 acted upon.
 BODY
 
-msg295 = Scon19.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg295 = Scon17.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.days.ago
+    created_at: 7.days.ago
     })
 
     msg295.send_msg
-    msg295.update({updated_at: 6.days.ago})
+    msg295.update({updated_at: 7.days.ago})
 
 
 
@@ -5990,15 +5960,15 @@ body_str = <<-BODY
  True.
 BODY
 
-msg296 = Pcon19.messages.create({
+msg296 = Pcon17.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.days.ago
+    created_at: 7.days.ago
     })
 
     msg296.send_msg
-    msg296.update({updated_at: 6.days.ago})
+    msg296.update({updated_at: 7.days.ago})
 
 
 
@@ -6010,15 +5980,15 @@ reasons of his arrangement, and show why one soul is persuaded by a
 particular form of argument, and another not.
 BODY
 
-msg297 = Scon19.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg297 = Scon17.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.days.ago
+    created_at: 7.days.ago
     })
 
     msg297.send_msg
-    msg297.update({updated_at: 6.days.ago})
+    msg297.update({updated_at: 7.days.ago})
 
 
 
@@ -6027,15 +5997,15 @@ body_str = <<-BODY
  You have hit upon a very good way.
 BODY
 
-msg298 = Pcon19.messages.create({
+msg298 = Pcon17.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.days.ago
+    created_at: 7.days.ago
     })
 
     msg298.send_msg
-    msg298.update({updated_at: 6.days.ago})
+    msg298.update({updated_at: 7.days.ago})
 
 
 
@@ -6049,8 +6019,8 @@ they adopt our method of reading and writing, can we admit that they
 write by rules of art?
 BODY
 
-msg299 = Scon19.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg299 = Scon17.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 6.days.ago
@@ -6066,9 +6036,9 @@ body_str = <<-BODY
  What is our method?
 BODY
 
-msg300 = Pcon19.messages.create({
+msg300 = Pcon17.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 6.days.ago
     })
@@ -6085,8 +6055,8 @@ tell you generally, as far as is in my power, how a man ought to proceed
 according to rules of art.
 BODY
 
-msg301 = Scon19.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg301 = Scon17.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 6.days.ago
@@ -6102,9 +6072,9 @@ body_str = <<-BODY
  Let me hear.
 BODY
 
-msg302 = Pcon19.messages.create({
+msg302 = Pcon17.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 6.days.ago
     })
@@ -6143,8 +6113,8 @@ say, is this, Phaedrus and Socrates, your account of the so-called art
 of rhetoric, or am I to look for another?
 BODY
 
-msg303 = Scon19.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg303 = Scon17.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 6.days.ago
@@ -6156,14 +6126,29 @@ msg303 = Scon19.messages.create({
 
 
 
+      
+        Scon17.update({
+                             message_timestamp: 6.days.ago,
+                             read: true
+                           }) 
+        Pcon17.update({
+                             message_timestamp: 6.days.ago,
+                             read: true
+                           }) 
+
+
+      MetCon18 = MetaConversation.create();
+
+      Scon18 = soc.conversations.create(title: "He must take this, Socrates, for", meta_conversation: MetCon18)
+      Pcon18 =  phaedrus.conversations.create(title: "He must take this, Socrates, for", meta_conversation: MetCon18)
 body_str = <<-BODY 
  He must take this, Socrates, for there is no possibility of
 another, and yet the creation of such an art is not easy.
 BODY
 
-msg304 = Pcon19.messages.create({
+msg304 = Pcon18.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 6.days.ago
     })
@@ -6183,15 +6168,15 @@ you have heard from Lysias or any one else anything which might be of
 service to us.
 BODY
 
-msg305 = Scon19.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg305 = Scon18.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.days.ago
+    created_at: 6.days.ago
     })
 
     msg305.send_msg
-    msg305.update({updated_at: 5.days.ago})
+    msg305.update({updated_at: 6.days.ago})
 
 
 
@@ -6201,15 +6186,15 @@ body_str = <<-BODY
 think of nothing.
 BODY
 
-msg306 = Pcon19.messages.create({
+msg306 = Pcon18.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.days.ago
+    created_at: 6.days.ago
     })
 
     msg306.send_msg
-    msg306.update({updated_at: 5.days.ago})
+    msg306.update({updated_at: 6.days.ago})
 
 
 
@@ -6218,8 +6203,8 @@ body_str = <<-BODY
  Suppose I tell you something which somebody who knows told me.
 BODY
 
-msg307 = Scon19.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg307 = Scon18.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.days.ago
@@ -6235,9 +6220,9 @@ body_str = <<-BODY
  Certainly.
 BODY
 
-msg308 = Pcon19.messages.create({
+msg308 = Pcon18.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.days.ago
     })
@@ -6252,8 +6237,8 @@ body_str = <<-BODY
  May not 'the wolf,' as the proverb says, 'claim a hearing'?
 BODY
 
-msg309 = Scon19.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg309 = Scon18.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.days.ago
@@ -6269,9 +6254,9 @@ body_str = <<-BODY
  Do you say what can be said for him.
 BODY
 
-msg310 = Pcon19.messages.create({
+msg310 = Pcon18.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.days.ago
     })
@@ -6299,8 +6284,8 @@ in view, and say good-bye to the truth. And the observance of this
 principle throughout a speech furnishes the whole art.
 BODY
 
-msg311 = Scon19.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg311 = Scon18.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.days.ago
@@ -6318,9 +6303,9 @@ Socrates. I have not forgotten that we have quite briefly touched upon
 this matter already; with them the point is all-important.
 BODY
 
-msg312 = Pcon19.messages.create({
+msg312 = Pcon18.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.days.ago
     })
@@ -6336,8 +6321,8 @@ body_str = <<-BODY
 define probability to be that which the many think?
 BODY
 
-msg313 = Scon19.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg313 = Scon18.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.days.ago
@@ -6353,9 +6338,9 @@ body_str = <<-BODY
  Certainly, he does.
 BODY
 
-msg314 = Pcon19.messages.create({
+msg314 = Pcon18.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.days.ago
     })
@@ -6380,8 +6365,8 @@ gain an opportunity of refuting. And there are other devices of the same
 kind which have a place in the system. Am I not right, Phaedrus?
 BODY
 
-msg315 = Scon19.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg315 = Scon18.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.days.ago
@@ -6397,9 +6382,9 @@ body_str = <<-BODY
  Certainly.
 BODY
 
-msg316 = Pcon19.messages.create({
+msg316 = Pcon18.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.days.ago
     })
@@ -6416,8 +6401,8 @@ Tisias or some other gentleman, in whatever name or country he rejoices,
 has discovered. Shall we say a word to him or not?
 BODY
 
-msg317 = Scon19.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg317 = Scon18.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.days.ago
@@ -6433,9 +6418,9 @@ body_str = <<-BODY
  What shall we say to him?
 BODY
 
-msg318 = Pcon19.messages.create({
+msg318 = Pcon18.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 4.days.ago
     })
@@ -6470,8 +6455,8 @@ the argument may say, Tisias, that if you do not mind going so far,
 rhetoric has a fair beginning here.
 BODY
 
-msg319 = Scon19.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg319 = Scon18.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 4.days.ago
@@ -6488,9 +6473,9 @@ body_str = <<-BODY
 practicable.
 BODY
 
-msg320 = Pcon19.messages.create({
+msg320 = Pcon18.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 4.days.ago
     })
@@ -6501,12 +6486,27 @@ msg320 = Pcon19.messages.create({
 
 
 
+      
+        Scon18.update({
+                             message_timestamp: 4.days.ago,
+                             read: true
+                           }) 
+        Pcon18.update({
+                             message_timestamp: 4.days.ago,
+                             read: true
+                           }) 
+
+
+      MetCon19 = MetaConversation.create();
+
+      Scon19 = soc.conversations.create(title: "But even to fail in an", meta_conversation: MetCon19)
+      Pcon19 =  phaedrus.conversations.create(title: "But even to fail in an", meta_conversation: MetCon19)
 body_str = <<-BODY 
  But even to fail in an honourable object is honourable.
 BODY
 
 msg321 = Scon19.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 4.days.ago
@@ -6524,7 +6524,7 @@ BODY
 
 msg322 = Pcon19.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 4.days.ago
     })
@@ -6541,7 +6541,7 @@ of speaking.
 BODY
 
 msg323 = Scon19.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 4.days.ago
@@ -6559,7 +6559,7 @@ BODY
 
 msg324 = Pcon19.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 4.days.ago
     })
@@ -6576,7 +6576,7 @@ impropriety of writing.
 BODY
 
 msg325 = Scon19.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 4.days.ago
@@ -6594,7 +6594,7 @@ BODY
 
 msg326 = Pcon19.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 4.days.ago
     })
@@ -6611,25 +6611,40 @@ manner which will be acceptable to God?
 BODY
 
 msg327 = Scon19.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.days.ago
+    created_at: 3.days.ago
     })
 
     msg327.send_msg
-    msg327.update({updated_at: 4.days.ago})
+    msg327.update({updated_at: 3.days.ago})
 
 
 
 
+      
+        Scon19.update({
+                             message_timestamp: 3.days.ago,
+                             read: true
+                           }) 
+        Pcon19.update({
+                             message_timestamp: 3.days.ago,
+                             read: true
+                           }) 
+
+
+      MetCon20 = MetaConversation.create();
+
+      Scon20 = soc.conversations.create(title: "No, indeed. Do you?", meta_conversation: MetCon20)
+      Pcon20 =  phaedrus.conversations.create(title: "No, indeed. Do you?", meta_conversation: MetCon20)
 body_str = <<-BODY 
  No, indeed. Do you?
 BODY
 
-msg328 = Pcon19.messages.create({
+msg328 = Pcon20.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 3.days.ago
     })
@@ -6646,8 +6661,8 @@ they only know; although if we had found the truth ourselves, do you
 think that we should care much about the opinions of men?
 BODY
 
-msg329 = Scon19.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg329 = Scon20.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 3.days.ago
@@ -6664,9 +6679,9 @@ body_str = <<-BODY
 me what you say that you have heard.
 BODY
 
-msg330 = Pcon19.messages.create({
+msg330 = Pcon20.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 3.days.ago
     })
@@ -6709,8 +6724,8 @@ generally know nothing; they will be tiresome company, having the show
 of wisdom without the reality.
 BODY
 
-msg331 = Scon19.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg331 = Scon20.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 3.days.ago
@@ -6727,9 +6742,9 @@ body_str = <<-BODY
 other country.
 BODY
 
-msg332 = Pcon19.messages.create({
+msg332 = Pcon20.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 3.days.ago
     })
@@ -6749,8 +6764,8 @@ a thing is or is not true, but who the speaker is and from what country
 the tale comes.
 BODY
 
-msg333 = Scon19.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg333 = Scon20.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 3.days.ago
@@ -6767,9 +6782,9 @@ body_str = <<-BODY
 Theban is right in his view about letters.
 BODY
 
-msg334 = Pcon19.messages.create({
+msg334 = Pcon20.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 3.days.ago
     })
@@ -6780,21 +6795,6 @@ msg334 = Pcon19.messages.create({
 
 
 
-      
-        Scon19.update({
-                             message_timestamp: 3.days.ago,
-                             read: true
-                           }) 
-        Pcon19.update({
-                             message_timestamp: 3.days.ago,
-                             read: true
-                           }) 
-
-
-      MetCon20 = MetaConversation.create();
-
-      Scon20 = soc.conversations.create(title: "He would be a very simple", meta_conversation: MetCon20)
-      Pcon20 =  phaedrus.conversations.create(title: "He would be a very simple", meta_conversation: MetCon20)
 body_str = <<-BODY 
  He would be a very simple person, and quite a stranger to the
 oracles of Thamus or Ammon, who should leave in writing or receive
@@ -6804,7 +6804,7 @@ than knowledge and recollection of the same matters?
 BODY
 
 msg335 = Scon20.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 3.days.ago
@@ -6822,7 +6822,7 @@ BODY
 
 msg336 = Pcon20.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 3.days.ago
     })
@@ -6847,14 +6847,14 @@ parent to protect them; and they cannot protect or defend themselves.
 BODY
 
 msg337 = Scon20.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.days.ago
+    created_at: 3.days.ago
     })
 
     msg337.send_msg
-    msg337.update({updated_at: 2.days.ago})
+    msg337.update({updated_at: 3.days.ago})
 
 
 
@@ -6865,13 +6865,13 @@ BODY
 
 msg338 = Pcon20.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.days.ago
+    created_at: 3.days.ago
     })
 
     msg338.send_msg
-    msg338.update({updated_at: 2.days.ago})
+    msg338.update({updated_at: 3.days.ago})
 
 
 
@@ -6883,14 +6883,14 @@ lawfully begotten?
 BODY
 
 msg339 = Scon20.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.days.ago
+    created_at: 3.days.ago
     })
 
     msg339.send_msg
-    msg339.update({updated_at: 2.days.ago})
+    msg339.update({updated_at: 3.days.ago})
 
 
 
@@ -6901,7 +6901,7 @@ BODY
 
 msg340 = Pcon20.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 2.days.ago
     })
@@ -6918,7 +6918,7 @@ which can defend itself, and knows when to speak and when to be silent.
 BODY
 
 msg341 = Scon20.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 2.days.ago
@@ -6937,7 +6937,7 @@ BODY
 
 msg342 = Pcon20.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 2.days.ago
     })
@@ -6961,7 +6961,7 @@ seeds which he has sown arrive at perfection?
 BODY
 
 msg343 = Scon20.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 2.days.ago
@@ -6980,7 +6980,7 @@ BODY
 
 msg344 = Pcon20.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 2.days.ago
     })
@@ -6998,7 +6998,7 @@ seeds?
 BODY
 
 msg345 = Scon20.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 2.days.ago
@@ -7016,7 +7016,7 @@ BODY
 
 msg346 = Pcon20.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 2.days.ago
     })
@@ -7034,14 +7034,14 @@ themselves nor teach the truth adequately to others?
 BODY
 
 msg347 = Scon20.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.days.ago
+    created_at: 2.days.ago
     })
 
     msg347.send_msg
-    msg347.update({updated_at: 1.days.ago})
+    msg347.update({updated_at: 2.days.ago})
 
 
 
@@ -7052,13 +7052,13 @@ BODY
 
 msg348 = Pcon20.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.days.ago
+    created_at: 2.days.ago
     })
 
     msg348.send_msg
-    msg348.update({updated_at: 1.days.ago})
+    msg348.update({updated_at: 2.days.ago})
 
 
 
@@ -7074,14 +7074,14 @@ the pastime in which his days are spent.
 BODY
 
 msg349 = Scon20.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.days.ago
+    created_at: 2.days.ago
     })
 
     msg349.send_msg
-    msg349.update({updated_at: 1.days.ago})
+    msg349.update({updated_at: 2.days.ago})
 
 
 
@@ -7094,13 +7094,13 @@ BODY
 
 msg350 = Pcon20.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.days.ago
+    created_at: 2.days.ago
     })
 
     msg350.send_msg
-    msg350.update({updated_at: 1.days.ago})
+    msg350.update({updated_at: 2.days.ago})
 
 
 
@@ -7115,14 +7115,14 @@ possessors of it happy to the utmost extent of human happiness.
 BODY
 
 msg351 = Scon20.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.days.ago
+    created_at: 2.days.ago
     })
 
     msg351.send_msg
-    msg351.update({updated_at: 1.days.ago})
+    msg351.update({updated_at: 2.days.ago})
 
 
 
@@ -7133,13 +7133,13 @@ BODY
 
 msg352 = Pcon20.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.days.ago
+    created_at: 2.days.ago
     })
 
     msg352.send_msg
-    msg352.update({updated_at: 1.days.ago})
+    msg352.update({updated_at: 2.days.ago})
 
 
 
@@ -7150,7 +7150,7 @@ decide about the conclusion.
 BODY
 
 msg353 = Scon20.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 1.days.ago
@@ -7168,7 +7168,7 @@ BODY
 
 msg354 = Pcon20.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 1.days.ago
     })
@@ -7188,7 +7188,7 @@ informed about the nature of art and its opposite.
 BODY
 
 msg355 = Scon20.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 1.days.ago
@@ -7207,7 +7207,7 @@ BODY
 
 msg356 = Pcon20.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 1.days.ago
     })
@@ -7235,14 +7235,14 @@ argument.
 BODY
 
 msg357 = Scon20.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 12.hours.ago
+    created_at: 1.days.ago
     })
 
     msg357.send_msg
-    msg357.update({updated_at: 12.hours.ago})
+    msg357.update({updated_at: 1.days.ago})
 
 
 
@@ -7253,13 +7253,13 @@ BODY
 
 msg358 = Pcon20.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.hours.ago
+    created_at: 1.days.ago
     })
 
     msg358.send_msg
-    msg358.update({updated_at: 11.hours.ago})
+    msg358.update({updated_at: 1.days.ago})
 
 
 
@@ -7271,14 +7271,14 @@ censured--did not our previous argument show--?
 BODY
 
 msg359 = Scon20.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.hours.ago
+    created_at: 1.days.ago
     })
 
     msg359.send_msg
-    msg359.update({updated_at: 11.hours.ago})
+    msg359.update({updated_at: 1.days.ago})
 
 
 
@@ -7289,13 +7289,13 @@ BODY
 
 msg360 = Pcon20.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.hours.ago
+    created_at: 1.days.ago
     })
 
     msg360.send_msg
-    msg360.update({updated_at: 11.hours.ago})
+    msg360.update({updated_at: 1.days.ago})
 
 
 
@@ -7313,14 +7313,14 @@ world.
 BODY
 
 msg361 = Scon20.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.hours.ago
+    created_at: 12.hours.ago
     })
 
     msg361.send_msg
-    msg361.update({updated_at: 11.hours.ago})
+    msg361.update({updated_at: 12.hours.ago})
 
 
 
@@ -7331,7 +7331,7 @@ BODY
 
 msg362 = Pcon20.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 11.hours.ago
     })
@@ -7342,21 +7342,6 @@ msg362 = Pcon20.messages.create({
 
 
 
-      
-        Scon20.update({
-                             message_timestamp: 11.hours.ago,
-                             read: true
-                           }) 
-        Pcon20.update({
-                             message_timestamp: 11.hours.ago,
-                             read: true
-                           }) 
-
-
-      MetCon21 = MetaConversation.create();
-
-      Scon21 = soc.conversations.create(title: "But he who thinks that in", meta_conversation: MetCon21)
-      Pcon21 =  phaedrus.conversations.create(title: "But he who thinks that in", meta_conversation: MetCon21)
 body_str = <<-BODY 
  But he who thinks that in the written word there is
 necessarily much which is not serious, and that neither poetry
@@ -7375,8 +7360,8 @@ of others;--and who cares for them and no others--this is the right sort
 of man; and you and I, Phaedrus, would pray that we may become like him.
 BODY
 
-msg363 = Scon21.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg363 = Scon20.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 11.hours.ago
@@ -7392,9 +7377,9 @@ body_str = <<-BODY
  That is most assuredly my desire and prayer.
 BODY
 
-msg364 = Pcon21.messages.create({
+msg364 = Pcon20.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 11.hours.ago
     })
@@ -7420,8 +7405,8 @@ legislators, but are worthy of a higher name, befitting the serious
 pursuit of their life.
 BODY
 
-msg365 = Scon21.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg365 = Scon20.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 11.hours.ago
@@ -7437,9 +7422,9 @@ body_str = <<-BODY
  What name would you assign to them?
 BODY
 
-msg366 = Pcon21.messages.create({
+msg366 = Pcon20.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 11.hours.ago
     })
@@ -7456,8 +7441,8 @@ belongs to God alone,--lovers of wisdom or philosophers is their modest
 and befitting title.
 BODY
 
-msg367 = Scon21.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg367 = Scon20.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 11.hours.ago
@@ -7473,9 +7458,9 @@ body_str = <<-BODY
  Very suitable.
 BODY
 
-msg368 = Pcon21.messages.create({
+msg368 = Pcon20.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 11.hours.ago
     })
@@ -7493,15 +7478,15 @@ and taking away some, may be justly called poet or speech-maker or
 law-maker.
 BODY
 
-msg369 = Scon21.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg369 = Scon20.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.hours.ago
+    created_at: 11.hours.ago
     })
 
     msg369.send_msg
-    msg369.update({updated_at: 10.hours.ago})
+    msg369.update({updated_at: 11.hours.ago})
 
 
 
@@ -7510,15 +7495,15 @@ body_str = <<-BODY
  Certainly.
 BODY
 
-msg370 = Pcon21.messages.create({
+msg370 = Pcon20.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.hours.ago
+    created_at: 11.hours.ago
     })
 
     msg370.send_msg
-    msg370.update({updated_at: 10.hours.ago})
+    msg370.update({updated_at: 11.hours.ago})
 
 
 
@@ -7527,15 +7512,15 @@ body_str = <<-BODY
  Now go and tell this to your companion.
 BODY
 
-msg371 = Scon21.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg371 = Scon20.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.hours.ago
+    created_at: 11.hours.ago
     })
 
     msg371.send_msg
-    msg371.update({updated_at: 10.hours.ago})
+    msg371.update({updated_at: 11.hours.ago})
 
 
 
@@ -7545,9 +7530,9 @@ body_str = <<-BODY
 forgotten.
 BODY
 
-msg372 = Pcon21.messages.create({
+msg372 = Pcon20.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 10.hours.ago
     })
@@ -7558,27 +7543,12 @@ msg372 = Pcon21.messages.create({
 
 
 
-      
-        Scon21.update({
-                             message_timestamp: 10.hours.ago,
-                             read: true
-                           }) 
-        Pcon21.update({
-                             message_timestamp: 10.hours.ago,
-                             read: true
-                           }) 
-
-
-      MetCon22 = MetaConversation.create();
-
-      Scon22 = soc.conversations.create(title: "Who is he?", meta_conversation: MetCon22)
-      Pcon22 =  phaedrus.conversations.create(title: "Who is he?", meta_conversation: MetCon22)
 body_str = <<-BODY 
  Who is he?
 BODY
 
-msg373 = Scon22.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg373 = Scon20.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 10.hours.ago
@@ -7595,9 +7565,9 @@ body_str = <<-BODY
 how shall we describe him?
 BODY
 
-msg374 = Pcon22.messages.create({
+msg374 = Pcon20.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 10.hours.ago
     })
@@ -7613,8 +7583,8 @@ body_str = <<-BODY
 a prophecy concerning him.
 BODY
 
-msg375 = Scon22.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg375 = Scon20.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 10.hours.ago
@@ -7630,9 +7600,9 @@ body_str = <<-BODY
  What would you prophesy?
 BODY
 
-msg376 = Pcon22.messages.create({
+msg376 = Pcon20.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 10.hours.ago
     })
@@ -7656,8 +7626,8 @@ Isocrates, who is my delight; and do you give the other to Lysias, who
 is yours.
 BODY
 
-msg377 = Scon22.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg377 = Scon20.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 10.hours.ago
@@ -7673,9 +7643,9 @@ body_str = <<-BODY
  I will; and now as the heat is abated let us depart.
 BODY
 
-msg378 = Pcon22.messages.create({
+msg378 = Pcon20.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 10.hours.ago
     })
@@ -7691,8 +7661,8 @@ body_str = <<-BODY
 deities?
 BODY
 
-msg379 = Scon22.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg379 = Scon20.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 10.hours.ago
@@ -7708,9 +7678,9 @@ body_str = <<-BODY
  By all means.
 BODY
 
-msg380 = Pcon22.messages.create({
+msg380 = Pcon20.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 10.hours.ago
     })
@@ -7729,15 +7699,15 @@ a quantity of gold as a temperate man and he only can bear and
 carry.--Anything more? The prayer, I think, is enough for me.
 BODY
 
-msg381 = Scon22.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg381 = Scon20.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.hours.ago
+    created_at: 10.hours.ago
     })
 
     msg381.send_msg
-    msg381.update({updated_at: 9.hours.ago})
+    msg381.update({updated_at: 10.hours.ago})
 
 
 
@@ -7747,32 +7717,47 @@ body_str = <<-BODY
 common.
 BODY
 
-msg382 = Pcon22.messages.create({
+msg382 = Pcon20.messages.create({
     source_address: "phaedrus#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.hours.ago
+    created_at: 10.hours.ago
     })
 
     msg382.send_msg
-    msg382.update({updated_at: 9.hours.ago})
+    msg382.update({updated_at: 10.hours.ago})
 
 
 
 
+      
+        Scon20.update({
+                             message_timestamp: 10.hours.ago,
+                             read: true
+                           }) 
+        Pcon20.update({
+                             message_timestamp: 10.hours.ago,
+                             read: true
+                           }) 
+
+
+      MetCon21 = MetaConversation.create();
+
+      Scon21 = soc.conversations.create(title: "Let us go.", meta_conversation: MetCon21)
+      Pcon21 =  phaedrus.conversations.create(title: "Let us go.", meta_conversation: MetCon21)
 body_str = <<-BODY 
  Let us go.
 
 BODY
 
-msg383 = Scon22.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg383 = Scon21.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "phaedrus#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.hours.ago
+    created_at: 10.hours.ago
     })
 
     msg383.send_msg
-    msg383.update({updated_at: 9.hours.ago})
+    msg383.update({updated_at: 10.hours.ago})
 
 

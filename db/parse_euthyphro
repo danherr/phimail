@@ -9,7 +9,7 @@ $increments = ['years', 'months','days', 'hours', 'minutes', 'seconds']
 $time_idx = 2
 $time_num = 10.0
 $num = 3
-$soc = "daimonic#{'#{EMAIL_SIGNATURE}'}"
+$soc = "daemonic#{'#{EMAIL_SIGNATURE}'}"
 $euth = "euthyphro#{'#{EMAIL_SIGNATURE}'}"
 $euth_target = $soc
 $soc_target = $euth
@@ -17,7 +17,7 @@ $mnum = 1;
 header = <<-HEADER
 
 euthyphro = User.create({fname: "Euthyphro", lname:"of Prospalta", username: "euthyphro", pass: "12345678"})
-soc = User.find_by_username('daimonic')
+soc = User.find_by_username('daemonic')
 
 MetCon#{$num} = MetaConversation.create();
 

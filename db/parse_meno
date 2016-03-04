@@ -8,7 +8,7 @@ $increments = ['years', 'months', 'days', 'hours', 'minutes', 'seconds']
 $time_idx = 0
 $time_num = 10.0
 $num = 3
-$soc = "daimonic#{'#{EMAIL_SIGNATURE}'}"
+$soc = "daemonic#{'#{EMAIL_SIGNATURE}'}"
 $meno = "meno#{'#{EMAIL_SIGNATURE}'}"
 $boy = "boy#{'#{EMAIL_SIGNATURE}'}"
 $anytus = "anytus#{'#{EMAIL_SIGNATURE}'}"
@@ -22,7 +22,7 @@ header = <<-HEADER
 meno = User.create({fname: "Meno", lname:"of Thessalonia", username: "meno", pass: "12345678"})
 boy = User.create({fname:"Slave Boy", lname:"of Meno", username:"boy", pass:"12345678"})
 anytus = User.create({fname: "Anytus", lname:"of Athens", username:"anytus", pass:"12345678"})
-soc = User.find_by_username('daimonic')
+soc = User.find_by_username('daemonic')
 
 MetCon#{$num} = MetaConversation.create();
 

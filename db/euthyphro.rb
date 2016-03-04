@@ -1,6 +1,6 @@
 
 euthyphro = User.create({fname: "Euthyphro", lname:"of Prospalta", username: "euthyphro", pass: "12345678"})
-soc = User.find_by_username('daimonic')
+soc = User.find_by_username('daemonic')
 
 MetCon3 = MetaConversation.create();
 
@@ -17,7 +17,7 @@ BODY
 
 msg1 = Econ3.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 9.days.ago
     })
@@ -34,7 +34,7 @@ Athenians use.
 BODY
 
 msg2 = Scon3.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 9.days.ago
@@ -53,7 +53,7 @@ BODY
 
 msg3 = Econ3.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 9.days.ago
     })
@@ -69,7 +69,7 @@ body_str = <<-BODY
 BODY
 
 msg4 = Scon3.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 9.days.ago
@@ -87,7 +87,7 @@ BODY
 
 msg5 = Econ3.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 9.days.ago
     })
@@ -103,7 +103,7 @@ body_str = <<-BODY
 BODY
 
 msg6 = Scon3.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 9.days.ago
@@ -121,7 +121,7 @@ BODY
 
 msg7 = Econ3.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 9.days.ago
     })
@@ -140,7 +140,7 @@ a beard which is ill grown.
 BODY
 
 msg8 = Scon3.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 9.days.ago
@@ -159,7 +159,7 @@ BODY
 
 msg9 = Econ3.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 9.days.ago
     })
@@ -187,14 +187,14 @@ benefactor.
 BODY
 
 msg10 = Scon3.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.days.ago
+    created_at: 9.days.ago
     })
 
     msg10.send_msg
-    msg10.update({updated_at: 8.days.ago})
+    msg10.update({updated_at: 9.days.ago})
 
 
 
@@ -208,13 +208,13 @@ BODY
 
 msg11 = Econ3.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.days.ago
+    created_at: 9.days.ago
     })
 
     msg11.send_msg
-    msg11.update({updated_at: 8.days.ago})
+    msg11.update({updated_at: 9.days.ago})
 
 
 
@@ -227,7 +227,7 @@ ground of his indictment.
 BODY
 
 msg12 = Scon3.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.days.ago
@@ -252,7 +252,7 @@ BODY
 
 msg13 = Econ3.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.days.ago
     })
@@ -272,7 +272,7 @@ as you say, from jealousy, they are angry.
 BODY
 
 msg14 = Scon3.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.days.ago
@@ -284,13 +284,28 @@ msg14 = Scon3.messages.create({
 
 
 
+      
+        Scon3.update({
+                             message_timestamp: 8.days.ago,
+                             read: true
+                           }) 
+        Econ3.update({
+                             message_timestamp: 8.days.ago,
+                             read: true
+                           }) 
+
+
+      MetCon4 = MetaConversation.create();
+
+      Scon4 = soc.conversations.create(title: "I am never likely to try", meta_conversation: MetCon4)
+      Econ4 = euthyphro.conversations.create(title: "I am never likely to try", meta_conversation: MetCon4)
 body_str = <<-BODY 
  I am never likely to try their temper in this way.
 BODY
 
-msg15 = Econ3.messages.create({
+msg15 = Econ4.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.days.ago
     })
@@ -311,8 +326,8 @@ time might pass gaily enough in the court; but perhaps they may be in
 earnest, and then what the end will be you soothsayers only can predict.
 BODY
 
-msg16 = Scon3.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg16 = Scon4.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.days.ago
@@ -329,9 +344,9 @@ body_str = <<-BODY
 that you will win your cause; and I think that I shall win my own.
 BODY
 
-msg17 = Econ3.messages.create({
+msg17 = Econ4.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.days.ago
     })
@@ -347,8 +362,8 @@ body_str = <<-BODY
 defendant?
 BODY
 
-msg18 = Scon3.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg18 = Scon4.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.days.ago
@@ -364,15 +379,15 @@ body_str = <<-BODY
  I am the pursuer.
 BODY
 
-msg19 = Econ3.messages.create({
+msg19 = Econ4.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.days.ago
+    created_at: 8.days.ago
     })
 
     msg19.send_msg
-    msg19.update({updated_at: 7.days.ago})
+    msg19.update({updated_at: 8.days.ago})
 
 
 
@@ -381,15 +396,15 @@ body_str = <<-BODY
  Of whom?
 BODY
 
-msg20 = Scon3.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg20 = Scon4.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.days.ago
+    created_at: 8.days.ago
     })
 
     msg20.send_msg
-    msg20.update({updated_at: 7.days.ago})
+    msg20.update({updated_at: 8.days.ago})
 
 
 
@@ -398,15 +413,15 @@ body_str = <<-BODY
  You will think me mad when I tell you.
 BODY
 
-msg21 = Econ3.messages.create({
+msg21 = Econ4.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.days.ago
+    created_at: 8.days.ago
     })
 
     msg21.send_msg
-    msg21.update({updated_at: 7.days.ago})
+    msg21.update({updated_at: 8.days.ago})
 
 
 
@@ -415,15 +430,15 @@ body_str = <<-BODY
  Why, has the fugitive wings?
 BODY
 
-msg22 = Scon3.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg22 = Scon4.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.days.ago
+    created_at: 8.days.ago
     })
 
     msg22.send_msg
-    msg22.update({updated_at: 7.days.ago})
+    msg22.update({updated_at: 8.days.ago})
 
 
 
@@ -432,15 +447,15 @@ body_str = <<-BODY
  Nay, he is not very volatile at his time of life.
 BODY
 
-msg23 = Econ3.messages.create({
+msg23 = Econ4.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.days.ago
+    created_at: 8.days.ago
     })
 
     msg23.send_msg
-    msg23.update({updated_at: 7.days.ago})
+    msg23.update({updated_at: 8.days.ago})
 
 
 
@@ -449,15 +464,15 @@ body_str = <<-BODY
  Who is he?
 BODY
 
-msg24 = Scon3.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg24 = Scon4.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.days.ago
+    created_at: 8.days.ago
     })
 
     msg24.send_msg
-    msg24.update({updated_at: 7.days.ago})
+    msg24.update({updated_at: 8.days.ago})
 
 
 
@@ -466,15 +481,15 @@ body_str = <<-BODY
  My father.
 BODY
 
-msg25 = Econ3.messages.create({
+msg25 = Econ4.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.days.ago
+    created_at: 8.days.ago
     })
 
     msg25.send_msg
-    msg25.update({updated_at: 7.days.ago})
+    msg25.update({updated_at: 8.days.ago})
 
 
 
@@ -483,32 +498,47 @@ body_str = <<-BODY
  Your father! my good man?
 BODY
 
-msg26 = Scon3.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg26 = Scon4.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.days.ago
+    created_at: 8.days.ago
     })
 
     msg26.send_msg
-    msg26.update({updated_at: 7.days.ago})
+    msg26.update({updated_at: 8.days.ago})
 
 
 
 
+      
+        Scon4.update({
+                             message_timestamp: 8.days.ago,
+                             read: true
+                           }) 
+        Econ4.update({
+                             message_timestamp: 8.days.ago,
+                             read: true
+                           }) 
+
+
+      MetCon5 = MetaConversation.create();
+
+      Scon5 = soc.conversations.create(title: "Yes.", meta_conversation: MetCon5)
+      Econ5 = euthyphro.conversations.create(title: "Yes.", meta_conversation: MetCon5)
 body_str = <<-BODY 
  Yes.
 BODY
 
-msg27 = Econ3.messages.create({
+msg27 = Econ5.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.days.ago
+    created_at: 8.days.ago
     })
 
     msg27.send_msg
-    msg27.update({updated_at: 7.days.ago})
+    msg27.update({updated_at: 8.days.ago})
 
 
 
@@ -517,26 +547,41 @@ body_str = <<-BODY
  And of what is he accused?
 BODY
 
-msg28 = Scon3.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg28 = Scon5.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.days.ago
+    created_at: 8.days.ago
     })
 
     msg28.send_msg
-    msg28.update({updated_at: 7.days.ago})
+    msg28.update({updated_at: 8.days.ago})
 
 
 
 
+      
+        Scon5.update({
+                             message_timestamp: 8.days.ago,
+                             read: true
+                           }) 
+        Econ5.update({
+                             message_timestamp: 8.days.ago,
+                             read: true
+                           }) 
+
+
+      MetCon6 = MetaConversation.create();
+
+      Scon6 = soc.conversations.create(title: "Of murder, Socrates.", meta_conversation: MetCon6)
+      Econ6 = euthyphro.conversations.create(title: "Of murder, Socrates.", meta_conversation: MetCon6)
 body_str = <<-BODY 
  Of murder, Socrates.
 BODY
 
-msg29 = Econ3.messages.create({
+msg29 = Econ6.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.days.ago
     })
@@ -554,15 +599,15 @@ and have made great strides in wisdom, before he could have seen his way
 to bring such an action.
 BODY
 
-msg30 = Scon3.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg30 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.days.ago
+    created_at: 7.days.ago
     })
 
     msg30.send_msg
-    msg30.update({updated_at: 6.days.ago})
+    msg30.update({updated_at: 7.days.ago})
 
 
 
@@ -571,15 +616,15 @@ body_str = <<-BODY
  Indeed, Socrates, he must.
 BODY
 
-msg31 = Econ3.messages.create({
+msg31 = Econ6.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.days.ago
+    created_at: 7.days.ago
     })
 
     msg31.send_msg
-    msg31.update({updated_at: 6.days.ago})
+    msg31.update({updated_at: 7.days.ago})
 
 
 
@@ -590,15 +635,15 @@ your relatives--clearly he was; for if he had been a stranger you would
 never have thought of prosecuting him.
 BODY
 
-msg32 = Scon3.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg32 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.days.ago
+    created_at: 7.days.ago
     })
 
     msg32.send_msg
-    msg32.update({updated_at: 6.days.ago})
+    msg32.update({updated_at: 7.days.ago})
 
 
 
@@ -629,15 +674,15 @@ who prosecutes a father. Which shows, Socrates, how little they know
 what the gods think about piety and impiety.
 BODY
 
-msg33 = Econ3.messages.create({
+msg33 = Econ6.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.days.ago
+    created_at: 7.days.ago
     })
 
     msg33.send_msg
-    msg33.update({updated_at: 6.days.ago})
+    msg33.update({updated_at: 7.days.ago})
 
 
 
@@ -649,15 +694,15 @@ circumstances to be as you state them, you are not afraid lest you too
 may be doing an impious thing in bringing an action against your father?
 BODY
 
-msg34 = Scon3.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg34 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.days.ago
+    created_at: 7.days.ago
     })
 
     msg34.send_msg
-    msg34.update({updated_at: 6.days.ago})
+    msg34.update({updated_at: 7.days.ago})
 
 
 
@@ -668,15 +713,15 @@ Socrates, from other men, is his exact knowledge of all such matters.
 What should I be good for without it?
 BODY
 
-msg35 = Econ3.messages.create({
+msg35 = Econ6.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.days.ago
+    created_at: 7.days.ago
     })
 
     msg35.send_msg
-    msg35.update({updated_at: 6.days.ago})
+    msg35.update({updated_at: 7.days.ago})
 
 
 
@@ -698,15 +743,15 @@ indictment from me to you, I cannot do better than repeat this challenge
 in the court.
 BODY
 
-msg36 = Scon3.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg36 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.days.ago
+    created_at: 7.days.ago
     })
 
     msg36.send_msg
-    msg36.update({updated_at: 6.days.ago})
+    msg36.update({updated_at: 7.days.ago})
 
 
 
@@ -717,15 +762,15 @@ mistaken if I do not find a flaw in him; the court shall have a great
 deal more to say to him than to me.
 BODY
 
-msg37 = Econ3.messages.create({
+msg37 = Econ6.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.days.ago
+    created_at: 7.days.ago
     })
 
     msg37.send_msg
-    msg37.update({updated_at: 6.days.ago})
+    msg37.update({updated_at: 7.days.ago})
 
 
 
@@ -742,15 +787,15 @@ always the opposite of piety, and also the same with itself, having, as
 impiety, one notion which includes whatever is impious?
 BODY
 
-msg38 = Scon3.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg38 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.days.ago
+    created_at: 7.days.ago
     })
 
     msg38.send_msg
-    msg38.update({updated_at: 6.days.ago})
+    msg38.update({updated_at: 7.days.ago})
 
 
 
@@ -759,47 +804,32 @@ body_str = <<-BODY
  To be sure, Socrates.
 BODY
 
-msg39 = Econ3.messages.create({
+msg39 = Econ6.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.days.ago
+    created_at: 7.days.ago
     })
 
     msg39.send_msg
-    msg39.update({updated_at: 6.days.ago})
+    msg39.update({updated_at: 7.days.ago})
 
 
 
 
-      
-        Scon3.update({
-                             message_timestamp: 6.days.ago,
-                             read: true
-                           }) 
-        Econ3.update({
-                             message_timestamp: 6.days.ago,
-                             read: true
-                           }) 
-
-
-      MetCon4 = MetaConversation.create();
-
-      Scon4 = soc.conversations.create(title: "And what is piety, and what", meta_conversation: MetCon4)
-      Econ4 = euthyphro.conversations.create(title: "And what is piety, and what", meta_conversation: MetCon4)
 body_str = <<-BODY 
  And what is piety, and what is impiety?
 BODY
 
-msg40 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg40 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.days.ago
+    created_at: 7.days.ago
     })
 
     msg40.send_msg
-    msg40.update({updated_at: 6.days.ago})
+    msg40.update({updated_at: 7.days.ago})
 
 
 
@@ -821,15 +851,15 @@ they in their way of talking when the gods are concerned, and when I am
 concerned.
 BODY
 
-msg41 = Econ4.messages.create({
+msg41 = Econ6.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.days.ago
+    created_at: 7.days.ago
     })
 
     msg41.send_msg
-    msg41.update({updated_at: 6.days.ago})
+    msg41.update({updated_at: 7.days.ago})
 
 
 
@@ -844,15 +874,15 @@ I know nothing about them? Tell me, for the love of Zeus, whether you
 really believe that they are true.
 BODY
 
-msg42 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg42 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.days.ago
+    created_at: 7.days.ago
     })
 
     msg42.send_msg
-    msg42.update({updated_at: 6.days.ago})
+    msg42.update({updated_at: 7.days.ago})
 
 
 
@@ -862,15 +892,15 @@ body_str = <<-BODY
 world is in ignorance.
 BODY
 
-msg43 = Econ4.messages.create({
+msg43 = Econ6.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.days.ago
+    created_at: 7.days.ago
     })
 
     msg43.send_msg
-    msg43.update({updated_at: 6.days.ago})
+    msg43.update({updated_at: 7.days.ago})
 
 
 
@@ -884,15 +914,15 @@ carried up to the Acropolis at the great Panathenaea, is embroidered
 with them. Are all these tales of the gods true, Euthyphro?
 BODY
 
-msg44 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg44 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.days.ago
+    created_at: 7.days.ago
     })
 
     msg44.send_msg
-    msg44.update({updated_at: 6.days.ago})
+    msg44.update({updated_at: 7.days.ago})
 
 
 
@@ -903,15 +933,15 @@ would like to hear them, many other things about the gods which would
 quite amaze you.
 BODY
 
-msg45 = Econ4.messages.create({
+msg45 = Econ6.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.days.ago
+    created_at: 6.days.ago
     })
 
     msg45.send_msg
-    msg45.update({updated_at: 5.days.ago})
+    msg45.update({updated_at: 6.days.ago})
 
 
 
@@ -924,15 +954,15 @@ question, What is 'piety'? When asked, you only replied, Doing as you
 do, charging your father with murder.
 BODY
 
-msg46 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg46 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.days.ago
+    created_at: 6.days.ago
     })
 
     msg46.send_msg
-    msg46.update({updated_at: 5.days.ago})
+    msg46.update({updated_at: 6.days.ago})
 
 
 
@@ -941,15 +971,15 @@ body_str = <<-BODY
  And what I said was true, Socrates.
 BODY
 
-msg47 = Econ4.messages.create({
+msg47 = Econ6.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.days.ago
+    created_at: 6.days.ago
     })
 
     msg47.send_msg
-    msg47.update({updated_at: 5.days.ago})
+    msg47.update({updated_at: 6.days.ago})
 
 
 
@@ -959,15 +989,15 @@ body_str = <<-BODY
 other pious acts?
 BODY
 
-msg48 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg48 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.days.ago
+    created_at: 6.days.ago
     })
 
     msg48.send_msg
-    msg48.update({updated_at: 5.days.ago})
+    msg48.update({updated_at: 6.days.ago})
 
 
 
@@ -976,15 +1006,15 @@ body_str = <<-BODY
  There are.
 BODY
 
-msg49 = Econ4.messages.create({
+msg49 = Econ6.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.days.ago
+    created_at: 6.days.ago
     })
 
     msg49.send_msg
-    msg49.update({updated_at: 5.days.ago})
+    msg49.update({updated_at: 6.days.ago})
 
 
 
@@ -996,15 +1026,15 @@ things to be pious. Do you not recollect that there was one idea which
 made the impious impious, and the pious pious?
 BODY
 
-msg50 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg50 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.days.ago
+    created_at: 6.days.ago
     })
 
     msg50.send_msg
-    msg50.update({updated_at: 5.days.ago})
+    msg50.update({updated_at: 6.days.ago})
 
 
 
@@ -1013,15 +1043,15 @@ body_str = <<-BODY
  I remember.
 BODY
 
-msg51 = Econ4.messages.create({
+msg51 = Econ6.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.days.ago
+    created_at: 6.days.ago
     })
 
     msg51.send_msg
-    msg51.update({updated_at: 5.days.ago})
+    msg51.update({updated_at: 6.days.ago})
 
 
 
@@ -1033,32 +1063,47 @@ whether yours or those of any one else, and then I shall be able to say
 that such and such an action is pious, such another impious.
 BODY
 
-msg52 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg52 = Scon6.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.days.ago
+    created_at: 6.days.ago
     })
 
     msg52.send_msg
-    msg52.update({updated_at: 5.days.ago})
+    msg52.update({updated_at: 6.days.ago})
 
 
 
 
+      
+        Scon6.update({
+                             message_timestamp: 6.days.ago,
+                             read: true
+                           }) 
+        Econ6.update({
+                             message_timestamp: 6.days.ago,
+                             read: true
+                           }) 
+
+
+      MetCon7 = MetaConversation.create();
+
+      Scon7 = soc.conversations.create(title: "I will tell you, if you", meta_conversation: MetCon7)
+      Econ7 = euthyphro.conversations.create(title: "I will tell you, if you", meta_conversation: MetCon7)
 body_str = <<-BODY 
  I will tell you, if you like.
 BODY
 
-msg53 = Econ4.messages.create({
+msg53 = Econ7.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.days.ago
+    created_at: 6.days.ago
     })
 
     msg53.send_msg
-    msg53.update({updated_at: 5.days.ago})
+    msg53.update({updated_at: 6.days.ago})
 
 
 
@@ -1067,15 +1112,15 @@ body_str = <<-BODY
  I should very much like.
 BODY
 
-msg54 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg54 = Scon7.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.days.ago
+    created_at: 6.days.ago
     })
 
     msg54.send_msg
-    msg54.update({updated_at: 5.days.ago})
+    msg54.update({updated_at: 6.days.ago})
 
 
 
@@ -1085,9 +1130,9 @@ body_str = <<-BODY
 is that which is not dear to them.
 BODY
 
-msg55 = Econ4.messages.create({
+msg55 = Econ7.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.days.ago
     })
@@ -1105,8 +1150,8 @@ tell, although I make no doubt that you will prove the truth of your
 words.
 BODY
 
-msg56 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg56 = Scon7.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.days.ago
@@ -1122,9 +1167,9 @@ body_str = <<-BODY
  Of course.
 BODY
 
-msg57 = Econ4.messages.create({
+msg57 = Econ7.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.days.ago
     })
@@ -1142,15 +1187,15 @@ which is hateful to the gods is impious, these two being the extreme
 opposites of one another. Was not that said?
 BODY
 
-msg58 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg58 = Scon7.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.days.ago
+    created_at: 5.days.ago
     })
 
     msg58.send_msg
-    msg58.update({updated_at: 4.days.ago})
+    msg58.update({updated_at: 5.days.ago})
 
 
 
@@ -1159,15 +1204,15 @@ body_str = <<-BODY
  It was.
 BODY
 
-msg59 = Econ4.messages.create({
+msg59 = Econ7.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.days.ago
+    created_at: 5.days.ago
     })
 
     msg59.send_msg
-    msg59.update({updated_at: 4.days.ago})
+    msg59.update({updated_at: 5.days.ago})
 
 
 
@@ -1176,15 +1221,15 @@ body_str = <<-BODY
  And well said?
 BODY
 
-msg60 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg60 = Scon7.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.days.ago
+    created_at: 5.days.ago
     })
 
     msg60.send_msg
-    msg60.update({updated_at: 4.days.ago})
+    msg60.update({updated_at: 5.days.ago})
 
 
 
@@ -1193,15 +1238,15 @@ body_str = <<-BODY
  Yes, Socrates, I thought so; it was certainly said.
 BODY
 
-msg61 = Econ4.messages.create({
+msg61 = Econ7.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.days.ago
+    created_at: 5.days.ago
     })
 
     msg61.send_msg
-    msg61.update({updated_at: 4.days.ago})
+    msg61.update({updated_at: 5.days.ago})
 
 
 
@@ -1211,15 +1256,15 @@ body_str = <<-BODY
 enmities and hatreds and differences?
 BODY
 
-msg62 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg62 = Scon7.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.days.ago
+    created_at: 5.days.ago
     })
 
     msg62.send_msg
-    msg62.update({updated_at: 4.days.ago})
+    msg62.update({updated_at: 5.days.ago})
 
 
 
@@ -1228,15 +1273,15 @@ body_str = <<-BODY
  Yes, that was also said.
 BODY
 
-msg63 = Econ4.messages.create({
+msg63 = Econ7.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.days.ago
+    created_at: 5.days.ago
     })
 
     msg63.send_msg
-    msg63.update({updated_at: 4.days.ago})
+    msg63.update({updated_at: 5.days.ago})
 
 
 
@@ -1249,15 +1294,15 @@ another? Do we not go at once to arithmetic, and put an end to them by a
 sum?
 BODY
 
-msg64 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg64 = Scon7.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.days.ago
+    created_at: 5.days.ago
     })
 
     msg64.send_msg
-    msg64.update({updated_at: 4.days.ago})
+    msg64.update({updated_at: 5.days.ago})
 
 
 
@@ -1266,15 +1311,15 @@ body_str = <<-BODY
  True.
 BODY
 
-msg65 = Econ4.messages.create({
+msg65 = Econ7.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.days.ago
+    created_at: 5.days.ago
     })
 
     msg65.send_msg
-    msg65.update({updated_at: 4.days.ago})
+    msg65.update({updated_at: 5.days.ago})
 
 
 
@@ -1284,8 +1329,8 @@ body_str = <<-BODY
 end the differences by measuring?
 BODY
 
-msg66 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg66 = Scon7.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 4.days.ago
@@ -1301,9 +1346,9 @@ body_str = <<-BODY
  Very true.
 BODY
 
-msg67 = Econ4.messages.create({
+msg67 = Econ7.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 4.days.ago
     })
@@ -1319,8 +1364,8 @@ body_str = <<-BODY
 a weighing machine?
 BODY
 
-msg68 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg68 = Scon7.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 4.days.ago
@@ -1336,15 +1381,15 @@ body_str = <<-BODY
  To be sure.
 BODY
 
-msg69 = Econ4.messages.create({
+msg69 = Econ7.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.days.ago
+    created_at: 4.days.ago
     })
 
     msg69.send_msg
-    msg69.update({updated_at: 3.days.ago})
+    msg69.update({updated_at: 4.days.ago})
 
 
 
@@ -1360,15 +1405,15 @@ are unable satisfactorily to decide our differences, you and I and all
 of us quarrel, when we do quarrel? (Compare Alcib.)
 BODY
 
-msg70 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg70 = Scon7.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.days.ago
+    created_at: 4.days.ago
     })
 
     msg70.send_msg
-    msg70.update({updated_at: 3.days.ago})
+    msg70.update({updated_at: 4.days.ago})
 
 
 
@@ -1378,15 +1423,15 @@ body_str = <<-BODY
 quarrel is such as you describe.
 BODY
 
-msg71 = Econ4.messages.create({
+msg71 = Econ7.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.days.ago
+    created_at: 4.days.ago
     })
 
     msg71.send_msg
-    msg71.update({updated_at: 3.days.ago})
+    msg71.update({updated_at: 4.days.ago})
 
 
 
@@ -1396,15 +1441,15 @@ body_str = <<-BODY
 occur, are of a like nature?
 BODY
 
-msg72 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg72 = Scon7.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.days.ago
+    created_at: 4.days.ago
     })
 
     msg72.send_msg
-    msg72.update({updated_at: 3.days.ago})
+    msg72.update({updated_at: 4.days.ago})
 
 
 
@@ -1413,15 +1458,15 @@ body_str = <<-BODY
  Certainly they are.
 BODY
 
-msg73 = Econ4.messages.create({
+msg73 = Econ7.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.days.ago
+    created_at: 4.days.ago
     })
 
     msg73.send_msg
-    msg73.update({updated_at: 3.days.ago})
+    msg73.update({updated_at: 4.days.ago})
 
 
 
@@ -1433,15 +1478,15 @@ have been no quarrels among them, if there had been no such
 differences--would there now?
 BODY
 
-msg74 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg74 = Scon7.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.days.ago
+    created_at: 4.days.ago
     })
 
     msg74.send_msg
-    msg74.update({updated_at: 3.days.ago})
+    msg74.update({updated_at: 4.days.ago})
 
 
 
@@ -1450,15 +1495,15 @@ body_str = <<-BODY
  You are quite right.
 BODY
 
-msg75 = Econ4.messages.create({
+msg75 = Econ7.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.days.ago
+    created_at: 4.days.ago
     })
 
     msg75.send_msg
-    msg75.update({updated_at: 3.days.ago})
+    msg75.update({updated_at: 4.days.ago})
 
 
 
@@ -1468,15 +1513,15 @@ body_str = <<-BODY
 good, and hate the opposite of them?
 BODY
 
-msg76 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg76 = Scon7.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.days.ago
+    created_at: 4.days.ago
     })
 
     msg76.send_msg
-    msg76.update({updated_at: 3.days.ago})
+    msg76.update({updated_at: 4.days.ago})
 
 
 
@@ -1485,15 +1530,15 @@ body_str = <<-BODY
  Very true.
 BODY
 
-msg77 = Econ4.messages.create({
+msg77 = Econ7.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.days.ago
+    created_at: 4.days.ago
     })
 
     msg77.send_msg
-    msg77.update({updated_at: 3.days.ago})
+    msg77.update({updated_at: 4.days.ago})
 
 
 
@@ -1504,15 +1549,15 @@ and others as unjust,--about these they dispute; and so there arise wars
 and fightings among them.
 BODY
 
-msg78 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg78 = Scon7.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.days.ago
+    created_at: 4.days.ago
     })
 
     msg78.send_msg
-    msg78.update({updated_at: 3.days.ago})
+    msg78.update({updated_at: 4.days.ago})
 
 
 
@@ -1521,15 +1566,15 @@ body_str = <<-BODY
  Very true.
 BODY
 
-msg79 = Econ4.messages.create({
+msg79 = Econ7.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.days.ago
+    created_at: 4.days.ago
     })
 
     msg79.send_msg
-    msg79.update({updated_at: 3.days.ago})
+    msg79.update({updated_at: 4.days.ago})
 
 
 
@@ -1539,8 +1584,8 @@ body_str = <<-BODY
 gods, and are both hateful and dear to them?
 BODY
 
-msg80 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg80 = Scon7.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 3.days.ago
@@ -1556,9 +1601,9 @@ body_str = <<-BODY
  True.
 BODY
 
-msg81 = Econ4.messages.create({
+msg81 = Econ7.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 3.days.ago
     })
@@ -1574,8 +1619,8 @@ body_str = <<-BODY
 and also impious?
 BODY
 
-msg82 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg82 = Scon7.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 3.days.ago
@@ -1591,9 +1636,9 @@ body_str = <<-BODY
  So I should suppose.
 BODY
 
-msg83 = Econ4.messages.create({
+msg83 = Econ7.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 3.days.ago
     })
@@ -1615,8 +1660,8 @@ is acceptable to Hephaestus but unacceptable to Here, and there may be
 other gods who have similar differences of opinion.
 BODY
 
-msg84 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg84 = Scon7.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 3.days.ago
@@ -1634,15 +1679,15 @@ to the propriety of punishing a murderer: there would be no difference
 of opinion about that.
 BODY
 
-msg85 = Econ4.messages.create({
+msg85 = Econ7.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.days.ago
+    created_at: 3.days.ago
     })
 
     msg85.send_msg
-    msg85.update({updated_at: 2.days.ago})
+    msg85.update({updated_at: 3.days.ago})
 
 
 
@@ -1653,15 +1698,15 @@ one arguing that a murderer or any sort of evil-doer ought to be let
 off?
 BODY
 
-msg86 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg86 = Scon7.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.days.ago
+    created_at: 3.days.ago
     })
 
     msg86.send_msg
-    msg86.update({updated_at: 2.days.ago})
+    msg86.update({updated_at: 3.days.ago})
 
 
 
@@ -1673,15 +1718,15 @@ of crimes, and there is nothing which they will not do or say in their
 own defence.
 BODY
 
-msg87 = Econ4.messages.create({
+msg87 = Econ7.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.days.ago
+    created_at: 3.days.ago
     })
 
     msg87.send_msg
-    msg87.update({updated_at: 2.days.ago})
+    msg87.update({updated_at: 3.days.ago})
 
 
 
@@ -1691,15 +1736,15 @@ body_str = <<-BODY
 they ought not to be punished?
 BODY
 
-msg88 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg88 = Scon7.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.days.ago
+    created_at: 3.days.ago
     })
 
     msg88.send_msg
-    msg88.update({updated_at: 2.days.ago})
+    msg88.update({updated_at: 3.days.ago})
 
 
 
@@ -1708,15 +1753,15 @@ body_str = <<-BODY
  No; they do not.
 BODY
 
-msg89 = Econ4.messages.create({
+msg89 = Econ7.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.days.ago
+    created_at: 3.days.ago
     })
 
     msg89.send_msg
-    msg89.update({updated_at: 2.days.ago})
+    msg89.update({updated_at: 3.days.ago})
 
 
 
@@ -1727,15 +1772,15 @@ and do: for they do not venture to argue that the guilty are to be
 unpunished, but they deny their guilt, do they not?
 BODY
 
-msg90 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg90 = Scon7.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.days.ago
+    created_at: 3.days.ago
     })
 
     msg90.send_msg
-    msg90.update({updated_at: 2.days.ago})
+    msg90.update({updated_at: 3.days.ago})
 
 
 
@@ -1744,15 +1789,15 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg91 = Econ4.messages.create({
+msg91 = Econ7.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.days.ago
+    created_at: 3.days.ago
     })
 
     msg91.send_msg
-    msg91.update({updated_at: 2.days.ago})
+    msg91.update({updated_at: 3.days.ago})
 
 
 
@@ -1763,15 +1808,15 @@ punished, but they argue about the fact of who the evil-doer is, and
 what he did and when?
 BODY
 
-msg92 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg92 = Scon7.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.days.ago
+    created_at: 3.days.ago
     })
 
     msg92.send_msg
-    msg92.update({updated_at: 2.days.ago})
+    msg92.update({updated_at: 3.days.ago})
 
 
 
@@ -1780,15 +1825,15 @@ body_str = <<-BODY
  True.
 BODY
 
-msg93 = Econ4.messages.create({
+msg93 = Econ7.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.days.ago
+    created_at: 3.days.ago
     })
 
     msg93.send_msg
-    msg93.update({updated_at: 2.days.ago})
+    msg93.update({updated_at: 3.days.ago})
 
 
 
@@ -1800,15 +1845,15 @@ that injustice is done among them. For surely neither God nor man will
 ever venture to say that the doer of injustice is not to be punished?
 BODY
 
-msg94 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg94 = Scon7.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.days.ago
+    created_at: 3.days.ago
     })
 
     msg94.send_msg
-    msg94.update({updated_at: 2.days.ago})
+    msg94.update({updated_at: 3.days.ago})
 
 
 
@@ -1817,15 +1862,15 @@ body_str = <<-BODY
  That is true, Socrates, in the main.
 BODY
 
-msg95 = Econ4.messages.create({
+msg95 = Econ7.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.days.ago
+    created_at: 3.days.ago
     })
 
     msg95.send_msg
-    msg95.update({updated_at: 2.days.ago})
+    msg95.update({updated_at: 3.days.ago})
 
 
 
@@ -1837,8 +1882,8 @@ in question, and which by some is affirmed to be just, by others to be
 unjust. Is not that true?
 BODY
 
-msg96 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg96 = Scon7.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 2.days.ago
@@ -1854,15 +1899,15 @@ body_str = <<-BODY
  Quite true.
 BODY
 
-msg97 = Econ4.messages.create({
+msg97 = Econ7.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.days.ago
+    created_at: 2.days.ago
     })
 
     msg97.send_msg
-    msg97.update({updated_at: 1.days.ago})
+    msg97.update({updated_at: 2.days.ago})
 
 
 
@@ -1880,15 +1925,15 @@ act? Prove to me that they do, and I will applaud your wisdom as long as
 I live.
 BODY
 
-msg98 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg98 = Scon7.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.days.ago
+    created_at: 2.days.ago
     })
 
     msg98.send_msg
-    msg98.update({updated_at: 1.days.ago})
+    msg98.update({updated_at: 2.days.ago})
 
 
 
@@ -1898,15 +1943,15 @@ body_str = <<-BODY
 clear indeed to you.
 BODY
 
-msg99 = Econ4.messages.create({
+msg99 = Econ7.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.days.ago
+    created_at: 2.days.ago
     })
 
     msg99.send_msg
-    msg99.update({updated_at: 1.days.ago})
+    msg99.update({updated_at: 2.days.ago})
 
 
 
@@ -1917,15 +1962,15 @@ apprehension as the judges: for to them you will be sure to prove that
 the act is unjust, and hateful to the gods.
 BODY
 
-msg100 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg100 = Scon7.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.days.ago
+    created_at: 2.days.ago
     })
 
     msg100.send_msg
-    msg100.update({updated_at: 1.days.ago})
+    msg100.update({updated_at: 2.days.ago})
 
 
 
@@ -1934,15 +1979,15 @@ body_str = <<-BODY
  Yes indeed, Socrates; at least if they will listen to me.
 BODY
 
-msg101 = Econ4.messages.create({
+msg101 = Econ7.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.days.ago
+    created_at: 2.days.ago
     })
 
     msg101.send_msg
-    msg101.update({updated_at: 1.days.ago})
+    msg101.update({updated_at: 2.days.ago})
 
 
 
@@ -1964,15 +2009,15 @@ love and others hate is both or neither. Shall this be our definition of
 piety and impiety?
 BODY
 
-msg102 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg102 = Scon7.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.days.ago
+    created_at: 2.days.ago
     })
 
     msg102.send_msg
-    msg102.update({updated_at: 1.days.ago})
+    msg102.update({updated_at: 2.days.ago})
 
 
 
@@ -1981,15 +2026,15 @@ body_str = <<-BODY
  Why not, Socrates?
 BODY
 
-msg103 = Econ4.messages.create({
+msg103 = Econ7.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.days.ago
+    created_at: 2.days.ago
     })
 
     msg103.send_msg
-    msg103.update({updated_at: 1.days.ago})
+    msg103.update({updated_at: 2.days.ago})
 
 
 
@@ -2001,48 +2046,33 @@ in the task of instructing me as you promised, is a matter for you to
 consider.
 BODY
 
-msg104 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg104 = Scon7.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.days.ago
+    created_at: 2.days.ago
     })
 
     msg104.send_msg
-    msg104.update({updated_at: 1.days.ago})
+    msg104.update({updated_at: 2.days.ago})
 
 
 
 
-      
-        Scon4.update({
-                             message_timestamp: 1.days.ago,
-                             read: true
-                           }) 
-        Econ4.update({
-                             message_timestamp: 1.days.ago,
-                             read: true
-                           }) 
-
-
-      MetCon5 = MetaConversation.create();
-
-      Scon5 = soc.conversations.create(title: "Yes, I should say that what", meta_conversation: MetCon5)
-      Econ5 = euthyphro.conversations.create(title: "Yes, I should say that what", meta_conversation: MetCon5)
 body_str = <<-BODY 
  Yes, I should say that what all the gods love is pious and
 holy, and the opposite which they all hate, impious.
 BODY
 
-msg105 = Econ5.messages.create({
+msg105 = Econ7.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.days.ago
+    created_at: 2.days.ago
     })
 
     msg105.send_msg
-    msg105.update({updated_at: 1.days.ago})
+    msg105.update({updated_at: 2.days.ago})
 
 
 
@@ -2053,15 +2083,15 @@ simply to accept the mere statement on our own authority and that of
 others? What do you say?
 BODY
 
-msg106 = Scon5.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg106 = Scon7.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.days.ago
+    created_at: 2.days.ago
     })
 
     msg106.send_msg
-    msg106.update({updated_at: 1.days.ago})
+    msg106.update({updated_at: 2.days.ago})
 
 
 
@@ -2071,15 +2101,15 @@ body_str = <<-BODY
 stand the test of enquiry.
 BODY
 
-msg107 = Econ5.messages.create({
+msg107 = Econ7.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 1.days.ago
+    created_at: 2.days.ago
     })
 
     msg107.send_msg
-    msg107.update({updated_at: 1.days.ago})
+    msg107.update({updated_at: 2.days.ago})
 
 
 
@@ -2091,8 +2121,8 @@ holy is beloved by the gods because it is holy, or holy because it is
 beloved of the gods.
 BODY
 
-msg108 = Scon5.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg108 = Scon7.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 1.days.ago
@@ -2108,9 +2138,9 @@ body_str = <<-BODY
  I do not understand your meaning, Socrates.
 BODY
 
-msg109 = Econ5.messages.create({
+msg109 = Econ7.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 1.days.ago
     })
@@ -2128,8 +2158,8 @@ You know that in all such cases there is a difference, and you know also
 in what the difference lies?
 BODY
 
-msg110 = Scon5.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg110 = Scon7.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 1.days.ago
@@ -2145,15 +2175,15 @@ body_str = <<-BODY
  I think that I understand.
 BODY
 
-msg111 = Econ5.messages.create({
+msg111 = Econ7.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 12.hours.ago
+    created_at: 1.days.ago
     })
 
     msg111.send_msg
-    msg111.update({updated_at: 12.hours.ago})
+    msg111.update({updated_at: 1.days.ago})
 
 
 
@@ -2163,15 +2193,15 @@ body_str = <<-BODY
 loves?
 BODY
 
-msg112 = Scon5.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg112 = Scon7.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.hours.ago
+    created_at: 1.days.ago
     })
 
     msg112.send_msg
-    msg112.update({updated_at: 11.hours.ago})
+    msg112.update({updated_at: 1.days.ago})
 
 
 
@@ -2180,15 +2210,15 @@ body_str = <<-BODY
  Certainly.
 BODY
 
-msg113 = Econ5.messages.create({
+msg113 = Econ7.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.hours.ago
+    created_at: 1.days.ago
     })
 
     msg113.send_msg
-    msg113.update({updated_at: 11.hours.ago})
+    msg113.update({updated_at: 1.days.ago})
 
 
 
@@ -2198,15 +2228,15 @@ body_str = <<-BODY
 of carrying because it is carried, or for some other reason?
 BODY
 
-msg114 = Scon5.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg114 = Scon7.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.hours.ago
+    created_at: 1.days.ago
     })
 
     msg114.send_msg
-    msg114.update({updated_at: 11.hours.ago})
+    msg114.update({updated_at: 1.days.ago})
 
 
 
@@ -2215,15 +2245,15 @@ body_str = <<-BODY
  No; that is the reason.
 BODY
 
-msg115 = Econ5.messages.create({
+msg115 = Econ7.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.hours.ago
+    created_at: 1.days.ago
     })
 
     msg115.send_msg
-    msg115.update({updated_at: 11.hours.ago})
+    msg115.update({updated_at: 1.days.ago})
 
 
 
@@ -2232,15 +2262,15 @@ body_str = <<-BODY
  And the same is true of what is led and of what is seen?
 BODY
 
-msg116 = Scon5.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg116 = Scon7.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.hours.ago
+    created_at: 1.days.ago
     })
 
     msg116.send_msg
-    msg116.update({updated_at: 11.hours.ago})
+    msg116.update({updated_at: 1.days.ago})
 
 
 
@@ -2249,15 +2279,15 @@ body_str = <<-BODY
  True.
 BODY
 
-msg117 = Econ5.messages.create({
+msg117 = Econ7.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.hours.ago
+    created_at: 1.days.ago
     })
 
     msg117.send_msg
-    msg117.update({updated_at: 11.hours.ago})
+    msg117.update({updated_at: 1.days.ago})
 
 
 
@@ -2274,15 +2304,15 @@ becomes; neither does it suffer because it is in a state of suffering,
 but it is in a state of suffering because it suffers. Do you not agree?
 BODY
 
-msg118 = Scon5.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg118 = Scon7.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.hours.ago
+    created_at: 1.days.ago
     })
 
     msg118.send_msg
-    msg118.update({updated_at: 11.hours.ago})
+    msg118.update({updated_at: 1.days.ago})
 
 
 
@@ -2291,15 +2321,15 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg119 = Econ5.messages.create({
+msg119 = Econ7.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.hours.ago
+    created_at: 1.days.ago
     })
 
     msg119.send_msg
-    msg119.update({updated_at: 11.hours.ago})
+    msg119.update({updated_at: 1.days.ago})
 
 
 
@@ -2309,15 +2339,15 @@ body_str = <<-BODY
 suffering?
 BODY
 
-msg120 = Scon5.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg120 = Scon7.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.hours.ago
+    created_at: 1.days.ago
     })
 
     msg120.send_msg
-    msg120.update({updated_at: 11.hours.ago})
+    msg120.update({updated_at: 1.days.ago})
 
 
 
@@ -2326,15 +2356,15 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg121 = Econ5.messages.create({
+msg121 = Econ7.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 11.hours.ago
+    created_at: 12.hours.ago
     })
 
     msg121.send_msg
-    msg121.update({updated_at: 11.hours.ago})
+    msg121.update({updated_at: 12.hours.ago})
 
 
 
@@ -2344,8 +2374,8 @@ body_str = <<-BODY
 being loved follows the act of being loved, and not the act the state.
 BODY
 
-msg122 = Scon5.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg122 = Scon7.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 11.hours.ago
@@ -2357,28 +2387,13 @@ msg122 = Scon5.messages.create({
 
 
 
-      
-        Scon5.update({
-                             message_timestamp: 11.hours.ago,
-                             read: true
-                           }) 
-        Econ5.update({
-                             message_timestamp: 11.hours.ago,
-                             read: true
-                           }) 
-
-
-      MetCon6 = MetaConversation.create();
-
-      Scon6 = soc.conversations.create(title: "Certainly.", meta_conversation: MetCon6)
-      Econ6 = euthyphro.conversations.create(title: "Certainly.", meta_conversation: MetCon6)
 body_str = <<-BODY 
  Certainly.
 BODY
 
-msg123 = Econ6.messages.create({
+msg123 = Econ7.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 11.hours.ago
     })
@@ -2394,8 +2409,8 @@ body_str = <<-BODY
 according to your definition, loved by all the gods?
 BODY
 
-msg124 = Scon6.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg124 = Scon7.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 11.hours.ago
@@ -2411,15 +2426,15 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg125 = Econ6.messages.create({
+msg125 = Econ7.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.hours.ago
+    created_at: 11.hours.ago
     })
 
     msg125.send_msg
-    msg125.update({updated_at: 10.hours.ago})
+    msg125.update({updated_at: 11.hours.ago})
 
 
 
@@ -2428,15 +2443,15 @@ body_str = <<-BODY
  Because it is pious or holy, or for some other reason?
 BODY
 
-msg126 = Scon6.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg126 = Scon7.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.hours.ago
+    created_at: 11.hours.ago
     })
 
     msg126.send_msg
-    msg126.update({updated_at: 10.hours.ago})
+    msg126.update({updated_at: 11.hours.ago})
 
 
 
@@ -2445,15 +2460,15 @@ body_str = <<-BODY
  No, that is the reason.
 BODY
 
-msg127 = Econ6.messages.create({
+msg127 = Econ7.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.hours.ago
+    created_at: 11.hours.ago
     })
 
     msg127.send_msg
-    msg127.update({updated_at: 10.hours.ago})
+    msg127.update({updated_at: 11.hours.ago})
 
 
 
@@ -2462,15 +2477,15 @@ body_str = <<-BODY
  It is loved because it is holy, not holy because it is loved?
 BODY
 
-msg128 = Scon6.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg128 = Scon7.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.hours.ago
+    created_at: 11.hours.ago
     })
 
     msg128.send_msg
-    msg128.update({updated_at: 10.hours.ago})
+    msg128.update({updated_at: 11.hours.ago})
 
 
 
@@ -2479,15 +2494,15 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg129 = Econ6.messages.create({
+msg129 = Econ7.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.hours.ago
+    created_at: 11.hours.ago
     })
 
     msg129.send_msg
-    msg129.update({updated_at: 10.hours.ago})
+    msg129.update({updated_at: 11.hours.ago})
 
 
 
@@ -2497,15 +2512,15 @@ body_str = <<-BODY
 a state to be loved of them because it is loved of them?
 BODY
 
-msg130 = Scon6.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg130 = Scon7.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.hours.ago
+    created_at: 11.hours.ago
     })
 
     msg130.send_msg
-    msg130.update({updated_at: 10.hours.ago})
+    msg130.update({updated_at: 11.hours.ago})
 
 
 
@@ -2514,27 +2529,42 @@ body_str = <<-BODY
  Certainly.
 BODY
 
-msg131 = Econ6.messages.create({
+msg131 = Econ7.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 10.hours.ago
+    created_at: 11.hours.ago
     })
 
     msg131.send_msg
-    msg131.update({updated_at: 10.hours.ago})
+    msg131.update({updated_at: 11.hours.ago})
 
 
 
 
+      
+        Scon7.update({
+                             message_timestamp: 11.hours.ago,
+                             read: true
+                           }) 
+        Econ7.update({
+                             message_timestamp: 11.hours.ago,
+                             read: true
+                           }) 
+
+
+      MetCon8 = MetaConversation.create();
+
+      Scon8 = soc.conversations.create(title: "Then that which is dear to", meta_conversation: MetCon8)
+      Econ8 = euthyphro.conversations.create(title: "Then that which is dear to", meta_conversation: MetCon8)
 body_str = <<-BODY 
  Then that which is dear to the gods, Euthyphro, is not holy,
 nor is that which is holy loved of God, as you affirm; but they are two
 different things.
 BODY
 
-msg132 = Scon6.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg132 = Scon8.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 10.hours.ago
@@ -2550,9 +2580,9 @@ body_str = <<-BODY
  How do you mean, Socrates?
 BODY
 
-msg133 = Econ6.messages.create({
+msg133 = Econ8.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 10.hours.ago
     })
@@ -2568,8 +2598,8 @@ body_str = <<-BODY
 loved of God because it is holy, not to be holy because it is loved.
 BODY
 
-msg134 = Scon6.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg134 = Scon8.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 10.hours.ago
@@ -2581,28 +2611,13 @@ msg134 = Scon6.messages.create({
 
 
 
-      
-        Scon6.update({
-                             message_timestamp: 10.hours.ago,
-                             read: true
-                           }) 
-        Econ6.update({
-                             message_timestamp: 10.hours.ago,
-                             read: true
-                           }) 
-
-
-      MetCon7 = MetaConversation.create();
-
-      Scon7 = soc.conversations.create(title: "Yes.", meta_conversation: MetCon7)
-      Econ7 = euthyphro.conversations.create(title: "Yes.", meta_conversation: MetCon7)
 body_str = <<-BODY 
  Yes.
 BODY
 
-msg135 = Econ7.messages.create({
+msg135 = Econ8.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 10.hours.ago
     })
@@ -2618,8 +2633,8 @@ body_str = <<-BODY
 is loved by them, not loved by them because it is dear to them.
 BODY
 
-msg136 = Scon7.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg136 = Scon8.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 10.hours.ago
@@ -2635,9 +2650,9 @@ body_str = <<-BODY
  True.
 BODY
 
-msg137 = Econ7.messages.create({
+msg137 = Econ8.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 10.hours.ago
     })
@@ -2667,34 +2682,49 @@ more what holiness or piety really is, whether dear to the gods or not
 impiety?
 BODY
 
-msg138 = Scon7.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg138 = Scon8.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.hours.ago
+    created_at: 10.hours.ago
     })
 
     msg138.send_msg
-    msg138.update({updated_at: 9.hours.ago})
+    msg138.update({updated_at: 10.hours.ago})
 
 
 
 
+      
+        Scon8.update({
+                             message_timestamp: 10.hours.ago,
+                             read: true
+                           }) 
+        Econ8.update({
+                             message_timestamp: 10.hours.ago,
+                             read: true
+                           }) 
+
+
+      MetCon9 = MetaConversation.create();
+
+      Scon9 = soc.conversations.create(title: "I really do not know, Socrates,", meta_conversation: MetCon9)
+      Econ9 = euthyphro.conversations.create(title: "I really do not know, Socrates,", meta_conversation: MetCon9)
 body_str = <<-BODY 
  I really do not know, Socrates, how to express what I mean.
 For somehow or other our arguments, on whatever ground we rest them,
 seem to turn round and walk away from us.
 BODY
 
-msg139 = Econ7.messages.create({
+msg139 = Econ9.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.hours.ago
+    created_at: 10.hours.ago
     })
 
     msg139.send_msg
-    msg139.update({updated_at: 9.hours.ago})
+    msg139.update({updated_at: 10.hours.ago})
 
 
 
@@ -2708,15 +2738,15 @@ are your own, you must find some other gibe, for they certainly, as you
 yourself allow, show an inclination to be on the move.
 BODY
 
-msg140 = Scon7.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg140 = Scon9.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.hours.ago
+    created_at: 10.hours.ago
     })
 
     msg140.send_msg
-    msg140.update({updated_at: 9.hours.ago})
+    msg140.update({updated_at: 10.hours.ago})
 
 
 
@@ -2728,19 +2758,34 @@ move or go round, for they would never have stirred, as far as I am
 concerned.
 BODY
 
-msg141 = Econ7.messages.create({
+msg141 = Econ9.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.hours.ago
+    created_at: 10.hours.ago
     })
 
     msg141.send_msg
-    msg141.update({updated_at: 9.hours.ago})
+    msg141.update({updated_at: 10.hours.ago})
 
 
 
 
+      
+        Scon9.update({
+                             message_timestamp: 10.hours.ago,
+                             read: true
+                           }) 
+        Econ9.update({
+                             message_timestamp: 10.hours.ago,
+                             read: true
+                           }) 
+
+
+      MetCon10 = MetaConversation.create();
+
+      Scon10 = soc.conversations.create(title: "Then I must be a greater", meta_conversation: MetCon10)
+      Econ10 = euthyphro.conversations.create(title: "Then I must be a greater", meta_conversation: MetCon10)
 body_str = <<-BODY 
  Then I must be a greater than Daedalus: for whereas he only
 made his own inventions to move, I move those of other people as well.
@@ -2752,15 +2797,15 @@ the nature of piety; and I hope that you will not grudge your labour.
 Tell me, then--Is not that which is pious necessarily just?
 BODY
 
-msg142 = Scon7.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg142 = Scon10.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.hours.ago
+    created_at: 10.hours.ago
     })
 
     msg142.send_msg
-    msg142.update({updated_at: 9.hours.ago})
+    msg142.update({updated_at: 10.hours.ago})
 
 
 
@@ -2769,15 +2814,15 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg143 = Econ7.messages.create({
+msg143 = Econ10.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.hours.ago
+    created_at: 10.hours.ago
     })
 
     msg143.send_msg
-    msg143.update({updated_at: 9.hours.ago})
+    msg143.update({updated_at: 10.hours.ago})
 
 
 
@@ -2787,15 +2832,15 @@ body_str = <<-BODY
 pious all just, but that which is just, only in part and not all, pious?
 BODY
 
-msg144 = Scon7.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg144 = Scon10.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.hours.ago
+    created_at: 10.hours.ago
     })
 
     msg144.send_msg
-    msg144.update({updated_at: 9.hours.ago})
+    msg144.update({updated_at: 10.hours.ago})
 
 
 
@@ -2804,19 +2849,34 @@ body_str = <<-BODY
  I do not understand you, Socrates.
 BODY
 
-msg145 = Econ7.messages.create({
+msg145 = Econ10.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 9.hours.ago
+    created_at: 10.hours.ago
     })
 
     msg145.send_msg
-    msg145.update({updated_at: 9.hours.ago})
+    msg145.update({updated_at: 10.hours.ago})
 
 
 
 
+      
+        Scon10.update({
+                             message_timestamp: 10.hours.ago,
+                             read: true
+                           }) 
+        Econ10.update({
+                             message_timestamp: 10.hours.ago,
+                             read: true
+                           }) 
+
+
+      MetCon11 = MetaConversation.create();
+
+      Scon11 = soc.conversations.create(title: "And yet I know that you", meta_conversation: MetCon11)
+      Econ11 = euthyphro.conversations.create(title: "And yet I know that you", meta_conversation: MetCon11)
 body_str = <<-BODY 
  And yet I know that you are as much wiser than I am, as you
 are younger. But, as I was saying, revered friend, the abundance of your
@@ -2825,8 +2885,8 @@ real difficulty in understanding me. What I mean I may explain by an
 illustration of what I do not mean. The poet (Stasinus) sings--
 BODY
 
-msg146 = Scon7.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg146 = Scon11.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 9.hours.ago
@@ -2851,9 +2911,9 @@ body_str = <<-BODY
  By all means.
 BODY
 
-msg148 = Econ7.messages.create({
+msg148 = Econ11.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 9.hours.ago
     })
@@ -2864,6 +2924,21 @@ msg148 = Econ7.messages.create({
 
 
 
+      
+        Scon11.update({
+                             message_timestamp: 9.hours.ago,
+                             read: true
+                           }) 
+        Econ11.update({
+                             message_timestamp: 9.hours.ago,
+                             read: true
+                           }) 
+
+
+      MetCon12 = MetaConversation.create();
+
+      Scon12 = soc.conversations.create(title: "I should not say that where", meta_conversation: MetCon12)
+      Econ12 = euthyphro.conversations.create(title: "I should not say that where", meta_conversation: MetCon12)
 body_str = <<-BODY 
  I should not say that where there is fear there is also
 reverence; for I am sure that many persons fear poverty and disease, and
@@ -2871,15 +2946,15 @@ the like evils, but I do not perceive that they reverence the objects of
 their fear.
 BODY
 
-msg149 = Scon7.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg149 = Scon12.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.hours.ago
+    created_at: 9.hours.ago
     })
 
     msg149.send_msg
-    msg149.update({updated_at: 8.hours.ago})
+    msg149.update({updated_at: 9.hours.ago})
 
 
 
@@ -2888,15 +2963,15 @@ body_str = <<-BODY
  Very true.
 BODY
 
-msg150 = Econ7.messages.create({
+msg150 = Econ12.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.hours.ago
+    created_at: 9.hours.ago
     })
 
     msg150.send_msg
-    msg150.update({updated_at: 8.hours.ago})
+    msg150.update({updated_at: 9.hours.ago})
 
 
 
@@ -2907,15 +2982,15 @@ feeling of reverence and shame about the commission of any action, fears
 and is afraid of an ill reputation.
 BODY
 
-msg151 = Scon7.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg151 = Scon12.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.hours.ago
+    created_at: 9.hours.ago
     })
 
     msg151.send_msg
-    msg151.update({updated_at: 8.hours.ago})
+    msg151.update({updated_at: 9.hours.ago})
 
 
 
@@ -2924,15 +2999,15 @@ body_str = <<-BODY
  No doubt.
 BODY
 
-msg152 = Econ7.messages.create({
+msg152 = Econ12.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.hours.ago
+    created_at: 9.hours.ago
     })
 
     msg152.send_msg
-    msg152.update({updated_at: 8.hours.ago})
+    msg152.update({updated_at: 9.hours.ago})
 
 
 
@@ -2946,47 +3021,32 @@ the odd is a part of number, and number is a more extended notion than
 the odd. I suppose that you follow me now?
 BODY
 
-msg153 = Scon7.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg153 = Scon12.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.hours.ago
+    created_at: 9.hours.ago
     })
 
     msg153.send_msg
-    msg153.update({updated_at: 8.hours.ago})
+    msg153.update({updated_at: 9.hours.ago})
 
 
 
 
-      
-        Scon7.update({
-                             message_timestamp: 8.hours.ago,
-                             read: true
-                           }) 
-        Econ7.update({
-                             message_timestamp: 8.hours.ago,
-                             read: true
-                           }) 
-
-
-      MetCon8 = MetaConversation.create();
-
-      Scon8 = soc.conversations.create(title: "Quite well.", meta_conversation: MetCon8)
-      Econ8 = euthyphro.conversations.create(title: "Quite well.", meta_conversation: MetCon8)
 body_str = <<-BODY 
  Quite well.
 BODY
 
-msg154 = Econ8.messages.create({
+msg154 = Econ12.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.hours.ago
+    created_at: 9.hours.ago
     })
 
     msg154.send_msg
-    msg154.update({updated_at: 8.hours.ago})
+    msg154.update({updated_at: 9.hours.ago})
 
 
 
@@ -2999,15 +3059,15 @@ justice is the more extended notion of which piety is only a part. Do
 you dissent?
 BODY
 
-msg155 = Scon8.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg155 = Scon12.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.hours.ago
+    created_at: 9.hours.ago
     })
 
     msg155.send_msg
-    msg155.update({updated_at: 8.hours.ago})
+    msg155.update({updated_at: 9.hours.ago})
 
 
 
@@ -3016,15 +3076,15 @@ body_str = <<-BODY
  No, I think that you are quite right.
 BODY
 
-msg156 = Econ8.messages.create({
+msg156 = Econ12.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.hours.ago
+    created_at: 9.hours.ago
     })
 
     msg156.send_msg
-    msg156.update({updated_at: 8.hours.ago})
+    msg156.update({updated_at: 9.hours.ago})
 
 
 
@@ -3038,15 +3098,15 @@ a number which represents a figure having two equal sides. Do you not
 agree?
 BODY
 
-msg157 = Scon8.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg157 = Scon12.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.hours.ago
+    created_at: 9.hours.ago
     })
 
     msg157.send_msg
-    msg157.update({updated_at: 8.hours.ago})
+    msg157.update({updated_at: 9.hours.ago})
 
 
 
@@ -3055,19 +3115,34 @@ body_str = <<-BODY
  Yes, I quite agree.
 BODY
 
-msg158 = Econ8.messages.create({
+msg158 = Econ12.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 8.hours.ago
+    created_at: 9.hours.ago
     })
 
     msg158.send_msg
-    msg158.update({updated_at: 8.hours.ago})
+    msg158.update({updated_at: 9.hours.ago})
 
 
 
 
+      
+        Scon12.update({
+                             message_timestamp: 9.hours.ago,
+                             read: true
+                           }) 
+        Econ12.update({
+                             message_timestamp: 9.hours.ago,
+                             read: true
+                           }) 
+
+
+      MetCon13 = MetaConversation.create();
+
+      Scon13 = soc.conversations.create(title: "In like manner, I want you", meta_conversation: MetCon13)
+      Econ13 = euthyphro.conversations.create(title: "In like manner, I want you", meta_conversation: MetCon13)
 body_str = <<-BODY 
  In like manner, I want you to tell me what part of justice
 is piety or holiness, that I may be able to tell Meletus not to do me
@@ -3075,8 +3150,8 @@ injustice, or indict me for impiety, as I am now adequately instructed
 by you in the nature of piety or holiness, and their opposites.
 BODY
 
-msg159 = Scon8.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg159 = Scon13.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.hours.ago
@@ -3094,9 +3169,9 @@ justice which attends to the gods, as there is the other part of justice
 which attends to men.
 BODY
 
-msg160 = Econ8.messages.create({
+msg160 = Econ13.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.hours.ago
     })
@@ -3117,8 +3192,8 @@ able to attend to them, but only a person skilled in horsemanship. Is it
 not so?
 BODY
 
-msg161 = Scon8.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg161 = Scon13.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.hours.ago
@@ -3134,9 +3209,9 @@ body_str = <<-BODY
  Certainly.
 BODY
 
-msg162 = Econ8.messages.create({
+msg162 = Econ13.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.hours.ago
     })
@@ -3152,8 +3227,8 @@ body_str = <<-BODY
 attending to horses?
 BODY
 
-msg163 = Scon8.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg163 = Scon13.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.hours.ago
@@ -3169,9 +3244,9 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg164 = Econ8.messages.create({
+msg164 = Econ13.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.hours.ago
     })
@@ -3187,15 +3262,15 @@ body_str = <<-BODY
 huntsman?
 BODY
 
-msg165 = Scon8.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg165 = Scon13.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.hours.ago
+    created_at: 8.hours.ago
     })
 
     msg165.send_msg
-    msg165.update({updated_at: 7.hours.ago})
+    msg165.update({updated_at: 8.hours.ago})
 
 
 
@@ -3204,15 +3279,15 @@ body_str = <<-BODY
  True.
 BODY
 
-msg166 = Econ8.messages.create({
+msg166 = Econ13.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.hours.ago
+    created_at: 8.hours.ago
     })
 
     msg166.send_msg
-    msg166.update({updated_at: 7.hours.ago})
+    msg166.update({updated_at: 8.hours.ago})
 
 
 
@@ -3222,15 +3297,15 @@ body_str = <<-BODY
 art of attending to dogs?
 BODY
 
-msg167 = Scon8.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg167 = Scon13.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.hours.ago
+    created_at: 8.hours.ago
     })
 
     msg167.send_msg
-    msg167.update({updated_at: 7.hours.ago})
+    msg167.update({updated_at: 8.hours.ago})
 
 
 
@@ -3239,15 +3314,15 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg168 = Econ8.messages.create({
+msg168 = Econ13.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.hours.ago
+    created_at: 8.hours.ago
     })
 
     msg168.send_msg
-    msg168.update({updated_at: 7.hours.ago})
+    msg168.update({updated_at: 8.hours.ago})
 
 
 
@@ -3256,15 +3331,15 @@ body_str = <<-BODY
  As the art of the oxherd is the art of attending to oxen?
 BODY
 
-msg169 = Scon8.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg169 = Scon13.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.hours.ago
+    created_at: 8.hours.ago
     })
 
     msg169.send_msg
-    msg169.update({updated_at: 7.hours.ago})
+    msg169.update({updated_at: 8.hours.ago})
 
 
 
@@ -3273,15 +3348,15 @@ body_str = <<-BODY
  Very true.
 BODY
 
-msg170 = Econ8.messages.create({
+msg170 = Econ13.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.hours.ago
+    created_at: 8.hours.ago
     })
 
     msg170.send_msg
-    msg170.update({updated_at: 7.hours.ago})
+    msg170.update({updated_at: 8.hours.ago})
 
 
 
@@ -3291,8 +3366,8 @@ body_str = <<-BODY
 the gods?--that would be your meaning, Euthyphro?
 BODY
 
-msg171 = Scon8.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg171 = Scon13.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.hours.ago
@@ -3308,9 +3383,9 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg172 = Econ8.messages.create({
+msg172 = Econ13.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.hours.ago
     })
@@ -3328,8 +3403,8 @@ you may observe that when attended to by the horseman's art they are
 benefited and improved, are they not?
 BODY
 
-msg173 = Scon8.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg173 = Scon13.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.hours.ago
@@ -3341,28 +3416,13 @@ msg173 = Scon8.messages.create({
 
 
 
-      
-        Scon8.update({
-                             message_timestamp: 7.hours.ago,
-                             read: true
-                           }) 
-        Econ8.update({
-                             message_timestamp: 7.hours.ago,
-                             read: true
-                           }) 
-
-
-      MetCon9 = MetaConversation.create();
-
-      Scon9 = soc.conversations.create(title: "True.", meta_conversation: MetCon9)
-      Econ9 = euthyphro.conversations.create(title: "True.", meta_conversation: MetCon9)
 body_str = <<-BODY 
  True.
 BODY
 
-msg174 = Econ9.messages.create({
+msg174 = Econ13.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.hours.ago
     })
@@ -3379,8 +3439,8 @@ by the art of the oxherd, and all other things are tended or attended
 for their good and not for their hurt?
 BODY
 
-msg175 = Scon9.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg175 = Scon13.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.hours.ago
@@ -3396,9 +3456,9 @@ body_str = <<-BODY
  Certainly, not for their hurt.
 BODY
 
-msg176 = Econ9.messages.create({
+msg176 = Econ13.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.hours.ago
     })
@@ -3413,15 +3473,15 @@ body_str = <<-BODY
  But for their good?
 BODY
 
-msg177 = Scon9.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg177 = Scon13.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.hours.ago
+    created_at: 7.hours.ago
     })
 
     msg177.send_msg
-    msg177.update({updated_at: 6.hours.ago})
+    msg177.update({updated_at: 7.hours.ago})
 
 
 
@@ -3430,15 +3490,15 @@ body_str = <<-BODY
  Of course.
 BODY
 
-msg178 = Econ9.messages.create({
+msg178 = Econ13.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.hours.ago
+    created_at: 7.hours.ago
     })
 
     msg178.send_msg
-    msg178.update({updated_at: 6.hours.ago})
+    msg178.update({updated_at: 7.hours.ago})
 
 
 
@@ -3449,32 +3509,47 @@ art of attending to the gods, benefit or improve them? Would you say
 that when you do a holy act you make any of the gods better?
 BODY
 
-msg179 = Scon9.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg179 = Scon13.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.hours.ago
+    created_at: 7.hours.ago
     })
 
     msg179.send_msg
-    msg179.update({updated_at: 6.hours.ago})
+    msg179.update({updated_at: 7.hours.ago})
 
 
 
 
+      
+        Scon13.update({
+                             message_timestamp: 7.hours.ago,
+                             read: true
+                           }) 
+        Econ13.update({
+                             message_timestamp: 7.hours.ago,
+                             read: true
+                           }) 
+
+
+      MetCon14 = MetaConversation.create();
+
+      Scon14 = soc.conversations.create(title: "No, no; that was certainly not", meta_conversation: MetCon14)
+      Econ14 = euthyphro.conversations.create(title: "No, no; that was certainly not", meta_conversation: MetCon14)
 body_str = <<-BODY 
  No, no; that was certainly not what I meant.
 BODY
 
-msg180 = Econ9.messages.create({
+msg180 = Econ14.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.hours.ago
+    created_at: 7.hours.ago
     })
 
     msg180.send_msg
-    msg180.update({updated_at: 6.hours.ago})
+    msg180.update({updated_at: 7.hours.ago})
 
 
 
@@ -3485,15 +3560,15 @@ question about the nature of the attention, because I thought that you
 did not.
 BODY
 
-msg181 = Scon9.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg181 = Scon14.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.hours.ago
+    created_at: 7.hours.ago
     })
 
     msg181.send_msg
-    msg181.update({updated_at: 6.hours.ago})
+    msg181.update({updated_at: 7.hours.ago})
 
 
 
@@ -3503,15 +3578,15 @@ body_str = <<-BODY
 attention which I mean.
 BODY
 
-msg182 = Econ9.messages.create({
+msg182 = Econ14.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.hours.ago
+    created_at: 7.hours.ago
     })
 
     msg182.send_msg
-    msg182.update({updated_at: 6.hours.ago})
+    msg182.update({updated_at: 7.hours.ago})
 
 
 
@@ -3521,15 +3596,15 @@ body_str = <<-BODY
 which is called piety?
 BODY
 
-msg183 = Scon9.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg183 = Scon14.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.hours.ago
+    created_at: 7.hours.ago
     })
 
     msg183.send_msg
-    msg183.update({updated_at: 6.hours.ago})
+    msg183.update({updated_at: 7.hours.ago})
 
 
 
@@ -3538,9 +3613,9 @@ body_str = <<-BODY
  It is such, Socrates, as servants show to their masters.
 BODY
 
-msg184 = Econ9.messages.create({
+msg184 = Econ14.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 6.hours.ago
     })
@@ -3555,8 +3630,8 @@ body_str = <<-BODY
  I understand--a sort of ministration to the gods.
 BODY
 
-msg185 = Scon9.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg185 = Scon14.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 6.hours.ago
@@ -3572,9 +3647,9 @@ body_str = <<-BODY
  Exactly.
 BODY
 
-msg186 = Econ9.messages.create({
+msg186 = Econ14.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 6.hours.ago
     })
@@ -3590,8 +3665,8 @@ body_str = <<-BODY
 view the attainment of some object--would you not say of health?
 BODY
 
-msg187 = Scon9.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg187 = Scon14.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 6.hours.ago
@@ -3607,9 +3682,9 @@ body_str = <<-BODY
  I should.
 BODY
 
-msg188 = Econ9.messages.create({
+msg188 = Econ14.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 6.hours.ago
     })
@@ -3625,32 +3700,47 @@ body_str = <<-BODY
 with a view to the attainment of some result?
 BODY
 
-msg189 = Scon9.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg189 = Scon14.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.hours.ago
+    created_at: 6.hours.ago
     })
 
     msg189.send_msg
-    msg189.update({updated_at: 5.hours.ago})
+    msg189.update({updated_at: 6.hours.ago})
 
 
 
 
+      
+        Scon14.update({
+                             message_timestamp: 6.hours.ago,
+                             read: true
+                           }) 
+        Econ14.update({
+                             message_timestamp: 6.hours.ago,
+                             read: true
+                           }) 
+
+
+      MetCon15 = MetaConversation.create();
+
+      Scon15 = soc.conversations.create(title: "Yes, Socrates, with a view to", meta_conversation: MetCon15)
+      Econ15 = euthyphro.conversations.create(title: "Yes, Socrates, with a view to", meta_conversation: MetCon15)
 body_str = <<-BODY 
  Yes, Socrates, with a view to the building of a ship.
 BODY
 
-msg190 = Econ9.messages.create({
+msg190 = Econ15.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.hours.ago
+    created_at: 6.hours.ago
     })
 
     msg190.send_msg
-    msg190.update({updated_at: 5.hours.ago})
+    msg190.update({updated_at: 6.hours.ago})
 
 
 
@@ -3660,15 +3750,15 @@ body_str = <<-BODY
 view to the building of a house?
 BODY
 
-msg191 = Scon9.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg191 = Scon15.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.hours.ago
+    created_at: 6.hours.ago
     })
 
     msg191.send_msg
-    msg191.update({updated_at: 5.hours.ago})
+    msg191.update({updated_at: 6.hours.ago})
 
 
 
@@ -3677,15 +3767,15 @@ body_str = <<-BODY
  Yes.
 BODY
 
-msg192 = Econ9.messages.create({
+msg192 = Econ15.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.hours.ago
+    created_at: 6.hours.ago
     })
 
     msg192.send_msg
-    msg192.update({updated_at: 5.hours.ago})
+    msg192.update({updated_at: 6.hours.ago})
 
 
 
@@ -3697,15 +3787,15 @@ know if, as you say, you are of all men living the one who is best
 instructed in religion.
 BODY
 
-msg193 = Scon9.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg193 = Scon15.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.hours.ago
+    created_at: 6.hours.ago
     })
 
     msg193.send_msg
-    msg193.update({updated_at: 5.hours.ago})
+    msg193.update({updated_at: 6.hours.ago})
 
 
 
@@ -3714,15 +3804,15 @@ body_str = <<-BODY
  And I speak the truth, Socrates.
 BODY
 
-msg194 = Econ9.messages.create({
+msg194 = Econ15.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.hours.ago
+    created_at: 6.hours.ago
     })
 
     msg194.send_msg
-    msg194.update({updated_at: 5.hours.ago})
+    msg194.update({updated_at: 6.hours.ago})
 
 
 
@@ -3732,15 +3822,15 @@ body_str = <<-BODY
 gods do by the help of our ministrations?
 BODY
 
-msg195 = Scon9.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg195 = Scon15.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.hours.ago
+    created_at: 6.hours.ago
     })
 
     msg195.send_msg
-    msg195.update({updated_at: 5.hours.ago})
+    msg195.update({updated_at: 6.hours.ago})
 
 
 
@@ -3749,9 +3839,9 @@ body_str = <<-BODY
  Many and fair, Socrates, are the works which they do.
 BODY
 
-msg196 = Econ9.messages.create({
+msg196 = Econ15.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.hours.ago
     })
@@ -3768,8 +3858,8 @@ of them is easily told. Would you not say that victory in war is the
 chief of them?
 BODY
 
-msg197 = Scon9.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg197 = Scon15.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.hours.ago
@@ -3785,9 +3875,9 @@ body_str = <<-BODY
  Certainly.
 BODY
 
-msg198 = Econ9.messages.create({
+msg198 = Econ15.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.hours.ago
     })
@@ -3804,8 +3894,8 @@ am not mistaken; but his chief work is the production of food from the
 earth?
 BODY
 
-msg199 = Scon9.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg199 = Scon15.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.hours.ago
@@ -3821,9 +3911,9 @@ body_str = <<-BODY
  Exactly.
 BODY
 
-msg200 = Econ9.messages.create({
+msg200 = Econ15.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.hours.ago
     })
@@ -3839,15 +3929,15 @@ body_str = <<-BODY
 chief or principal one?
 BODY
 
-msg201 = Scon9.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg201 = Scon15.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.hours.ago
+    created_at: 5.hours.ago
     })
 
     msg201.send_msg
-    msg201.update({updated_at: 4.hours.ago})
+    msg201.update({updated_at: 5.hours.ago})
 
 
 
@@ -3861,15 +3951,15 @@ just as the impious, which is unpleasing to the gods, is their ruin and
 destruction.
 BODY
 
-msg202 = Econ9.messages.create({
+msg202 = Econ15.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.hours.ago
+    created_at: 5.hours.ago
     })
 
     msg202.send_msg
-    msg202.update({updated_at: 4.hours.ago})
+    msg202.update({updated_at: 5.hours.ago})
 
 
 
@@ -3886,15 +3976,15 @@ is the pious, and what is piety? Do you mean that they are a sort of
 science of praying and sacrificing?
 BODY
 
-msg203 = Scon9.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg203 = Scon15.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.hours.ago
+    created_at: 5.hours.ago
     })
 
     msg203.send_msg
-    msg203.update({updated_at: 4.hours.ago})
+    msg203.update({updated_at: 5.hours.ago})
 
 
 
@@ -3903,15 +3993,15 @@ body_str = <<-BODY
  Yes, I do.
 BODY
 
-msg204 = Econ9.messages.create({
+msg204 = Econ15.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.hours.ago
+    created_at: 5.hours.ago
     })
 
     msg204.send_msg
-    msg204.update({updated_at: 4.hours.ago})
+    msg204.update({updated_at: 5.hours.ago})
 
 
 
@@ -3921,15 +4011,15 @@ body_str = <<-BODY
 the gods?
 BODY
 
-msg205 = Scon9.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg205 = Scon15.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.hours.ago
+    created_at: 5.hours.ago
     })
 
     msg205.send_msg
-    msg205.update({updated_at: 4.hours.ago})
+    msg205.update({updated_at: 5.hours.ago})
 
 
 
@@ -3938,15 +4028,15 @@ body_str = <<-BODY
  Yes, Socrates.
 BODY
 
-msg206 = Econ9.messages.create({
+msg206 = Econ15.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.hours.ago
+    created_at: 5.hours.ago
     })
 
     msg206.send_msg
-    msg206.update({updated_at: 4.hours.ago})
+    msg206.update({updated_at: 5.hours.ago})
 
 
 
@@ -3955,15 +4045,15 @@ body_str = <<-BODY
  Upon this view, then, piety is a science of asking and giving?
 BODY
 
-msg207 = Scon9.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg207 = Scon15.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 4.hours.ago
+    created_at: 5.hours.ago
     })
 
     msg207.send_msg
-    msg207.update({updated_at: 4.hours.ago})
+    msg207.update({updated_at: 5.hours.ago})
 
 
 
@@ -3972,9 +4062,9 @@ body_str = <<-BODY
  You understand me capitally, Socrates.
 BODY
 
-msg208 = Econ9.messages.create({
+msg208 = Econ15.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 4.hours.ago
     })
@@ -3993,8 +4083,8 @@ of this service to the gods? Do you mean that we prefer requests and
 give gifts to them?
 BODY
 
-msg209 = Scon9.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg209 = Scon15.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 4.hours.ago
@@ -4010,9 +4100,9 @@ body_str = <<-BODY
  Yes, I do.
 BODY
 
-msg210 = Econ9.messages.create({
+msg210 = Econ15.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 4.hours.ago
     })
@@ -4023,12 +4113,27 @@ msg210 = Econ9.messages.create({
 
 
 
+      
+        Scon15.update({
+                             message_timestamp: 4.hours.ago,
+                             read: true
+                           }) 
+        Econ15.update({
+                             message_timestamp: 4.hours.ago,
+                             read: true
+                           }) 
+
+
+      MetCon16 = MetaConversation.create();
+
+      Scon16 = soc.conversations.create(title: "Is not the right way of", meta_conversation: MetCon16)
+      Econ16 = euthyphro.conversations.create(title: "Is not the right way of", meta_conversation: MetCon16)
 body_str = <<-BODY 
  Is not the right way of asking to ask of them what we want?
 BODY
 
-msg211 = Scon9.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg211 = Scon16.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 4.hours.ago
@@ -4044,15 +4149,15 @@ body_str = <<-BODY
  Certainly.
 BODY
 
-msg212 = Econ9.messages.create({
+msg212 = Econ16.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.hours.ago
+    created_at: 4.hours.ago
     })
 
     msg212.send_msg
-    msg212.update({updated_at: 3.hours.ago})
+    msg212.update({updated_at: 4.hours.ago})
 
 
 
@@ -4063,15 +4168,15 @@ they want of us. There would be no meaning in an art which gives to any
 one that which he does not want.
 BODY
 
-msg213 = Scon9.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg213 = Scon16.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.hours.ago
+    created_at: 4.hours.ago
     })
 
     msg213.send_msg
-    msg213.update({updated_at: 3.hours.ago})
+    msg213.update({updated_at: 4.hours.ago})
 
 
 
@@ -4080,50 +4185,80 @@ body_str = <<-BODY
  Very true, Socrates.
 BODY
 
-msg214 = Econ9.messages.create({
+msg214 = Econ16.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.hours.ago
+    created_at: 4.hours.ago
     })
 
     msg214.send_msg
-    msg214.update({updated_at: 3.hours.ago})
+    msg214.update({updated_at: 4.hours.ago})
 
 
 
 
+      
+        Scon16.update({
+                             message_timestamp: 4.hours.ago,
+                             read: true
+                           }) 
+        Econ16.update({
+                             message_timestamp: 4.hours.ago,
+                             read: true
+                           }) 
+
+
+      MetCon17 = MetaConversation.create();
+
+      Scon17 = soc.conversations.create(title: "Then piety, Euthyphro, is an art", meta_conversation: MetCon17)
+      Econ17 = euthyphro.conversations.create(title: "Then piety, Euthyphro, is an art", meta_conversation: MetCon17)
 body_str = <<-BODY 
  Then piety, Euthyphro, is an art which gods and men have of
 doing business with one another?
 BODY
 
-msg215 = Scon9.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg215 = Scon17.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.hours.ago
+    created_at: 4.hours.ago
     })
 
     msg215.send_msg
-    msg215.update({updated_at: 3.hours.ago})
+    msg215.update({updated_at: 4.hours.ago})
 
 
 
 
+      
+        Scon17.update({
+                             message_timestamp: 4.hours.ago,
+                             read: true
+                           }) 
+        Econ17.update({
+                             message_timestamp: 4.hours.ago,
+                             read: true
+                           }) 
+
+
+      MetCon18 = MetaConversation.create();
+
+      Scon18 = soc.conversations.create(title: "That is an expression which you", meta_conversation: MetCon18)
+      Econ18 = euthyphro.conversations.create(title: "That is an expression which you", meta_conversation: MetCon18)
 body_str = <<-BODY 
  That is an expression which you may use, if you like.
 BODY
 
-msg216 = Econ9.messages.create({
+msg216 = Econ18.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.hours.ago
+    created_at: 4.hours.ago
     })
 
     msg216.send_msg
-    msg216.update({updated_at: 3.hours.ago})
+    msg216.update({updated_at: 4.hours.ago})
 
 
 
@@ -4138,15 +4273,15 @@ everything and we give nothing, that must be an affair of business in
 which we have very greatly the advantage of them.
 BODY
 
-msg217 = Scon9.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg217 = Scon18.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.hours.ago
+    created_at: 4.hours.ago
     })
 
     msg217.send_msg
-    msg217.update({updated_at: 3.hours.ago})
+    msg217.update({updated_at: 4.hours.ago})
 
 
 
@@ -4156,15 +4291,15 @@ body_str = <<-BODY
 gods from our gifts?
 BODY
 
-msg218 = Econ9.messages.create({
+msg218 = Econ18.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 3.hours.ago
+    created_at: 4.hours.ago
     })
 
     msg218.send_msg
-    msg218.update({updated_at: 3.hours.ago})
+    msg218.update({updated_at: 4.hours.ago})
 
 
 
@@ -4174,8 +4309,8 @@ body_str = <<-BODY
 conferred by us upon the gods?
 BODY
 
-msg219 = Scon9.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg219 = Scon18.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 3.hours.ago
@@ -4187,29 +4322,14 @@ msg219 = Scon9.messages.create({
 
 
 
-      
-        Scon9.update({
-                             message_timestamp: 3.hours.ago,
-                             read: true
-                           }) 
-        Econ9.update({
-                             message_timestamp: 3.hours.ago,
-                             read: true
-                           }) 
-
-
-      MetCon10 = MetaConversation.create();
-
-      Scon10 = soc.conversations.create(title: "What else, but tributes of honour;", meta_conversation: MetCon10)
-      Econ10 = euthyphro.conversations.create(title: "What else, but tributes of honour;", meta_conversation: MetCon10)
 body_str = <<-BODY 
  What else, but tributes of honour; and, as I was just now
 saying, what pleases them?
 BODY
 
-msg220 = Econ10.messages.create({
+msg220 = Econ18.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 3.hours.ago
     })
@@ -4225,8 +4345,8 @@ body_str = <<-BODY
 dear to them?
 BODY
 
-msg221 = Scon10.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg221 = Scon18.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 3.hours.ago
@@ -4242,9 +4362,9 @@ body_str = <<-BODY
  I should say that nothing could be dearer.
 BODY
 
-msg222 = Econ10.messages.create({
+msg222 = Econ18.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 3.hours.ago
     })
@@ -4260,8 +4380,8 @@ body_str = <<-BODY
 the gods?
 BODY
 
-msg223 = Scon10.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg223 = Scon18.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 3.hours.ago
@@ -4277,9 +4397,9 @@ body_str = <<-BODY
  Certainly.
 BODY
 
-msg224 = Econ10.messages.create({
+msg224 = Econ18.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 3.hours.ago
     })
@@ -4290,21 +4410,6 @@ msg224 = Econ10.messages.create({
 
 
 
-      
-        Scon10.update({
-                             message_timestamp: 3.hours.ago,
-                             read: true
-                           }) 
-        Econ10.update({
-                             message_timestamp: 3.hours.ago,
-                             read: true
-                           }) 
-
-
-      MetCon11 = MetaConversation.create();
-
-      Scon11 = soc.conversations.create(title: "And when you say this, can", meta_conversation: MetCon11)
-      Econ11 = euthyphro.conversations.create(title: "And when you say this, can", meta_conversation: MetCon11)
 body_str = <<-BODY 
  And when you say this, can you wonder at your words not
 standing firm, but walking away? Will you accuse me of being the
@@ -4316,8 +4421,8 @@ pious was not the same with that which is loved of the gods? Have you
 forgotten?
 BODY
 
-msg225 = Scon11.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg225 = Scon18.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 3.hours.ago
@@ -4333,15 +4438,15 @@ body_str = <<-BODY
  I quite remember.
 BODY
 
-msg226 = Econ11.messages.create({
+msg226 = Econ18.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.hours.ago
+    created_at: 3.hours.ago
     })
 
     msg226.send_msg
-    msg226.update({updated_at: 2.hours.ago})
+    msg226.update({updated_at: 3.hours.ago})
 
 
 
@@ -4351,15 +4456,15 @@ body_str = <<-BODY
 and is not this the same as what is dear to them--do you see?
 BODY
 
-msg227 = Scon11.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg227 = Scon18.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.hours.ago
+    created_at: 3.hours.ago
     })
 
     msg227.send_msg
-    msg227.update({updated_at: 2.hours.ago})
+    msg227.update({updated_at: 3.hours.ago})
 
 
 
@@ -4368,33 +4473,48 @@ body_str = <<-BODY
  True.
 BODY
 
-msg228 = Econ11.messages.create({
+msg228 = Econ18.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.hours.ago
+    created_at: 3.hours.ago
     })
 
     msg228.send_msg
-    msg228.update({updated_at: 2.hours.ago})
+    msg228.update({updated_at: 3.hours.ago})
 
 
 
 
+      
+        Scon18.update({
+                             message_timestamp: 3.hours.ago,
+                             read: true
+                           }) 
+        Econ18.update({
+                             message_timestamp: 3.hours.ago,
+                             read: true
+                           }) 
+
+
+      MetCon19 = MetaConversation.create();
+
+      Scon19 = soc.conversations.create(title: "Then either we were wrong in", meta_conversation: MetCon19)
+      Econ19 = euthyphro.conversations.create(title: "Then either we were wrong in", meta_conversation: MetCon19)
 body_str = <<-BODY 
  Then either we were wrong in our former assertion; or, if we
 were right then, we are wrong now.
 BODY
 
-msg229 = Scon11.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg229 = Scon19.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.hours.ago
+    created_at: 3.hours.ago
     })
 
     msg229.send_msg
-    msg229.update({updated_at: 2.hours.ago})
+    msg229.update({updated_at: 3.hours.ago})
 
 
 
@@ -4403,15 +4523,15 @@ body_str = <<-BODY
  One of the two must be true.
 BODY
 
-msg230 = Econ11.messages.create({
+msg230 = Econ19.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 2.hours.ago
+    created_at: 3.hours.ago
     })
 
     msg230.send_msg
-    msg230.update({updated_at: 2.hours.ago})
+    msg230.update({updated_at: 3.hours.ago})
 
 
 
@@ -4431,8 +4551,8 @@ impiety. Speak out then, my dear Euthyphro, and do not hide your
 knowledge.
 BODY
 
-msg231 = Scon11.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg231 = Scon19.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 2.hours.ago
@@ -4448,9 +4568,9 @@ body_str = <<-BODY
  Another time, Socrates; for I am in a hurry, and must go now.
 BODY
 
-msg232 = Econ11.messages.create({
+msg232 = Econ19.messages.create({
     source_address: "euthyphro#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 2.hours.ago
     })
@@ -4471,8 +4591,8 @@ through ignorance, and that now I am about to lead a better life.
 
 BODY
 
-msg233 = Scon11.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg233 = Scon19.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "euthyphro#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 2.hours.ago

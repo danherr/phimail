@@ -1,6 +1,6 @@
 
 crito = User.create({fname: "Crito", lname:"of Prospalta", username: "crito", pass: "12345678"})
-soc = User.find_by_username('daimonic')
+soc = User.find_by_username('daemonic')
 
 MetCon3 = MetaConversation.create();
 
@@ -14,7 +14,7 @@ body_str = <<-BODY
 BODY
 
 msg1 = Scon3.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 9.minutes.ago
@@ -32,7 +32,7 @@ BODY
 
 msg2 = Ccon3.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 9.minutes.ago
     })
@@ -48,7 +48,7 @@ body_str = <<-BODY
 BODY
 
 msg3 = Scon3.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 9.minutes.ago
@@ -66,7 +66,7 @@ BODY
 
 msg4 = Ccon3.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 9.minutes.ago
     })
@@ -82,7 +82,7 @@ body_str = <<-BODY
 BODY
 
 msg5 = Scon3.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 9.minutes.ago
@@ -101,7 +101,7 @@ BODY
 
 msg6 = Ccon3.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 9.minutes.ago
     })
@@ -117,7 +117,7 @@ body_str = <<-BODY
 BODY
 
 msg7 = Scon3.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 9.minutes.ago
@@ -135,7 +135,7 @@ BODY
 
 msg8 = Ccon3.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 9.minutes.ago
     })
@@ -152,7 +152,7 @@ awakening me?
 BODY
 
 msg9 = Scon3.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 9.minutes.ago
@@ -175,7 +175,7 @@ BODY
 
 msg10 = Ccon3.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 9.minutes.ago
     })
@@ -192,7 +192,7 @@ repining at the approach of death.
 BODY
 
 msg11 = Scon3.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 9.minutes.ago
@@ -211,7 +211,7 @@ BODY
 
 msg12 = Ccon3.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 9.minutes.ago
     })
@@ -228,7 +228,7 @@ early hour.
 BODY
 
 msg13 = Scon3.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 9.minutes.ago
@@ -248,7 +248,7 @@ BODY
 
 msg14 = Ccon3.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 9.minutes.ago
     })
@@ -265,7 +265,7 @@ am to die?
 BODY
 
 msg15 = Scon3.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.minutes.ago
@@ -286,7 +286,7 @@ BODY
 
 msg16 = Ccon3.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.minutes.ago
     })
@@ -303,7 +303,7 @@ my belief is that there will be a delay of a day.
 BODY
 
 msg17 = Scon3.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.minutes.ago
@@ -321,7 +321,7 @@ BODY
 
 msg18 = Ccon3.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.minutes.ago
     })
@@ -338,7 +338,7 @@ the ship?
 BODY
 
 msg19 = Scon3.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.minutes.ago
@@ -356,7 +356,7 @@ BODY
 
 msg20 = Ccon3.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.minutes.ago
     })
@@ -367,29 +367,14 @@ msg20 = Ccon3.messages.create({
 
 
 
-      
-        Scon3.update({
-                             message_timestamp: 8.minutes.ago,
-                             read: false
-                           }) 
-        Ccon3.update({
-                             message_timestamp: 8.minutes.ago,
-                             read: false
-                           }) 
-
-
-      MetCon4 = MetaConversation.create();
-
-      Scon4 = soc.conversations.create(title: "But I do not think that", meta_conversation: MetCon4)
-      Ccon4 = crito.conversations.create(title: "But I do not think that", meta_conversation: MetCon4)
 body_str = <<-BODY 
   But I do not think that the ship will be here until to-morrow;
 this I infer from a vision which I had last night, or rather only just now,
 when you fortunately allowed me to sleep.
 BODY
 
-msg21 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg21 = Scon3.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.minutes.ago
@@ -405,9 +390,9 @@ body_str = <<-BODY
   And what was the nature of the vision?
 BODY
 
-msg22 = Ccon4.messages.create({
+msg22 = Ccon3.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.minutes.ago
     })
@@ -423,8 +408,8 @@ body_str = <<-BODY
 clothed in bright raiment, who called to me and said:  O Socrates,
 BODY
 
-msg23 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg23 = Scon3.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.minutes.ago
@@ -442,9 +427,9 @@ body_str = <<-BODY
   What a singular dream, Socrates!
 BODY
 
-msg24 = Ccon4.messages.create({
+msg24 = Ccon3.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.minutes.ago
     })
@@ -459,8 +444,8 @@ body_str = <<-BODY
   There can be no doubt about the meaning, Crito, I think.
 BODY
 
-msg25 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg25 = Scon3.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.minutes.ago
@@ -483,9 +468,9 @@ thought to value money more than the life of a friend?  For the many will
 not be persuaded that I wanted you to escape, and that you refused.
 BODY
 
-msg26 = Ccon4.messages.create({
+msg26 = Ccon3.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.minutes.ago
     })
@@ -502,8 +487,8 @@ many?  Good men, and they are the only persons who are worth considering,
 will think of these things truly as they occurred.
 BODY
 
-msg27 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg27 = Scon3.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.minutes.ago
@@ -521,9 +506,9 @@ regarded, for what is now happening shows that they can do the greatest
 evil to any one who has lost their good opinion.
 BODY
 
-msg28 = Ccon4.messages.create({
+msg28 = Ccon3.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.minutes.ago
     })
@@ -542,8 +527,8 @@ for they cannot make a man either wise or foolish; and whatever they do is
 the result of chance.
 BODY
 
-msg29 = Scon4.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg29 = Scon3.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.minutes.ago
@@ -566,9 +551,9 @@ ought surely to run this, or even a greater risk; be persuaded, then, and
 do as I say.
 BODY
 
-msg30 = Ccon4.messages.create({
+msg30 = Ccon3.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.minutes.ago
     })
@@ -579,28 +564,13 @@ msg30 = Ccon4.messages.create({
 
 
 
-      
-        Scon4.update({
-                             message_timestamp: 8.minutes.ago,
-                             read: false
-                           }) 
-        Ccon4.update({
-                             message_timestamp: 8.minutes.ago,
-                             read: false
-                           }) 
-
-
-      MetCon5 = MetaConversation.create();
-
-      Scon5 = soc.conversations.create(title: "Yes, Crito, that is one fear", meta_conversation: MetCon5)
-      Ccon5 = crito.conversations.create(title: "Yes, Crito, that is one fear", meta_conversation: MetCon5)
 body_str = <<-BODY 
   Yes, Crito, that is one fear which you mention, but by no means
 the only one.
 BODY
 
-msg31 = Scon5.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg31 = Scon3.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.minutes.ago
@@ -652,9 +622,9 @@ or possible; I beseech you therefore, Socrates, be persuaded by me, and do
 as I say.
 BODY
 
-msg32 = Ccon5.messages.create({
+msg32 = Ccon3.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.minutes.ago
     })
@@ -696,8 +666,8 @@ other opinions, and the opinions of other men, are not to be valued.  I ask
 you whether I was right in maintaining this?
 BODY
 
-msg33 = Scon5.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg33 = Scon3.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.minutes.ago
@@ -713,9 +683,9 @@ body_str = <<-BODY
   Certainly.
 BODY
 
-msg34 = Ccon5.messages.create({
+msg34 = Ccon3.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 8.minutes.ago
     })
@@ -730,15 +700,15 @@ body_str = <<-BODY
   The good are to be regarded, and not the bad?
 BODY
 
-msg35 = Scon5.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg35 = Scon3.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.minutes.ago
+    created_at: 8.minutes.ago
     })
 
     msg35.send_msg
-    msg35.update({updated_at: 7.minutes.ago})
+    msg35.update({updated_at: 8.minutes.ago})
 
 
 
@@ -747,15 +717,15 @@ body_str = <<-BODY
   Yes.
 BODY
 
-msg36 = Ccon5.messages.create({
+msg36 = Ccon3.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.minutes.ago
+    created_at: 8.minutes.ago
     })
 
     msg36.send_msg
-    msg36.update({updated_at: 7.minutes.ago})
+    msg36.update({updated_at: 8.minutes.ago})
 
 
 
@@ -765,15 +735,15 @@ body_str = <<-BODY
 unwise are evil?
 BODY
 
-msg37 = Scon5.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg37 = Scon3.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.minutes.ago
+    created_at: 8.minutes.ago
     })
 
     msg37.send_msg
-    msg37.update({updated_at: 7.minutes.ago})
+    msg37.update({updated_at: 8.minutes.ago})
 
 
 
@@ -782,15 +752,15 @@ body_str = <<-BODY
   Certainly.
 BODY
 
-msg38 = Ccon5.messages.create({
+msg38 = Ccon3.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.minutes.ago
+    created_at: 8.minutes.ago
     })
 
     msg38.send_msg
-    msg38.update({updated_at: 7.minutes.ago})
+    msg38.update({updated_at: 8.minutes.ago})
 
 
 
@@ -802,15 +772,15 @@ praise and blame and opinion of every man, or of one man only--his
 physician or trainer, whoever he may be?
 BODY
 
-msg39 = Scon5.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg39 = Scon3.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 7.minutes.ago
+    created_at: 8.minutes.ago
     })
 
     msg39.send_msg
-    msg39.update({updated_at: 7.minutes.ago})
+    msg39.update({updated_at: 8.minutes.ago})
 
 
 
@@ -819,9 +789,9 @@ body_str = <<-BODY
   Of one man only.
 BODY
 
-msg40 = Ccon5.messages.create({
+msg40 = Ccon3.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.minutes.ago
     })
@@ -837,8 +807,8 @@ body_str = <<-BODY
 one only, and not of the many?
 BODY
 
-msg41 = Scon5.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg41 = Scon3.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.minutes.ago
@@ -854,9 +824,9 @@ body_str = <<-BODY
   Clearly so.
 BODY
 
-msg42 = Ccon5.messages.create({
+msg42 = Ccon3.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.minutes.ago
     })
@@ -873,8 +843,8 @@ which seems good to his single master who has understanding, rather than
 according to the opinion of all other men put together?
 BODY
 
-msg43 = Scon5.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg43 = Scon3.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.minutes.ago
@@ -890,9 +860,9 @@ body_str = <<-BODY
   True.
 BODY
 
-msg44 = Ccon5.messages.create({
+msg44 = Ccon3.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.minutes.ago
     })
@@ -909,8 +879,8 @@ the one, and regards the opinion of the many who have no understanding,
 will he not suffer evil?
 BODY
 
-msg45 = Scon5.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg45 = Scon3.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.minutes.ago
@@ -926,9 +896,9 @@ body_str = <<-BODY
   Certainly he will.
 BODY
 
-msg46 = Ccon5.messages.create({
+msg46 = Ccon3.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.minutes.ago
     })
@@ -944,8 +914,8 @@ body_str = <<-BODY
 in the disobedient person?
 BODY
 
-msg47 = Scon5.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg47 = Scon3.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.minutes.ago
@@ -957,28 +927,13 @@ msg47 = Scon5.messages.create({
 
 
 
-      
-        Scon5.update({
-                             message_timestamp: 7.minutes.ago,
-                             read: false
-                           }) 
-        Ccon5.update({
-                             message_timestamp: 7.minutes.ago,
-                             read: false
-                           }) 
-
-
-      MetCon6 = MetaConversation.create();
-
-      Scon6 = soc.conversations.create(title: "Clearly, affecting the body; that is", meta_conversation: MetCon6)
-      Ccon6 = crito.conversations.create(title: "Clearly, affecting the body; that is", meta_conversation: MetCon6)
 body_str = <<-BODY 
   Clearly, affecting the body; that is what is destroyed by the evil.
 BODY
 
-msg48 = Ccon6.messages.create({
+msg48 = Ccon3.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.minutes.ago
     })
@@ -1000,8 +955,8 @@ destroy and injure that principle in us which may be assumed to be improved
 by justice and deteriorated by injustice;--there is such a principle?
 BODY
 
-msg49 = Scon6.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg49 = Scon3.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.minutes.ago
@@ -1017,9 +972,9 @@ body_str = <<-BODY
   Certainly there is, Socrates.
 BODY
 
-msg50 = Ccon6.messages.create({
+msg50 = Ccon3.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.minutes.ago
     })
@@ -1037,8 +992,8 @@ is deteriorated by disease, would life be worth having?  And that which has
 been destroyed is--the body?
 BODY
 
-msg51 = Scon6.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg51 = Scon3.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.minutes.ago
@@ -1054,9 +1009,9 @@ body_str = <<-BODY
   Yes.
 BODY
 
-msg52 = Ccon6.messages.create({
+msg52 = Ccon3.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.minutes.ago
     })
@@ -1071,8 +1026,8 @@ body_str = <<-BODY
   Could we live, having an evil and corrupted body?
 BODY
 
-msg53 = Scon6.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg53 = Scon3.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 7.minutes.ago
@@ -1088,15 +1043,15 @@ body_str = <<-BODY
   Certainly not.
 BODY
 
-msg54 = Ccon6.messages.create({
+msg54 = Ccon3.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 6.minutes.ago
+    created_at: 7.minutes.ago
     })
 
     msg54.send_msg
-    msg54.update({updated_at: 6.minutes.ago})
+    msg54.update({updated_at: 7.minutes.ago})
 
 
 
@@ -1108,8 +1063,8 @@ suppose that principle, whatever it may be in man, which has to do with
 justice and injustice, to be inferior to the body?
 BODY
 
-msg55 = Scon6.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg55 = Scon3.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 6.minutes.ago
@@ -1125,9 +1080,9 @@ body_str = <<-BODY
   Certainly not.
 BODY
 
-msg56 = Ccon6.messages.create({
+msg56 = Ccon3.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 6.minutes.ago
     })
@@ -1142,8 +1097,8 @@ body_str = <<-BODY
   More honourable than the body?
 BODY
 
-msg57 = Scon6.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg57 = Scon3.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 6.minutes.ago
@@ -1159,9 +1114,9 @@ body_str = <<-BODY
   Far more.
 BODY
 
-msg58 = Ccon6.messages.create({
+msg58 = Ccon3.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 6.minutes.ago
     })
@@ -1172,6 +1127,21 @@ msg58 = Ccon6.messages.create({
 
 
 
+      
+        Scon3.update({
+                             message_timestamp: 6.minutes.ago,
+                             read: false
+                           }) 
+        Ccon3.update({
+                             message_timestamp: 6.minutes.ago,
+                             read: false
+                           }) 
+
+
+      MetCon4 = MetaConversation.create();
+
+      Scon4 = soc.conversations.create(title: "Then, my friend, we must not", meta_conversation: MetCon4)
+      Ccon4 = crito.conversations.create(title: "Then, my friend, we must not", meta_conversation: MetCon4)
 body_str = <<-BODY 
   Then, my friend, we must not regard what the many say of us:
 but what he, the one man who has understanding of just and unjust, will
@@ -1181,8 +1151,8 @@ unjust, good and evil, honorable and dishonorable.--'Well,' some one will
 say, 'but the many can kill us.'
 BODY
 
-msg59 = Scon6.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg59 = Scon4.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 6.minutes.ago
@@ -1198,9 +1168,9 @@ body_str = <<-BODY
   Yes, Socrates; that will clearly be the answer.
 BODY
 
-msg60 = Ccon6.messages.create({
+msg60 = Ccon4.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 6.minutes.ago
     })
@@ -1218,8 +1188,8 @@ the same of another proposition--that not life, but a good life, is to be
 chiefly valued?
 BODY
 
-msg61 = Scon6.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg61 = Scon4.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 6.minutes.ago
@@ -1231,13 +1201,28 @@ msg61 = Scon6.messages.create({
 
 
 
+      
+        Scon4.update({
+                             message_timestamp: 6.minutes.ago,
+                             read: false
+                           }) 
+        Ccon4.update({
+                             message_timestamp: 6.minutes.ago,
+                             read: false
+                           }) 
+
+
+      MetCon5 = MetaConversation.create();
+
+      Scon5 = soc.conversations.create(title: "Yes, that also remains unshaken.", meta_conversation: MetCon5)
+      Ccon5 = crito.conversations.create(title: "Yes, that also remains unshaken.", meta_conversation: MetCon5)
 body_str = <<-BODY 
   Yes, that also remains unshaken.
 BODY
 
-msg62 = Ccon6.messages.create({
+msg62 = Ccon5.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 6.minutes.ago
     })
@@ -1253,8 +1238,8 @@ body_str = <<-BODY
 holds also?
 BODY
 
-msg63 = Scon6.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg63 = Scon5.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 6.minutes.ago
@@ -1270,9 +1255,9 @@ body_str = <<-BODY
   Yes, it does.
 BODY
 
-msg64 = Ccon6.messages.create({
+msg64 = Ccon5.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 6.minutes.ago
     })
@@ -1300,8 +1285,8 @@ ensue on my remaining here must not be allowed to enter into the
 calculation.
 BODY
 
-msg65 = Scon6.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg65 = Scon5.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 6.minutes.ago
@@ -1317,9 +1302,9 @@ body_str = <<-BODY
   I think that you are right, Socrates; how then shall we proceed?
 BODY
 
-msg66 = Ccon6.messages.create({
+msg66 = Ccon5.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 6.minutes.ago
     })
@@ -1339,8 +1324,8 @@ persuaded against my own better judgment.  And now please to consider my
 first position, and try how you can best answer me.
 BODY
 
-msg67 = Scon6.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg67 = Scon5.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 6.minutes.ago
@@ -1356,9 +1341,9 @@ body_str = <<-BODY
   I will.
 BODY
 
-msg68 = Ccon6.messages.create({
+msg68 = Ccon5.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 6.minutes.ago
     })
@@ -1382,8 +1367,8 @@ insist on the truth of what was then said, that injustice is always an evil
 and dishonour to him who acts unjustly?  Shall we say so or not?
 BODY
 
-msg69 = Scon6.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg69 = Scon5.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 6.minutes.ago
@@ -1399,9 +1384,9 @@ body_str = <<-BODY
   Yes.
 BODY
 
-msg70 = Ccon6.messages.create({
+msg70 = Ccon5.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 6.minutes.ago
     })
@@ -1416,8 +1401,8 @@ body_str = <<-BODY
   Then we must do no wrong?
 BODY
 
-msg71 = Scon6.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg71 = Scon5.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 6.minutes.ago
@@ -1433,9 +1418,9 @@ body_str = <<-BODY
   Certainly not.
 BODY
 
-msg72 = Ccon6.messages.create({
+msg72 = Ccon5.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.minutes.ago
     })
@@ -1451,8 +1436,8 @@ body_str = <<-BODY
 must injure no one at all?  (E.g. compare Rep.)
 BODY
 
-msg73 = Scon6.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg73 = Scon5.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.minutes.ago
@@ -1468,9 +1453,9 @@ body_str = <<-BODY
   Clearly not.
 BODY
 
-msg74 = Ccon6.messages.create({
+msg74 = Ccon5.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.minutes.ago
     })
@@ -1485,8 +1470,8 @@ body_str = <<-BODY
   Again, Crito, may we do evil?
 BODY
 
-msg75 = Scon6.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg75 = Scon5.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.minutes.ago
@@ -1502,9 +1487,9 @@ body_str = <<-BODY
   Surely not, Socrates.
 BODY
 
-msg76 = Ccon6.messages.create({
+msg76 = Ccon5.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.minutes.ago
     })
@@ -1520,8 +1505,8 @@ body_str = <<-BODY
 of the many--is that just or not?
 BODY
 
-msg77 = Scon6.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg77 = Scon5.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.minutes.ago
@@ -1537,9 +1522,9 @@ body_str = <<-BODY
   Not just.
 BODY
 
-msg78 = Ccon6.messages.create({
+msg78 = Ccon5.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.minutes.ago
     })
@@ -1554,8 +1539,8 @@ body_str = <<-BODY
   For doing evil to another is the same as injuring him?
 BODY
 
-msg79 = Scon6.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg79 = Scon5.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.minutes.ago
@@ -1571,9 +1556,9 @@ body_str = <<-BODY
   Very true.
 BODY
 
-msg80 = Ccon6.messages.create({
+msg80 = Ccon5.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.minutes.ago
     })
@@ -1600,8 +1585,8 @@ let me hear what you have to say.  If, however, you remain of the same mind
 as formerly, I will proceed to the next step.
 BODY
 
-msg81 = Scon6.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg81 = Scon5.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.minutes.ago
@@ -1617,9 +1602,9 @@ body_str = <<-BODY
   You may proceed, for I have not changed my mind.
 BODY
 
-msg82 = Ccon6.messages.create({
+msg82 = Ccon5.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.minutes.ago
     })
@@ -1636,8 +1621,8 @@ form of a question:--Ought a man to do what he admits to be right, or ought
 he to betray the right?
 BODY
 
-msg83 = Scon6.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg83 = Scon5.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.minutes.ago
@@ -1653,9 +1638,9 @@ body_str = <<-BODY
   He ought to do what he thinks right.
 BODY
 
-msg84 = Ccon6.messages.create({
+msg84 = Ccon5.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.minutes.ago
     })
@@ -1673,8 +1658,8 @@ not wrong those whom I ought least to wrong?  Do I not desert the
 principles which were acknowledged by us to be just--what do you say?
 BODY
 
-msg85 = Scon6.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg85 = Scon5.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.minutes.ago
@@ -1690,9 +1675,9 @@ body_str = <<-BODY
   I cannot tell, Socrates, for I do not know.
 BODY
 
-msg86 = Ccon6.messages.create({
+msg86 = Ccon5.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.minutes.ago
     })
@@ -1719,8 +1704,8 @@ the state has injured us and given an unjust sentence.'  Suppose I say
 that?
 BODY
 
-msg87 = Scon6.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg87 = Scon5.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 5.minutes.ago
@@ -1736,15 +1721,15 @@ body_str = <<-BODY
   Very good, Socrates.
 BODY
 
-msg88 = Ccon6.messages.create({
+msg88 = Ccon5.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.minutes.ago
+    created_at: 4.minutes.ago
     })
 
     msg88.send_msg
-    msg88.update({updated_at: 5.minutes.ago})
+    msg88.update({updated_at: 4.minutes.ago})
 
 
 
@@ -1789,15 +1774,15 @@ he do violence to his country.'  What answer shall we make to this, Crito?
 Do the laws speak truly, or do they not?
 BODY
 
-msg89 = Scon6.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg89 = Scon5.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
-    created_at: 5.minutes.ago
+    created_at: 4.minutes.ago
     })
 
     msg89.send_msg
-    msg89.update({updated_at: 5.minutes.ago})
+    msg89.update({updated_at: 4.minutes.ago})
 
 
 
@@ -1806,9 +1791,9 @@ body_str = <<-BODY
   I think that they do.
 BODY
 
-msg90 = Ccon6.messages.create({
+msg90 = Ccon5.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 4.minutes.ago
     })
@@ -1867,8 +1852,8 @@ governed according to us in deed, and not in word only?  Is that true or
 not?'  How shall we answer, Crito?  Must we not assent?
 BODY
 
-msg91 = Scon6.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg91 = Scon5.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 4.minutes.ago
@@ -1884,9 +1869,9 @@ body_str = <<-BODY
   We cannot help it, Socrates.
 BODY
 
-msg92 = Ccon6.messages.create({
+msg92 = Ccon5.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 4.minutes.ago
     })
@@ -1969,8 +1954,8 @@ that anything more which you may say will be vain.  Yet speak, if you have
 anything to say.
 BODY
 
-msg93 = Scon6.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+msg93 = Scon5.messages.create({
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 4.minutes.ago
@@ -1982,13 +1967,28 @@ msg93 = Scon6.messages.create({
 
 
 
+      
+        Scon5.update({
+                             message_timestamp: 4.minutes.ago,
+                             read: false
+                           }) 
+        Ccon5.update({
+                             message_timestamp: 4.minutes.ago,
+                             read: false
+                           }) 
+
+
+      MetCon6 = MetaConversation.create();
+
+      Scon6 = soc.conversations.create(title: "I have nothing to say, Socrates.", meta_conversation: MetCon6)
+      Ccon6 = crito.conversations.create(title: "I have nothing to say, Socrates.", meta_conversation: MetCon6)
 body_str = <<-BODY 
   I have nothing to say, Socrates.
 BODY
 
 msg94 = Ccon6.messages.create({
     source_address: "crito#{EMAIL_SIGNATURE}",
-    target_address: "daimonic#{EMAIL_SIGNATURE}",
+    target_address: "daemonic#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 4.minutes.ago
     })
@@ -2006,7 +2006,7 @@ whither he leads.
 BODY
 
 msg95 = Scon6.messages.create({
-    source_address: "daimonic#{EMAIL_SIGNATURE}",
+    source_address: "daemonic#{EMAIL_SIGNATURE}",
     target_address: "crito#{EMAIL_SIGNATURE}",
     body: body_str,
     created_at: 4.minutes.ago
