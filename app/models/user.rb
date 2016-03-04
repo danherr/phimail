@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
     user if user.try(:is_pass?, pass)
   end
 
-  validates :fname, :lname, :username, :session_token, :pass_digest, presence: true
+  validates :fname, :lname, :username, :pass_digest, presence: true
   validate :strong_pass
 
   has_many :conversations
