@@ -23,7 +23,7 @@ var Login = React.createClass({
 
     demoLogin: function (e) {
         e.preventDefault();
-        userApiUtil.logIn('daimonic', 'Iamplato1', function () {            
+        userApiUtil.logIn('daemonic', 'Iamplato1', function () {            
             conversationApiUtil.refreshAdmin();
             this._toInbox();
         }.bind(this));
