@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   def current_user
     the_session = Session.find_by_session_token(session[:session_token])
 
-    if session
+    if the_session
       the_session.user
     end
   end

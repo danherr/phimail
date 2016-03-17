@@ -17,16 +17,21 @@ var SearchBar = React.createClass({
     componentDidMount: function () {
         this.flashStoreListener = FlashStore.addListener( function () {
             this.setState({flashMessage: FlashStore.message()})
-        }.bind(this))
+        }.bind(this));
     },
     
     componentWillUnmount: function () {
         this.flashStoreListener.remove();
     },
 
-    toggleUserDetail: function (value, e) {
+    toggleUserDetail: function (value) {
         value = value || !this.state.hideUserDetail;
         this.setState({hideUserDetail: value});
+    },
+
+    userDetailButtonClick: function (e) {
+        this.toggleUserDetail();
+        e.stopPropagation();
     },
 
     logOut: function () {
@@ -75,16 +80,17 @@ var SearchBar = React.createClass({
                         src={UserStore.currentUser().avatar_url}
                         alt=""
                         className="profile-pic"
-                        onClick={this.toggleUserDetail.bind(this, null)}
+                        onClick={this.userDetailButtonClick}
                     />
                 </div>
 
                 <UserDetail
-                    hideme={this.state.hideUserDetail ? "hideme" : ""}
+                    hidden={this.state.hideUserDetail}
                     toggle={this.toggleUserDetail.bind(this, null)}
                     logOut={this.logOut}
                     user={UserStore.currentUser()}
                 />
+                 
             </section>
         );
     }
